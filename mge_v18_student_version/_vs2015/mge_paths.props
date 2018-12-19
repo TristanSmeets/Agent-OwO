@@ -5,10 +5,10 @@
   <PropertyGroup />
   <ItemDefinitionGroup>
     <ClCompile>
-      <AdditionalIncludeDirectories>D:\School\Year_2\2nd_Quartile\3D_Rendering\visualstudio2017_v3_2017_2018\vs_extended\include;C:\Program Files (x86)\Lua\5.1\include;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\School\Year_2\2nd_Quartile\C_Engine\visualstudio2017_v3_2017_2018\vs_extended\include;</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
-      <AdditionalLibraryDirectories>D:\School\Year_2\2nd_Quartile\3D_Rendering\visualstudio2017_v3_2017_2018\vs_extended\lib;</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>D:\School\Year_2\2nd_Quartile\C_Engine\visualstudio2017_v3_2017_2018\vs_extended\lib;</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup />

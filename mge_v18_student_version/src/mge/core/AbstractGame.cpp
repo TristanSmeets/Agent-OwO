@@ -3,6 +3,7 @@
 #include "AbstractGame.hpp"
 #include "mge/core/Renderer.hpp"
 #include "mge/core/World.hpp"
+#include "mge/util/LuaWrapper.hpp"
 
 AbstractGame::AbstractGame():_window(NULL),_renderer(NULL),_world(NULL), _fps(0)
 {
@@ -32,7 +33,14 @@ void AbstractGame::initialize() {
 
 void AbstractGame::_initializeWindow() {
 	std::cout << "Initializing window..." << std::endl;
-	_window = new sf::RenderWindow( sf::VideoMode(800,600), "My Game!", sf::Style::Default, sf::ContextSettings(24,8,0,3,3));
+	lua_State *config = LuaWrapper::InitializeLuaState(std::string("config.lua"));
+	int ScreenWidth = LuaWrapper::GetNumberI(config, std::string("ScreenWidth"));
+	int ScreenHeight = LuaWrapper::GetNumberI(config, std::string("ScreenHeight"));
+	std::string& windowTitle = LuaWrapper::GetString(config, std::string("Title"));
+
+
+	_window = new sf::RenderWindow( sf::VideoMode(ScreenWidth, ScreenHeight), windowTitle, sf::Style::Default, sf::ContextSettings(24,8,0,3,3));
+	LuaWrapper::CloseLuaState(config);
 	//_window->setVerticalSyncEnabled(true);
     std::cout << "Window initialized." << std::endl << std::endl;
 }

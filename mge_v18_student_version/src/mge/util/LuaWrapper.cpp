@@ -14,24 +14,6 @@ lua_State* LuaWrapper::InitializeLuaState(const std::string& filePath)
 	return lua;
 }
 
-float LuaWrapper::GetNumberF(lua_State* luaState, const std::string& variableName)
-{
-	lua_getglobal(luaState, variableName.c_str());
-	if (lua_isnumber(luaState, -1))
-		return lua_tonumber(luaState, -1);
-	else
-		throw std::invalid_argument("variable isn't a number");
-}
-
-int LuaWrapper::GetNumberI(lua_State* luaState, const std::string& variableName)
-{
-	lua_getglobal(luaState, variableName.c_str());
-	if (lua_isnumber(luaState, -1))
-		return lua_tonumber(luaState, -1);
-	else
-		throw std::invalid_argument("variable isn't a number");
-}
-
 std::string LuaWrapper::GetString(lua_State* luaState, const std::string& variableName)
 {
 	lua_getglobal(luaState, variableName.c_str());

@@ -429,3 +429,4 @@ ASALocalRun/
 .localhistory/
 
 # End of https://www.gitignore.io/api/lua,c++,windows,visualstudio
+mge_v18_student_version/_vs2015/debug_static_build/

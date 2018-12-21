@@ -12,9 +12,14 @@ public:
 	
 	//Numbers
 	//Returns the number variable. If the variable isn't a number throw's an exception.
-	static float GetNumberF(lua_State* luaState, const std::string& variableName);
-	//Returns the number variable. If the variable isn't a number throw's an exception.
-	static int GetNumberI(lua_State* luaState, const std::string& variableName);
+	template <typename T> static T GetNumber(lua_State* luaState, const std::string& variableName)
+	{
+		lua_getglobal(luaState, variableName.c_str());
+		if (lua_isnumber(luaState, -1))
+			return (T)lua_tonumber(luaState, -1);
+		else
+			throw std::invalid_argument("variable isn't a number");
+	}
 
 	//Strings
 	//Returns the string variable. if the variable isn't a string throw's an exception.

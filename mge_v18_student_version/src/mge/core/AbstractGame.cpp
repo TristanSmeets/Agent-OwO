@@ -34,8 +34,8 @@ void AbstractGame::initialize() {
 void AbstractGame::_initializeWindow() {
 	std::cout << "Initializing window..." << std::endl;
 	lua_State *config = LuaWrapper::InitializeLuaState(std::string("config.lua"));
-	int ScreenWidth = LuaWrapper::GetNumberI(config, std::string("ScreenWidth"));
-	int ScreenHeight = LuaWrapper::GetNumberI(config, std::string("ScreenHeight"));
+	int ScreenWidth = LuaWrapper::GetNumber<int>(config, std::string("ScreenWidth"));
+	int ScreenHeight = LuaWrapper::GetNumber<int>(config, std::string("ScreenHeight"));
 	std::string& windowTitle = LuaWrapper::GetString(config, std::string("Title"));
 
 

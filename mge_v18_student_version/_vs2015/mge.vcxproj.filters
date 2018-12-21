@@ -83,8 +83,8 @@
     <ClInclude Include="..\src\mge\TristanScene.h">
       <Filter>MGE Source files\mge</Filter>
     </ClInclude>
-    <ClInclude Include="..\src\mge\behaviours\CameraOrbitBehaviour.hpp">
-      <Filter>MGE Source files\mge\behaviours</Filter>
+    <ClInclude Include="..\src\mge\util\LuaWrapper.hpp">
+      <Filter>MGE Source files\mge\util</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -145,8 +145,8 @@
     <ClCompile Include="..\src\mge\TristanScene.cpp">
       <Filter>MGE Source files\mge</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\mge\behaviours\CameraOrbitBehaviour.cpp">
-      <Filter>MGE Source files\mge\behaviours</Filter>
+    <ClCompile Include="..\src\mge\util\LuaWrapper.cpp">
+      <Filter>MGE Source files\mge\util</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

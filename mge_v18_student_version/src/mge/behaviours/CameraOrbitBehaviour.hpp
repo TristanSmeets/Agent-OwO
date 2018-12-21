@@ -7,15 +7,15 @@
 class CameraOrbitBehaviour : public AbstractBehaviour
 {
 public:
-	CameraOrbitBehaviour(float distance, float tilt, float rotationSpeed, GameObject* target);
+	CameraOrbitBehaviour(const glm::vec3& distance, float tiltInDegrees, float rotationSpeed, GameObject* target);
 	virtual ~CameraOrbitBehaviour();
 	virtual void update(float step);
 
 private:
-	float distance;
-	float tilt;
 	float rotationSpeed;
 	GameObject* target;
+	glm::mat4 rotateAroundTarget(float rotationsRadians, const glm::vec3& rotationAxis ) const;
+	void mouseInput();
 };
 
 #endif

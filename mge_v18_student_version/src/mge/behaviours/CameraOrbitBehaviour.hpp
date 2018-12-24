@@ -3,18 +3,28 @@
 
 #include "mge/behaviours/AbstractBehaviour.hpp"
 #include "mge/core/GameObject.hpp"
+#include <SFML/Window/Window.hpp>
 
 class CameraOrbitBehaviour : public AbstractBehaviour
 {
 public:
-	CameraOrbitBehaviour(const glm::vec3& distance, float tiltInDegrees, float rotationSpeed, GameObject* target);
+	CameraOrbitBehaviour(float distance, float maxTilt, float rotationSpeed, GameObject* target, sf::Window* window);
 	virtual ~CameraOrbitBehaviour();
 	virtual void update(float step);
 
 private:
 	float rotationSpeed;
 	GameObject* target;
-	glm::mat4 rotateAroundTarget(float rotationsRadians, const glm::vec3& rotationAxis ) const;
+	sf::Window* window;
+	glm::vec3 cameraPosition;
+	glm::vec3 targetPosition;
+	glm::vec3 cameraForward;
+	glm::vec3 cameraSide;
+	glm::vec3 cameraUp;
+	float tiltInDegrees = 0.0f;
+	float maxTilt;
+	sf::Vector2i oldMousePos;
+	glm::vec3 rotateAroundTarget(float rotationsRadians, const glm::vec3& rotationAxis ) const;
 	void mouseInput();
 };
 

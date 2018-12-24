@@ -3,7 +3,7 @@
 #include "mge/core/AbstractGame.hpp"
 #include "mge/MGEDemo.hpp"
 #include "mge/TristanScene.h"
-
+#include "mge/BrokenOBJ.hpp"
 /**
  * Main entry point for the Micro Engine.
 
@@ -24,8 +24,9 @@ int main()
     std::cout << "Starting Game" << std::endl;
 
     //AbstractGame* game = new MGEDemo();
-	AbstractGame* game = new TristanScene();
-    game->initialize();
+	//AbstractGame* game = new TristanScene();
+	AbstractGame* game = new BrokenOBJ();
+	game->initialize();
     game->run();
 
 	delete game;

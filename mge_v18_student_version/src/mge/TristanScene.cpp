@@ -1,24 +1,24 @@
-#include "TristanScene.h"
 #include <string>
 
 #include "glm.hpp"
-
+//Core
 #include "mge/core/Renderer.hpp"
-
 #include "mge/core/Mesh.hpp"
 #include "mge/core/World.hpp"
 #include "mge/core/Texture.hpp"
 #include "mge/core/Light.hpp"
 #include "mge/core/Camera.hpp"
 #include "mge/core/GameObject.hpp"
-
+//Materials
 #include "mge/materials/AbstractMaterial.hpp"
 #include "mge/materials/ColorMaterial.hpp"
 #include "mge/materials/TextureMaterial.hpp"
-
+//Behaviours
 #include "mge/behaviours/KeysBehaviour.hpp"
 #include "mge/behaviours/RotatingBehaviour.hpp"
+#include "mge/behaviours/CameraOrbitBehaviour.hpp"
 
+#include "TristanScene.h"
 #include "mge/config.hpp"
 
 TristanScene::TristanScene():AbstractGame()
@@ -55,9 +55,9 @@ void TristanScene::_initializeScene()
 
 	//Add camera first(it will be updated last)
 	std::cout << "Creating Camera" << std::endl;
-	Camera* camera = new Camera("camera", glm::vec3(0, 6, 7));
-	camera->rotate(glm::radians(-40.0f), glm::vec3(1, 0, 0));
-	camera->setBehaviour(new KeysBehaviour(25));
+	Camera* camera = new Camera("camera", glm::vec3(0, 2, 15));
+	//camera->rotate(glm::radians(-40.0f), glm::vec3(1, 0, 0));
+	//camera->setBehaviour(new KeysBehaviour(25));
 	_world->add(camera);
 	_world->setMainCamera(camera);
 
@@ -71,11 +71,11 @@ void TristanScene::_initializeScene()
 
 	//Add a blueish spinning monkey head
 	std::cout << "Creating Suzanna" << std::endl;
-	GameObject* suzanna = new GameObject("suzanna", glm::vec3(5, 2, 0));
+	GameObject* suzanna = new GameObject("suzanna", glm::vec3(10, 5, 0));
 	suzanna->scale(glm::vec3(2, 2, 2));
 	suzanna->setMesh(suzannaMeshS);
-	suzanna->setMaterial(colourMaterial);
-	suzanna->setBehaviour(new RotatingBehaviour());
+	suzanna->setMaterial(runicStoneMaterial);
+	//suzanna->setBehaviour(new RotatingBehaviour());
 	_world->add(suzanna);
 
 	//Add a rotating brick sphere.
@@ -88,11 +88,14 @@ void TristanScene::_initializeScene()
 
 	//Add a yellow cone
 	std::cout << "Creating Cone" << std::endl;
-	GameObject* cone = new GameObject("Cone", glm::vec3(-5, 2, 0));
+	GameObject* cone = new GameObject("Cone", glm::vec3(-5, -5, 0));
 	cone->scale(glm::vec3(2.5f, 2.5f, 2.5f));
 	cone->setMesh(coneMeshS);
 	cone->setMaterial(lightMaterial);
 	_world->add(cone);
+
+	camera->setBehaviour(new CameraOrbitBehaviour(20, 45.0f, 1.0f, suzanna, _window));
+
 }
 
 void TristanScene::_render()

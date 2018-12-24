@@ -33,10 +33,10 @@ void AbstractGame::initialize() {
 
 void AbstractGame::_initializeWindow() {
 	std::cout << "Initializing window..." << std::endl;
-	lua_State *config = LuaWrapper::InitializeLuaState(std::string("config.lua"));
-	int ScreenWidth = LuaWrapper::GetNumber<int>(config, std::string("ScreenWidth"));
-	int ScreenHeight = LuaWrapper::GetNumber<int>(config, std::string("ScreenHeight"));
-	std::string& windowTitle = LuaWrapper::GetString(config, std::string("Title"));
+	lua_State *config = LuaWrapper::InitializeLuaState("config.lua");
+	int ScreenWidth = LuaWrapper::GetNumber<int>(config, "ScreenWidth");
+	int ScreenHeight = LuaWrapper::GetNumber<int>(config, "ScreenHeight");
+	std::string& windowTitle = LuaWrapper::GetString(config, "Title");
 
 
 	_window = new sf::RenderWindow( sf::VideoMode(ScreenWidth, ScreenHeight), windowTitle, sf::Style::Default, sf::ContextSettings(24,8,0,3,3));

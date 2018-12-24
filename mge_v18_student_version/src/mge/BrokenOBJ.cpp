@@ -39,7 +39,7 @@ void BrokenOBJ::_initializeScene()
 	std::string& texturePath = LuaWrapper::GetString(config, "TextureToLoad");
 
 	//Load Mesh
-	Mesh* sphereObj = Mesh::load(config::MGE_MODEL_PATH + modelPath);
+	Mesh* sphereObj = Mesh::load(modelPath);
 
 	//Load Material
 	AbstractMaterial* texture = new TextureMaterial(Texture::load(texturePath));

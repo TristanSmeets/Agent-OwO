@@ -11,6 +11,7 @@ ShaderProgram* WobbleMaterial::shader = NULL;
 
 GLint WobbleMaterial::uMVPMatrix = 0;
 GLint WobbleMaterial::uDiffuseTexture = 0;
+GLint WobbleMaterial::uTime = 0;
 
 GLint WobbleMaterial::aVertex = 0;
 GLint WobbleMaterial::aNormal = 0;
@@ -42,6 +43,9 @@ void WobbleMaterial::render(World * pWorld, Mesh * pMesh, const glm::mat4 & pMod
 	glm::mat4 mvpMatrix = pProjectionMatrix * pViewMatrix * pModelMatrix;
 	glUniformMatrix4fv(uMVPMatrix, 1, GL_FALSE, glm::value_ptr(mvpMatrix));
 
+	//Passing in a float to scale vertici with.
+	glUniform1f(uTime, clock() / 1000.0f);
+
 	//now inform mesh of where to stream its data
 	pMesh->streamToOpenGL(aVertex, aNormal, aUV);
 }
@@ -56,12 +60,13 @@ void WobbleMaterial::lazyInitializeShader()
 	if (!shader)
 	{
 		shader = new ShaderProgram();
-		shader->addShader(GL_VERTEX_SHADER, config::MGE_SHADER_PATH + "");
-		shader->addShader(GL_FRAGMENT_SHADER, config::MGE_SHADER_PATH + "");
+		shader->addShader(GL_VERTEX_SHADER, config::MGE_SHADER_PATH + "wobble.vs");
+		shader->addShader(GL_FRAGMENT_SHADER, config::MGE_SHADER_PATH + "wobble.fs");
 		shader->finalize();
 
 		uMVPMatrix = shader->getUniformLocation("mvpMatrix");
 		uDiffuseTexture = shader->getUniformLocation("diffuseTexture");
+		uTime = shader->getUniformLocation("time");
 
 		aVertex = shader->getAttribLocation("vertex");
 		aNormal = shader->getAttribLocation("normal");

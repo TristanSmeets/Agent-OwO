@@ -21,6 +21,7 @@ private:
 
 	static GLint uMVPMatrix;
 	static GLint uDiffuseTexture;
+	static GLint uTime;
 
 	static GLint aVertex;
 	static GLint aNormal;

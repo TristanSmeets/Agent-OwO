@@ -14,6 +14,7 @@
 #include "mge/materials/AbstractMaterial.hpp"
 #include "mge/materials/ColorMaterial.hpp"
 #include "mge/materials/TextureMaterial.hpp"
+#include "mge/materials/WobbleMaterial.hpp"
 //Behaviours
 #include "mge/behaviours/CameraOrbitBehaviour.hpp"
 
@@ -42,7 +43,8 @@ void BrokenOBJ::_initializeScene()
 	Mesh* sphereObj = Mesh::load(modelPath);
 
 	//Load Material
-	AbstractMaterial* texture = new TextureMaterial(Texture::load(texturePath));
+	//AbstractMaterial* texture = new TextureMaterial(Texture::load(texturePath));
+	AbstractMaterial* texture = new WobbleMaterial(Texture::load(texturePath));
 
 	//Scene Setup
 	std::cout << "Creating Camera" << std::endl;

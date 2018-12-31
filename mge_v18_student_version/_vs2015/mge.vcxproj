@@ -221,6 +221,7 @@
     <CopyFileToFolders Include="..\assets\config.lua">
       <FileType>Document</FileType>
     </CopyFileToFolders>
+    <None Include="..\assets\LuaGame\GridGenerator.lua" />
     <None Include="ClassDiagram.cd" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

@@ -20,6 +20,9 @@
     <Filter Include="MGE Source files\mge\util">
       <UniqueIdentifier>{7d824c34-4bb6-43a4-a48a-0d68b7aad6e5}</UniqueIdentifier>
     </Filter>
+    <Filter Include="LuaScripts">
+      <UniqueIdentifier>{8c3ea338-b3da-4523-a9b9-741131bd1630}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\src\glm.hpp">
@@ -89,6 +92,8 @@
     <ClInclude Include="..\src\mge\behaviours\CameraOrbitBehaviour.hpp">
       <Filter>MGE Source files\mge\behaviours</Filter>
     </ClInclude>
+    <ClInclude Include="..\src\mge\BrokenOBJ.hpp" />
+    <ClInclude Include="..\src\mge\materials\WobbleMaterial.hpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\main.cpp">
@@ -154,8 +159,22 @@
     <ClCompile Include="..\src\mge\behaviours\CameraOrbitBehaviour.cpp">
       <Filter>MGE Source files\mge\behaviours</Filter>
     </ClCompile>
+    <ClCompile Include="..\src\mge\BrokenOBJ.cpp">
+      <Filter>MGE Source files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\mge\materials\WobbleMaterial.cpp">
+      <Filter>MGE Source files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram.cd" />
+    <None Include="..\assets\LuaGame\GridGenerator.lua">
+      <Filter>LuaScripts</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <CopyFileToFolders Include="..\assets\config.lua">
+      <Filter>LuaScripts</Filter>
+    </CopyFileToFolders>
   </ItemGroup>
 </Project>

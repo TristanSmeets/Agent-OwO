@@ -41,7 +41,7 @@ void CameraOrbitBehaviour::mouseInput()
 	sf::Vector2u screenSize = window->getSize();
 
 	//Horizontal movement
-	float halfScreenWidth = (float)screenSize.x / 2;
+	float halfScreenWidth = screenSize.x / 2;
 	float mouseDistance = mousePosition.x - halfScreenWidth;
 	float turnSpeed = rotationSpeed * (mouseDistance / halfScreenWidth);
 	cameraPosition = rotateAroundTarget(glm::radians(turnSpeed), glm::vec3(0, 1, 0));

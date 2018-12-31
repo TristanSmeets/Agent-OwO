@@ -1,6 +1,14 @@
---Screen ratio
-ScreenHeight = 600
+--Window properties
+AspectRatio = 16/9
+ForceAspectRatio = true
 ScreenWidth = 800
+
+--Screen Height
+if(ForceAspectRatio) then
+    ScreenHeight = math.floor( ScreenWidth / AspectRatio )
+else
+    ScreenHeight = 600
+end
 
 --Window Title
 Title = "Lua Assignment"

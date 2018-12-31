@@ -89,12 +89,6 @@
     <ClInclude Include="..\src\mge\behaviours\CameraOrbitBehaviour.hpp">
       <Filter>MGE Source files\mge\behaviours</Filter>
     </ClInclude>
-    <ClInclude Include="..\src\mge\BrokenOBJ.hpp">
-      <Filter>MGE Source files\mge</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\mge\materials\WobbleMaterial.hpp">
-      <Filter>MGE Source files\mge\materials</Filter>
-    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\main.cpp">
@@ -160,17 +154,8 @@
     <ClCompile Include="..\src\mge\behaviours\CameraOrbitBehaviour.cpp">
       <Filter>MGE Source files\mge\behaviours</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\mge\BrokenOBJ.cpp">
-      <Filter>MGE Source files\mge</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\mge\materials\WobbleMaterial.cpp">
-      <Filter>MGE Source files</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram.cd" />
-  </ItemGroup>
-  <ItemGroup>
-    <CopyFileToFolders Include="..\assets\config.lua" />
   </ItemGroup>
 </Project>

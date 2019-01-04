@@ -1,8 +1,10 @@
-local gridModule = {}
+local gridModule = {};
+
+math.randomseed(os.time())
 
 --[[Creates a "2D" array with the specified columns and rows.
     Fills the array with the value 0.]]
-function Create2DGrid(columns, rows)
+function gridModule.Create2DGrid(columns, rows)
    Grid = {}
    for row = 1, rows do
         Grid[row] = {}    
@@ -14,18 +16,19 @@ function Create2DGrid(columns, rows)
 end
 
 --[[Fills the given "2D" array with true or false values]]
-function RandomBoolFill2DGrid(grid)
-    for RowIndex, Row in pairs(grid) do
+function gridModule.RandomBoolFill2DGrid(columnAmount, rowAmount)
+  newGrid = gridModule.Create2DGrid(columnAmount, rowAmount)
+    for RowIndex, Row in pairs(newGrid) do
         for  ColumnIndex, Column in pairs(Row) do
             local BoolValue = math.random( 2 ) - 1
             if BoolValue == 1 then
-                grid[Row] [Column] = true
+              newGrid[RowIndex] [ColumnIndex] = true
             else
-                grid[Row] [Column] = false
+              newGrid[RowIndex] [ColumnIndex] = false
             end
         end
     end
-    return grid
+    return newGrid
 end
 
-return gridModule
+return gridModule;

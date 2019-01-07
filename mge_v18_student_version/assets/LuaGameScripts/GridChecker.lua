@@ -1,12 +1,11 @@
-local gridChecker = {}
+GridChecker = {}
 
-local GridCreator = require("GridGenerator")
+--Requires
+require("GridGenerator")
 
---[[Functions that are going to do stuff with the given grid]]
+--Local variables
 local columns = nil
 local rows = nil
-local newGrid = nil
-
 
 --[[Count the amount of neighbours that are alive.
     Returns the amount of live neighbours.]]
@@ -21,6 +20,23 @@ local function checkLiveNeighbours(gameGrid, x,y)
             Sum = Sum + 1
         end
       end
+  end
+  return Sum
+end
+
+--[[Counts the amount of organisms that are alive.
+    Returns the amount of live organisms.]]
+local function checkNeighbourOrganisms(gameGrid, x, y)
+  local Sum = 0
+  for RowIndex = -1, 1 do
+    for ColumnIndex = -1, 1 do
+      local column = (x - 1 + ColumnIndex + columns) % columns
+      local row = (y - 1 + RowIndex + rows) % rows
+      if(column + 1) == x and (row + 1) == y then
+      elseif gameGrid[row + 1][column + 1]:GetIsAlive() == true then
+        Sum = Sum + 1
+      end
+    end
   end
   return Sum
 end
@@ -45,10 +61,10 @@ end
     For each cell it checks how many live neighbours it has.
     Checks if the cell should be alive and puts the value in the cell.
     Returns the grid with updated values]]
-function gridChecker.NewGameGrid(gameGrid,totalColumns, totalRows)
+function GridChecker:NewGameGrid(gameGrid,totalColumns, totalRows)
     columns = totalColumns
     rows = totalRows
-    newGrid = GridCreator.Create2DGrid(totalColumns, totalRows)
+    local newGrid = GridGenerator:Create2DGrid(totalColumns, totalRows)
     for i, Row in pairs(newGrid) do
         for j, Column in pairs(Row) do
             local LiveNeighbours = checkLiveNeighbours(gameGrid,j,i)
@@ -58,4 +74,21 @@ function gridChecker.NewGameGrid(gameGrid,totalColumns, totalRows)
     return newGrid
 end
 
-return gridChecker
+--[[Loops over all the Organisms in the passed in grid.
+    For each Organism it checks how many live neighbours it has.
+    Checks if the Organism should be alive in the next generation and sets it's status.
+    Returns the grid with updated values]]
+function GridChecker:NewOrganismGrid(gameGrid, totalColumns, totalRows, Organism)
+  columns = totalColumns
+  rows = totalRows
+
+  local NewOrganismGrid = GridGenerator:CreateOrganismGrid(totalColumns, totalRows, Organism)
+  
+  for i, Row in pairs(NewOrganismGrid) do
+    for j, Column in pairs(Row) do
+      local LiveNeighbours = checkNeighbourOrganisms(gameGrid, j, i)
+      NewOrganismGrid[i][j]:SetIsAlive(checkIsAlive(LiveNeighbours, gameGrid[i][j]:GetIsAlive()))
+    end
+  end
+  return NewOrganismGrid
+end

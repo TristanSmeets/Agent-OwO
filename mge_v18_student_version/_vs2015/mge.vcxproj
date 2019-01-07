@@ -192,6 +192,7 @@
     <ClInclude Include="..\src\mge\TristanScene.h" />
     <ClInclude Include="..\src\mge\util\DebugHud.hpp" />
     <ClInclude Include="..\src\mge\util\LuaWrapper.hpp" />
+    <ClInclude Include="DisplayGrid.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\main.cpp" />
@@ -218,6 +219,7 @@
     <ClCompile Include="..\src\mge\TristanScene.cpp" />
     <ClCompile Include="..\src\mge\util\DebugHud.cpp" />
     <ClCompile Include="..\src\mge\util\LuaWrapper.cpp" />
+    <ClCompile Include="DisplayGrid.cpp" />
   </ItemGroup>
   <ItemGroup>
     <CopyFileToFolders Include="..\assets\config.lua">

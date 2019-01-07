@@ -1,5 +1,5 @@
 --Window properties
-AspectRatio = 16/9
+AspectRatio = 4/3
 ForceAspectRatio = true
 ScreenWidth = 800
 

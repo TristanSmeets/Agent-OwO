@@ -1,5 +1,4 @@
 #include <string>
-#include <string>
 
 #include "glm.hpp"
 //Core

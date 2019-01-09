@@ -4,6 +4,7 @@
 #include "mge/MGEDemo.hpp"
 #include "mge/TristanScene.h"
 #include "mge/BrokenOBJ.hpp"
+#include "mge/GameOfLife.h"
 /**
  * Main entry point for the Micro Engine.
 
@@ -25,7 +26,8 @@ int main()
 
     //AbstractGame* game = new MGEDemo();
 	//AbstractGame* game = new TristanScene();
-	AbstractGame* game = new BrokenOBJ();
+	//AbstractGame* game = new BrokenOBJ();
+	AbstractGame* game = new GameOfLife();
 	game->initialize();
     game->run();
 

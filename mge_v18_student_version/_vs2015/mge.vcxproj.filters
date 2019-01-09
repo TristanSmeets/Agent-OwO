@@ -99,7 +99,7 @@
     <ClInclude Include="..\src\mge\GameOfLife.h">
       <Filter>MGE Source files\mge</Filter>
     </ClInclude>
-    <ClInclude Include="DisplayGrid.h">
+    <ClInclude Include="..\src\mge\util\DisplayGrid.h">
       <Filter>MGE Source files\mge\util</Filter>
     </ClInclude>
   </ItemGroup>
@@ -176,7 +176,7 @@
     <ClCompile Include="..\src\mge\GameOfLife.cpp">
       <Filter>MGE Source files\mge</Filter>
     </ClCompile>
-    <ClCompile Include="DisplayGrid.cpp">
+    <ClCompile Include="..\src\mge\util\DisplayGrid.cpp">
       <Filter>MGE Source files\mge\util</Filter>
     </ClCompile>
   </ItemGroup>

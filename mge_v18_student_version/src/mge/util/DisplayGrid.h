@@ -2,6 +2,7 @@
 #define DISPLAYGRID_H
 
 #include <SFML/Graphics.hpp>
+#include <vector>
 
 /*Class that creates and renders a grid of rectangles through SFML*/
 class DisplayGrid
@@ -10,15 +11,16 @@ public:
 	DisplayGrid(sf::RenderWindow* renderWindow);
 	virtual ~DisplayGrid();
 	void Draw();
-	void SetRectangleColour(const sf::Color &colour, const sf::Vector2f position);
+	void SetRectangleColour(const sf::Color &colour, const sf::Vector2i &position);
 
 private:
 	sf::RenderWindow * window;
-
-	sf::RectangleShape** create2DRectangleGrid(unsigned width, unsigned height );
-
-	sf::RectangleShape** rectangle2DArray;
-
+	std::vector<std::vector<sf::RectangleShape>> rectangle2DVector;
+	sf::RectangleShape rectangle;
+	int columns;
+	int rows;
+	float squareSize;
+	void setupGrid();
 };
 
 #endif // !DISPLAYGRID_H

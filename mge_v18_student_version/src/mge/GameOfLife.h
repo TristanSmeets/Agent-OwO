@@ -2,6 +2,7 @@
 #define GAMEOFLIFE_H
 
 #include "mge/core/AbstractGame.hpp"
+#include "mge/util/DisplayGrid.h"
 
 class GameOfLife : public AbstractGame
 {
@@ -18,6 +19,7 @@ private:
 	GameOfLife(const GameOfLife&);
 	GameOfLife& operator=(const GameOfLife&);
 	sf::RectangleShape rectangle;
+	DisplayGrid* displayGrid;
 };
 
 #endif

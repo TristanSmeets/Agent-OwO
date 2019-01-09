@@ -1,32 +1,71 @@
 #include <cassert>
-
+#include <cmath>
 #include "DisplayGrid.h"
+#include "LuaWrapper.hpp"
+#include <GL/glew.h>
+#include <iostream>
 
 
 DisplayGrid::DisplayGrid(sf::RenderWindow * renderWindow) : window(renderWindow)
 {
 	assert(window != NULL);
 
+	std::cout << "Setting up DisplayGrid" << std::endl;
+	setupGrid();
 }
 
 DisplayGrid::~DisplayGrid()
 {
+	//Clearing the 2D Vector
+	for (int Index = 0; Index < rectangle2DVector.size(); Index++)
+	{
+		rectangle2DVector[Index].clear();
+	}
+	rectangle2DVector.clear();
 }
 
-sf::RectangleShape ** DisplayGrid::create2DRectangleGrid(unsigned columns, unsigned rows)
+void DisplayGrid::Draw()
 {
-	sf::RectangleShape** RectangleArray = 0;
-	RectangleArray = new sf::RectangleShape*[rows];
+	glActiveTexture(GL_TEXTURE0);
 
-	for (int Row = 0; Row < rows; Row++)
+	window->pushGLStates();
+	
+	for (int Row = 0; Row < rectangle2DVector.size(); Row++)
 	{
-		RectangleArray[Row] = new sf::RectangleShape[columns];
-
-		for (int Column = 0; columns < columns; Column++)
+		for (int Column = 0; Column < rectangle2DVector[Row].size(); Column++)
 		{
-			RectangleArray[Row][Column] = sf::RectangleShape();
+			window->draw(rectangle2DVector[Row][Column]);
 		}
 	}
+	window->popGLStates();
+}
 
-	return RectangleArray;
+void DisplayGrid::SetRectangleColour(const sf::Color &colour, const sf::Vector2i &position)
+{
+	rectangle2DVector[position.y][position.x].setFillColor(colour);
+}
+
+void DisplayGrid::setupGrid()
+{
+	lua_State *config = LuaWrapper::InitializeLuaState("config.lua");
+	int ScreenWidth = LuaWrapper::GetNumber<int>(config, "ScreenWidth");
+	int ScreenHeight = LuaWrapper::GetNumber<int>(config, "ScreenHeight");
+	squareSize = LuaWrapper::GetNumber<float>(config, "SquareSize");
+	LuaWrapper::CloseLuaState(config);
+
+	columns = floor(ScreenWidth / squareSize);
+	rows = floor(ScreenHeight / squareSize);
+	rectangle2DVector.resize(rows, std::vector<sf::RectangleShape>(columns));
+	
+	for (int Row = 0; Row < rectangle2DVector.size(); Row++)
+	{
+		for (int Column = 0; Column < rectangle2DVector[Row].size(); Column++)
+		{
+			int x = Column * squareSize;
+			int y = Row * squareSize;
+			rectangle2DVector[Row][Column].setPosition(sf::Vector2f(x, y));
+			rectangle2DVector[Row][Column].setSize(sf::Vector2f(squareSize - 1, squareSize - 1));
+			rectangle2DVector[Row][Column].setFillColor(sf::Color::Magenta);
+		}
+	}
 }

@@ -51,7 +51,7 @@ void TristanScene::_initializeScene()
 	AbstractMaterial* runicStoneMaterial = new TextureMaterial(Texture::load(config::MGE_TEXTURE_PATH + "runicfloor.png"));
 	AbstractMaterial* bricksMaterial = new TextureMaterial(Texture::load(config::MGE_TEXTURE_PATH + "bricks.jpg"));
 	AbstractMaterial* landMaterial = new TextureMaterial(Texture::load(config::MGE_TEXTURE_PATH + "land.jpg"));
-	AbstractMaterial* litMaterial = new LitMaterial(glm::vec3(1, 1, 1));
+	AbstractMaterial* litMaterial = new LitMaterial(Texture::load(config::MGE_TEXTURE_PATH + "runicfloor.png"),glm::vec3(1, 1, 1));
 
 	//Scene setup
 

@@ -12,9 +12,11 @@ uniform	mat4 	modelMatrix;
 
 out vec3 Normal;
 out vec3 FragPos;
+out vec2 texCoord;
 
 void main( void ){
     	gl_Position = projectionMatrix * viewMatrix * modelMatrix * vec4(vertex, 1.f);
 		Normal = normal;
 		FragPos = vec3(modelMatrix * vec4(vertex,1.0f));
+		texCoord = uv;
 }

@@ -5,10 +5,11 @@
 #include "mge/core/GameObject.hpp"
 #include "mge/core/Mesh.hpp"
 #include "mge/core/ShaderProgram.hpp"
+#include "mge/core/Texture.hpp"
 
 ShaderProgram* LitMaterial::shader = NULL;
 
-LitMaterial::LitMaterial(glm::vec3 pColour):ambientColour(pColour)
+LitMaterial::LitMaterial(Texture* pDiffuseTexture, glm::vec3 pColour): diffuseTexture(pDiffuseTexture), ambientColour(pColour)
 {
 	lazyInitializeShader();
 }
@@ -28,6 +29,13 @@ void LitMaterial::render(World* pWorld, Mesh* pMesh, const glm::mat4& pModelMatr
 	glUniformMatrix4fv(shader->getUniformLocation("projectionMatrix"), 1, GL_FALSE, glm::value_ptr(pProjectionMatrix));
 	glUniformMatrix4fv(shader->getUniformLocation("viewMatrix"), 1, GL_FALSE, glm::value_ptr(pViewMatrix));
 	glUniformMatrix4fv(shader->getUniformLocation("modelMatrix"), 1, GL_FALSE, glm::value_ptr(pModelMatrix));
+	
+	//Setup texture slot 0
+	glActiveTexture(GL_TEXTURE0);
+	//Bind the texture to the current active slot
+	glBindTexture(GL_TEXTURE_2D, diffuseTexture->getId());
+	//Tell the shader the texture slot for the diffuse texture is slot 0
+	glUniform1i(shader->getUniformLocation("diffuseTexture"), 0);
 
 	//now inform mesh of where to stream its data
 	pMesh->streamToOpenGL(

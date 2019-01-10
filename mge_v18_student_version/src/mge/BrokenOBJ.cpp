@@ -59,7 +59,7 @@ void BrokenOBJ::_initializeScene()
 	_world->add(sphere);
 
 	//Adding orbit behaviour for camera
-	camera->setBehaviour(new CameraOrbitBehaviour(20, 45, 1.0f, sphere, _window));
+	camera->setBehaviour(new CameraOrbitBehaviour(5, 90, 1.0f, sphere, _window));
 
 	LuaWrapper::CloseLuaState(config);
 }

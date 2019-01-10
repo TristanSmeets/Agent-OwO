@@ -13,19 +13,17 @@ public:
 	virtual void update(float step);
 
 private:
-	float rotationSpeed;
+	float distance = 0;
+	float rotationSpeed = 0;
+	float verticalAngle = 0;
+	float horizontalAngle = 0;
+	float maxTilt;
 	GameObject* target;
 	sf::Window* window;
-	glm::vec3 cameraPosition;
-	glm::vec3 targetPosition;
-	glm::vec3 cameraForward;
-	glm::vec3 cameraSide;
-	glm::vec3 cameraUp;
-	float tiltInDegrees = 0.0f;
-	float maxTilt;
 	sf::Vector2i oldMousePos;
-	glm::vec3 rotateAroundTarget(float rotationsRadians, const glm::vec3& rotationAxis ) const;
-	void mouseInput();
+	float test;
+	void mouseInput(float step);
+	float clamp(const float value, const float min, const float max);
 };
 
 #endif

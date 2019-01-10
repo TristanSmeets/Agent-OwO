@@ -13,6 +13,7 @@
 #include "mge/materials/AbstractMaterial.hpp"
 #include "mge/materials/ColorMaterial.hpp"
 #include "mge/materials/TextureMaterial.hpp"
+#include "mge/materials/LitMaterial.hpp"
 //Behaviours
 #include "mge/behaviours/KeysBehaviour.hpp"
 #include "mge/behaviours/RotatingBehaviour.hpp"
@@ -50,14 +51,13 @@ void TristanScene::_initializeScene()
 	AbstractMaterial* runicStoneMaterial = new TextureMaterial(Texture::load(config::MGE_TEXTURE_PATH + "runicfloor.png"));
 	AbstractMaterial* bricksMaterial = new TextureMaterial(Texture::load(config::MGE_TEXTURE_PATH + "bricks.jpg"));
 	AbstractMaterial* landMaterial = new TextureMaterial(Texture::load(config::MGE_TEXTURE_PATH + "land.jpg"));
+	AbstractMaterial* litMaterial = new LitMaterial(glm::vec3(1, 1, 1));
 
 	//Scene setup
 
 	//Add camera first(it will be updated last)
 	std::cout << "Creating Camera" << std::endl;
 	Camera* camera = new Camera("camera", glm::vec3(0, 2, 15));
-	//camera->rotate(glm::radians(-40.0f), glm::vec3(1, 0, 0));
-	//camera->setBehaviour(new KeysBehaviour(25));
 	_world->add(camera);
 	_world->setMainCamera(camera);
 
@@ -69,32 +69,32 @@ void TristanScene::_initializeScene()
 	plane->setMaterial(landMaterial);
 	_world->add(plane);
 
-	//Add a blueish spinning monkey head
+	//Add a monkey head with the runicStone Material
 	std::cout << "Creating Suzanna" << std::endl;
-	GameObject* suzanna = new GameObject("suzanna", glm::vec3(10, 5, 0));
-	suzanna->scale(glm::vec3(2, 2, 2));
+	GameObject* suzanna = new GameObject("suzanna", glm::vec3(0, 2, 0));
+	suzanna->scale(glm::vec3(1, 1, 1));
 	suzanna->setMesh(suzannaMeshS);
-	suzanna->setMaterial(runicStoneMaterial);
+	suzanna->setMaterial(litMaterial);
 	//suzanna->setBehaviour(new RotatingBehaviour());
 	_world->add(suzanna);
 
-	//Add a rotating brick sphere.
-	std::cout << "Creating Sphere" << std::endl;
-	GameObject* sphere = new GameObject("sphere", glm::vec3(0, 0, 0));
-	sphere->setMesh(sphereMeshS);
-	sphere->setMaterial(bricksMaterial);
-	sphere->setBehaviour(new RotatingBehaviour());
-	_world->add(sphere);
+	//////Add a rotating brick sphere.
+	//std::cout << "Creating Sphere" << std::endl;
+	//GameObject* sphere = new GameObject("sphere", glm::vec3(0, 0, 0));
+	//sphere->setMesh(sphereMeshS);
+	//sphere->setMaterial(bricksMaterial);
+	//sphere->setBehaviour(new RotatingBehaviour());
+	//_world->add(sphere);
 
-	//Add a yellow cone
-	std::cout << "Creating Cone" << std::endl;
-	GameObject* cone = new GameObject("Cone", glm::vec3(-5, -5, 0));
-	cone->scale(glm::vec3(2.5f, 2.5f, 2.5f));
-	cone->setMesh(coneMeshS);
-	cone->setMaterial(lightMaterial);
-	_world->add(cone);
+	////Add a yellow cone
+	//std::cout << "Creating Cone" << std::endl;
+	//GameObject* cone = new GameObject("Cone", glm::vec3(-5, -5, 0));
+	//cone->scale(glm::vec3(2.5f, 2.5f, 2.5f));
+	//cone->setMesh(coneMeshS);
+	//cone->setMaterial(lightMaterial);
+	//_world->add(cone);
 
-	camera->setBehaviour(new CameraOrbitBehaviour(20, 45.0f, 1.0f, suzanna, _window));
+	camera->setBehaviour(new CameraOrbitBehaviour(5, 45.0f, 1.0f, suzanna, _window));
 
 }
 

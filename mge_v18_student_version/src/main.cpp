@@ -25,8 +25,8 @@ int main()
     std::cout << "Starting Game" << std::endl;
 
     //AbstractGame* game = new MGEDemo();
-	//AbstractGame* game = new TristanScene();
-	AbstractGame* game = new BrokenOBJ();
+	AbstractGame* game = new TristanScene();
+	//AbstractGame* game = new BrokenOBJ();
 	//AbstractGame* game = new GameOfLife();
 	game->initialize();
     game->run();

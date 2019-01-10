@@ -21,7 +21,6 @@ private:
 	GameObject* target;
 	sf::Window* window;
 	sf::Vector2i oldMousePos;
-	float test;
 	void mouseInput(float step);
 	float clamp(const float value, const float min, const float max);
 };

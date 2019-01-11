@@ -1,5 +1,8 @@
 #include "mge/core/Light.hpp"
 #include "mge/core/World.hpp"
+#include "mge/materials/ColorMaterial.hpp"
+#include "mge/core/Mesh.hpp"
+#include "mge/config.hpp"
 
 Light::Light(const std::string& pName, 
 	const glm::vec3& pPosition,
@@ -12,7 +15,14 @@ Light::Light(const std::string& pName,
 	ambientColour(ambientColour),
 	diffuseColour(diffuseColour),
 	intensity(intensity)
-{}
+{
+	GameObject* directionCube = new GameObject("directionCube", glm::vec3(0, 0, 2));
+	directionCube->scale(glm::vec3(0.15f, 0.15f, 0.15f));
+	directionCube->setMesh(Mesh::load(config::MGE_MODEL_PATH + "cube_flat.obj"));
+	directionCube->setMaterial(new ColorMaterial(glm::vec3(0, 1, 0.9903f)));
+	_world->add(directionCube);
+	add(directionCube);
+}
 
 Light::~Light() {
 }
@@ -70,4 +80,9 @@ void Light::SetIntensity(float value)
 float Light::GetIntensity()
 {
 	return intensity;
+}
+
+glm::vec3 Light::GetForward()
+{
+	return -(getChildAt(0)->getWorldPosition() - getWorldPosition());
 }

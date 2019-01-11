@@ -86,16 +86,19 @@ void TristanScene::_initializeScene()
 	_world->add(suzanna2);
 
 	Light* light = new Light("light",				//Name
-		glm::vec3(0, 2, 0),						//Position
-		LightType::DIRECTIONAL,							//LightType
+		glm::vec3(0, 2, 0),							//Position
+		LightType::POINT,							//LightType
 		glm::vec3(1, 1, 1),							//AmbientColour
 		glm::vec3(0, 1, 0),							//DiffuseColour
 		0.1f);										//Intensity
-	light->scale(glm::vec3(0.1f, 0.1f, 0.1f));
+	light->scale(glm::vec3(0.2f, 0.2f, 0.2f));
 	light->setMesh(cubeMeshF);
 	light->setMaterial(lightMaterial);
 	light->setBehaviour(new KeysBehaviour(10));
+	
 	_world->add(light);
+
+	
 
 	//////Add a rotating brick sphere.
 	//std::cout << "Creating Sphere" << std::endl;

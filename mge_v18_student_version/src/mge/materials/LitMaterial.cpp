@@ -38,12 +38,7 @@ void LitMaterial::render(World* pWorld, Mesh* pMesh, const glm::mat4& pModelMatr
 			{
 				//Get lights forward vector.
 				//TODO: Vragen hoe de forward vector te krijgen.
-				glm::mat4 lightTransform = light->getWorldTransform();
-				glm::vec3 LightPosition = light->getWorldPosition();
-				glm::vec3 lightForward = LightPosition;
-
-				std::cout << "Z-Component: " << lightForward << std::endl;
-				glUniform3fv(shader->getUniformLocation("lightPosition"), 1, glm::value_ptr(lightForward));
+				glUniform3fv(shader->getUniformLocation("lightPosition"), 1, glm::value_ptr(light->GetForward() * 10));
 			}
 			//Set ambientColour
 			glUniform3fv(shader->getUniformLocation("ambientColour"), 1, glm::value_ptr(light->GetAmbientColour()));

@@ -35,6 +35,7 @@ class Light : public GameObject
 		//Intensity
 		void SetIntensity(float value);
 		float GetIntensity();
+		glm::vec3 GetForward();
 
 private:
 	LightType lightType;

@@ -6,10 +6,12 @@
 #include "mge/core/Mesh.hpp"
 #include "mge/core/ShaderProgram.hpp"
 #include "mge/core/Texture.hpp"
+#include "mge/core/World.hpp"
+#include "mge/core/Light.hpp"
 
 ShaderProgram* LitMaterial::shader = NULL;
 
-LitMaterial::LitMaterial(Texture* pDiffuseTexture, glm::vec3 pColour): diffuseTexture(pDiffuseTexture), ambientColour(pColour)
+LitMaterial::LitMaterial()
 {
 	lazyInitializeShader();
 }
@@ -21,21 +23,39 @@ LitMaterial::~LitMaterial()
 void LitMaterial::render(World* pWorld, Mesh* pMesh, const glm::mat4& pModelMatrix, const glm::mat4& pViewMatrix, const glm::mat4& pProjectionMatrix)
 {
 	shader->use();
+	
+	if (pWorld->getLightCount() > 0)
+	{
+		for (int index = 0; index < pWorld->getLightCount(); index++)
+		{
+			Light* light = pWorld->getLightAt(index);
+			if (light->GetLightType() == LightType::POINT)
+			{
+				//Set Light position
+				glUniform3fv(shader->getUniformLocation("lightPosition"), 1, glm::value_ptr(light->getWorldPosition()));
+			}
+			else if (light->GetLightType() == LightType::DIRECTIONAL)
+			{
+				//Get lights forward vector.
+				//TODO: Vragen hoe de forward vector te krijgen.
+				glm::mat4 lightTransform = light->getWorldTransform();
+				glUniform3fv(shader->getUniformLocation("lightPosition"), 1, glm::value_ptr(lightTransform[2]));
+			}
+			//Set ambientColour
+			glUniform3fv(shader->getUniformLocation("ambientColour"), 1, glm::value_ptr(light->GetAmbientColour()));
 
-	//set the material color
-	glUniform3fv(shader->getUniformLocation("ambientColour"), 1, glm::value_ptr(ambientColour));
+			//Set diffuseColour
+			glUniform3fv(shader->getUniformLocation("lightColour"), 1, glm::value_ptr(light->GetDiffuseColour()));
+
+			//Set intensity
+			glUniform1f(shader->getUniformLocation("ambientStrength"), light->GetIntensity());
+		}
+	}
 
 	//pass in all MVP matrices separately
 	glUniformMatrix4fv(shader->getUniformLocation("projectionMatrix"), 1, GL_FALSE, glm::value_ptr(pProjectionMatrix));
 	glUniformMatrix4fv(shader->getUniformLocation("viewMatrix"), 1, GL_FALSE, glm::value_ptr(pViewMatrix));
 	glUniformMatrix4fv(shader->getUniformLocation("modelMatrix"), 1, GL_FALSE, glm::value_ptr(pModelMatrix));
-	
-	//Setup texture slot 0
-	glActiveTexture(GL_TEXTURE0);
-	//Bind the texture to the current active slot
-	glBindTexture(GL_TEXTURE_2D, diffuseTexture->getId());
-	//Tell the shader the texture slot for the diffuse texture is slot 0
-	glUniform1i(shader->getUniformLocation("diffuseTexture"), 0);
 
 	//now inform mesh of where to stream its data
 	pMesh->streamToOpenGL(
@@ -43,11 +63,6 @@ void LitMaterial::render(World* pWorld, Mesh* pMesh, const glm::mat4& pModelMatr
 		shader->getAttribLocation("normal"),
 		shader->getAttribLocation("uv")
 	);
-}
-
-void LitMaterial::SetDiffuseColour(glm::vec3 pDiffuseColour)
-{
-	ambientColour = pDiffuseColour;
 }
 
 void LitMaterial::lazyInitializeShader()

@@ -9,6 +9,7 @@
 #include "mge/core/Light.hpp"
 #include "mge/core/Camera.hpp"
 #include "mge/core/GameObject.hpp"
+#include "mge/core/Light.hpp"
 //Materials
 #include "mge/materials/AbstractMaterial.hpp"
 #include "mge/materials/ColorMaterial.hpp"
@@ -51,13 +52,13 @@ void TristanScene::_initializeScene()
 	AbstractMaterial* runicStoneMaterial = new TextureMaterial(Texture::load(config::MGE_TEXTURE_PATH + "runicfloor.png"));
 	AbstractMaterial* bricksMaterial = new TextureMaterial(Texture::load(config::MGE_TEXTURE_PATH + "bricks.jpg"));
 	AbstractMaterial* landMaterial = new TextureMaterial(Texture::load(config::MGE_TEXTURE_PATH + "land.jpg"));
-	AbstractMaterial* litMaterial = new LitMaterial(Texture::load(config::MGE_TEXTURE_PATH + "runicfloor.png"),glm::vec3(1, 1, 1));
+	AbstractMaterial* litMaterial = new LitMaterial();
 
 	//Scene setup
 
 	//Add camera first(it will be updated last)
 	std::cout << "Creating Camera" << std::endl;
-	Camera* camera = new Camera("camera", glm::vec3(0, 2, 15));
+	Camera* camera = new Camera("camera", glm::vec3(0, 2, 5));
 	_world->add(camera);
 	_world->setMainCamera(camera);
 
@@ -71,12 +72,28 @@ void TristanScene::_initializeScene()
 
 	//Add a monkey head with the runicStone Material
 	std::cout << "Creating Suzanna" << std::endl;
-	GameObject* suzanna = new GameObject("suzanna", glm::vec3(0, 2, 0));
+	GameObject* suzanna = new GameObject("suzanna", glm::vec3(2, 2, 0));
 	suzanna->scale(glm::vec3(1, 1, 1));
 	suzanna->setMesh(suzannaMeshS);
 	suzanna->setMaterial(litMaterial);
 	//suzanna->setBehaviour(new RotatingBehaviour());
 	_world->add(suzanna);
+
+	std::cout << "Creating 2nd Suzanna" << std::endl;
+	GameObject* suzanna2 = new GameObject("suzanna", glm::vec3(-2, 2, 0));
+	suzanna2->setMesh(suzannaMeshS);
+	suzanna2->setMaterial(litMaterial);
+	_world->add(suzanna2);
+
+	Light* light = new Light("light",				//Name
+		glm::vec3(-5, 4, 0),						//Position
+		LightType::POINT,							//LightType
+		glm::vec3(1, 1, 1),							//AmbientColour
+		glm::vec3(0, 1, 0),							//DiffuseColour
+		0.1f);										//Intensity
+	light->scale(glm::vec3(0.1f, 0.1f, 0.1f));
+	light->setBehaviour(new CameraOrbitBehaviour(2,45.0f, 1.0f, suzanna, _window));
+	_world->add(light);
 
 	//////Add a rotating brick sphere.
 	//std::cout << "Creating Sphere" << std::endl;
@@ -94,7 +111,7 @@ void TristanScene::_initializeScene()
 	//cone->setMaterial(lightMaterial);
 	//_world->add(cone);
 
-	camera->setBehaviour(new CameraOrbitBehaviour(5, 45.0f, 1.0f, suzanna, _window));
+	//camera->setBehaviour(new CameraOrbitBehaviour(5, 45.0f, 1.0f, suzanna, _window));
 
 }
 

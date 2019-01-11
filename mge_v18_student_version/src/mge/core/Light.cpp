@@ -1,7 +1,17 @@
 #include "mge/core/Light.hpp"
 #include "mge/core/World.hpp"
 
-Light::Light(const std::string& pName, const glm::vec3& pPosition):GameObject(pName, pPosition)
+Light::Light(const std::string& pName, 
+	const glm::vec3& pPosition,
+	LightType lightType,
+	glm::vec3 ambientColour,
+	glm::vec3 diffuseColour,
+	float intensity) :
+	GameObject(pName, pPosition), 
+	lightType(lightType),
+	ambientColour(ambientColour),
+	diffuseColour(diffuseColour),
+	intensity(intensity)
 {}
 
 Light::~Light() {
@@ -22,4 +32,42 @@ void Light::_setWorldRecursively (World* pWorld) {
 
 }
 
+void Light::SetLightType(LightType lightType)
+{
+	this->lightType = lightType;
+}
 
+LightType Light::GetLightType()
+{
+	return lightType;
+}
+
+void Light::SetAmbientColour(glm::vec3 colour)
+{
+	this->ambientColour = colour;
+}
+
+glm::vec3 Light::GetAmbientColour()
+{
+	return ambientColour;
+}
+
+void Light::SetDiffuseColour(glm::vec3 colour)
+{
+	this->diffuseColour = colour;
+}
+
+glm::vec3 Light::GetDiffuseColour()
+{
+	return diffuseColour;
+}
+
+void Light::SetIntensity(float value)
+{
+	this->intensity = value;
+}
+
+float Light::GetIntensity()
+{
+	return intensity;
+}

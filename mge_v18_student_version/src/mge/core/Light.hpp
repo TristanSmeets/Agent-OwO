@@ -7,6 +7,18 @@
 
 enum LightType { DIRECTIONAL, POINT };
 
+struct LightingData
+{
+	LightType Type;
+	glm::vec3 Ambient;
+	glm::vec3 Diffuse;
+	float ambientStrength;
+	float Constant;
+	float Linear;
+	float Quadratic;
+};
+
+
 /**
  * Exercise for the student: implement the Light class...
  * Imagine things like setLightType, setLightIntensity, setFalloffAngle etc, see the corresponding lectures
@@ -14,12 +26,9 @@ enum LightType { DIRECTIONAL, POINT };
 class Light : public GameObject
 {
 	public:
-		Light(const std::string& aName = nullptr, 
+		Light(	const std::string& aName = nullptr,
 			const glm::vec3& aPosition = glm::vec3( 2.0f, 10.0f, 5.0f ),
-			LightType lightType = LightType::DIRECTIONAL,
-			glm::vec3 ambientColour = glm::vec3(1,1,1),
-			glm::vec3 diffuseColour = glm::vec3(1,1,1),
-			float intensity = 1.0f);
+			LightingData* data = nullptr);
 		virtual ~Light();
 
         //override set parent to register/deregister light...
@@ -27,21 +36,26 @@ class Light : public GameObject
 		//LightType
 		void SetLightType(LightType lightType);
 		LightType GetLightType();
-		//Colour
+		//Ambient
 		void SetAmbientColour(glm::vec3 colour);
 		glm::vec3 GetAmbientColour();
+		void SetAmbientStrength(float value);
+		float GetAmbientStrength();
+		//Diffuse
 		void SetDiffuseColour(glm::vec3 colour);
 		glm::vec3 GetDiffuseColour();
-		//Intensity
-		void SetIntensity(float value);
-		float GetIntensity();
+		void SetLightConstant(float value);
+		float GetLightConstant();
+		void SetLightLinear(float value);
+		float GetLightLinear();
+		void SetLightQuadratic(float value);
+		float GetLightQuadratic();
+		
+		
 		glm::vec3 GetForward();
 
 private:
-	LightType lightType;
-	glm::vec3 ambientColour;
-	glm::vec3 diffuseColour;
-	float intensity;
+	LightingData* data;
 
 };
 

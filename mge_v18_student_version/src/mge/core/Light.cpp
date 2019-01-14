@@ -5,16 +5,9 @@
 #include "mge/config.hpp"
 
 Light::Light(const std::string& pName, 
-	const glm::vec3& pPosition,
-	LightType lightType,
-	glm::vec3 ambientColour,
-	glm::vec3 diffuseColour,
-	float intensity) :
+	const glm::vec3& pPosition, LightingData* data) :
 	GameObject(pName, pPosition), 
-	lightType(lightType),
-	ambientColour(ambientColour),
-	diffuseColour(diffuseColour),
-	intensity(intensity)
+	data(data)
 {
 	GameObject* directionCube = new GameObject("directionCube", glm::vec3(0, 0, 2));
 	directionCube->scale(glm::vec3(0.15f, 0.15f, 0.15f));
@@ -44,45 +37,75 @@ void Light::_setWorldRecursively (World* pWorld) {
 
 void Light::SetLightType(LightType lightType)
 {
-	this->lightType = lightType;
+	data->Type = lightType;
 }
 
 LightType Light::GetLightType()
 {
-	return lightType;
+	return data->Type;
 }
 
 void Light::SetAmbientColour(glm::vec3 colour)
 {
-	this->ambientColour = colour;
+	data->Ambient = colour;
 }
 
 glm::vec3 Light::GetAmbientColour()
 {
-	return ambientColour;
+	return data->Ambient;
 }
 
 void Light::SetDiffuseColour(glm::vec3 colour)
 {
-	this->diffuseColour = colour;
+	data->Diffuse = colour;
 }
 
 glm::vec3 Light::GetDiffuseColour()
 {
-	return diffuseColour;
+	return data->Diffuse;
 }
 
-void Light::SetIntensity(float value)
+void Light::SetLightConstant(float value)
 {
-	this->intensity = value;
+	data->Constant = value;
 }
 
-float Light::GetIntensity()
+float Light::GetLightConstant()
 {
-	return intensity;
+	return data->Constant;
+}
+
+void Light::SetLightLinear(float value)
+{
+	data->Linear = value;
+}
+
+float Light::GetLightLinear()
+{
+	return data->Linear;
+}
+
+void Light::SetLightQuadratic(float value)
+{
+	data->Quadratic = value;
+}
+
+float Light::GetLightQuadratic()
+{
+	return data->Quadratic;
+}
+
+void Light::SetAmbientStrength(float value)
+{
+	data->ambientStrength = value;
+}
+
+float Light::GetAmbientStrength()
+{
+	return data->ambientStrength;
 }
 
 glm::vec3 Light::GetForward()
 {
-	return -(getChildAt(0)->getWorldPosition() - getWorldPosition());
+	return getWorldTransform()[2];
 }

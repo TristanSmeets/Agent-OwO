@@ -5,14 +5,22 @@
 #include "mge/materials/AbstractMaterial.hpp"
 #include "mge/core/Texture.hpp"
 #include "mge/core/Light.hpp"
+#include "mge/core/Camera.hpp"
+#include "glm.hpp"
 
 class ShaderProgram;
 class Texture;
 
+struct SpecularData {
+	glm::vec3 Colour;
+	int ShininessFactor;
+	float Strength;
+};
+
 class LitMaterial : public AbstractMaterial
 {
 public:
-	LitMaterial();
+	LitMaterial(SpecularData* specularData);
 	virtual ~LitMaterial();
 
 	virtual void render(World* pWorld, Mesh* pMesh, const glm::mat4& pModelMatrix, const glm::mat4& pViewMatrix, const glm::mat4& pProjectionMatrix) override;
@@ -20,6 +28,7 @@ public:
 private:
 	static ShaderProgram* shader;
 	static void lazyInitializeShader();
+	SpecularData* specularData;
 };
 
 #endif

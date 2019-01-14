@@ -52,13 +52,21 @@ void TristanScene::_initializeScene()
 	AbstractMaterial* runicStoneMaterial = new TextureMaterial(Texture::load(config::MGE_TEXTURE_PATH + "runicfloor.png"));
 	AbstractMaterial* bricksMaterial = new TextureMaterial(Texture::load(config::MGE_TEXTURE_PATH + "bricks.jpg"));
 	AbstractMaterial* landMaterial = new TextureMaterial(Texture::load(config::MGE_TEXTURE_PATH + "land.jpg"));
-	AbstractMaterial* litMaterial = new LitMaterial();
+	
+	//Creating a specularData for the litmaterial
+	SpecularData* specularData = new SpecularData();
+	specularData->Colour = glm::vec3(1, 1, 1);
+	specularData->ShininessFactor = 32;
+	specularData->Strength = 1.0f;
+	
+	AbstractMaterial* litMaterial = new LitMaterial(specularData);
 
 	//Scene setup
 
 	//Add camera first(it will be updated last)
 	std::cout << "Creating Camera" << std::endl;
-	Camera* camera = new Camera("camera", glm::vec3(0, 2, 5));
+	Camera* camera = new Camera("camera", glm::vec3(0, 5, 5));
+	camera->rotate(glm::radians(-45.0f), glm::vec3(1, 0, 0));
 	_world->add(camera);
 	_world->setMainCamera(camera);
 
@@ -67,35 +75,43 @@ void TristanScene::_initializeScene()
 	GameObject* plane = new GameObject("plane", glm::vec3(0, 0, 0));
 	plane->scale(glm::vec3(5, 5, 5));
 	plane->setMesh(planeMeshDefault);
-	plane->setMaterial(landMaterial);
+	plane->setMaterial(litMaterial);
 	_world->add(plane);
 
 	//Add a monkey head with the runicStone Material
 	std::cout << "Creating Suzanna" << std::endl;
 	GameObject* suzanna = new GameObject("suzanna", glm::vec3(2, 2, 0));
 	suzanna->scale(glm::vec3(1, 1, 1));
-	suzanna->setMesh(suzannaMeshS);
+	suzanna->setMesh(sphereMeshS);
 	suzanna->setMaterial(litMaterial);
 	//suzanna->setBehaviour(new RotatingBehaviour());
 	_world->add(suzanna);
 
 	std::cout << "Creating 2nd Suzanna" << std::endl;
 	GameObject* suzanna2 = new GameObject("suzanna", glm::vec3(-2, 2, 0));
-	suzanna2->setMesh(suzannaMeshS);
+	suzanna2->setMesh(sphereMeshS);
 	suzanna2->setMaterial(litMaterial);
 	_world->add(suzanna2);
 
-	Light* light = new Light("light",				//Name
-		glm::vec3(0, 2, 0),							//Position
-		LightType::POINT,							//LightType
-		glm::vec3(1, 1, 1),							//AmbientColour
-		glm::vec3(0, 1, 0),							//DiffuseColour
-		0.1f);										//Intensity
-	light->scale(glm::vec3(0.2f, 0.2f, 0.2f));
+	//Setting LightingData
+	LightingData* data = new LightingData();
+	data->Type = LightType::POINT;
+	data->Ambient = glm::vec3(1, 1, 1);
+	data->Diffuse = glm::vec3(0, 1, 0);
+	data->ambientStrength = 0.1f;
+	data->Constant = 1.0f;
+	data->Linear = 0.14f;
+	data->Quadratic = 0.07f;
+
+	Light* light = new Light("light",						//Name
+		glm::vec3(0, 2, 0),									//Position
+		data);
+
 	light->setMesh(cubeMeshF);
+	light->scale(glm::vec3(0.1f, 0.1f, 0.1f));
 	light->setMaterial(lightMaterial);
-	light->setBehaviour(new KeysBehaviour(10));
-	
+	light->setBehaviour(new KeysBehaviour(40,100));
+	//light->setBehaviour(new CameraOrbitBehaviour(5, 45, 1, suzanna, _window));
 	_world->add(light);
 
 	

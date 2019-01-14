@@ -8,10 +8,11 @@
 #include "mge/core/Texture.hpp"
 #include "mge/core/World.hpp"
 #include "mge/core/Light.hpp"
+#include "mge/core/Camera.hpp"
 
 ShaderProgram* LitMaterial::shader = NULL;
 
-LitMaterial::LitMaterial()
+LitMaterial::LitMaterial(SpecularData* specularData) : specularData(specularData)
 {
 	lazyInitializeShader();
 }
@@ -32,23 +33,50 @@ void LitMaterial::render(World* pWorld, Mesh* pMesh, const glm::mat4& pModelMatr
 			if (light->GetLightType() == LightType::POINT)
 			{
 				//Set Light position
-				glUniform3fv(shader->getUniformLocation("lightPosition"), 1, glm::value_ptr(light->getWorldPosition()));
+				glm::vec4 PositionVector = glm::vec4(light->getWorldPosition(), 1.0f);
+				glUniform4fv(shader->getUniformLocation("light.position"), 1, glm::value_ptr(PositionVector));
 			}
 			else if (light->GetLightType() == LightType::DIRECTIONAL)
 			{
 				//Get lights forward vector.
-				//TODO: Vragen hoe de forward vector te krijgen.
-				glUniform3fv(shader->getUniformLocation("lightPosition"), 1, glm::value_ptr(light->GetForward() * 10));
+				glm::vec4 DirectionVector = glm::vec4(light->GetForward(), 0.0f);
+				glUniform4fv(shader->getUniformLocation("light.position"), 1, glm::value_ptr(DirectionVector));
 			}
 			//Set ambientColour
-			glUniform3fv(shader->getUniformLocation("ambientColour"), 1, glm::value_ptr(light->GetAmbientColour()));
+			glUniform3fv(shader->getUniformLocation("light.ambient"), 1, glm::value_ptr(light->GetAmbientColour()));
 
 			//Set diffuseColour
-			glUniform3fv(shader->getUniformLocation("lightColour"), 1, glm::value_ptr(light->GetDiffuseColour()));
+			glUniform3fv(shader->getUniformLocation("light.diffuse"), 1, glm::value_ptr(light->GetDiffuseColour()));
+
+			//Set specularColour
+			glUniform3fv(shader->getUniformLocation("light.specular"), 1, glm::value_ptr(specularData->Colour));
 
 			//Set intensity
-			glUniform1f(shader->getUniformLocation("ambientStrength"), light->GetIntensity());
+			glUniform1f(shader->getUniformLocation("light.ambientStrength"), light->GetAmbientStrength());
+
+			//Set SpecularStrength
+			glUniform1f(shader->getUniformLocation("light.specularStrength"), specularData->Strength);
+			
+			//Set shininess highlight
+			glUniform1i(shader->getUniformLocation("light.shininessFactor"), specularData->ShininessFactor);
+
+			//Set LightConstant
+			glUniform1f(shader->getUniformLocation("light.constant"), light->GetLightConstant());
+
+			//Set LightLinear
+			glUniform1f(shader->getUniformLocation("light.linear"), light->GetLightLinear());
+
+			//Set LightQuadratic
+			glUniform1f(shader->getUniformLocation("light.quadratic"), light->GetLightQuadratic());
 		}
+		
+		//Set Object Colour;
+		glUniform3fv(shader->getUniformLocation("objectColour"), 1, glm::value_ptr(glm::vec3(1, 1, 1)));
+		
+		//Set view position
+		Camera* camera = pWorld->getMainCamera();
+		glm::vec3 cameraPos = camera->getWorldPosition();
+		glUniform3fv(shader->getUniformLocation("viewPos"), 1, glm::value_ptr(cameraPos));
 	}
 
 	//pass in all MVP matrices separately

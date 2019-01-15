@@ -1,6 +1,7 @@
 GridGenerator = {};
 
 --Requires
+require("BaseOrganism")
 
 --Give the time as a seed to math.random
 math.randomseed(os.time())
@@ -18,31 +19,19 @@ function GridGenerator:Create2DGrid(columns, rows)
   return grid
 end
 
---[[Fills the given "2D" array with true or false values]]
-function GridGenerator:RandomBoolFill2DGrid(columnAmount, rowAmount)
-  local newGrid = GridGenerator:Create2DGrid(columnAmount, rowAmount)
-  for RowIndex, Row in pairs(newGrid) do
-    for  ColumnIndex, Column in pairs(Row) do
-      local BoolValue = math.random( 2 ) - 1
-      if BoolValue == 1 then
-        newGrid[RowIndex] [ColumnIndex] = true
-      else
-        newGrid[RowIndex] [ColumnIndex] = false
-      end
-    end
-  end
-  return newGrid
-end
-
-function GridGenerator:CreateOrganismGrid(columns, rows, Organism)
+function GridGenerator:CreateOrganismGrid(columns, rows, Organism, OrganismDNA, squareSize)
   local newCellGrid = GridGenerator:Create2DGrid(columns, rows)
   for RowIndex, Row in pairs(newCellGrid) do
     for ColumnIndex, Column in pairs(Row) do
       local isAlive = math.random(2) - 1
+      local DNA = OrganismDNA:new()
+      DNA:SetPosition((ColumnIndex - 1) * squareSize, (RowIndex - 1)* squareSize)
       if isAlive == 1 then
-        newCellGrid[RowIndex][ColumnIndex] = Organism:new(true)
+        DNA:SetIsAlive(true)
+        newCellGrid[RowIndex][ColumnIndex] = Organism:new(DNA)
       else
-        newCellGrid[RowIndex][ColumnIndex] = Organism:new(false)
+        DNA:SetIsAlive(false)
+        newCellGrid[RowIndex][ColumnIndex] = Organism:new(DNA)
       end
     end
   end

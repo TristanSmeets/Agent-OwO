@@ -18,7 +18,11 @@ std::string LuaWrapper::GetString(lua_State* luaState, const std::string& variab
 {
 	lua_getglobal(luaState, variableName.c_str());
 	if (lua_isstring(luaState, -1))
-		return std::string(lua_tostring(luaState, -1));
+	{
+		std::string text = lua_tostring(luaState, -1);
+		lua_pop(luaState, 1);
+		return text;
+	}
 	else
 		throw std::invalid_argument("variable isn't a string");
 }

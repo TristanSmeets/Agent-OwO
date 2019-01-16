@@ -4,17 +4,10 @@ function OrganismDNA:new()
     local organismDNA = {}
     setmetatable(organismDNA, self)
     self.__index = self
-    organismDNA.x = 0
-    organismDNA.y = 0
     organismDNA.SquareSize = 20
     organismDNA.IsAlive = false
-    organismDNA.Colour = {r = 1, g = 1, b = 1, a = 1}
+    organismDNA.Colour = {r = 1, g = 0, b = 1, a = 1}
     return organismDNA
-end
-
-function OrganismDNA:SetPosition(x,y)
-  self.x = x
-  self.y = y
 end
 
 function OrganismDNA:SetIsAlive(value)

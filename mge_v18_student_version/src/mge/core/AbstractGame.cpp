@@ -168,6 +168,7 @@ void AbstractGame::_processEvents()
                 //would be better to move this to the renderer
                 //this version implements nonconstrained match viewport scaling
                 glViewport(0, 0, event.size.width, event.size.height);
+				//TODO add resizing for camera projection
                 break;
 
             default:

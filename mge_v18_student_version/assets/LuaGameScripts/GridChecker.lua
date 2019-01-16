@@ -16,7 +16,7 @@ local function checkNeighbourOrganisms(gameGrid, x, y)
       local column = (x - 1 + ColumnIndex + columns) % columns
       local row = (y - 1 + RowIndex + rows) % rows
       if(column + 1) == x and (row + 1) == y then
-      elseif gameGrid[row + 1][column + 1].OrganismDNA.IsAlive == true then
+      elseif gameGrid[row + 1][column + 1].DNA.IsAlive == true then
         Sum = Sum + 1
       end
     end
@@ -45,17 +45,34 @@ end
     For each Organism it checks how many live neighbours it has.
     Checks if the Organism should be alive in the next generation and sets it's status.
     Returns the grid with updated values]]
-function GridChecker:NewOrganismGrid(gameGrid, totalColumns, totalRows, Organism, OrganismDNA, squareSize)
+function GridChecker:NewOrganismGrid(gameGrid, totalColumns, totalRows, squareSize, DNA)
   columns = totalColumns
   rows = totalRows
 
-  local NewOrganismGrid = GridGenerator:CreateOrganismGrid(totalColumns, totalRows, Organism, OrganismDNA, squareSize)
+  local NewOrganismGrid = GridGenerator:CreateOrganismGrid(totalColumns, totalRows, squareSize, DNA)
   
   for i, Row in pairs(NewOrganismGrid) do
     for j, Column in pairs(Row) do
       local LiveNeighbours = checkNeighbourOrganisms(gameGrid, j, i)
-      NewOrganismGrid[i][j].OrganismDNA.IsAlive = checkIsAlive(LiveNeighbours, gameGrid[i][j].OrganismDNA.IsAlive)
+      NewOrganismGrid[i][j].DNA.IsAlive = checkIsAlive(LiveNeighbours, gameGrid[i][j].DNA.IsAlive)
     end
   end
   return NewOrganismGrid
+end
+
+function GridChecker:UpdateGrid(gameGrid, totalColumns, totalRows)
+  columns = totalColumns
+  rows = totalRows
+
+  local UpdatedGrid = GridGenerator:Create2DGrid(columns, rows)
+
+  for i, Row in pairs(UpdatedGrid) do
+    for j, Column in pairs(Row) do
+      local LiveNeighbours = checkNeighbourOrganisms(gameGrid, j, i)
+      local OrganismDNA = gameGrid[i][j].DNA
+      OrganismDNA:SetIsAlive(checkIsAlive(LiveNeighbours, gameGrid[i][j].DNA.IsAlive))
+      UpdatedGrid[i][j] = BaseOrganism:new(gameGrid[i][j].x, gameGrid[i][j].y, gameGrid[i][j].squareSize, OrganismDNA)
+    end
+  end
+  return UpdatedGrid
 end

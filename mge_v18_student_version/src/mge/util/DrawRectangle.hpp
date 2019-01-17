@@ -5,7 +5,6 @@
 #include <lua.hpp>
 #include "LuaWrapper.hpp"
 
-
 ///Class that will be used to create rectangles on the screen.
 ///Will be used in the lua game.
 class DrawRectangle
@@ -18,7 +17,7 @@ public:
 	void SetColour(float r, float g, float b, float a);
 	static int luaNewDrawRectangle(lua_State *lua);
 	static int luaUpdateRectangle(lua_State *lua);
-
+	static void InitializeLua();
 private:
 	sf::RectangleShape rectangle;
 	int x;

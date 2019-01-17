@@ -61,24 +61,24 @@ int DrawRectangle::luaUpdateRectangle(lua_State * lua)
 
 void DrawRectangle::InitializeLua()
 {
-	lua_State *lua = luaL_newstate();
-	luaL_openlibs(lua);
+	//lua_State *lua = luaL_newstate();
+	//luaL_openlibs(lua);
 
-	luaL_newmetatable(lua, "drawRectangle");
+	//luaL_newmetatable(lua, "drawRectangle");
 
-	lua_pushstring(lua, "__index");
-	lua_pushvalue(lua, -2); //Pushes the metatable
-	lua_settable(lua, -3);
-	
-	luaL_setfuncs(lua, DrawRectangleMetaLib, 0);
-	
-	luaL_newlib(lua, DrawRectangleLib);
-	luaL_getmetatable(lua, "drawRectangle");
-	lua_setmetatable(lua, -2);
-	lua_setglobal(lua, "DrawRectangle");
+	//lua_pushstring(lua, "__index");
+	//lua_pushvalue(lua, -2); //Pushes the metatable
+	//lua_settable(lua, -3);
+	//
+	//luaL_setfuncs(lua, DrawRectangleMetaLib, 0);
+	//
+	//luaL_newlib(lua, DrawRectangleLib);
+	//luaL_getmetatable(lua, "drawRectangle");
+	//lua_setmetatable(lua, -2);
+	//lua_setglobal(lua, "DrawRectangle");
 
-	luaL_loadfile(lua, "LuaGameScripts/BaseOrganism.lua");
-	lua_call(lua, 0, 0);
+	//luaL_loadfile(lua, "LuaGameScripts/BaseOrganism.lua");
+	//lua_call(lua, 0, 0);
 }
 
 static const struct luaL_Reg DrawRectangleMetaLib[] =

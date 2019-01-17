@@ -17,7 +17,7 @@ public:
 		lua_getglobal(luaState, variableName.c_str());
 		if (lua_isnumber(luaState, -1))
 		{
-			T number = lua_tonumber(luaState, -1);
+			T number = (T)lua_tonumber(luaState, -1);
 			lua_pop(luaState, 1);
 			return number;
 		}
@@ -29,12 +29,12 @@ public:
 	{
 		if (lua_isnumber(luaState, -1))
 		{
-			T number = lua_tonumber(luaState, -1);
+			T number = (T)lua_tonumber(luaState, -1);
 			lua_pop(luaState, 1);
 			return number;
 		}
 		else
-			throw std::invalid_argument("Is not a " + T);
+			throw std::invalid_argument("Is not a valid argument");
 	}
 
 	//Strings
@@ -47,20 +47,18 @@ public:
 	template <typename T> static T GetTableValue(lua_State* luaState, const std::string& tableName, const std::string& key)
 	{
 		//Set the table to the top of the stack
-		lua_getglobal(luaState, tableName);
+		lua_getglobal(luaState, tableName.c_str());
 
 		//Put the key on the stack.
-		lua_pushstring(luaState, key);
+		lua_pushstring(luaState, key.c_str());
 		//Gets the value from the table.
 		lua_gettable(luaState, -2);
 		T value;
 
 		if (lua_isnumber(luaState, -1))
-			value = lua_tonumber(luaState, -1);
+			value = (T)lua_tonumber(luaState, -1);
 		else if (lua_isboolean(luaState, -1))
-			value = lua_toboolean(luaState, -1);
-		else if (lua_isstring(luaState, -1))
-			value = lua_tostring(luaState, -1);
+			value = (T)lua_toboolean(luaState, -1);
 
 		lua_pop(luaState, -1);
 		return value;

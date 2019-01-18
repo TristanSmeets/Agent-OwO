@@ -4,12 +4,9 @@
 #include "GL/glew.h"
 #include "mge/materials/AbstractMaterial.hpp"
 #include "mge/core/Texture.hpp"
-#include "mge/core/Light.hpp"
-#include "mge/core/Camera.hpp"
 #include "glm.hpp"
 
 class ShaderProgram;
-class Texture;
 
 struct SpecularData {
 	glm::vec3 Colour;

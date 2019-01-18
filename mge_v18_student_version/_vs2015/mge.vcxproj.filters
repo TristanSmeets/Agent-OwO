@@ -110,6 +110,9 @@
     <ClInclude Include="..\src\mge\util\DrawRectangle.hpp">
       <Filter>MGE Source files\mge\util</Filter>
     </ClInclude>
+    <ClInclude Include="..\src\mge\materials\TerrainMaterial.hpp">
+      <Filter>MGE Source files\mge\materials</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\main.cpp">
@@ -192,6 +195,9 @@
     </ClCompile>
     <ClCompile Include="..\src\mge\util\DrawRectangle.cpp">
       <Filter>MGE Source files\mge\util</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\mge\materials\TerrainMaterial.cpp">
+      <Filter>MGE Source files\mge\materials</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

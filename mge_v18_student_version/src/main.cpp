@@ -5,6 +5,8 @@
 #include "mge/TristanScene.h"
 #include "mge/BrokenOBJ.hpp"
 #include "mge/GameOfLife.h"
+#include "mge/TerrainScene.hpp"
+#include <lua.hpp>
 /**
  * Main entry point for the Micro Engine.
 
@@ -25,9 +27,10 @@ int main()
     std::cout << "Starting Game" << std::endl;
 
     //AbstractGame* game = new MGEDemo();
-	AbstractGame* game = new TristanScene();
+	//AbstractGame* game = new TristanScene();
 	//AbstractGame* game = new BrokenOBJ();
 	//AbstractGame* game = new GameOfLife();
+	AbstractGame* game = new TerrainScene();
 	game->initialize();
     game->run();
 

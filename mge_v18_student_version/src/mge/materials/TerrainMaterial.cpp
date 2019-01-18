@@ -8,6 +8,18 @@
 #include "mge/core/ShaderProgram.hpp"
 #include "mge/config.hpp"
 
+GLint TerrainMaterial::uMVPMatrix = 0;
+GLint TerrainMaterial::uDiffuseTexture1 = 0;
+GLint TerrainMaterial::uDiffuseTexture2 = 0;
+GLint TerrainMaterial::uDiffuseTexture3 = 0;
+GLint TerrainMaterial::uDiffuseTexture4 = 0;
+GLint TerrainMaterial::uHeightMap = 0;
+GLint TerrainMaterial::uSplatMap = 0;
+GLint TerrainMaterial::uTime = 0;
+GLint TerrainMaterial::aVertex = 0;
+GLint TerrainMaterial::aNormal = 0;
+GLint TerrainMaterial::aUV = 0;
+
 ShaderProgram* TerrainMaterial::shader = NULL;
 
 TerrainMaterial::TerrainMaterial(TerrainTexture* terrain) : terrainTexture(terrain)
@@ -32,22 +44,22 @@ void TerrainMaterial::render(World * pWorld, Mesh * pMesh, const glm::mat4 & pMo
 
 	//HeightMap
 	setTextureSlot(terrainTexture->HeightMap, uHeightMap, 0);
-	   
+
 	//SplatMap
-	setTextureSlot(terrainTexture->SplatMap, uSplatMap, 1);
+	setTextureSlot(terrainTexture->SplatMap, uSplatMap, 6);
 
 	//Diffuse1
 	setTextureSlot(terrainTexture->Diffuse1, uDiffuseTexture1, 2);
 
 	//Diffuse2
 	setTextureSlot(terrainTexture->Diffuse2, uDiffuseTexture2, 3);
-
+	
 	//Diffuse3
 	setTextureSlot(terrainTexture->Diffuse3, uDiffuseTexture3, 4);
 	
 	//Diffuse4
 	setTextureSlot(terrainTexture->Diffuse4, uDiffuseTexture4, 5);
-
+	
 	//Set time Uniform
 	glUniform1f(uTime, clock() / 1000);
 
@@ -73,6 +85,9 @@ void TerrainMaterial::lazyInitializeShader()
 		uDiffuseTexture2 = shader->getUniformLocation("diffuseTexture2");
 		uDiffuseTexture3 = shader->getUniformLocation("diffuseTexture3");
 		uDiffuseTexture4 = shader->getUniformLocation("diffuseTexture4");
+		uHeightMap = shader->getUniformLocation("heightMap");
+		uSplatMap = shader->getUniformLocation("splatMap");
+
 		uTime = shader->getUniformLocation("time");
 
 		aVertex = shader->getAttribLocation("vertex");

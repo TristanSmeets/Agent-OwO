@@ -5,7 +5,6 @@
 #include "mge/core/GameObject.hpp"
 #include "mge/core/Mesh.hpp"
 #include "mge/core/ShaderProgram.hpp"
-#include "mge/core/Texture.hpp"
 #include "mge/core/World.hpp"
 #include "mge/core/Light.hpp"
 #include "mge/core/Camera.hpp"

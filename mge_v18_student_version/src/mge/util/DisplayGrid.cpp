@@ -17,7 +17,7 @@ DisplayGrid::DisplayGrid(sf::RenderWindow * renderWindow) : window(renderWindow)
 DisplayGrid::~DisplayGrid()
 {
 	//Clearing the 2D Vector
-	for (int Index = 0; Index < rectangle2DVector.size(); Index++)
+	for (unsigned Index = 0; Index < rectangle2DVector.size(); Index++)
 	{
 		rectangle2DVector[Index].clear();
 	}
@@ -30,9 +30,9 @@ void DisplayGrid::Draw()
 
 	window->pushGLStates();
 	
-	for (int Row = 0; Row < rectangle2DVector.size(); Row++)
+	for (unsigned Row = 0; Row < rectangle2DVector.size(); Row++)
 	{
-		for (int Column = 0; Column < rectangle2DVector[Row].size(); Column++)
+		for (unsigned Column = 0; Column < rectangle2DVector[Row].size(); Column++)
 		{
 			window->draw(rectangle2DVector[Row][Column]);
 		}

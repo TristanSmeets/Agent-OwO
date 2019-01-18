@@ -187,12 +187,14 @@
     <ClInclude Include="..\src\mge\materials\AbstractMaterial.hpp" />
     <ClInclude Include="..\src\mge\materials\ColorMaterial.hpp" />
     <ClInclude Include="..\src\mge\materials\LitMaterial.hpp" />
+    <ClInclude Include="..\src\mge\materials\TerrainMaterial.hpp" />
     <ClInclude Include="..\src\mge\materials\TextureMaterial.hpp" />
     <ClInclude Include="..\src\mge\materials\WobbleMaterial.hpp" />
     <ClInclude Include="..\src\mge\MGEDemo.hpp" />
     <ClInclude Include="..\src\mge\TristanScene.h" />
     <ClInclude Include="..\src\mge\util\DebugHud.hpp" />
     <ClInclude Include="..\src\mge\util\DisplayGrid.h" />
+    <ClInclude Include="..\src\mge\util\DrawRectangle.hpp" />
     <ClInclude Include="..\src\mge\util\LuaWrapper.hpp" />
   </ItemGroup>
   <ItemGroup>
@@ -215,12 +217,14 @@
     <ClCompile Include="..\src\mge\materials\AbstractMaterial.cpp" />
     <ClCompile Include="..\src\mge\materials\ColorMaterial.cpp" />
     <ClCompile Include="..\src\mge\materials\LitMaterial.cpp" />
+    <ClCompile Include="..\src\mge\materials\TerrainMaterial.cpp" />
     <ClCompile Include="..\src\mge\materials\TextureMaterial.cpp" />
     <ClCompile Include="..\src\mge\materials\WobbleMaterial.cpp" />
     <ClCompile Include="..\src\mge\MGEDemo.cpp" />
     <ClCompile Include="..\src\mge\TristanScene.cpp" />
     <ClCompile Include="..\src\mge\util\DebugHud.cpp" />
     <ClCompile Include="..\src\mge\util\DisplayGrid.cpp" />
+    <ClCompile Include="..\src\mge\util\DrawRectangle.cpp" />
     <ClCompile Include="..\src\mge\util\LuaWrapper.cpp" />
   </ItemGroup>
   <ItemGroup>

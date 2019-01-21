@@ -1,4 +1,5 @@
 #include "mge/util/DrawRectangle.hpp"
+#include <iostream>
 
 DrawRectangle::DrawRectangle()
 {
@@ -97,12 +98,18 @@ void DrawRectangle::InitializeLua()
 	lua_State *lua = luaL_newstate();
 	luaL_openlibs(lua);
 
+	std::cout << "Creating new metatable." << std::endl;
 	luaL_newmetatable(lua, "drawRectangle");
 
+	std::cout << "Pushing string: __index onto stack" << std::endl;
 	lua_pushstring(lua, "__index");
-	lua_pushvalue(lua, -2); //Pushes the metatable
-	lua_settable(lua, -3);
 	
+	std::cout << "Pushing metatable to stack" << std::endl;
+	lua_pushvalue(lua, -2); //Pushes the metatable
+	
+	std::cout << "Setting metatable" << std::endl;
+	lua_settable(lua, -3);
+
 	luaL_setfuncs(lua, DrawRectangleMetaLib, 0);
 	
 	luaL_newlib(lua, DrawRectangleLib);

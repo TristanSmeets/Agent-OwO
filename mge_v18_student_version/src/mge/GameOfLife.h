@@ -3,6 +3,7 @@
 
 #include "mge/core/AbstractGame.hpp"
 #include "mge/util/DisplayGrid.h"
+#include <lua.hpp>
 
 class GameOfLife : public AbstractGame
 {
@@ -20,6 +21,7 @@ private:
 	GameOfLife& operator=(const GameOfLife&);
 	sf::RectangleShape rectangle;
 	DisplayGrid* displayGrid;
+	lua_State* main;
 };
 
 #endif

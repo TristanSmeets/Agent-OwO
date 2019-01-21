@@ -116,6 +116,9 @@
     <ClInclude Include="..\src\mge\TerrainScene.hpp">
       <Filter>MGE Source files\mge</Filter>
     </ClInclude>
+    <ClInclude Include="..\src\mge\behaviours\LuaBehaviour.hpp">
+      <Filter>MGE Source files\mge\behaviours</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\main.cpp">
@@ -205,16 +208,29 @@
     <ClCompile Include="..\src\mge\TerrainScene.cpp">
       <Filter>MGE Source files\mge</Filter>
     </ClCompile>
+    <ClCompile Include="..\src\mge\behaviours\LuaBehaviour.cpp">
+      <Filter>MGE Source files\mge\behaviours</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram.cd" />
-    <None Include="..\assets\LuaGame\GridGenerator.lua">
+    <None Include="..\assets\LuaGameScripts\BaseOrganism.lua">
       <Filter>LuaScripts</Filter>
     </None>
-  </ItemGroup>
-  <ItemGroup>
-    <CopyFileToFolders Include="..\assets\config.lua">
+    <None Include="..\assets\LuaGameScripts\config.lua">
       <Filter>LuaScripts</Filter>
-    </CopyFileToFolders>
+    </None>
+    <None Include="..\assets\LuaGameScripts\GridChecker.lua">
+      <Filter>LuaScripts</Filter>
+    </None>
+    <None Include="..\assets\LuaGameScripts\GridGenerator.lua">
+      <Filter>LuaScripts</Filter>
+    </None>
+    <None Include="..\assets\LuaGameScripts\Main.lua">
+      <Filter>LuaScripts</Filter>
+    </None>
+    <None Include="..\assets\LuaGameScripts\OrganismDNA.lua">
+      <Filter>LuaScripts</Filter>
+    </None>
   </ItemGroup>
 </Project>

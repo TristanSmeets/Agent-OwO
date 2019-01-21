@@ -26,6 +26,8 @@ DisplayGrid::~DisplayGrid()
 		rectangle2DVector[Index].clear();
 	}
 	rectangle2DVector.clear();
+	
+	rectangles.clear();
 }
 
 void DisplayGrid::Draw()
@@ -53,6 +55,7 @@ void DisplayGrid::AddDrawRectangle(DrawRectangle* rectangle)
 {
 	rectangles.push_back(rectangle);
 }
+
 
 void DisplayGrid::setupGrid()
 {

@@ -1,7 +1,7 @@
 GridGenerator = {};
 
 --Requires
-require("BaseOrganism")
+require("LuaGameScripts\\BaseOrganism")
 
 --Give the time as a seed to math.random
 math.randomseed(os.time())

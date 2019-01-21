@@ -1,24 +1,26 @@
 --Requires
-require("config")
-require("OrganismDNA")
-require("GridGenerator")
-require("OrganismDNA")
+--[[
+require("LuaGameScripts\config")
+require("LuaGameScripts\OrganismDNA")
+require("LuaGameScripts\GridGenerator")
+require("LuaGameScripts\OrganismDNA")
 
 width, height = 100
 squareSize = 10
 local counter = 0
 columns = math.floor( width / squareSize )
 rows = math.floor( width / squareSize )
+--]]
 
 function Start()
-    print("Called Start() in Main.lua")
+    print("Called the start function in Main.lua")
 	--GameGrid = GridGenerator:CreateOrganismGrid(columns, rows, OrganismDNA)
 end
 
 function Update()
-	print("Calling Update() in Main.lua")
-    --[[counter = counter + 1
-    if counter > 5 then
+	print("Called Update() in Main.lua")
+    --counter = counter + 1
+    --[[if counter > 5 then
        local NewGameGrid = GridChecker:NewOrganismGrid(GameGrid, columns, rows, squareSize, OrganismDNA)
        GameGrid = NewGameGrid
        counter = 0
@@ -26,20 +28,14 @@ function Update()
 end
 
 function Draw()
-    for rowIndex, rows in pairs(GameGrid) do
+	print("Called Draw() in Main.Lua")
+    --[[for rowIndex, rows in pairs(GameGrid) do
         for columnIndex, columns in pairs(rows) do
             GameGrid[rowIndex][columnIndex]:Draw()
         end
-    end
+    end]]--
 end
 
-function DrawGameGrid(gameGrid)
-    for rowIndex, rows in pairs(cellGrid) do
-        for columnIndex, columns in pairs(rows) do
-          cellGrid[rowIndex][columnIndex]:Draw()
-        end
-    end
-end
 
 --[[ --Requires
 require("GridChecker")

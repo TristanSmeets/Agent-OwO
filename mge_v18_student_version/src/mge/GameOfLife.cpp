@@ -42,8 +42,11 @@ void GameOfLife::_initializeScene()
 	_world->add(camera);
 	_world->setMainCamera(camera);
 
+
+	std::cout << "Creating GameObject" << std::endl;
 	GameObject* luaObject = new GameObject("LuaObject");
-	main = LuaWrapper::InitializeLuaState("Main.lua");
+	main = LuaWrapper::InitializeLuaState("LuaGameScripts\\Main.lua");
+	std::cout << "Setting LuaBehaviour with luaState: " << main << std::endl;
 	luaObject->setBehaviour(new LuaBehaviour(main));
 	_world->add(luaObject);
 }

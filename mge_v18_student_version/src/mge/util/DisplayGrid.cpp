@@ -14,8 +14,8 @@ DisplayGrid::DisplayGrid(sf::RenderWindow * renderWindow) : window(renderWindow)
 	assert(window != NULL);
 
 	std::cout << "Setting up DisplayGrid" << std::endl;
-	setupGrid();
-	initializeLuaDrawRectangle();
+	//setupGrid();
+	//initializeLuaDrawRectangle();
 }
 
 DisplayGrid::~DisplayGrid()
@@ -59,7 +59,7 @@ void DisplayGrid::AddDrawRectangle(DrawRectangle* rectangle)
 
 void DisplayGrid::setupGrid()
 {
-	lua_State *config = LuaWrapper::InitializeLuaState("config.lua");
+	lua_State *config = LuaWrapper::InitializeLuaState("LuaGameScripts\\config.lua");
 	int ScreenWidth = LuaWrapper::GetNumber<int>(config, "ScreenWidth");
 	int ScreenHeight = LuaWrapper::GetNumber<int>(config, "ScreenHeight");
 	squareSize = LuaWrapper::GetNumber<float>(config, "SquareSize");

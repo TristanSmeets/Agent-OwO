@@ -214,13 +214,23 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram.cd" />
-  </ItemGroup>
-  <ItemGroup>
-    <CopyFileToFolders Include="..\assets\config.lua">
+    <None Include="..\assets\LuaGameScripts\BaseOrganism.lua">
       <Filter>LuaScripts</Filter>
-    </CopyFileToFolders>
-    <CopyFileToFolders Include="..\assets\Main.lua">
+    </None>
+    <None Include="..\assets\LuaGameScripts\config.lua">
       <Filter>LuaScripts</Filter>
-    </CopyFileToFolders>
+    </None>
+    <None Include="..\assets\LuaGameScripts\GridChecker.lua">
+      <Filter>LuaScripts</Filter>
+    </None>
+    <None Include="..\assets\LuaGameScripts\GridGenerator.lua">
+      <Filter>LuaScripts</Filter>
+    </None>
+    <None Include="..\assets\LuaGameScripts\Main.lua">
+      <Filter>LuaScripts</Filter>
+    </None>
+    <None Include="..\assets\LuaGameScripts\OrganismDNA.lua">
+      <Filter>LuaScripts</Filter>
+    </None>
   </ItemGroup>
 </Project>

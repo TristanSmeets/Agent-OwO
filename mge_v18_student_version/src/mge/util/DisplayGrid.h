@@ -3,6 +3,7 @@
 
 #include <SFML/Graphics.hpp>
 #include <vector>
+#include "mge/util/DrawRectangle.hpp"
 
 /*Class that creates and renders a grid of rectangles through SFML*/
 class DisplayGrid
@@ -12,6 +13,7 @@ public:
 	virtual ~DisplayGrid();
 	void Draw();
 	void SetRectangleColour(const sf::Color &colour, const sf::Vector2i &position);
+	static void AddDrawRectangle(DrawRectangle* rectangle);
 
 private:
 	sf::RenderWindow * window;
@@ -21,6 +23,8 @@ private:
 	int rows;
 	float squareSize;
 	void setupGrid();
+	static std::vector<DrawRectangle*> rectangles;
+	void initializeLuaDrawRectangle();
 };
 
 #endif // !DISPLAYGRID_H

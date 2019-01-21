@@ -4,7 +4,10 @@
 #include "LuaWrapper.hpp"
 #include <GL/glew.h>
 #include <iostream>
+#include "mge/util/DrawRectangle.hpp"
+#include <vector>
 
+std::vector<DrawRectangle*> DisplayGrid::rectangles;
 
 DisplayGrid::DisplayGrid(sf::RenderWindow * renderWindow) : window(renderWindow)
 {
@@ -12,6 +15,7 @@ DisplayGrid::DisplayGrid(sf::RenderWindow * renderWindow) : window(renderWindow)
 
 	std::cout << "Setting up DisplayGrid" << std::endl;
 	setupGrid();
+	initializeLuaDrawRectangle();
 }
 
 DisplayGrid::~DisplayGrid()
@@ -45,6 +49,11 @@ void DisplayGrid::SetRectangleColour(const sf::Color &colour, const sf::Vector2i
 	rectangle2DVector[position.y][position.x].setFillColor(colour);
 }
 
+void DisplayGrid::AddDrawRectangle(DrawRectangle* rectangle)
+{
+	rectangles.push_back(rectangle);
+}
+
 void DisplayGrid::setupGrid()
 {
 	lua_State *config = LuaWrapper::InitializeLuaState("config.lua");
@@ -68,4 +77,9 @@ void DisplayGrid::setupGrid()
 			rectangle2DVector[Row][Column].setFillColor(sf::Color::Magenta);
 		}
 	}
+}
+
+void DisplayGrid::initializeLuaDrawRectangle()
+{
+	DrawRectangle::InitializeLua();
 }

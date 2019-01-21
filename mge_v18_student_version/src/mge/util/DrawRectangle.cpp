@@ -2,26 +2,38 @@
 
 DrawRectangle::DrawRectangle()
 {
+	rectangle = new sf::RectangleShape();
 }
 
 DrawRectangle::~DrawRectangle()
 {
 }
 
-void DrawRectangle::SetXY(int xValue, int yValue)
+static const struct luaL_Reg DrawRectangleMetaLib[] =
 {
-	x = xValue;
-	y = yValue;
+	{"UpdateRectangle", DrawRectangle::luaUpdateRectangle},
+	{NULL, NULL}
+};
+
+static const struct luaL_Reg DrawRectangleLib[] =
+{
+	{"New", DrawRectangle::luaNewDrawRectangle},
+	{NULL, NULL}
+};
+
+void DrawRectangle::SetXY(float xValue, float yValue)
+{
+	rectangle->setPosition(xValue, yValue);
 }
 
-void DrawRectangle::SetSquareSize(int size)
+void DrawRectangle::SetSquareSize(float size)
 {
-	squareSize = size;
+	rectangle->setSize(sf::Vector2f(size, size));
 }
 
 void DrawRectangle::SetColour(float r, float g, float b, float a)
 {
-	rectangle.setFillColor(sf::Color(
+	rectangle->setFillColor(sf::Color(
 		std::ceil(r * 255),
 		std::ceil(g * 255),
 		std::ceil(b * 255),
@@ -31,8 +43,8 @@ void DrawRectangle::SetColour(float r, float g, float b, float a)
 int DrawRectangle::luaNewDrawRectangle(lua_State * lua)
 {
 	DrawRectangle* rectangle;
-	int x = LuaWrapper::GetNumber<int>(lua);
-	int y = LuaWrapper::GetNumber<int>(lua);
+	float x = LuaWrapper::GetNumber<float>(lua);
+	float y = LuaWrapper::GetNumber<float>(lua);
 	int squareSize = LuaWrapper::GetNumber<int>(lua);
 	//Getting RGBA values from the table.
 	float red = LuaWrapper::GetTableValue<float>(lua, "colour", "r");
@@ -50,26 +62,35 @@ int DrawRectangle::luaNewDrawRectangle(lua_State * lua)
 
 int DrawRectangle::luaUpdateRectangle(lua_State * lua)
 {
-	DrawRectangle* rectangle = static_cast<DrawRectangle*>(lua_touserdata(lua, 1));
-	float red = LuaWrapper::GetTableValue<float>(lua, "colour", "r");
-	float green = LuaWrapper::GetTableValue<float>(lua, "colour", "g");
-	float blue = LuaWrapper::GetTableValue<float>(lua, "colour", "b");
-	float alpha = LuaWrapper::GetTableValue<float>(lua, "colour", "a");
-	rectangle->SetColour(red, green, blue, alpha);
+	DrawRectangle* rectangle;
+	if (luaL_checkudata(lua, 1, "drawRectangle"))
+	{
+		rectangle = static_cast<DrawRectangle*>(lua_touserdata(lua, 1));
+	}
+	if (rectangle != nullptr)
+	{
+		float red = LuaWrapper::GetTableValue<float>(lua, "colour", "r");
+		float green = LuaWrapper::GetTableValue<float>(lua, "colour", "g");
+		float blue = LuaWrapper::GetTableValue<float>(lua, "colour", "b");
+		float alpha = LuaWrapper::GetTableValue<float>(lua, "colour", "a");
+		rectangle->SetColour(red, green, blue, alpha);
+	}
 	return 0;
 }
 
-static const struct luaL_Reg DrawRectangleMetaLib[] =
+int DrawRectangle::luaDraw(lua_State * lua)
 {
-	{"UpdateRectangle", DrawRectangle::luaUpdateRectangle},
-	{NULL, NULL}
-};
+	DrawRectangle* rectangle;
+	if (luaL_checkudata(lua, 1, "drawRectangle"))
+		rectangle = static_cast<DrawRectangle*>(lua_touserdata(lua, 1));
+	if (rectangle != nullptr)
+	{
 
-static const struct luaL_Reg DrawRectangleLib [] =
-{
-	{"New", DrawRectangle::luaNewDrawRectangle},
-	{NULL, NULL}
-};
+	}
+	
+	
+	return 0;
+}
 
 void DrawRectangle::InitializeLua()
 {

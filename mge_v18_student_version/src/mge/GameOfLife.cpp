@@ -13,6 +13,9 @@
 #include "mge/materials/AbstractMaterial.hpp"
 #include "mge/materials/ColorMaterial.hpp"
 #include "mge/materials/TextureMaterial.hpp"
+//Behaviour
+#include "mge/behaviours/LuaBehaviour.hpp"
+#include <lua.hpp>
 
 #include "GameOfLife.h"
 
@@ -38,10 +41,17 @@ void GameOfLife::_initializeScene()
 	Camera* camera = new Camera("camera", glm::vec3(0, 0, 15));
 	_world->add(camera);
 	_world->setMainCamera(camera);
+
+	GameObject* luaObject = new GameObject("LuaObject");
+	main = LuaWrapper::InitializeLuaState("Main.lua");
+	luaObject->setBehaviour(new LuaBehaviour(main));
+	_world->add(luaObject);
 }
 
 void GameOfLife::_render()
 {
 	AbstractGame::_render();
 	displayGrid->Draw();
+	lua_getglobal(main, "Draw");
+	lua_call(main, 0, 0);
 }

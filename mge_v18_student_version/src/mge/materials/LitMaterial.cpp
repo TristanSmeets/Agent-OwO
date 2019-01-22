@@ -18,6 +18,8 @@ LitMaterial::LitMaterial(SpecularData* specularData) : specularData(specularData
 
 LitMaterial::~LitMaterial()
 {
+	delete shader;
+	delete specularData;
 }
 
 void LitMaterial::render(World* pWorld, Mesh* pMesh, const glm::mat4& pModelMatrix, const glm::mat4& pViewMatrix, const glm::mat4& pProjectionMatrix)

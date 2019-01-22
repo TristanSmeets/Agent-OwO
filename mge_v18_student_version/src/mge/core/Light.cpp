@@ -17,7 +17,9 @@ Light::Light(const std::string& pName,
 	add(directionCube);
 }
 
-Light::~Light() {
+Light::~Light() 
+{
+	delete data;
 }
 
 //Override setWorldRecursively to make sure we are registered

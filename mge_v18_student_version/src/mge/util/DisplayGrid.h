@@ -19,12 +19,7 @@ private:
 	sf::RenderWindow * window;
 	std::vector<std::vector<sf::RectangleShape>> rectangle2DVector;
 	sf::RectangleShape rectangle;
-	int columns;
-	int rows;
-	float squareSize;
-	void setupGrid();
 	static std::vector<DrawRectangle*> rectangles;
-	void initializeLuaDrawRectangle();
 };
 
 #endif // !DISPLAYGRID_H

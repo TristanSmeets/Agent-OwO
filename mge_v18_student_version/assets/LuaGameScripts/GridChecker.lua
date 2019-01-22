@@ -1,7 +1,7 @@
 GridChecker = {}
 
 --Requires
-require("GridGenerator")
+require("LuaGameScripts\\GridGenerator")
 
 --Local variables
 local columns = nil
@@ -45,7 +45,7 @@ end
     For each Organism it checks how many live neighbours it has.
     Checks if the Organism should be alive in the next generation and sets it's status.
     Returns the grid with updated values]]
-function GridChecker:NewOrganismGrid(gameGrid, totalColumns, totalRows, squareSize, DNA)
+function GridChecker:UpdatedOrganismGrid(gameGrid, totalColumns, totalRows, squareSize, DNA)
   columns = totalColumns
   rows = totalRows
 

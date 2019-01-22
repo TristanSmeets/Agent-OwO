@@ -3,9 +3,13 @@
 #include <iostream>
 #include "mge/util/LuaWrapper.hpp"
 #include <lua.hpp>
+#include "mge/util/DrawRectangle.hpp"
 
 LuaBehaviour::LuaBehaviour(lua_State* luaState) : AbstractBehaviour(), main(luaState)
 {
+	//Initializing the DrawRectangle UserData
+	DrawRectangle::InitializeLua();
+
 	//Construction of things goes here
 	lua_State* config = LuaWrapper::InitializeLuaState("LuaGameScripts\\config.lua");
 	int screenWidth = LuaWrapper::GetNumber<int>(config, "ScreenWidth");

@@ -15,9 +15,9 @@ public:
 	void SetXY(float xValue, float yValue);
 	void SetSquareSize(float size);
 	void SetColour(float r, float g, float b, float a);
+	sf::RectangleShape& GetRectangleShape();
 	static int luaNewDrawRectangle(lua_State *lua);
 	static int luaUpdateRectangle(lua_State *lua);
-	static int luaDraw(lua_State *lua);
 	static void InitializeLua();
 private:
 	sf::RectangleShape* rectangle;

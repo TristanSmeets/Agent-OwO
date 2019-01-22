@@ -11,7 +11,7 @@ lua_State* LuaWrapper::InitializeLuaState(const std::string& filePath)
 	std::cout << "Loading file: " << filePath << std::endl;
 	std::cout << filePath <<" at: " << lua << std::endl;
 	luaL_loadfile(lua, filePath.c_str());
-	lua_call(lua, 0, 0);
+	lua_pcall(lua, 0, 0, 0);
 	std::cout << filePath << " initialized at: " << lua <<std::endl;
 	return lua;
 }

@@ -27,6 +27,7 @@ void ColorMaterial::_lazyInitializeShader() {
 ColorMaterial::~ColorMaterial()
 {
     //dtor
+	delete _shader;
 }
 
 void ColorMaterial::setDiffuseColor(glm::vec3 pDiffuseColor) {

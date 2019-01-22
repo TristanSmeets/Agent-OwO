@@ -1,13 +1,16 @@
 #include "mge/util/DrawRectangle.hpp"
+#include "mge/util/DisplayGrid.h"
 #include <iostream>
 
 DrawRectangle::DrawRectangle()
 {
 	rectangle = new sf::RectangleShape();
+	DisplayGrid::AddDrawRectangle(this);
 }
 
 DrawRectangle::~DrawRectangle()
 {
+	delete rectangle;
 }
 
 static const struct luaL_Reg DrawRectangleMetaLib[] =
@@ -41,23 +44,29 @@ void DrawRectangle::SetColour(float r, float g, float b, float a)
 		std::ceil(a * 255)));
 }
 
+sf::RectangleShape& DrawRectangle::GetRectangleShape()
+{
+	return (*rectangle);
+}
+
 int DrawRectangle::luaNewDrawRectangle(lua_State * lua)
 {
 	DrawRectangle* rectangle;
 	float x = LuaWrapper::GetNumber<float>(lua);
 	float y = LuaWrapper::GetNumber<float>(lua);
 	int squareSize = LuaWrapper::GetNumber<int>(lua);
+	
 	//Getting RGBA values from the table.
-	float red = LuaWrapper::GetTableValue<float>(lua, "colour", "r");
-	float green = LuaWrapper::GetTableValue<float>(lua, "colour", "g");
-	float blue = LuaWrapper::GetTableValue<float>(lua, "colour", "b");
-	float alpha = LuaWrapper::GetTableValue<float>(lua, "colour", "a");
+	float red = LuaWrapper::GetTableValue<float>(lua, "Colour", "r");
+	float green = LuaWrapper::GetTableValue<float>(lua, "Colour", "g");
+	float blue = LuaWrapper::GetTableValue<float>(lua, "Colour", "b");
+	float alpha = LuaWrapper::GetTableValue<float>(lua, "Colour", "a");
 
 	size_t nBytes = sizeof(DrawRectangle);
 	rectangle = static_cast<DrawRectangle*>(lua_newuserdata(lua, nBytes));
 	rectangle->SetXY(x, y);
 	rectangle->SetSquareSize(squareSize);
-	rectangle->SetColour(red, green, blue, alpha);
+	//rectangle->SetColour(red, green, blue, alpha);
 	return 1;
 }
 
@@ -79,30 +88,21 @@ int DrawRectangle::luaUpdateRectangle(lua_State * lua)
 	return 0;
 }
 
-int DrawRectangle::luaDraw(lua_State * lua)
-{
-	DrawRectangle* rectangle;
-	if (luaL_checkudata(lua, 1, "drawRectangle"))
-		rectangle = static_cast<DrawRectangle*>(lua_touserdata(lua, 1));
-	if (rectangle != nullptr)
-	{
-
-	}
-	
-	
-	return 0;
-}
-
 void DrawRectangle::InitializeLua()
 {
+	std::string drawRectangleMeta = "drawRectangleMeta";
+	std::string GlobalDrawRectangle = "DrawRectangle";
+	std::string index = "__index";
+	std::string filepath = "LuaGameScripts\\BaseOrganism.lua";
+
 	lua_State *lua = luaL_newstate();
 	luaL_openlibs(lua);
 
 	std::cout << "Creating new metatable." << std::endl;
-	luaL_newmetatable(lua, "drawRectangle");
+	luaL_newmetatable(lua, drawRectangleMeta.c_str());
 
 	std::cout << "Pushing string: __index onto stack" << std::endl;
-	lua_pushstring(lua, "__index");
+	lua_pushstring(lua, index.c_str());
 	
 	std::cout << "Pushing metatable to stack" << std::endl;
 	lua_pushvalue(lua, -2); //Pushes the metatable
@@ -113,11 +113,13 @@ void DrawRectangle::InitializeLua()
 	luaL_setfuncs(lua, DrawRectangleMetaLib, 0);
 	
 	luaL_newlib(lua, DrawRectangleLib);
-	luaL_getmetatable(lua, "drawRectangle");
-	lua_setmetatable(lua, -2);
-	lua_setglobal(lua, "DrawRectangle");
+	luaL_getmetatable(lua, drawRectangleMeta.c_str());
 
-	luaL_loadfile(lua, "LuaGameScripts/BaseOrganism.lua");
-	lua_call(lua, 0, 0);
+	lua_setmetatable(lua, -2);
+	lua_setglobal(lua, GlobalDrawRectangle.c_str());
+
+	std::cout << "Loading file: " << filepath <<  std::endl;
+	luaL_loadfile(lua, filepath.c_str());
+	lua_pcall(lua, 0, 0,0);
 }
 

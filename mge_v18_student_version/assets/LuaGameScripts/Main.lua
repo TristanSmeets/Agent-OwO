@@ -16,14 +16,23 @@ function Start(pScreenWidth, pScreenHeight, pSquareSize)
 	width = pScreenWidth
 	height = pScreenHeight
 	squareSize = pSquareSize
-	print("Width: " .. width)
-	print("Height: " .. height)
-	print("SquareSize: " .. squareSize)
 
 	columns = math.floor( width / squareSize )
 	rows = math.floor( width / squareSize )
 	print("Creating GameGrid")
 	GameGrid = GridGenerator:CreateOrganismGrid(columns, rows, squareSize, OrganismDNA)
+	
+	Colour = {r = 1, g = 0, b = 1, a = 1}
+
+	object = DrawRectangle:New()
+	--object:SetPosition(1,1)
+	--object:SetColour(Colour)
+	--object:SetSquareSize(5)
+
+	print("What is DrawRectangle:New()?")
+	print(object)
+	print("What is getmetatable(object)")
+	print(getmetatable(object))
 end
 
 function Update()

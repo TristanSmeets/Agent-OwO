@@ -29,8 +29,8 @@ int main()
     //AbstractGame* game = new MGEDemo();
 	//AbstractGame* game = new TristanScene();
 	//AbstractGame* game = new BrokenOBJ();
-	AbstractGame* game = new GameOfLife();
-	//AbstractGame* game = new TerrainScene();
+	//AbstractGame* game = new GameOfLife();
+	AbstractGame* game = new TerrainScene();
 	game->initialize();
     game->run();
 

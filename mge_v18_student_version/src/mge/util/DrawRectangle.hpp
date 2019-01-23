@@ -18,7 +18,10 @@ public:
 	sf::RectangleShape& GetRectangleShape();
 	static int luaNewDrawRectangle(lua_State *lua);
 	static int luaUpdateRectangle(lua_State *lua);
-	static void InitializeLua();
+	static int luaSetPosition(lua_State *lua);
+	static int luaSetColour(lua_State *lua);
+	static int luaSetSquareSize(lua_State *lua);
+	static void InitializeLua(lua_State* lua);
 private:
 	sf::RectangleShape* rectangle;
 	sf::Color colour;

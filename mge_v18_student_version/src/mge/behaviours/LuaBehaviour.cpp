@@ -8,7 +8,7 @@
 LuaBehaviour::LuaBehaviour(lua_State* luaState) : AbstractBehaviour(), main(luaState)
 {
 	//Initializing the DrawRectangle UserData
-	DrawRectangle::InitializeLua();
+	DrawRectangle::InitializeLua(main);
 
 	//Construction of things goes here
 	lua_State* config = LuaWrapper::InitializeLuaState("LuaGameScripts\\config.lua");
@@ -21,7 +21,9 @@ LuaBehaviour::LuaBehaviour(lua_State* luaState) : AbstractBehaviour(), main(luaS
 	lua_pushinteger(main, screenWidth);
 	lua_pushinteger(main, screenHeight);
 	lua_pushinteger(main, SquareSize);
-	lua_call(main, 3, 0);
+	int status = lua_pcall(main, 3, 0, 0);
+	if (status)
+		std::cout << "Lua Error: " << std::to_string(status) << "\n" << lua_tostring(main, -1) << "\nStack: " << lua_gettop(main) << std::endl;
 }
 
 LuaBehaviour::~LuaBehaviour()
@@ -32,6 +34,6 @@ LuaBehaviour::~LuaBehaviour()
 void LuaBehaviour::update( float pStep )
 {
 	lua_getglobal(main, "Update");
-	lua_call(main, 0, 0);
+	lua_pcall(main, 0, 0, 0);
 }
 

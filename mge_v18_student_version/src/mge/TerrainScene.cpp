@@ -35,7 +35,7 @@ void TerrainScene::initialize()
 void TerrainScene::_initializeScene()
 {
 	std::cout << "Getting paths from config.lua" << std::endl;
-	lua_State *config = LuaWrapper::InitializeLuaState("config.lua");
+	lua_State *config = LuaWrapper::InitializeLuaState("LuaGameScripts\\config.lua");
 	std::string& modelPath = LuaWrapper::GetString(config, "ObjToLoad");
 	std::string& diffuse1Path = LuaWrapper::GetString(config, "diffuse1");
 	std::string& diffuse2Path = LuaWrapper::GetString(config, "diffuse2");

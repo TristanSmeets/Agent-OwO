@@ -19,10 +19,6 @@ GameObject::~GameObject()
         remove (child);
         delete child;
     }
-	delete _behaviour;
-	delete _material;
-	delete _mesh;
-	_world = nullptr;
 
     //do not forget to delete behaviour, material, mesh, collider manually if required!
 }

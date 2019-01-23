@@ -173,11 +173,10 @@ void DrawRectangle::InitializeLua(lua_State* lua)
 	//Setting the metatable
 	luaL_newlib(lua, DrawRectangleLib);
 	luaL_getmetatable(lua, TRISTAN_LUA_METATABLE);
-
 	lua_setmetatable(lua, -2);
 	lua_setglobal(lua, TRISTAN_LUA_VARIABLE_NAME);
 
-	std::cout << "Loading file: " << TRISTAN_LUA_FILEPATH <<  std::endl;
+	//std::cout << "Loading file: " << TRISTAN_LUA_FILEPATH <<  std::endl;
 	luaL_loadfile(lua, TRISTAN_LUA_FILEPATH);
 	lua_pcall(lua, 0, 0,0);
 }

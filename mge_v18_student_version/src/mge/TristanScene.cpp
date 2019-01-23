@@ -53,13 +53,23 @@ void TristanScene::_initializeScene()
 	AbstractMaterial* bricksMaterial = new TextureMaterial(Texture::load(config::MGE_TEXTURE_PATH + "bricks.jpg"));
 	AbstractMaterial* landMaterial = new TextureMaterial(Texture::load(config::MGE_TEXTURE_PATH + "land.jpg"));
 	
-	//Creating a specularData for the litmaterial
-	SpecularData* specularData = new SpecularData();
-	specularData->Colour = glm::vec3(1, 1, 1);
-	specularData->ShininessFactor = 32;
-	specularData->Strength = 1.0f;
-	
-	AbstractMaterial* litMaterial = new LitMaterial(specularData);
+	//Creating a Material for the litmaterial
+	Material* material = new Material();
+	material->DiffuseTexture = Texture::load(config::MGE_TEXTURE_PATH + "container2.png");
+	material->SpecularTexture = Texture::load(config::MGE_TEXTURE_PATH + "container2_specular.png");
+	material->ShininessFactor = 32;
+
+	//Creating LightingData for the light
+	LightingData* data = new LightingData();
+	data->Type = LightType::POINT;
+	data->Ambient = glm::vec3(0, 1, 1);
+	data->Diffuse = glm::vec3(0, 0.5f, 0);
+	data->Specular = glm::vec3(0, 1, 1);
+	data->Constant = 1.0f;
+	data->Linear = 0.14f;
+	data->Quadratic = 0.07f;
+
+	AbstractMaterial* litMaterial = new LitMaterial(material);
 
 	//Scene setup
 
@@ -89,23 +99,16 @@ void TristanScene::_initializeScene()
 
 	std::cout << "Creating 2nd Suzanna" << std::endl;
 	GameObject* suzanna2 = new GameObject("suzanna", glm::vec3(-2, 2, 0));
-	suzanna2->setMesh(sphereMeshS);
+	suzanna2->setMesh(cubeMeshF);
 	suzanna2->setMaterial(litMaterial);
+	//suzanna2->setBehaviour(new RotatingBehaviour());
 	_world->add(suzanna2);
 
-	//Setting LightingData
-	LightingData* data = new LightingData();
-	data->Type = LightType::POINT;
-	data->Ambient = glm::vec3(1, 1, 1);
-	data->Diffuse = glm::vec3(0, 1, 0);
-	data->ambientStrength = 0.1f;
-	data->Constant = 1.0f;
-	data->Linear = 0.14f;
-	data->Quadratic = 0.07f;
+	
 
 	Light* light = new Light("light",						//Name
 		glm::vec3(0, 2, 0),									//Position
-		data);
+		data);												//Lighting variables
 
 	light->setMesh(cubeMeshF);
 	light->scale(glm::vec3(0.1f, 0.1f, 0.1f));

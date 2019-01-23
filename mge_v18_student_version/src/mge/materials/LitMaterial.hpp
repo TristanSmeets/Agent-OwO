@@ -8,16 +8,16 @@
 
 class ShaderProgram;
 
-struct SpecularData {
-	glm::vec3 Colour;
+struct Material {
+	Texture* DiffuseTexture;
+	Texture* SpecularTexture;
 	int ShininessFactor;
-	float Strength;
 };
 
 class LitMaterial : public AbstractMaterial
 {
 public:
-	LitMaterial(SpecularData* specularData);
+	LitMaterial(Material* material);
 	virtual ~LitMaterial();
 
 	virtual void render(World* pWorld, Mesh* pMesh, const glm::mat4& pModelMatrix, const glm::mat4& pViewMatrix, const glm::mat4& pProjectionMatrix) override;
@@ -25,7 +25,9 @@ public:
 private:
 	static ShaderProgram* shader;
 	static void lazyInitializeShader();
-	SpecularData* specularData;
+	Material* material;
+	static GLint uDiffuseTexture;
+	static GLint uSpecularTexture;
 };
 
 #endif

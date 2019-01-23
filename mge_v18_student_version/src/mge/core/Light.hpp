@@ -12,7 +12,7 @@ struct LightingData
 	LightType Type;
 	glm::vec3 Ambient;
 	glm::vec3 Diffuse;
-	float ambientStrength;
+	glm::vec3 Specular;
 	float Constant;
 	float Linear;
 	float Quadratic;
@@ -39,11 +39,11 @@ class Light : public GameObject
 		//Ambient
 		void SetAmbientColour(glm::vec3 colour);
 		glm::vec3 GetAmbientColour();
-		void SetAmbientStrength(float value);
-		float GetAmbientStrength();
 		//Diffuse
 		void SetDiffuseColour(glm::vec3 colour);
 		glm::vec3 GetDiffuseColour();
+		void SetSpecularColour(glm::vec3 colour);
+		glm::vec3 GetSpecularColour();
 		void SetLightConstant(float value);
 		float GetLightConstant();
 		void SetLightLinear(float value);

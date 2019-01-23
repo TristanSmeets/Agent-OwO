@@ -10,14 +10,18 @@
 #include "mge/core/Camera.hpp"
 
 ShaderProgram* LitMaterial::shader = NULL;
+GLint LitMaterial::uDiffuseTexture = 0;
+GLint LitMaterial::uSpecularTexture = 0;
 
-LitMaterial::LitMaterial(SpecularData* specularData) : specularData(specularData)
+LitMaterial::LitMaterial(Material* specularData) : material(specularData)
 {
 	lazyInitializeShader();
 }
 
 LitMaterial::~LitMaterial()
 {
+	delete shader;
+	delete material;
 }
 
 void LitMaterial::render(World* pWorld, Mesh* pMesh, const glm::mat4& pModelMatrix, const glm::mat4& pViewMatrix, const glm::mat4& pProjectionMatrix)
@@ -41,24 +45,15 @@ void LitMaterial::render(World* pWorld, Mesh* pMesh, const glm::mat4& pModelMatr
 				glm::vec4 DirectionVector = glm::vec4(light->GetForward(), 0.0f);
 				glUniform4fv(shader->getUniformLocation("light.position"), 1, glm::value_ptr(DirectionVector));
 			}
-			//Set ambientColour
+			//Set light ambientColour
 			glUniform3fv(shader->getUniformLocation("light.ambient"), 1, glm::value_ptr(light->GetAmbientColour()));
 
-			//Set diffuseColour
+			//Set light diffuseColour
 			glUniform3fv(shader->getUniformLocation("light.diffuse"), 1, glm::value_ptr(light->GetDiffuseColour()));
-
-			//Set specularColour
-			glUniform3fv(shader->getUniformLocation("light.specular"), 1, glm::value_ptr(specularData->Colour));
-
-			//Set intensity
-			glUniform1f(shader->getUniformLocation("light.ambientStrength"), light->GetAmbientStrength());
-
-			//Set SpecularStrength
-			glUniform1f(shader->getUniformLocation("light.specularStrength"), specularData->Strength);
 			
-			//Set shininess highlight
-			glUniform1i(shader->getUniformLocation("light.shininessFactor"), specularData->ShininessFactor);
-
+			//Set light specularColour
+			glUniform3fv(shader->getUniformLocation("light.specular"), 1, glm::value_ptr(light->GetSpecularColour()));
+			
 			//Set LightConstant
 			glUniform1f(shader->getUniformLocation("light.constant"), light->GetLightConstant());
 
@@ -69,9 +64,13 @@ void LitMaterial::render(World* pWorld, Mesh* pMesh, const glm::mat4& pModelMatr
 			glUniform1f(shader->getUniformLocation("light.quadratic"), light->GetLightQuadratic());
 		}
 		
-		//Set Object Colour;
-		glUniform3fv(shader->getUniformLocation("objectColour"), 1, glm::value_ptr(glm::vec3(1, 1, 1)));
-		
+		//Setting material DiffuseTexture
+		shader->setTextureSlot(material->DiffuseTexture, uDiffuseTexture, 0);
+		//Setting material SpecularTexture
+		shader->setTextureSlot(material->SpecularTexture, uSpecularTexture, 1);
+		//Set Material shininessFactor
+		glUniform1f(shader->getUniformLocation("material.shininessFactor"), material->ShininessFactor);
+
 		//Set view position
 		Camera* camera = pWorld->getMainCamera();
 		glm::vec3 cameraPos = camera->getWorldPosition();
@@ -98,6 +97,10 @@ void LitMaterial::lazyInitializeShader()
 		shader = new ShaderProgram();
 		shader->addShader(GL_VERTEX_SHADER, config::MGE_SHADER_PATH + "lit.vs");
 		shader->addShader(GL_FRAGMENT_SHADER, config::MGE_SHADER_PATH + "lit.fs");
+
+		uDiffuseTexture = shader->getUniformLocation("material.diffuse");
+		uSpecularTexture = shader->getUniformLocation("material.specular");
+
 		shader->finalize();
 	}
 }

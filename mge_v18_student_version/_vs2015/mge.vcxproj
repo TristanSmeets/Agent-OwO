@@ -233,12 +233,42 @@
     <ClCompile Include="..\src\mge\util\LuaWrapper.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\assets\LuaGameScripts\BaseOrganism.lua" />
-    <None Include="..\assets\LuaGameScripts\config.lua" />
-    <None Include="..\assets\LuaGameScripts\GridChecker.lua" />
-    <None Include="..\assets\LuaGameScripts\GridGenerator.lua" />
-    <None Include="..\assets\LuaGameScripts\Main.lua" />
-    <None Include="..\assets\LuaGameScripts\OrganismDNA.lua" />
+    <CopyFileToFolders Include="..\assets\LuaGameScripts\BaseOrganism.lua">
+      <FileType>Document</FileType>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug Static|Win32'">false</ExcludedFromBuild>
+      <DestinationFolders Condition="'$(Configuration)|$(Platform)'=='Debug Static|Win32'">$(OutDir)\LuaGameScripts</DestinationFolders>
+      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Debug Static|Win32'">true</DeploymentContent>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="..\assets\LuaGameScripts\config.lua">
+      <FileType>Document</FileType>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug Static|Win32'">false</ExcludedFromBuild>
+      <DestinationFolders Condition="'$(Configuration)|$(Platform)'=='Debug Static|Win32'">$(OutDir)\LuaGameScripts</DestinationFolders>
+      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Debug Static|Win32'">true</DeploymentContent>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="..\assets\LuaGameScripts\GridChecker.lua">
+      <FileType>Document</FileType>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug Static|Win32'">false</ExcludedFromBuild>
+      <DestinationFolders Condition="'$(Configuration)|$(Platform)'=='Debug Static|Win32'">$(OutDir)\LuaGameScripts</DestinationFolders>
+      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Debug Static|Win32'">true</DeploymentContent>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="..\assets\LuaGameScripts\GridGenerator.lua">
+      <FileType>Document</FileType>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug Static|Win32'">false</ExcludedFromBuild>
+      <DestinationFolders Condition="'$(Configuration)|$(Platform)'=='Debug Static|Win32'">$(OutDir)\LuaGameScripts</DestinationFolders>
+      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Debug Static|Win32'">true</DeploymentContent>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="..\assets\LuaGameScripts\Main.lua">
+      <FileType>Document</FileType>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug Static|Win32'">false</ExcludedFromBuild>
+      <DestinationFolders Condition="'$(Configuration)|$(Platform)'=='Debug Static|Win32'">$(OutDir)\LuaGameScripts</DestinationFolders>
+      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Debug Static|Win32'">true</DeploymentContent>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="..\assets\LuaGameScripts\OrganismDNA.lua">
+      <FileType>Document</FileType>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug Static|Win32'">false</ExcludedFromBuild>
+      <DestinationFolders Condition="'$(Configuration)|$(Platform)'=='Debug Static|Win32'">$(OutDir)\LuaGameScripts</DestinationFolders>
+      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Debug Static|Win32'">true</DeploymentContent>
+    </CopyFileToFolders>
     <None Include="ClassDiagram.cd" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

@@ -17,7 +17,9 @@ Light::Light(const std::string& pName,
 	add(directionCube);
 }
 
-Light::~Light() {
+Light::~Light() 
+{
+	delete data;
 }
 
 //Override setWorldRecursively to make sure we are registered
@@ -65,6 +67,16 @@ glm::vec3 Light::GetDiffuseColour()
 	return data->Diffuse;
 }
 
+void Light::SetSpecularColour(glm::vec3 colour)
+{
+	data->Specular = colour;
+}
+
+glm::vec3 Light::GetSpecularColour()
+{
+	return data->Specular;;
+}
+
 void Light::SetLightConstant(float value)
 {
 	data->Constant = value;
@@ -93,16 +105,6 @@ void Light::SetLightQuadratic(float value)
 float Light::GetLightQuadratic()
 {
 	return data->Quadratic;
-}
-
-void Light::SetAmbientStrength(float value)
-{
-	data->ambientStrength = value;
-}
-
-float Light::GetAmbientStrength()
-{
-	return data->ambientStrength;
 }
 
 glm::vec3 Light::GetForward()

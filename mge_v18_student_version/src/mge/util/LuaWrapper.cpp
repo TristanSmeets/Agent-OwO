@@ -5,14 +5,16 @@
 
 lua_State* LuaWrapper::InitializeLuaState(const std::string& filePath)
 {
-	std::cout << "Initializing lua_State..." << std::endl;
+	//std::cout << "Initializing lua_State..." << std::endl;
 	lua_State *lua = luaL_newstate();
 	luaL_openlibs(lua);
-	std::cout << "Loading file: " << filePath << std::endl;
-	std::cout << filePath <<" at: " << lua << std::endl;
+	//std::cout << "Loading file: " << filePath << std::endl;
+	//std::cout << filePath <<" at: " << lua << std::endl;
 	luaL_loadfile(lua, filePath.c_str());
-	lua_call(lua, 0, 0);
-	std::cout << filePath << " initialized at: " << lua <<std::endl;
+	//std::cout << filePath << " initialized at: " << lua <<std::endl;
+	int status = lua_pcall(lua, 0, 0, 0, 0);
+	if (status)
+		std::cout << "Lua Error: " << std::to_string(status) << "\n" << lua_tostring(lua, -1) << "\nStack: " << lua_gettop(lua) << std::endl;
 	return lua;
 }
 
@@ -31,6 +33,6 @@ std::string LuaWrapper::GetString(lua_State* luaState, const std::string& variab
 
 void LuaWrapper::CloseLuaState(lua_State * luaState)
 {
-	std::cout << "Closing lua_State at " << luaState << std::endl;
+	//std::cout << "Closing lua_State at " << luaState << std::endl;
 	lua_close(luaState);
 }

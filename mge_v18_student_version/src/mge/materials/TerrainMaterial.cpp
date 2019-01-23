@@ -29,6 +29,8 @@ TerrainMaterial::TerrainMaterial(TerrainTexture* terrain) : terrainTexture(terra
 
 TerrainMaterial::~TerrainMaterial()
 {
+	delete terrainTexture;
+	delete shader;
 }
 
 void TerrainMaterial::SetTerrainTexture(TerrainTexture * terrainTexture)

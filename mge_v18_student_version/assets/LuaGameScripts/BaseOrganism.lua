@@ -8,6 +8,8 @@ function BaseOrganism:new(x, y, squareSize, organismDNA)
   baseOrganism.y = y
   baseOrganism.squareSize = squareSize
   baseOrganism.DNA = organismDNA
+  --print(DrawRectangle)
+  --baseOrganism.rectangle = DrawRectangle.New(x,y, squareSize, organismDNA.Colour);
   return baseOrganism
 end
 

@@ -214,23 +214,25 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram.cd" />
-    <None Include="..\assets\LuaGameScripts\BaseOrganism.lua">
+  </ItemGroup>
+  <ItemGroup>
+    <CopyFileToFolders Include="..\assets\LuaGameScripts\OrganismDNA.lua">
       <Filter>LuaScripts</Filter>
-    </None>
-    <None Include="..\assets\LuaGameScripts\config.lua">
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="..\assets\LuaGameScripts\Main.lua">
       <Filter>LuaScripts</Filter>
-    </None>
-    <None Include="..\assets\LuaGameScripts\GridChecker.lua">
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="..\assets\LuaGameScripts\GridGenerator.lua">
       <Filter>LuaScripts</Filter>
-    </None>
-    <None Include="..\assets\LuaGameScripts\GridGenerator.lua">
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="..\assets\LuaGameScripts\GridChecker.lua">
       <Filter>LuaScripts</Filter>
-    </None>
-    <None Include="..\assets\LuaGameScripts\Main.lua">
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="..\assets\LuaGameScripts\config.lua">
       <Filter>LuaScripts</Filter>
-    </None>
-    <None Include="..\assets\LuaGameScripts\OrganismDNA.lua">
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="..\assets\LuaGameScripts\BaseOrganism.lua">
       <Filter>LuaScripts</Filter>
-    </None>
+    </CopyFileToFolders>
   </ItemGroup>
 </Project>

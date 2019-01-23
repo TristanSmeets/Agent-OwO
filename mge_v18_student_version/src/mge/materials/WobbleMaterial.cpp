@@ -24,6 +24,7 @@ WobbleMaterial::WobbleMaterial(Texture * diffuseTexture): diffuseTexture(diffuse
 
 WobbleMaterial::~WobbleMaterial()
 {
+	delete shader;
 }
 
 void WobbleMaterial::render(World * pWorld, Mesh * pMesh, const glm::mat4 & pModelMatrix, const glm::mat4 & pViewMatrix, const glm::mat4 & pProjectionMatrix)

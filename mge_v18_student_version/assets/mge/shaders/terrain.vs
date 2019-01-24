@@ -14,7 +14,7 @@ out vec2 texCoord; //make sure the texture coord is interpolated
 void main(void)
 {
     vec3 newVertexPosition = vertex;
-    newVertexPosition.y = texture(heightMap, uv).r;
+    newVertexPosition.y =   (2 * normalize(texture(heightMap, uv))).r;
     gl_Position = mvpMatrix * vec4(newVertexPosition, 1.0f);
     texCoord = uv;
 }

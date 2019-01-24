@@ -16,7 +16,8 @@ void main (void)
 {
     vec4 splatTexture = texture2D(splatMap, texCoord);
     vec4 diffuse1 = texture2D(diffuseTexture1, texCoord);
-    vec4 diffuse2 = texture2D(diffuseTexture2, texCoord * cos(time)) ;
+    vec2 animatedUV = vec2(texCoord.x - cos(time), texCoord.y + sin(time));
+    vec4 diffuse2 = texture2D(diffuseTexture2, animatedUV);
     vec4 diffuse3 = texture2D(diffuseTexture3, texCoord);
     vec4 diffuse4 = texture2D(diffuseTexture4, texCoord);
 

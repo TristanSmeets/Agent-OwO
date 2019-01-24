@@ -33,18 +33,28 @@ void LitMaterial::render(World* pWorld, Mesh* pMesh, const glm::mat4& pModelMatr
 		for (int index = 0; index < pWorld->getLightCount(); index++)
 		{
 			Light* light = pWorld->getLightAt(index);
-			if (light->GetLightType() == LightType::POINT)
+			
+			//Set light type
+
+			switch (light->GetLightType())
 			{
-				//Set Light position
-				glm::vec4 PositionVector = glm::vec4(light->getWorldPosition(), 1.0f);
-				glUniform4fv(shader->getUniformLocation("light.position"), 1, glm::value_ptr(PositionVector));
+			case LightType::DIRECTIONAL:
+				glUniform1i(shader->getUniformLocation("light.type"), 0);
+				break;
+			case LightType::POINT:
+				glUniform1i(shader->getUniformLocation("light.type"), 1);
+				break;
+			case LightType::SPOTLIGHT:
+				glUniform1i(shader->getUniformLocation("light.type"), 2);
+				break;
 			}
-			else if (light->GetLightType() == LightType::DIRECTIONAL)
-			{
-				//Get lights forward vector.
-				glm::vec4 DirectionVector = glm::vec4(light->GetForward(), 0.0f);
-				glUniform4fv(shader->getUniformLocation("light.position"), 1, glm::value_ptr(DirectionVector));
-			}
+
+			//Set light position
+			glUniform3fv(shader->getUniformLocation("light.position"), 1, glm::value_ptr(light->getWorldPosition()));
+
+			//Set light direction
+			glUniform3fv(shader->getUniformLocation("light.direction"), 1, glm::value_ptr(light->GetForward()));
+
 			//Set light ambientColour
 			glUniform3fv(shader->getUniformLocation("light.ambient"), 1, glm::value_ptr(light->GetAmbientColour()));
 
@@ -62,6 +72,12 @@ void LitMaterial::render(World* pWorld, Mesh* pMesh, const glm::mat4& pModelMatr
 
 			//Set LightQuadratic
 			glUniform1f(shader->getUniformLocation("light.quadratic"), light->GetLightQuadratic());
+
+			//Set Light CutOff
+			glUniform1f(shader->getUniformLocation("light.cutOff"), light->GetLightCutOff());
+
+			//Set Light OuterCutOff
+			glUniform1f(shader->getUniformLocation("light.outerCutOff"), light->GetLightOuterCutOff());
 		}
 		
 		//Setting material DiffuseTexture

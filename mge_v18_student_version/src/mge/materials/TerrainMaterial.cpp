@@ -63,7 +63,7 @@ void TerrainMaterial::render(World * pWorld, Mesh * pMesh, const glm::mat4 & pMo
 	setTextureSlot(terrainTexture->Diffuse4, uDiffuseTexture4, 5);
 	
 	//Set time Uniform
-	glUniform1f(uTime, clock() / 1000);
+	glUniform1f(uTime, clock() / 1000.0f);
 
 	//pass in a precalculated mvp matrix
 	glm::mat4 mvpMatrix = pProjectionMatrix * pViewMatrix * pModelMatrix;

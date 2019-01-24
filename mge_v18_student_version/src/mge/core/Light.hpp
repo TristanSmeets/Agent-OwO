@@ -5,7 +5,7 @@
 #include "mge/core/GameObject.hpp"
 #include "SFML/Graphics.hpp"
 
-enum LightType { DIRECTIONAL, POINT };
+enum LightType { DIRECTIONAL, POINT, SPOTLIGHT };
 
 struct LightingData
 {
@@ -16,6 +16,8 @@ struct LightingData
 	float Constant;
 	float Linear;
 	float Quadratic;
+	float CutOff;
+	float OuterCutOff;
 };
 
 
@@ -50,7 +52,10 @@ class Light : public GameObject
 		float GetLightLinear();
 		void SetLightQuadratic(float value);
 		float GetLightQuadratic();
-		
+		void SetLightCutOff(float value);
+		float GetLightCutOff();
+		void SetLightOuterCutOff(float value);
+		float GetLightOuterCutOff();
 		
 		glm::vec3 GetForward();
 

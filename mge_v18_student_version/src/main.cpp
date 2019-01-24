@@ -27,10 +27,10 @@ int main()
     std::cout << "Starting Game" << std::endl;
 
     //AbstractGame* game = new MGEDemo();
-	AbstractGame* game = new TristanScene();
-	//AbstractGame* game = new BrokenOBJ();
-	//AbstractGame* game = new GameOfLife();
-	//AbstractGame* game = new TerrainScene();
+	//AbstractGame* game = new TristanScene();			//Assignment 1 + 3
+	//AbstractGame* game = new BrokenOBJ();				//Assignment 2
+	//AbstractGame* game = new TerrainScene();			//Assignment 4
+	AbstractGame* game = new GameOfLife();
 	game->initialize();
     game->run();
 

@@ -34,7 +34,7 @@ void BrokenOBJ::initialize()
 
 void BrokenOBJ::_initializeScene()
 {
-	lua_State *config = LuaWrapper::InitializeLuaState("config.lua");
+	lua_State *config = LuaWrapper::InitializeLuaState("LuaGameScripts\\config.lua");
 	std::string& modelPath = LuaWrapper::GetString(config, "ModelToLoad");
 	std::string& texturePath = LuaWrapper::GetString(config, "TextureToLoad");
 

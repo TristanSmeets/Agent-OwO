@@ -107,6 +107,26 @@ float Light::GetLightQuadratic()
 	return data->Quadratic;
 }
 
+void Light::SetLightCutOff(float value)
+{
+	data->CutOff = value;
+}
+
+float Light::GetLightCutOff()
+{
+	return glm::cos(glm::radians(data->CutOff));
+}
+
+void Light::SetLightOuterCutOff(float value)
+{
+	data->OuterCutOff = value;
+}
+
+float Light::GetLightOuterCutOff()
+{
+	return glm::cos(glm::radians(data->OuterCutOff));
+}
+
 glm::vec3 Light::GetForward()
 {
 	return getWorldTransform()[2];

@@ -61,13 +61,15 @@ void TristanScene::_initializeScene()
 
 	//Creating LightingData for the light
 	LightingData* data = new LightingData();
-	data->Type = LightType::POINT;
-	data->Ambient = glm::vec3(0, 1, 1);
-	data->Diffuse = glm::vec3(0, 0.5f, 0);
-	data->Specular = glm::vec3(0, 1, 1);
+	data->Type = LightType::SPOTLIGHT;
+	data->Ambient = glm::vec3(1, 1, 1);
+	data->Diffuse = glm::vec3(1, 1, 1);
+	data->Specular = glm::vec3(1, 1, 1);
 	data->Constant = 1.0f;
 	data->Linear = 0.14f;
 	data->Quadratic = 0.07f;
+	data->CutOff = 12.5f;
+	data->OuterCutOff = 15.5f;
 
 	AbstractMaterial* litMaterial = new LitMaterial(material);
 

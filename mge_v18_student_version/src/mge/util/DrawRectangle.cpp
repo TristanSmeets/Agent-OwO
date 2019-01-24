@@ -19,7 +19,6 @@ DrawRectangle::~DrawRectangle()
 	delete rectangle;
 }
 
-
 static const struct luaL_Reg MetaLib[] =
 {
 	{"SetColour", DrawRectangle::luaSetColour},
@@ -82,6 +81,8 @@ int DrawRectangle::luaNewDrawRectangle(lua_State * lua)
 	//rectangle->SetXY(x, y);
 	//rectangle->SetSquareSize(squareSize);
 	//rectangle->SetColour(red, green, blue, alpha);
+	luaL_getmetatable(lua, TRISTAN_LUA_METATABLE);
+	lua_setmetatable(lua, -2);
 	return 1;
 }
 
@@ -155,16 +156,16 @@ void DrawRectangle::InitializeLua(lua_State* lua)
 {	
 	luaL_openlibs(lua);
 
-	//Creating new metatable.
+	//Creating new metatable and puts it on the lua stack at -1
 	luaL_newmetatable(lua, TRISTAN_LUA_METATABLE);
 
-	//Pushing string: __index onto stack
+	//Pushing string: __index onto stack. __index at -1. metatable at -2
 	lua_pushstring(lua, TRISTAN_LUA_INDEX);
 
-	//Pushing metatable to stack
+	//Pushing a copy of the metatable to the top of the stack.
 	lua_pushvalue(lua, -2);
 	
-	//Setting metatable
+	//Setting table on stack
 	lua_settable(lua, -3);
 
 	//Setting metatable functions
@@ -176,7 +177,6 @@ void DrawRectangle::InitializeLua(lua_State* lua)
 	lua_setmetatable(lua, -2);
 	lua_setglobal(lua, TRISTAN_LUA_VARIABLE_NAME);
 
-	//std::cout << "Loading file: " << TRISTAN_LUA_FILEPATH <<  std::endl;
 	luaL_loadfile(lua, TRISTAN_LUA_FILEPATH);
 	lua_pcall(lua, 0, 0,0);
 }

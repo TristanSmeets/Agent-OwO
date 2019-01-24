@@ -87,14 +87,14 @@ void TristanScene::_initializeScene()
 	GameObject* plane = new GameObject("plane", glm::vec3(0, 0, 0));
 	plane->scale(glm::vec3(5, 5, 5));
 	plane->setMesh(planeMeshDefault);
-	plane->setMaterial(litMaterial);
+	plane->setMaterial(runicStoneMaterial);
 	_world->add(plane);
 
 	//Add a monkey head with the runicStone Material
 	std::cout << "Creating Suzanna" << std::endl;
 	GameObject* suzanna = new GameObject("suzanna", glm::vec3(2, 2, 0));
 	suzanna->scale(glm::vec3(1, 1, 1));
-	suzanna->setMesh(sphereMeshS);
+	suzanna->setMesh(suzannaMeshS);
 	suzanna->setMaterial(litMaterial);
 	//suzanna->setBehaviour(new RotatingBehaviour());
 	_world->add(suzanna);

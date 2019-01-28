@@ -87,10 +87,10 @@ int DrawRectangle::luaSetColour(lua_State *lua)
 {
 	DrawRectangle* rectangle = static_cast<DrawRectangle*>(luaL_checkudata(lua, 1, TRISTAN_LUA_METATABLE));
 
-	float red = LuaWrapper::GetTableValue<float>(lua, TRISTAN_LUA_COLOUR, "r");
-	float green = LuaWrapper::GetTableValue<float>(lua, TRISTAN_LUA_COLOUR, "g");
-	float blue = LuaWrapper::GetTableValue<float>(lua, TRISTAN_LUA_COLOUR, "b");
-	float alpha = LuaWrapper::GetTableValue<float>(lua, TRISTAN_LUA_COLOUR, "a");
+	float red = lua_tonumber(lua, 2);
+	float green = lua_tonumber(lua, 3);
+	float blue = lua_tonumber(lua, 4);
+	float alpha = lua_tonumber(lua, 5);
 
 	rectangle->SetColour(red, green, blue, alpha);
 

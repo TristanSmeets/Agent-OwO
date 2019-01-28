@@ -27,4 +27,4 @@ heightMap = "mge/textures/heightmap.png"
 splatMap = "mge/textures/splatmap.png"
 
 --SquareSize
-SquareSize = 10
+SquareSize = 20

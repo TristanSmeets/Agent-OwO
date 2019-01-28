@@ -6,7 +6,7 @@ function OrganismDNA:new()
     self.__index = self
     organismDNA.SquareSize = 20
     organismDNA.IsAlive = false
-    organismDNA.Colour = {r = 1, g = 1, b = 1, a = 1}
+    organismDNA.Colour = {r = 0, g = 1, b = 1, a = 1}
     return organismDNA
 end
 

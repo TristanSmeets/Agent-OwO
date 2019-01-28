@@ -23,8 +23,6 @@ function Start(pScreenWidth, pScreenHeight, pSquareSize)
 
 	RectangleGrid = GridGenerator:Create2DGrid(columns, rows);
 
-	Colour = {r = 1, g = 0, b = 1, a = 1}
-
 	for RowIndex, Row in pairs(RectangleGrid) do
 		for ColumnIndex, Column in pairs(Row) do
 			RectangleGrid[RowIndex][ColumnIndex] = DrawRectangle:New()
@@ -38,7 +36,7 @@ end
 
 function Update()
     counter = counter + 1
-    if counter > 5 then
+    if counter > 1 then
 		local NewGameGrid = GridChecker:UpdatedOrganismGrid(GameGrid, columns, rows, squareSize, OrganismDNA)
 		GameGrid = NewGameGrid
 		counter = 0
@@ -49,7 +47,7 @@ function Draw()
 	--print("Called Draw() in Main.Lua")
     for rowIndex, rows in pairs(GameGrid) do
         for columnIndex, columns in pairs(rows) do
-            GameGrid[rowIndex][columnIndex]:Draw(RectangleGrid[rowIndex][columnIndex])
+			GameGrid[rowIndex][columnIndex]:Draw(RectangleGrid[rowIndex][columnIndex])
         end
     end
 end

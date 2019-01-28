@@ -3,6 +3,7 @@
 
 #include "mge/core/AbstractGame.hpp"
 #include "mge/util/DisplayGrid.h"
+#include "mge/util/DebugHud.hpp"
 #include <lua.hpp>
 
 class GameOfLife : public AbstractGame
@@ -22,6 +23,10 @@ private:
 	sf::RectangleShape rectangle;
 	DisplayGrid* displayGrid;
 	lua_State* main;
+	
+	DebugHud* hud;
+	void updateHud();
+
 };
 
 #endif

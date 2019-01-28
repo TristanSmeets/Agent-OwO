@@ -22,6 +22,7 @@
  * All documentation is contained within the HEADER files, not the CPP files if possible.
  *
  */
+
 int main()
 {
     std::cout << "Starting Game" << std::endl;

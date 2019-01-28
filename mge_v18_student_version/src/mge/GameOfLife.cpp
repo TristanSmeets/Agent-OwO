@@ -15,6 +15,8 @@
 #include "mge/materials/TextureMaterial.hpp"
 //Behaviour
 #include "mge/behaviours/LuaBehaviour.hpp"
+
+#include "mge/util/DebugHud.hpp"
 #include <lua.hpp>
 
 #include "GameOfLife.h"
@@ -33,6 +35,7 @@ void GameOfLife::initialize()
 
 	//setup the grid.
 	displayGrid = new DisplayGrid(_window);
+	hud = new DebugHud(_window);
 }
 
 void GameOfLife::_initializeScene()
@@ -57,4 +60,15 @@ void GameOfLife::_render()
 	displayGrid->Draw();
 	lua_getglobal(main, "Draw");
 	lua_call(main, 0, 0);
+
+	updateHud();
+}
+
+void GameOfLife::updateHud()
+{
+	std::string debugInfo = "";
+	debugInfo += std::string("FPS:") + std::to_string((int)_fps) + "\n";
+
+	hud->setDebugInfo(debugInfo);
+	hud->draw();
 }

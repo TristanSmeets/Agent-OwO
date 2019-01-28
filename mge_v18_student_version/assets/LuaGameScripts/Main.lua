@@ -20,24 +20,23 @@ function Start(pScreenWidth, pScreenHeight, pSquareSize)
 	columns = math.floor( width / squareSize )
 	rows = math.floor( width / squareSize )
 	print("Creating GameGrid")
+
+	RectangleGrid = GridGenerator:Create2DGrid(columns, rows);
+
+	for RowIndex, Row in pairs(RectangleGrid) do
+		for ColumnIndex, Column in pairs(Row) do
+			RectangleGrid[RowIndex][ColumnIndex] = DrawRectangle:New()
+			RectangleGrid[RowIndex][ColumnIndex]:SetSquareSize(squareSize - 1)
+			RectangleGrid[RowIndex][ColumnIndex]:SetPosition((ColumnIndex - 1) * squareSize, (RowIndex - 1) * squareSize)
+		end
+	end
+
 	GameGrid = GridGenerator:CreateOrganismGrid(columns, rows, squareSize, OrganismDNA)
-	
-	Colour = {r = 1, g = 0, b = 1, a = 1}
-
-	object = DrawRectangle:New()
-	--object:SetPosition(1,1)
-	--object:SetColour(Colour)
-	--object:SetSquareSize(5)
-
-	print("What is DrawRectangle:New()?")
-	print(object)
-	print("What is getmetatable(object)")
-	print(getmetatable(object))
 end
 
 function Update()
     counter = counter + 1
-    if counter > 5 then
+    if counter > 1 then
 		local NewGameGrid = GridChecker:UpdatedOrganismGrid(GameGrid, columns, rows, squareSize, OrganismDNA)
 		GameGrid = NewGameGrid
 		counter = 0
@@ -46,9 +45,9 @@ end
 
 function Draw()
 	--print("Called Draw() in Main.Lua")
-    --[[for rowIndex, rows in pairs(GameGrid) do
+    for rowIndex, rows in pairs(GameGrid) do
         for columnIndex, columns in pairs(rows) do
-            GameGrid[rowIndex][columnIndex]:Draw()
+			GameGrid[rowIndex][columnIndex]:Draw(RectangleGrid[rowIndex][columnIndex])
         end
-    end]]--
+    end
 end

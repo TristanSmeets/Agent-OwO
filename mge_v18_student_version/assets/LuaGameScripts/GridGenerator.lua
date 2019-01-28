@@ -31,7 +31,8 @@ function GridGenerator:CreateOrganismGrid(columns, rows, squareSize, OrganismDNA
           (ColumnIndex - 1) * squareSize,
           (RowIndex - 1) * squareSize,
           squareSize,
-          DNA)
+          DNA,
+		  RectangleGrid[RowIndex][ColumnIndex])
       else
         DNA:SetIsAlive(false)
         newCellGrid[RowIndex][ColumnIndex] = BaseOrganism:new(

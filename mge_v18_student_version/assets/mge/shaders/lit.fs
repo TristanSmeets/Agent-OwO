@@ -105,7 +105,7 @@ void main( void ) {
 		float epsilon = light.cutOff - light.outerCutOff;
 		float intensity = clamp((theta - light.outerCutOff) / epsilon, 0, 1);
 
-		if(theta > light.cutOff)
+		if(theta > light.outerCutOff)
 		{
 			Diffuse *= intensity;
 			Specular *= intensity;

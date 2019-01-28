@@ -8,18 +8,13 @@ function BaseOrganism:new(x, y, squareSize, organismDNA)
   baseOrganism.y = y
   baseOrganism.squareSize = squareSize
   baseOrganism.DNA = organismDNA
-  --print(DrawRectangle)
-  --baseOrganism.rectangle = DrawRectangle.New(x,y, squareSize, organismDNA.Colour);
   return baseOrganism
 end
 
-function BaseOrganism:Draw()
+function BaseOrganism:Draw(drawRectangle)
   if(self.DNA.IsAlive == true) then
-    love.graphics.setColor(self.DNA.Colour.r,
-      self.DNA.Colour.g,
-      self.DNA.Colour.b,
-      self.DNA.Colour.a)
+	drawRectangle:SetColour(self.DNA.Colour)
+  else
+	drawRectangle:SetColour({r = 0, g = 0, b = 0, a = 1})
   end
-  love.graphics.rectangle("fill", self.x, self.y, self.squareSize - 1, self.squareSize - 1)
-  love.graphics.setColor(0,0,0,1)
 end

@@ -1,6 +1,7 @@
 #include "mge/util/DrawRectangle.hpp"
 #include "mge/util/DisplayGrid.h"
 #include <iostream>
+#include <new>
 
 #define TRISTAN_LUA_VARIABLE_NAME "DrawRectangle"
 #define TRISTAN_LUA_METATABLE "meta.DrawRectangle"
@@ -11,6 +12,7 @@
 DrawRectangle::DrawRectangle()
 {
 	rectangle = new sf::RectangleShape();
+	rectangle->setFillColor(sf::Color::Yellow);
 	DisplayGrid::AddDrawRectangle(this);
 }
 
@@ -24,7 +26,7 @@ static const struct luaL_Reg MetaLib[] =
 	{"SetColour", DrawRectangle::luaSetColour},
 	{"SetPosition", DrawRectangle::luaSetPosition},
 	{"SetSquareSize", DrawRectangle::luaSetSquareSize},
-	{"UpdateRectangle", DrawRectangle::luaUpdateRectangle},
+	
 	{NULL, NULL}
 };
 
@@ -34,7 +36,7 @@ static const struct luaL_Reg DrawRectangleLib[] =
 	{NULL, NULL}
 };
 
-void DrawRectangle::SetXY(float xValue, float yValue)
+void DrawRectangle::SetPosition(float xValue, float yValue)
 {
 	rectangle->setPosition(xValue, yValue);
 }
@@ -60,95 +62,48 @@ sf::RectangleShape& DrawRectangle::GetRectangleShape()
 
 int DrawRectangle::luaNewDrawRectangle(lua_State * lua)
 {
-	DrawRectangle* rectangle;
-	//float x = LuaWrapper::GetNumber<float>(lua);
-	//float y = LuaWrapper::GetNumber<float>(lua);
-	//int squareSize = LuaWrapper::GetNumber<int>(lua);
-	
-	//Getting RGBA values from the table.
-	/*float red = LuaWrapper::GetTableValue<float>(lua, "Colour", "r");
-	float green = LuaWrapper::GetTableValue<float>(lua, "Colour", "g");
-	float blue = LuaWrapper::GetTableValue<float>(lua, "Colour", "b");
-	float alpha = LuaWrapper::GetTableValue<float>(lua, "Colour", "a");*/
+	size_t nBytes = sizeof(DrawRectangle);
+	DrawRectangle* drawRectangle = static_cast<DrawRectangle*>(lua_newuserdata(lua, nBytes));
 
-	size_t nBytes = sizeof(DrawRectangle*);
-	rectangle = static_cast<DrawRectangle*>(lua_newuserdata(lua, nBytes));
-	//std::cout << "Na static_cast Rectangle: " << rectangle << std::endl;
+	new (drawRectangle) DrawRectangle();
 
-	//std::cout << "X,Y,SquareSize: " << x << " " << y << " " << squareSize << std::endl;
-
-	//rectangle->GetRectangleShape().setPosition(x, y);
-	//rectangle->SetXY(x, y);
-	//rectangle->SetSquareSize(squareSize);
-	//rectangle->SetColour(red, green, blue, alpha);
 	luaL_getmetatable(lua, TRISTAN_LUA_METATABLE);
 	lua_setmetatable(lua, -2);
 	return 1;
 }
 
-int DrawRectangle::luaUpdateRectangle(lua_State * lua)
-{
-	DrawRectangle* rectangle;
-	if (luaL_checkudata(lua, 1, TRISTAN_LUA_VARIABLE_NAME))
-	{
-		rectangle = static_cast<DrawRectangle*>(lua_touserdata(lua, 1));
-	}
-	if (rectangle != nullptr)
-	{
-		float red = LuaWrapper::GetTableValue<float>(lua, "colour", "r");
-		float green = LuaWrapper::GetTableValue<float>(lua, "colour", "g");
-		float blue = LuaWrapper::GetTableValue<float>(lua, "colour", "b");
-		float alpha = LuaWrapper::GetTableValue<float>(lua, "colour", "a");
-		rectangle->SetColour(red, green, blue, alpha);
-	}
-	return 0;
-}
-
 int DrawRectangle::luaSetPosition(lua_State *lua)
 {
-	DrawRectangle* rectangle;
+	DrawRectangle* drawRectangle = static_cast<DrawRectangle*>(luaL_checkudata(lua, 1, TRISTAN_LUA_METATABLE));
+	
+	float x = lua_tonumber(lua, 2);
+	float y = lua_tonumber(lua, 3);
 
-	if (luaL_checkudata(lua, 1, TRISTAN_LUA_VARIABLE_NAME))
-		rectangle = static_cast<DrawRectangle*>(lua_touserdata(lua, 1));
-	if (rectangle != nullptr)
-	{
-		float x = LuaWrapper::GetNumber<float>(lua);
-		float y = LuaWrapper::GetNumber<float>(lua);
-		rectangle->SetXY(x, y);
-	}
+	drawRectangle->SetPosition(x, y);
 	return 0;
 }
 
 int DrawRectangle::luaSetColour(lua_State *lua)
 {
-	DrawRectangle* rectangle;
+	DrawRectangle* rectangle = static_cast<DrawRectangle*>(luaL_checkudata(lua, 1, TRISTAN_LUA_METATABLE));
 
-	if (luaL_checkudata(lua, 1, TRISTAN_LUA_VARIABLE_NAME))
-		rectangle = static_cast<DrawRectangle*>(lua_touserdata(lua, 1));
-	if (rectangle != nullptr)
-	{
-		float red = LuaWrapper::GetTableValue<float>(lua, TRISTAN_LUA_COLOUR, "r");
-		float green = LuaWrapper::GetTableValue<float>(lua, TRISTAN_LUA_COLOUR, "g");
-		float blue = LuaWrapper::GetTableValue<float>(lua, TRISTAN_LUA_COLOUR, "b");
-		float alpha = LuaWrapper::GetTableValue<float>(lua, TRISTAN_LUA_COLOUR, "a");
+	float red = LuaWrapper::GetTableValue<float>(lua, TRISTAN_LUA_COLOUR, "r");
+	float green = LuaWrapper::GetTableValue<float>(lua, TRISTAN_LUA_COLOUR, "g");
+	float blue = LuaWrapper::GetTableValue<float>(lua, TRISTAN_LUA_COLOUR, "b");
+	float alpha = LuaWrapper::GetTableValue<float>(lua, TRISTAN_LUA_COLOUR, "a");
 
-		rectangle->SetColour(red, green, blue, alpha);
-	}
+	rectangle->SetColour(red, green, blue, alpha);
+
 	return 0;
 }
 
 int DrawRectangle::luaSetSquareSize(lua_State* lua)
 {
-	DrawRectangle* rectangle;
+	DrawRectangle* rectangle = static_cast<DrawRectangle*>(luaL_checkudata(lua, 1, TRISTAN_LUA_METATABLE));
 
-	if (luaL_checkudata(lua, 1, TRISTAN_LUA_VARIABLE_NAME))
-		rectangle = static_cast<DrawRectangle*>(lua_touserdata(lua, 1));
-	if (rectangle != nullptr)
-	{
-		float squareSize = LuaWrapper::GetNumber<float>(lua);
+	float squareSize = lua_tonumber(lua, 2);
+	rectangle->SetSquareSize(squareSize);
 
-		rectangle->SetSquareSize(squareSize);
-	}
 	return 0;
 }
 
@@ -178,6 +133,6 @@ void DrawRectangle::InitializeLua(lua_State* lua)
 	lua_setglobal(lua, TRISTAN_LUA_VARIABLE_NAME);
 
 	luaL_loadfile(lua, TRISTAN_LUA_FILEPATH);
-	lua_pcall(lua, 0, 0,0);
+	lua_pcall(lua, 0, 0, 0);
 }
 

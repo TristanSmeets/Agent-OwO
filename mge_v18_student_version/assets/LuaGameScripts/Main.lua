@@ -3,13 +3,12 @@ require("LuaGameScripts\\OrganismDNA")
 require("LuaGameScripts\\GridGenerator")
 require("LuaGameScripts\\GridChecker")
 
-
 local width = 0
 local height = 0
 local squareSize = 0
 
 local counter = 0
-
+math.randomseed(os.time())
 
 function Start(pScreenWidth, pScreenHeight, pSquareSize)
     print("Called the start function in Main.lua")
@@ -32,7 +31,21 @@ function Start(pScreenWidth, pScreenHeight, pSquareSize)
 		end
 	end
 
-	GameGrid = GridGenerator:CreateNewOrganismGrid(columns, rows, OrganismDNA)
+	local DNA = OrganismDNA:new()
+	DNA.Colour = { r = 1, g = 1, b = 1, a = 1}
+
+	local DNA2 = OrganismDNA:new()
+	DNA2.Colour = { r = 1, g = 0, b = 0, a = 1}
+
+	local DNA3 = OrganismDNA:new()
+	DNA3.Colour = {r = 0, g = 1, b = 0, a = 1}
+
+	local DNA4 = OrganismDNA:new()
+	DNA.Colour = {r = 0, g = 0, b = 1, a = 1 }
+
+	local DNATable = { DNA, DNA2, DNA3, DNA4}
+
+	GameGrid = GridGenerator:CreateNewOrganismGrid(columns, rows, DNATable, 4)
 end
 
 function Update()

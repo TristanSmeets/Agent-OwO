@@ -74,7 +74,6 @@ function GridChecker:UpdateGrid(gameGrid, totalColumns, totalRows)
       local LiveNeighbours = numberAliveNeighbours(gameGrid, j, i)
 	  
 	  local NewDna = CreateNewDna(gameGrid, j, i)
-	  --NewDna.Colour = {r = math.random(), g = math.random(), b = math.random(), a = 1}
 	  NewDna.IsAlive = checkIsAlive(LiveNeighbours, gameGrid[i][j].DNA.IsAlive)
       UpdatedGrid[i][j] = BaseOrganism:new(NewDna)
     end
@@ -105,19 +104,7 @@ function CreateNewDna(Grid, x, y)
 
 	local averageColour = { r = newColour.maxRed/livingNeighbours, g = newColour.maxGreen/livingNeighbours, b = newColour.maxBlue/livingNeighbours, a = 1}
 	
-	--CreatedDNA.Colour = {r = 1, g = 1, b = 1, a = 1}
 	CreatedDNA.Colour = averageColour
 
 	return CreatedDNA
 end
-
---[[for RowIndex = -1, 1 do
-    for ColumnIndex = -1, 1 do
-      local column = (x - 1 + ColumnIndex + columns) % columns
-      local row = (y - 1 + RowIndex + rows) % rows
-      if(column + 1) == x and (row + 1) == y then
-      elseif gameGrid[row + 1][column + 1].DNA.IsAlive == true then
-        Sum = Sum + 1
-      end
-    end
-  end]]--

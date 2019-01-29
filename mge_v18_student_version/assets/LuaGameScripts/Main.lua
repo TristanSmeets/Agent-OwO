@@ -18,7 +18,7 @@ function Start(pScreenWidth, pScreenHeight, pSquareSize)
 	squareSize = pSquareSize
 
 	columns = math.floor( width / squareSize )
-	rows = math.floor( width / squareSize )
+	rows = math.floor( height / squareSize )
 	
 	print("Creating GameGrid")
 	RectangleGrid = GridGenerator:Create2DGrid(columns, rows);
@@ -28,6 +28,7 @@ function Start(pScreenWidth, pScreenHeight, pSquareSize)
 			RectangleGrid[RowIndex][ColumnIndex] = DrawRectangle:New()
 			RectangleGrid[RowIndex][ColumnIndex]:SetSquareSize(squareSize - 1)
 			RectangleGrid[RowIndex][ColumnIndex]:SetPosition((ColumnIndex - 1) * squareSize, (RowIndex - 1) * squareSize)
+			RectangleGrid[RowIndex][ColumnIndex]:SetColour(0,0,0,1)
 		end
 	end
 
@@ -35,7 +36,7 @@ function Start(pScreenWidth, pScreenHeight, pSquareSize)
 end
 
 function Update()
-   	local NewGameGrid = GridChecker:UpdateOrganismGrid(GameGrid, columns, rows, OrganismDNA)
+   	local NewGameGrid = GridChecker:UpdateGrid(GameGrid, columns, rows)
 	GameGrid = NewGameGrid
 end
 

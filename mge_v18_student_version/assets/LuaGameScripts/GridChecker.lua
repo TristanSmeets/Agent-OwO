@@ -45,11 +45,11 @@ end
     For each Organism it checks how many live neighbours it has.
     Checks if the Organism should be alive in the next generation and sets it's status.
     Returns the grid with updated values]]
-function GridChecker:UpdatedOrganismGrid(gameGrid, totalColumns, totalRows, squareSize, DNA)
+function GridChecker:UpdateOrganismGrid(gameGrid, totalColumns, totalRows, DNA)
   columns = totalColumns
   rows = totalRows
 
-  local NewOrganismGrid = GridGenerator:CreateOrganismGrid(totalColumns, totalRows, squareSize, DNA)
+  local NewOrganismGrid = GridGenerator:CreateNewOrganismGrid(totalColumns, totalRows, DNA)
   
   for i, Row in pairs(NewOrganismGrid) do
     for j, Column in pairs(Row) do
@@ -71,7 +71,7 @@ function GridChecker:UpdateGrid(gameGrid, totalColumns, totalRows)
       local LiveNeighbours = checkNeighbourOrganisms(gameGrid, j, i)
       local OrganismDNA = gameGrid[i][j].DNA
       OrganismDNA:SetIsAlive(checkIsAlive(LiveNeighbours, gameGrid[i][j].DNA.IsAlive))
-      UpdatedGrid[i][j] = BaseOrganism:new(gameGrid[i][j].x, gameGrid[i][j].y, gameGrid[i][j].squareSize, OrganismDNA)
+      UpdatedGrid[i][j] = BaseOrganism:new(OrganismDNA)
     end
   end
   return UpdatedGrid

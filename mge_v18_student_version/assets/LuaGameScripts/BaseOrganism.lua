@@ -1,12 +1,9 @@
 BaseOrganism = {}
 
-function BaseOrganism:new(x, y, squareSize, organismDNA)
+function BaseOrganism:new(organismDNA)
   local baseOrganism = {}
   setmetatable(baseOrganism, self)
   self.__index = self
-  baseOrganism.x = x
-  baseOrganism.y = y
-  baseOrganism.squareSize = squareSize
   baseOrganism.DNA = organismDNA
   return baseOrganism
 end

@@ -23,11 +23,14 @@ function GridGenerator:CreateNewOrganismGrid(columns, rows, DNATable)
   local newCellGrid = GridGenerator:Create2DGrid(columns, rows)
   for RowIndex, Row in pairs(newCellGrid) do
     for ColumnIndex, Column in pairs(Row) do
-      local isAlive = math.random(2) - 1
+      local aliveValue = math.random(2) - 1
       local DNA = OrganismDNA:new()
 	  DNA.Colour = DNATable[math.random(#DNATable)].Colour
+	  DNA.UnderPopulatedThresshold = DNATable[math.random(#DNATable)].UnderPopulatedThresshold
+	  DNA.OverPopulatedThresshold = DNATable[math.random(#DNATable)].OverPopulatedThresshold
+	  DNA.Reproduction = DNATable[math.random(#DNATable)].Reproduction
 
-      if isAlive == 1 then
+      if aliveValue == 1 then
         DNA.IsAlive = true
         newCellGrid[RowIndex][ColumnIndex] = BaseOrganism:new(DNA)
       else

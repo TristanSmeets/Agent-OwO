@@ -1,7 +1,7 @@
 --Window properties
-AspectRatio = 4/3
+AspectRatio = 16/9
 ForceAspectRatio = true
-ScreenWidth = 800
+ScreenWidth = 1280
 
 --Screen Height
 if(ForceAspectRatio) then
@@ -11,7 +11,7 @@ else
 end
 
 --Window Title
-Title = "uwu"
+Title = "Slicing Mushrooms uwu"
 
 --Assignment 2 paths
 ModelToLoad = "mge/models/sphere2.obj"

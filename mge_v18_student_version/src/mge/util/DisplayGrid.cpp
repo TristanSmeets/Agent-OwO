@@ -26,7 +26,7 @@ DisplayGrid::~DisplayGrid()
 		delete rectangles[index];
 	}*/
 	rectangles.clear();
-	std::cout << "Rectangles Capacity: " << rectangles.capacity() << std::endl;
+	//std::cout << "Rectangles Capacity: " << rectangles.capacity() << std::endl;
 }
 
 void DisplayGrid::Draw()

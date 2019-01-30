@@ -28,15 +28,15 @@ end
 
 --[[Checks if the amount of aliveNeighbours makes it viable to live.
     Returns true or false depending on if it should be alive]]
-local function checkIsAlive(aliveNeighbours, state)
-  if state then
-    if (aliveNeighbours == 2 or aliveNeighbours == 3) then
+local function checkIsAlive(aliveNeighbours, DNA)
+  if DNA.IsAlive then
+    if (aliveNeighbours == DNA.UnderPopulatedThresshold or aliveNeighbours == DNA.OverPopulatedThresshold) then
       return true
     else
       return false
     end
   else
-    if aliveNeighbours == 3 then
+    if aliveNeighbours == DNA.Reproduction then
       return true
     end
   end
@@ -58,12 +58,12 @@ function GridChecker:UpdateGrid(gameGrid, totalColumns, totalRows)
 
 		local LiveNeighbours = numberAliveNeighbours(gameGrid, j, i)
 
-		if checkIsAlive(LiveNeighbours,gameGrid[i][j].DNA.IsAlive) then
+		if checkIsAlive(LiveNeighbours,gameGrid[i][j].DNA) then
 			local newDNA = CreateNewDna(gameGrid, j, i)
 			newDNA.IsAlive = true
 			UpdatedGrid[i][j] = BaseOrganism:new(newDNA)
 		else
-			local deadDNA = OrganismDNA:New(0, 0, 0)
+			local deadDNA = OrganismDNA:NewColoured(0, 0, 0)
 			UpdatedGrid[i][j] = BaseOrganism:new(deadDNA)
 		end
     end
@@ -76,7 +76,7 @@ function CreateNewDna(Grid, x, y)
 	local livingNeighbours = 0
 	local newColour = {maxRed = 0, maxGreen = 0, maxBlue = 0}
 
-	local Colours = {}
+	local DnaSamples = {}
 
 	for rowIndex = -1, 1 do
 		for columnIndex = -1, 1 do
@@ -84,15 +84,27 @@ function CreateNewDna(Grid, x, y)
 			local row = (y - 1 + rowIndex + rows) % rows
 			if (column + 1) == x and (row + 1) == y then
 			elseif Grid[row + 1][column + 1].DNA.IsAlive == true then
-				table.insert(Colours, Grid[row + 1][column + 1].DNA.Colour)
+				table.insert(DnaSamples, Grid[row + 1][column + 1].DNA)
 			end
 		end
 	end
 
-	local newColour = { r = Colours[math.random(#Colours)].r, g = Colours[math.random(#Colours)].g, b = Colours[math.random(#Colours)].b}
+	local newColour = { r = DnaSamples[math.random(#DnaSamples)].Colour.r, g = DnaSamples[math.random(#DnaSamples)].Colour.g, b = DnaSamples[math.random(#DnaSamples)].Colour.b}
+	if newColour.r == 0 and newColour.g == 0 and newColour.b == 0 then
+		newColour.r = math.random()
+		newColour.g = math.random()
+		newColour.b = math.random()
+	end
+
+	local newUnderPop = DnaSamples[math.random(#DnaSamples)].UnderPopulatedThresshold
+	local newOverPop = DnaSamples[math.random(#DnaSamples)].OverPopulatedThresshold
+	local newRepro = DnaSamples[math.random(#DnaSamples)].Reproduction
 
 	local averageColour = { r = newColour.r, g = newColour.g, b = newColour.b, a = 1}
 	CreatedDNA.Colour = averageColour
+	CreatedDNA.UnderPopulatedThresshold = newUnderPop
+	CreatedDNA.OverPopulatedThresshold = newOverPop
+	CreatedDNA.Reproduction = newRepro
 
 	return CreatedDNA
 end

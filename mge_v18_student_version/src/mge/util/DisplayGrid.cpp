@@ -17,14 +17,16 @@ DisplayGrid::DisplayGrid(sf::RenderWindow * renderWindow) : window(renderWindow)
 
 DisplayGrid::~DisplayGrid()
 {
-	//Clearing the 2D Vector
-	for (unsigned Index = 0; Index < rectangle2DVector.size(); Index++)
+	std::cout << "GC running on:DiplayGrid" << std::endl;
+	/*
+	for (int index = 0; index < rectangles.size(); index++)
 	{
-		rectangle2DVector[Index].clear();
-	}
-	rectangle2DVector.clear();
-	
+		if (!rectangles[index]) continue;
+
+		delete rectangles[index];
+	}*/
 	rectangles.clear();
+	std::cout << "Rectangles Capacity: " << rectangles.capacity() << std::endl;
 }
 
 void DisplayGrid::Draw()
@@ -39,11 +41,6 @@ void DisplayGrid::Draw()
 	}
 
 	window->popGLStates();
-}
-
-void DisplayGrid::SetRectangleColour(const sf::Color &colour, const sf::Vector2i &position)
-{
-	rectangle2DVector[position.y][position.x].setFillColor(colour);
 }
 
 void DisplayGrid::AddDrawRectangle(DrawRectangle* rectangle)

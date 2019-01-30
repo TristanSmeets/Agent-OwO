@@ -15,6 +15,7 @@ public:
 
 private:
 	lua_State* main;
+	float counter = 0;
 };
 #endif // ! LUABEHAVIOUR_HPP
 

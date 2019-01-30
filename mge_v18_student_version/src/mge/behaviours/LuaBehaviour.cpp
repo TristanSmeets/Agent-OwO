@@ -33,7 +33,14 @@ LuaBehaviour::~LuaBehaviour()
 
 void LuaBehaviour::update( float pStep )
 {
-	lua_getglobal(main, "Update");
-	lua_pcall(main, 0, 0, 0);
+	counter += pStep;
+	if (counter > .16f)
+	{
+		lua_getglobal(main, "Update");
+		int status = lua_pcall(main, 0, 0, 0);
+		if (status)
+			std::cout << "Lua Error: " << std::to_string(status) << "\n" << lua_tostring(main, -1) << "\nStack: " << lua_gettop(main) << std::endl;
+		counter = 0;
+	}
 }
 

@@ -38,7 +38,7 @@ function Start(pScreenWidth, pScreenHeight, pSquareSize)
 	local DNA3 = OrganismDNA:New(0, 1, 0)
 	local DNA4 = OrganismDNA:New(0, 0 , 1)
 
-	table.insert(DNATable, DNA)
+	--table.insert(DNATable, DNA)
 	table.insert(DNATable, DNA2)
 	table.insert(DNATable, DNA3)
 	table.insert(DNATable, DNA4)

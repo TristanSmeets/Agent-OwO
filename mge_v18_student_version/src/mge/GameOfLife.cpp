@@ -18,6 +18,7 @@
 
 #include "mge/util/DebugHud.hpp"
 #include <lua.hpp>
+#include <iostream>
 
 #include "GameOfLife.h"
 
@@ -27,6 +28,10 @@ GameOfLife::GameOfLife():AbstractGame()
 
 GameOfLife::~GameOfLife()
 {
+	std::cout << "GC running on:GameOfLife" << std::endl;
+	LuaWrapper::CloseLuaState(main);
+	delete displayGrid;
+	delete hud;
 }
 
 void GameOfLife::initialize()

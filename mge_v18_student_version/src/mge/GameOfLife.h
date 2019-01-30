@@ -20,7 +20,6 @@ protected:
 private:
 	GameOfLife(const GameOfLife&);
 	GameOfLife& operator=(const GameOfLife&);
-	sf::RectangleShape rectangle;
 	DisplayGrid* displayGrid;
 	lua_State* main;
 	

@@ -12,13 +12,10 @@ public:
 	DisplayGrid(sf::RenderWindow* renderWindow);
 	virtual ~DisplayGrid();
 	void Draw();
-	void SetRectangleColour(const sf::Color &colour, const sf::Vector2i &position);
 	static void AddDrawRectangle(DrawRectangle* rectangle);
 
 private:
 	sf::RenderWindow * window;
-	std::vector<std::vector<sf::RectangleShape>> rectangle2DVector;
-	sf::RectangleShape rectangle;
 	static std::vector<DrawRectangle*> rectangles;
 };
 

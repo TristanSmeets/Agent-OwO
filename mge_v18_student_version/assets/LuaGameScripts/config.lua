@@ -11,7 +11,7 @@ else
 end
 
 --Window Title
-Title = "Lua Assignment"
+Title = "uwu"
 
 --Assignment 2 paths
 ModelToLoad = "mge/models/sphere2.obj"

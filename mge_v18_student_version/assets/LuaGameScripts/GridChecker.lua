@@ -47,21 +47,6 @@ end
     For each Organism it checks how many live neighbours it has.
     Checks if the Organism should be alive in the next generation and sets it's status.
     Returns the grid with updated values]]
-function GridChecker:UpdateOrganismGrid(gameGrid, totalColumns, totalRows, DNA)
-  columns = totalColumns
-  rows = totalRows
-
-  local NewOrganismGrid = GridGenerator:CreateNewOrganismGrid(totalColumns, totalRows, DNA)
-  
-  for i, Row in pairs(NewOrganismGrid) do
-    for j, Column in pairs(Row) do
-      local LiveNeighbours = numberAliveNeighbours(gameGrid, j, i)
-      NewOrganismGrid[i][j].DNA.IsAlive = checkIsAlive(LiveNeighbours, gameGrid[i][j].DNA.IsAlive)
-    end
-  end
-  return NewOrganismGrid
-end
-
 function GridChecker:UpdateGrid(gameGrid, totalColumns, totalRows)
   columns = totalColumns
   rows = totalRows
@@ -78,13 +63,9 @@ function GridChecker:UpdateGrid(gameGrid, totalColumns, totalRows)
 			newDNA.IsAlive = true
 			UpdatedGrid[i][j] = BaseOrganism:new(newDNA)
 		else
-			local newDNA = OrganismDNA:New(0, 0, 0)
-			newDNA.IsAlive = false
-			UpdatedGrid[i][j] = BaseOrganism:new(newDNA)
+			local deadDNA = OrganismDNA:New(0, 0, 0)
+			UpdatedGrid[i][j] = BaseOrganism:new(deadDNA)
 		end
-		
-
-		--UpdatedGrid[i][j] = BaseOrganism:new(NewDna)
     end
   end
   return UpdatedGrid
@@ -103,14 +84,7 @@ function CreateNewDna(Grid, x, y)
 			local row = (y - 1 + rowIndex + rows) % rows
 			if (column + 1) == x and (row + 1) == y then
 			elseif Grid[row + 1][column + 1].DNA.IsAlive == true then
-				
 				table.insert(Colours, Grid[row + 1][column + 1].DNA.Colour)
-
-				--[[local CurrentDNAColour = Grid[row + 1][column + 1].DNA.Colour
-				livingNeighbours = livingNeighbours + 1
-				newColour.maxRed = newColour.maxRed + CurrentDNAColour.r
-				newColour.maxGreen = newColour.maxGreen + CurrentDNAColour.g
-				newColour.maxBlue = newColour.maxBlue + CurrentDNAColour.b]]--
 			end
 		end
 	end
@@ -118,7 +92,6 @@ function CreateNewDna(Grid, x, y)
 	local newColour = { r = Colours[math.random(#Colours)].r, g = Colours[math.random(#Colours)].g, b = Colours[math.random(#Colours)].b}
 
 	local averageColour = { r = newColour.r, g = newColour.g, b = newColour.b, a = 1}
-	
 	CreatedDNA.Colour = averageColour
 
 	return CreatedDNA

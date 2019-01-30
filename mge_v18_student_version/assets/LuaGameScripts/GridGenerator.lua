@@ -19,20 +19,19 @@ function GridGenerator:Create2DGrid(columns, rows)
   return grid
 end
 
-function GridGenerator:CreateNewOrganismGrid(columns, rows, sampleDNA, tableSize)
+function GridGenerator:CreateNewOrganismGrid(columns, rows, DNATable)
   local newCellGrid = GridGenerator:Create2DGrid(columns, rows)
   for RowIndex, Row in pairs(newCellGrid) do
     for ColumnIndex, Column in pairs(Row) do
       local isAlive = math.random(2) - 1
       local DNA = OrganismDNA:new()
-	  local tableSelection = math.random(tableSize)
-	  DNA.Colour = sampleDNA[math.random(tableSize)].Colour
+	  DNA.Colour = DNATable[math.random(#DNATable)].Colour
 
       if isAlive == 1 then
-        DNA:SetIsAlive(true)
+        DNA.IsAlive = true
         newCellGrid[RowIndex][ColumnIndex] = BaseOrganism:new(DNA)
       else
-        DNA:SetIsAlive(false)
+        DNA.IsAlive = false
         newCellGrid[RowIndex][ColumnIndex] = BaseOrganism:new(DNA)
       end
     end

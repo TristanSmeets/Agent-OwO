@@ -31,21 +31,20 @@ function Start(pScreenWidth, pScreenHeight, pSquareSize)
 		end
 	end
 
-	local DNA = OrganismDNA:new()
-	DNA.Colour = { r = 1, g = 1, b = 1, a = 1}
+	local DNATable = {}
 
-	local DNA2 = OrganismDNA:new()
-	DNA2.Colour = { r = 1, g = 0, b = 0, a = 1}
+	local DNA = OrganismDNA:New(1, 1, 1)
+	local DNA2 = OrganismDNA:New(1, 0, 0)
+	local DNA3 = OrganismDNA:New(0, 1, 0)
+	local DNA4 = OrganismDNA:New(0, 0 , 1)
 
-	local DNA3 = OrganismDNA:new()
-	DNA3.Colour = {r = 0, g = 1, b = 0, a = 1}
+	table.insert(DNATable, DNA)
+	table.insert(DNATable, DNA2)
+	table.insert(DNATable, DNA3)
+	table.insert(DNATable, DNA4)
 
-	local DNA4 = OrganismDNA:new()
-	DNA.Colour = {r = 0, g = 0, b = 1, a = 1 }
 
-	local DNATable = { DNA, DNA2, DNA3, DNA4}
-
-	GameGrid = GridGenerator:CreateNewOrganismGrid(columns, rows, DNATable, 4)
+	GameGrid = GridGenerator:CreateNewOrganismGrid(columns, rows, DNATable)
 end
 
 function Update()

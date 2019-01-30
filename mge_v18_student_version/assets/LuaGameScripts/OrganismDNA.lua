@@ -5,15 +5,15 @@ function OrganismDNA:new()
     setmetatable(organismDNA, self)
     self.__index = self
     organismDNA.IsAlive = false
-    organismDNA.Colour = {r = math.random(), g = math.random(), b = math.random(), a = math.random()}
+    organismDNA.Colour = {r = math.random(), g = math.random(), b = math.random(), a = 1}
     return organismDNA
 end
 
-function OrganismDNA:SetIsAlive(value)
-  self.IsAlive = value
-end
-
-function OrganismDNA:SetColour(red, green, blue, alpha)
-  local newColour = { r = red, g = green, b = blue, a = alpha}
-  self.Colour = newColour
+function OrganismDNA:New(red, green, blue)
+	local DNA = {}
+	setmetatable(DNA, self)
+	self.__index = self
+	DNA.IsAlive = false
+	DNA.Colour = {r = red, g = green, b = blue, a = 1}
+	return DNA
 end

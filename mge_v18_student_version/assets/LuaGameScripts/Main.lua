@@ -7,7 +7,6 @@ local width = 0
 local height = 0
 local squareSize = 0
 
-local counter = 0
 math.randomseed(os.time())
 
 function Start(pScreenWidth, pScreenHeight, pSquareSize)
@@ -33,8 +32,11 @@ function Start(pScreenWidth, pScreenHeight, pSquareSize)
 
 	local DNATable = {}
 
-	local DNA = OrganismDNA:new()
-	table.insert(DNATable, DNA)
+	local randomDNA = OrganismDNA:newRandomColour()
+	table.insert(DNATable, randomDNA)
+
+	local randomDNA2 = OrganismDNA:newRandomColour()
+	table.insert(DNATable, randomDNA2)
 	
 	local DNA2 = OrganismDNA:NewColoured(1, 0, 0)
 	table.insert(DNATable, DNA2)

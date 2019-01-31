@@ -225,13 +225,13 @@
     <CopyFileToFolders Include="..\assets\LuaGameScripts\GridGenerator.lua">
       <Filter>LuaScripts</Filter>
     </CopyFileToFolders>
-    <CopyFileToFolders Include="..\assets\LuaGameScripts\GridChecker.lua">
-      <Filter>LuaScripts</Filter>
-    </CopyFileToFolders>
     <CopyFileToFolders Include="..\assets\LuaGameScripts\config.lua">
       <Filter>LuaScripts</Filter>
     </CopyFileToFolders>
     <CopyFileToFolders Include="..\assets\LuaGameScripts\BaseOrganism.lua">
+      <Filter>LuaScripts</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="..\assets\LuaGameScripts\RuleChecker.lua">
       <Filter>LuaScripts</Filter>
     </CopyFileToFolders>
   </ItemGroup>

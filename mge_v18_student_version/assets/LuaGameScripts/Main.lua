@@ -1,7 +1,7 @@
 --Requires
 require("LuaGameScripts\\OrganismDNA")
 require("LuaGameScripts\\GridGenerator")
-require("LuaGameScripts\\GridChecker")
+require("LuaGameScripts\\RuleChecker")
 
 local width = 0
 local height = 0
@@ -45,7 +45,7 @@ function Start(pScreenWidth, pScreenHeight, pSquareSize)
 end
 
 function Update()
-   	local NewGameGrid = GridChecker:UpdateGrid(GameGrid, columns, rows)
+   	local NewGameGrid = RuleChecker:UpdateGrid(GameGrid, columns, rows)
 	GameGrid = NewGameGrid
 end
 

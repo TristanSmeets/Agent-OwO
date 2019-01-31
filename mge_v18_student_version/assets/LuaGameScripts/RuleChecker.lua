@@ -1,4 +1,4 @@
-GridChecker = {}
+RuleChecker = {}
 
 --Requires
 require("LuaGameScripts\\GridGenerator")
@@ -13,7 +13,7 @@ local rows = nil
     For each Organism it checks how many live neighbours it has.
     Checks if the Organism should be alive in the next generation and sets it's status.
     Returns a grid with updated values]]
-function GridChecker:UpdateGrid(gameGrid, totalColumns, totalRows)
+function RuleChecker:UpdateGrid(gameGrid, totalColumns, totalRows)
   columns = totalColumns
   rows = totalRows
 
@@ -39,7 +39,7 @@ end
 
 --[[Counts the amount of organisms that are alive.
     Returns the amount of live organisms.]]
-local function numberAliveNeighbours(gameGrid, x, y)
+function numberAliveNeighbours(gameGrid, x, y)
   local Sum = 0
   for RowIndex = -1, 1 do
     for ColumnIndex = -1, 1 do
@@ -56,7 +56,7 @@ end
 
 --[[Checks if the amount of aliveNeighbours makes it viable to live.
     Returns true or false depending on if it should be alive]]
-local function checkIsAlive(aliveNeighbours, DNA)
+function checkIsAlive(aliveNeighbours, DNA)
   if DNA.IsAlive then
     if (aliveNeighbours == DNA.UnderPopulatedThresshold or aliveNeighbours == DNA.OverPopulatedThresshold) then
       return true

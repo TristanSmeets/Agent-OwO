@@ -18,15 +18,19 @@ DisplayGrid::DisplayGrid(sf::RenderWindow * renderWindow) : window(renderWindow)
 DisplayGrid::~DisplayGrid()
 {
 	std::cout << "GC running on:DiplayGrid" << std::endl;
-	/*
-	for (int index = 0; index < rectangles.size(); index++)
-	{
-		if (!rectangles[index]) continue;
+	window = nullptr;
 
-		delete rectangles[index];
+	
+	/*std::cout << "Trying to clean up rectangles vector." << std::endl;
+
+	for (unsigned index = 0; index < rectangles.size(); index++)
+	{
 	}*/
+
+	std::cout << "Before Rectangles Capacity: " << rectangles.capacity() << std::endl;
 	rectangles.clear();
-	//std::cout << "Rectangles Capacity: " << rectangles.capacity() << std::endl;
+	rectangles.shrink_to_fit();
+	std::cout << "After Rectangles Capacity: " << rectangles.capacity() << std::endl;
 }
 
 void DisplayGrid::Draw()

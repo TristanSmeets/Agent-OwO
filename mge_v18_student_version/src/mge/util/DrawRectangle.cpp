@@ -19,7 +19,7 @@ DrawRectangle::DrawRectangle()
 DrawRectangle::~DrawRectangle()
 {
 	std::cout << "GC running on:DrawRectangle" << std::endl;
-	//delete rectangle;
+	delete rectangle;
 }
 
 static const struct luaL_Reg MetaLib[] =

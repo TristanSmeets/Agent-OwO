@@ -20,7 +20,10 @@ DebugHud::DebugHud( sf::RenderWindow * aWindow ): _window( aWindow ), _debugInfo
 
 DebugHud::~DebugHud()
 {
+	std::cout << "GC running on:DebugHud" << std::endl;
+	_window = nullptr;
 	//dtor
+	
 }
 
 void DebugHud::_createDebugHud() {

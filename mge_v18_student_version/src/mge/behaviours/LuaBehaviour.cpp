@@ -28,7 +28,8 @@ LuaBehaviour::LuaBehaviour(lua_State* luaState) : AbstractBehaviour(), main(luaS
 
 LuaBehaviour::~LuaBehaviour()
 {
-	LuaWrapper::CloseLuaState(main);
+	std::cout << "GC running on: LuaBehaviour" << std::endl;
+	if (main != nullptr) main = nullptr;
 }
 
 void LuaBehaviour::update( float pStep )

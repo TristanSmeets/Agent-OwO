@@ -9,6 +9,7 @@ CameraOrbitBehaviour::CameraOrbitBehaviour(float distance, float maxTilt, float 
 
 CameraOrbitBehaviour::~CameraOrbitBehaviour()
 {
+	std::cout << "GC running on:CameraOrbitBehaviour" << std::endl;
 	target = nullptr;
 	window = nullptr;
 }

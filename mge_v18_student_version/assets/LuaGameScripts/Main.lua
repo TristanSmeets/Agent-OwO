@@ -18,17 +18,7 @@ function Start(pScreenWidth, pScreenHeight, pSquareSize)
 	columns = math.floor( width / squareSize )
 	rows = math.floor( height / squareSize )
 	
-	print("Creating GameGrid")
-	RectangleGrid = GridGenerator:Create2DGrid(columns, rows);
-
-	for RowIndex, Row in pairs(RectangleGrid) do
-		for ColumnIndex, Column in pairs(Row) do
-			RectangleGrid[RowIndex][ColumnIndex] = DrawRectangle:New()
-			RectangleGrid[RowIndex][ColumnIndex]:SetSquareSize(squareSize - 1)
-			RectangleGrid[RowIndex][ColumnIndex]:SetPosition((ColumnIndex - 1) * squareSize, (RowIndex - 1) * squareSize)
-			RectangleGrid[RowIndex][ColumnIndex]:SetColour(0,0,0,1)
-		end
-	end
+	RectangleGrid = GridGenerator:CreateDrawRectangleGrid(columns, rows, squareSize) 
 
 	local DNATable = {}
 
@@ -47,9 +37,10 @@ function Start(pScreenWidth, pScreenHeight, pSquareSize)
 	local DNA4 = OrganismDNA:NewColoured(0, 0, 1)
 	table.insert(DNATable, DNA4)
 	
-	local DNA5 = OrganismDNA:NewPopulation(1,2,2)
+	local DNA5 = OrganismDNA:NewPopulation(1, 2, 2)
 	table.insert(DNATable, DNA5)
 	
+	print("Creating GameGrid")
 	GameGrid = GridGenerator:CreateNewOrganismGrid(columns, rows, DNATable)
 end
 

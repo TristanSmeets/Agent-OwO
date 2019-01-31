@@ -41,3 +41,16 @@ function GridGenerator:CreateNewOrganismGrid(columns, rows, DNATable)
   end
   return newCellGrid
 end
+
+function GridGenerator:CreateDrawRectangleGrid(columns, rows, squareSize)
+	local newDrawRectangleGrid = GridGenerator:Create2DGrid(columns, rows)
+	for RowIndex, Row in pairs(newDrawRectangleGrid) do
+		for ColumnIndex, Column in pairs(Row) do
+			newDrawRectangleGrid[RowIndex][ColumnIndex] = DrawRectangle:New()
+			newDrawRectangleGrid[RowIndex][ColumnIndex]:SetSquareSize(squareSize - 1)
+			newDrawRectangleGrid[RowIndex][ColumnIndex]:SetPosition((ColumnIndex -1) * squareSize, (RowIndex - 1) * squareSize)
+			newDrawRectangleGrid[RowIndex][ColumnIndex]:SetColour(0,0,0,1)
+		end
+	end
+	return newDrawRectangleGrid
+end

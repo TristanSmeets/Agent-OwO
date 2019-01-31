@@ -6,7 +6,7 @@
 #define TRISTAN_LUA_VARIABLE_NAME "DrawRectangle"
 #define TRISTAN_LUA_METATABLE "meta.DrawRectangle"
 #define TRISTAN_LUA_INDEX "__index"
-#define TRISTAN_LUA_FILEPATH "LuaGameScripts\\Main.lua"
+#define TRISTAN_LUA_FILEPATH "LuaGameScripts\\GridGenerator.lua"
 #define TRISTAN_LUA_COLOUR "Colour"
 
 DrawRectangle::DrawRectangle()

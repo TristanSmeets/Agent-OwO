@@ -1,13 +1,12 @@
 --Requires
 require("LuaGameScripts\\OrganismDNA")
 require("LuaGameScripts\\GridGenerator")
-require("LuaGameScripts\\GridChecker")
+require("LuaGameScripts\\RuleChecker")
 
 local width = 0
 local height = 0
 local squareSize = 0
 
-local counter = 0
 math.randomseed(os.time())
 
 function Start(pScreenWidth, pScreenHeight, pSquareSize)
@@ -19,22 +18,15 @@ function Start(pScreenWidth, pScreenHeight, pSquareSize)
 	columns = math.floor( width / squareSize )
 	rows = math.floor( height / squareSize )
 	
-	print("Creating GameGrid")
-	RectangleGrid = GridGenerator:Create2DGrid(columns, rows);
-
-	for RowIndex, Row in pairs(RectangleGrid) do
-		for ColumnIndex, Column in pairs(Row) do
-			RectangleGrid[RowIndex][ColumnIndex] = DrawRectangle:New()
-			RectangleGrid[RowIndex][ColumnIndex]:SetSquareSize(squareSize - 1)
-			RectangleGrid[RowIndex][ColumnIndex]:SetPosition((ColumnIndex - 1) * squareSize, (RowIndex - 1) * squareSize)
-			RectangleGrid[RowIndex][ColumnIndex]:SetColour(0,0,0,1)
-		end
-	end
+	RectangleGrid = GridGenerator:CreateDrawRectangleGrid(columns, rows, squareSize) 
 
 	local DNATable = {}
 
-	local DNA = OrganismDNA:new()
-	table.insert(DNATable, DNA)
+	local randomDNA = OrganismDNA:newRandomColour()
+	table.insert(DNATable, randomDNA)
+
+	local randomDNA2 = OrganismDNA:newRandomColour()
+	table.insert(DNATable, randomDNA2)
 	
 	local DNA2 = OrganismDNA:NewColoured(1, 0, 0)
 	table.insert(DNATable, DNA2)
@@ -45,14 +37,15 @@ function Start(pScreenWidth, pScreenHeight, pSquareSize)
 	local DNA4 = OrganismDNA:NewColoured(0, 0, 1)
 	table.insert(DNATable, DNA4)
 	
-	local DNA5 = OrganismDNA:NewPopulation(1,2,2)
+	local DNA5 = OrganismDNA:NewPopulation(1, 2, 2)
 	table.insert(DNATable, DNA5)
 	
+	print("Creating GameGrid")
 	GameGrid = GridGenerator:CreateNewOrganismGrid(columns, rows, DNATable)
 end
 
 function Update()
-   	local NewGameGrid = GridChecker:UpdateGrid(GameGrid, columns, rows)
+   	local NewGameGrid = RuleChecker:UpdateGrid(GameGrid, columns, rows)
 	GameGrid = NewGameGrid
 end
 

@@ -245,7 +245,7 @@
       <DestinationFolders Condition="'$(Configuration)|$(Platform)'=='Debug Static|Win32'">$(OutDir)\LuaGameScripts</DestinationFolders>
       <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Debug Static|Win32'">true</DeploymentContent>
     </CopyFileToFolders>
-    <CopyFileToFolders Include="..\assets\LuaGameScripts\GridChecker.lua">
+    <CopyFileToFolders Include="..\assets\LuaGameScripts\RuleChecker.lua">
       <FileType>Document</FileType>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug Static|Win32'">false</ExcludedFromBuild>
       <DestinationFolders Condition="'$(Configuration)|$(Platform)'=='Debug Static|Win32'">$(OutDir)\LuaGameScripts</DestinationFolders>

@@ -6,8 +6,9 @@ require("LuaGameScripts\\BaseOrganism")
 --Give the time as a seed to math.random
 math.randomseed(os.time())
 
---[[Creates a "2D" array with the specified columns and rows.
-    Fills the array with the value 0.]]
+--[[Creates a 2D array with the specified columns and rows.
+    Fills the array with the value 0.
+	Returns the 2D array]]
 function GridGenerator:Create2DGrid(columns, rows)
   local grid = {}
   for row = 1, rows do
@@ -19,6 +20,10 @@ function GridGenerator:Create2DGrid(columns, rows)
   return grid
 end
 
+--[[Creates a 2D grid with BaseOrganisms.
+	Gets an OrganismDNA from random position passed in the table of OrganismDNAs. 
+	Also randomly sets the organisms to alive or dead.
+	Returns the Grid]]
 function GridGenerator:CreateNewOrganismGrid(columns, rows, DNATable)
   local newCellGrid = GridGenerator:Create2DGrid(columns, rows)
   for RowIndex, Row in pairs(newCellGrid) do
@@ -40,4 +45,20 @@ function GridGenerator:CreateNewOrganismGrid(columns, rows, DNATable)
     end
   end
   return newCellGrid
+end
+
+--[[Creates a 2D Grid of DrawRectangles.
+	Should be called once at the start of the game.
+	Returns the 2D Grid]]
+function GridGenerator:CreateDrawRectangleGrid(columns, rows, squareSize)
+	local newDrawRectangleGrid = GridGenerator:Create2DGrid(columns, rows)
+	for RowIndex, Row in pairs(newDrawRectangleGrid) do
+		for ColumnIndex, Column in pairs(Row) do
+			newDrawRectangleGrid[RowIndex][ColumnIndex] = DrawRectangle:New()
+			newDrawRectangleGrid[RowIndex][ColumnIndex]:SetSquareSize(squareSize - 1)
+			newDrawRectangleGrid[RowIndex][ColumnIndex]:SetPosition((ColumnIndex -1) * squareSize, (RowIndex - 1) * squareSize)
+			newDrawRectangleGrid[RowIndex][ColumnIndex]:SetColour(0,0,0,1)
+		end
+	end
+	return newDrawRectangleGrid
 end

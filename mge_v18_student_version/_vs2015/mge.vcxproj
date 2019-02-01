@@ -197,7 +197,7 @@
     <ClInclude Include="..\src\mge\TristanScene.h" />
     <ClInclude Include="..\src\mge\util\DebugHud.hpp" />
     <ClInclude Include="..\src\mge\util\DisplayGrid.h" />
-    <ClInclude Include="..\src\mge\util\DrawRectangle.hpp" />
+    <ClInclude Include="..\src\mge\util\RectangleShapeWrapper.hpp" />
     <ClInclude Include="..\src\mge\util\LuaWrapper.hpp" />
   </ItemGroup>
   <ItemGroup>
@@ -229,7 +229,7 @@
     <ClCompile Include="..\src\mge\TristanScene.cpp" />
     <ClCompile Include="..\src\mge\util\DebugHud.cpp" />
     <ClCompile Include="..\src\mge\util\DisplayGrid.cpp" />
-    <ClCompile Include="..\src\mge\util\DrawRectangle.cpp" />
+    <ClCompile Include="..\src\mge\util\RectangleShapeWrapper.cpp" />
     <ClCompile Include="..\src\mge\util\LuaWrapper.cpp" />
   </ItemGroup>
   <ItemGroup>

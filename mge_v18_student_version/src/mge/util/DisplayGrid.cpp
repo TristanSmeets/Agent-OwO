@@ -6,7 +6,7 @@
 #include <iostream>
 #include <vector>
 
-std::vector<DrawRectangle*> DisplayGrid::rectangles;
+std::vector<RectangleShapeWrapper*> DisplayGrid::rectangles;
 
 DisplayGrid::DisplayGrid(sf::RenderWindow * renderWindow) : window(renderWindow)
 {
@@ -40,7 +40,7 @@ void DisplayGrid::Draw()
 	window->popGLStates();
 }
 
-void DisplayGrid::AddDrawRectangle(DrawRectangle* rectangle)
+void DisplayGrid::AddRectangleShape(RectangleShapeWrapper* rectangle)
 {
 	rectangles.push_back(rectangle);
 }

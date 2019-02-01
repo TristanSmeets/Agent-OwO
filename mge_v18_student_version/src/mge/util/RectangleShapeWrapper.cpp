@@ -1,53 +1,53 @@
-#include "mge/util/DrawRectangle.hpp"
+#include "mge/util/RectangleShapeWrapper.hpp"
 #include "mge/util/DisplayGrid.h"
 #include <iostream>
 #include <new>
 
-#define TRISTAN_LUA_VARIABLE_NAME "DrawRectangle"
-#define TRISTAN_LUA_METATABLE "meta.DrawRectangle"
+#define TRISTAN_LUA_VARIABLE_NAME "RectangleShape"
+#define TRISTAN_LUA_METATABLE "meta.RectangleShape"
 #define TRISTAN_LUA_INDEX "__index"
 #define TRISTAN_LUA_FILEPATH "LuaGameScripts\\GridGenerator.lua"
 #define TRISTAN_LUA_COLOUR "Colour"
 
-DrawRectangle::DrawRectangle()
+RectangleShapeWrapper::RectangleShapeWrapper()
 {
 	rectangle = new sf::RectangleShape();
 	rectangle->setFillColor(sf::Color::Yellow);
-	DisplayGrid::AddDrawRectangle(this);
+	DisplayGrid::AddRectangleShape(this);
 }
 
-DrawRectangle::~DrawRectangle()
+RectangleShapeWrapper::~RectangleShapeWrapper()
 {
-	std::cout << "GC running on:DrawRectangle" << std::endl;
+	std::cout << "GC running on:RectangleShapeWrapper" << std::endl;
 	delete rectangle;
 }
 
 static const struct luaL_Reg MetaLib[] =
 {
-	{"SetColour", DrawRectangle::luaSetColour},
-	{"SetPosition", DrawRectangle::luaSetPosition},
-	{"SetSquareSize", DrawRectangle::luaSetSquareSize},
+	{"SetColour", RectangleShapeWrapper::luaSetColour},
+	{"SetPosition", RectangleShapeWrapper::luaSetPosition},
+	{"SetSquareSize", RectangleShapeWrapper::luaSetSquareSize},
 	
 	{NULL, NULL}
 };
 
 static const struct luaL_Reg DrawRectangleLib[] =
 {
-	{"New", DrawRectangle::luaNewDrawRectangle},
+	{"New", RectangleShapeWrapper::luaNewRectangleShapeWrapper},
 	{NULL, NULL}
 };
 
-void DrawRectangle::SetPosition(float xValue, float yValue)
+void RectangleShapeWrapper::SetPosition(float xValue, float yValue)
 {
 	rectangle->setPosition(xValue, yValue);
 }
 
-void DrawRectangle::SetSquareSize(float size)
+void RectangleShapeWrapper::SetSquareSize(float size)
 {
 	rectangle->setSize(sf::Vector2f(size, size));
 }
 
-void DrawRectangle::SetColour(float r, float g, float b, float a)
+void RectangleShapeWrapper::SetColour(float r, float g, float b, float a)
 {
 	rectangle->setFillColor(sf::Color(
 		std::ceil(r * 255),
@@ -56,26 +56,26 @@ void DrawRectangle::SetColour(float r, float g, float b, float a)
 		std::ceil(a * 255)));
 }
 
-sf::RectangleShape& DrawRectangle::GetRectangleShape()
+sf::RectangleShape& RectangleShapeWrapper::GetRectangleShape()
 {
 	return (*rectangle);
 }
 
-int DrawRectangle::luaNewDrawRectangle(lua_State * lua)
+int RectangleShapeWrapper::luaNewRectangleShapeWrapper(lua_State * lua)
 {
-	size_t nBytes = sizeof(DrawRectangle);
-	DrawRectangle* drawRectangle = static_cast<DrawRectangle*>(lua_newuserdata(lua, nBytes));
+	size_t nBytes = sizeof(RectangleShapeWrapper);
+	RectangleShapeWrapper* drawRectangle = static_cast<RectangleShapeWrapper*>(lua_newuserdata(lua, nBytes));
 
-	new (drawRectangle) DrawRectangle();
+	new (drawRectangle) RectangleShapeWrapper();
 
 	luaL_getmetatable(lua, TRISTAN_LUA_METATABLE);
 	lua_setmetatable(lua, -2);
 	return 1;
 }
 
-int DrawRectangle::luaSetPosition(lua_State *lua)
+int RectangleShapeWrapper::luaSetPosition(lua_State *lua)
 {
-	DrawRectangle* drawRectangle = static_cast<DrawRectangle*>(luaL_checkudata(lua, 1, TRISTAN_LUA_METATABLE));
+	RectangleShapeWrapper* drawRectangle = static_cast<RectangleShapeWrapper*>(luaL_checkudata(lua, 1, TRISTAN_LUA_METATABLE));
 	
 	float x = lua_tonumber(lua, 2);
 	float y = lua_tonumber(lua, 3);
@@ -84,9 +84,9 @@ int DrawRectangle::luaSetPosition(lua_State *lua)
 	return 0;
 }
 
-int DrawRectangle::luaSetColour(lua_State *lua)
+int RectangleShapeWrapper::luaSetColour(lua_State *lua)
 {
-	DrawRectangle* rectangle = static_cast<DrawRectangle*>(luaL_checkudata(lua, 1, TRISTAN_LUA_METATABLE));
+	RectangleShapeWrapper* rectangle = static_cast<RectangleShapeWrapper*>(luaL_checkudata(lua, 1, TRISTAN_LUA_METATABLE));
 
 	float red = lua_tonumber(lua, 2);
 	float green = lua_tonumber(lua, 3);
@@ -98,9 +98,9 @@ int DrawRectangle::luaSetColour(lua_State *lua)
 	return 0;
 }
 
-int DrawRectangle::luaSetSquareSize(lua_State* lua)
+int RectangleShapeWrapper::luaSetSquareSize(lua_State* lua)
 {
-	DrawRectangle* rectangle = static_cast<DrawRectangle*>(luaL_checkudata(lua, 1, TRISTAN_LUA_METATABLE));
+	RectangleShapeWrapper* rectangle = static_cast<RectangleShapeWrapper*>(luaL_checkudata(lua, 1, TRISTAN_LUA_METATABLE));
 
 	float squareSize = lua_tonumber(lua, 2);
 	rectangle->SetSquareSize(squareSize);
@@ -108,7 +108,7 @@ int DrawRectangle::luaSetSquareSize(lua_State* lua)
 	return 0;
 }
 
-void DrawRectangle::InitializeLua(lua_State* lua)
+void RectangleShapeWrapper::InitializeLua(lua_State* lua)
 {	
 	luaL_openlibs(lua);
 

@@ -11,7 +11,7 @@ else
 end
 
 --Window Title
-Title = "Slicing Mushrooms uwu"
+Title = "Pjauna Gryba uwu"
 
 --Assignment 2 paths
 ModelToLoad = "mge/models/sphere2.obj"

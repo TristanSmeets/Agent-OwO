@@ -22,12 +22,22 @@ function Start(pScreenWidth, pScreenHeight, pSquareSize)
 
 	local DNATable = {}
 
-	local randomDNA = OrganismDNA:newRandomColour()
+	--[[local randomDNA = OrganismDNA:NewRandomColour()
 	table.insert(DNATable, randomDNA)
 
-	local randomDNA2 = OrganismDNA:newRandomColour()
+	local randomDNA2 = OrganismDNA:NewRandomColour()
 	table.insert(DNATable, randomDNA2)
 	
+	local randomDNA3 = OrganismDNA:NewRandomColour()
+	table.insert(DNATable, randomDNA3)
+	
+	local randomDNA4 = OrganismDNA:NewRandomColour()
+	table.insert(DNATable, randomDNA4)
+	
+	local randomDNA5 = OrganismDNA:NewRandomColour()
+	table.insert(DNATable, randomDNA5)]]
+
+
 	local DNA2 = OrganismDNA:NewColoured(1, 0, 0)
 	table.insert(DNATable, DNA2)
 	
@@ -37,8 +47,8 @@ function Start(pScreenWidth, pScreenHeight, pSquareSize)
 	local DNA4 = OrganismDNA:NewColoured(0, 0, 1)
 	table.insert(DNATable, DNA4)
 	
-	local DNA5 = OrganismDNA:NewPopulation(1, 2, 2)
-	table.insert(DNATable, DNA5)
+	--[[local DNA5 = OrganismDNA:NewPopulation(1, 2, 2)
+	table.insert(DNATable, DNA5)]]
 	
 	print("Creating GameGrid")
 	GameGrid = GridGenerator:CreateNewOrganismGrid(columns, rows, DNATable)

@@ -25,7 +25,7 @@ function RuleChecker:UpdateGrid(gameGrid, totalColumns, totalRows)
 		local LiveNeighbours = numberAliveNeighbours(gameGrid, j, i)
 
 		if checkIsAlive(LiveNeighbours,gameGrid[i][j].DNA) then
-			local newDNA = CreateInheritedDNA(gameGrid, j, i)
+			local newDNA = createInheritedDNA(gameGrid, j, i)
 			newDNA.IsAlive = true
 			UpdatedGrid[i][j] = BaseOrganism:new(newDNA)
 		else
@@ -72,9 +72,9 @@ end
 
 --[[Creates a new OrganismDNA that inherits values from surrounding alive Organisms
 	Returns a the new OrganismDNA]]
-function CreateInheritedDNA(Grid, x, y)
-	local CreatedDNA = OrganismDNA:new()
-	local DnaSamples = GetNeighboursDNA(Grid, x, y)
+function createInheritedDNA(Grid, x, y)
+	local CreatedDNA = OrganismDNA:base()
+	local DnaSamples = getNeighboursDNA(Grid, x, y)
 	
 	local inheritedColour = { r = DnaSamples[math.random(#DnaSamples)].Colour.r, g = DnaSamples[math.random(#DnaSamples)].Colour.g, b = DnaSamples[math.random(#DnaSamples)].Colour.b}
 	
@@ -100,7 +100,7 @@ end
 
 --[[Loops through the neighbours of the passed in position.
 	Returns a table of OrganismDNA from all the neighbours that are alive.]]
-function GetNeighboursDNA(grid, x, y)
+function getNeighboursDNA(grid, x, y)
 	local NeighbourDNAs = {}
 	for rowIndex = -1, 1 do
 		for columnIndex = -1, 1 do

@@ -20,13 +20,6 @@ DisplayGrid::~DisplayGrid()
 	std::cout << "GC running on:DiplayGrid" << std::endl;
 	window = nullptr;
 
-	
-	/*std::cout << "Trying to clean up rectangles vector." << std::endl;
-
-	for (unsigned index = 0; index < rectangles.size(); index++)
-	{
-	}*/
-
 	std::cout << "Before Rectangles Capacity: " << rectangles.capacity() << std::endl;
 	rectangles.clear();
 	rectangles.shrink_to_fit();

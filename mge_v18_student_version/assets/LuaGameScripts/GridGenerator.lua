@@ -29,7 +29,7 @@ function GridGenerator:CreateNewOrganismGrid(columns, rows, DNATable)
   for RowIndex, Row in pairs(newCellGrid) do
     for ColumnIndex, Column in pairs(Row) do
       local aliveValue = math.random(2) - 1
-      local DNA = OrganismDNA:new()
+      local DNA = OrganismDNA:base()
 	  DNA.Colour = DNATable[math.random(#DNATable)].Colour
 	  DNA.UnderPopulatedThresshold = DNATable[math.random(#DNATable)].UnderPopulatedThresshold
 	  DNA.OverPopulatedThresshold = DNATable[math.random(#DNATable)].OverPopulatedThresshold

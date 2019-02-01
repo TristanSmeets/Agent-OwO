@@ -1,5 +1,5 @@
-#ifndef DRAWRECTANGLE_HPP
-#define DRAWRECTANGLE_HPP
+#ifndef RECTANGLESHAPEWRAPPER_HPP
+#define RECTANGLESHAPEWRAPPER_HPP
 
 #include <SFML/Graphics.hpp>
 #include <lua.hpp>
@@ -7,16 +7,16 @@
 
 ///Class that will be used to create rectangles on the screen.
 ///Will be used in the lua game.
-class DrawRectangle
+class RectangleShapeWrapper
 {
 public:
-	DrawRectangle();
-	~DrawRectangle();
+	RectangleShapeWrapper();
+	~RectangleShapeWrapper();
 	void SetPosition(float xValue, float yValue);
 	void SetSquareSize(float size);
 	void SetColour(float r, float g, float b, float a);
 	sf::RectangleShape& GetRectangleShape();
-	static int luaNewDrawRectangle(lua_State *lua);
+	static int luaNewRectangleShapeWrapper(lua_State *lua);
 	static int luaSetPosition(lua_State *lua);
 	static int luaSetColour(lua_State *lua);
 	static int luaSetSquareSize(lua_State *lua);
@@ -25,5 +25,5 @@ private:
 	sf::RectangleShape* rectangle;
 };
 
-#endif // !DRAWRECTANGLE_HPP
+#endif // !RECTANGLESHAPEWRAPPER_HPP
 

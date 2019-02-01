@@ -6,7 +6,7 @@
 #include <iostream>
 #include <vector>
 
-std::vector<DrawRectangle*> DisplayGrid::rectangles;
+std::vector<RectangleShapeWrapper*> DisplayGrid::rectangles;
 
 DisplayGrid::DisplayGrid(sf::RenderWindow * renderWindow) : window(renderWindow)
 {
@@ -19,13 +19,6 @@ DisplayGrid::~DisplayGrid()
 {
 	std::cout << "GC running on:DiplayGrid" << std::endl;
 	window = nullptr;
-
-	
-	/*std::cout << "Trying to clean up rectangles vector." << std::endl;
-
-	for (unsigned index = 0; index < rectangles.size(); index++)
-	{
-	}*/
 
 	std::cout << "Before Rectangles Capacity: " << rectangles.capacity() << std::endl;
 	rectangles.clear();
@@ -47,7 +40,7 @@ void DisplayGrid::Draw()
 	window->popGLStates();
 }
 
-void DisplayGrid::AddDrawRectangle(DrawRectangle* rectangle)
+void DisplayGrid::AddRectangleShape(RectangleShapeWrapper* rectangle)
 {
 	rectangles.push_back(rectangle);
 }

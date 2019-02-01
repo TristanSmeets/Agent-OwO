@@ -3,12 +3,12 @@
 #include <iostream>
 #include "mge/util/LuaWrapper.hpp"
 #include <lua.hpp>
-#include "mge/util/DrawRectangle.hpp"
+#include "mge/util/RectangleShapeWrapper.hpp"
 
 LuaBehaviour::LuaBehaviour(lua_State* luaState) : AbstractBehaviour(), main(luaState)
 {
 	//Initializing the DrawRectangle UserData
-	DrawRectangle::InitializeLua(main);
+	RectangleShapeWrapper::InitializeLua(main);
 
 	//Construction of things goes here
 	lua_State* config = LuaWrapper::InitializeLuaState("LuaGameScripts\\config.lua");

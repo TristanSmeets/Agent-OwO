@@ -1,6 +1,6 @@
 OrganismDNA = {}
 
-function OrganismDNA:new()
+function OrganismDNA:base()
 	local organismDNA = {}
 	setmetatable(organismDNA, self)
 	self.__index = self
@@ -12,8 +12,8 @@ function OrganismDNA:new()
 	return organismDNA
 end
 
-function OrganismDNA:newRandomColour()
-	local randomDNA = OrganismDNA:new()
+function OrganismDNA:NewRandomColour()
+	local randomDNA = OrganismDNA:base()
 	setmetatable(randomDNA, self)
 	self.__index = self
 	randomDNA.Colour = { r = math.random(), g = math.random(), b = math.random(), a = 1}
@@ -21,7 +21,7 @@ function OrganismDNA:newRandomColour()
 end
 
 function OrganismDNA:NewColoured(red, green, blue)
-	local colouredDNA = OrganismDNA:new()
+	local colouredDNA = OrganismDNA:base()
 	setmetatable(colouredDNA, self)
 	self.__index = self
 	colouredDNA.Colour = {r = red, g = green, b = blue, a = 1}
@@ -29,7 +29,7 @@ function OrganismDNA:NewColoured(red, green, blue)
 end
 
 function OrganismDNA:NewPopulation(underPopulated, overPopulated, reproduction)
-	local populateDNA = OrganismDNA:new()
+	local populateDNA = OrganismDNA:base()
 	setmetatable(populateDNA, self)
 	self.__index = self
 	populateDNA.UnderPopulatedThresshold = underPopulated

@@ -31,7 +31,7 @@ GameOfLife::~GameOfLife()
 	std::cout << "GC running on:GameOfLife" << std::endl;
 	LuaWrapper::CloseLuaState(main);
 	delete displayGrid;
-	delete hud;
+	//delete hud;
 }
 
 void GameOfLife::initialize()
@@ -40,7 +40,7 @@ void GameOfLife::initialize()
 
 	//setup the grid.
 	displayGrid = new DisplayGrid(_window);
-	hud = new DebugHud(_window);
+	//hud = new DebugHud(_window);
 }
 
 void GameOfLife::_initializeScene()
@@ -66,7 +66,7 @@ void GameOfLife::_render()
 	lua_getglobal(main, "Draw");
 	lua_call(main, 0, 0);
 
-	updateHud();
+	//updateHud();
 }
 
 void GameOfLife::updateHud()

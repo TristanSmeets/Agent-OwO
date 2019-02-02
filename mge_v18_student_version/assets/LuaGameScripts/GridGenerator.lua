@@ -50,15 +50,15 @@ end
 --[[Creates a 2D Grid of DrawRectangles.
 	Should be called once at the start of the game.
 	Returns the 2D Grid]]
-function GridGenerator:CreateDrawRectangleGrid(columns, rows, squareSize)
-	local newDrawRectangleGrid = GridGenerator:Create2DGrid(columns, rows)
-	for RowIndex, Row in pairs(newDrawRectangleGrid) do
+function GridGenerator:CreateRectangleShapeGrid(columns, rows, squareSize)
+	local newRectangleShapeGrid = GridGenerator:Create2DGrid(columns, rows)
+	for RowIndex, Row in pairs(newRectangleShapeGrid) do
 		for ColumnIndex, Column in pairs(Row) do
-			newDrawRectangleGrid[RowIndex][ColumnIndex] = RectangleShape:New()
-			newDrawRectangleGrid[RowIndex][ColumnIndex]:SetSquareSize(squareSize - 1)
-			newDrawRectangleGrid[RowIndex][ColumnIndex]:SetPosition((ColumnIndex -1) * squareSize, (RowIndex - 1) * squareSize)
-			newDrawRectangleGrid[RowIndex][ColumnIndex]:SetColour(0,0,0,1)
+			newRectangleShapeGrid[RowIndex][ColumnIndex] = RectangleShape:New()
+			newRectangleShapeGrid[RowIndex][ColumnIndex]:SetSquareSize(squareSize - 1)
+			newRectangleShapeGrid[RowIndex][ColumnIndex]:SetPosition((ColumnIndex -1) * squareSize, (RowIndex - 1) * squareSize)
+			newRectangleShapeGrid[RowIndex][ColumnIndex]:SetColour(0,0,0,1)
 		end
 	end
-	return newDrawRectangleGrid
+	return newRectangleShapeGrid
 end

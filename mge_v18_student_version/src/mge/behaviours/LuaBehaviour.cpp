@@ -35,7 +35,7 @@ LuaBehaviour::~LuaBehaviour()
 void LuaBehaviour::update( float pStep )
 {
 	counter += pStep;
-	if (counter > .16f)
+	if (counter > .15f)
 	{
 		lua_getglobal(main, "Update");
 		int status = lua_pcall(main, 0, 0, 0);

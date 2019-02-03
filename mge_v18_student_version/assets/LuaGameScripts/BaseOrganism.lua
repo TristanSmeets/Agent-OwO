@@ -9,13 +9,10 @@ function BaseOrganism:new(organismDNA)
 end
 
 function BaseOrganism:Draw(drawRectangle)
-	if self.DNA.IsAlive == true then
-		drawRectangle:SetColour(
-			self.DNA.Colour.r, 
-			self.DNA.Colour.g,
-			self.DNA.Colour.b,
-			self.DNA.Colour.a)
-	else
-		drawRectangle:SetColour(0,0,0,1)
-	end
+	drawRectangle:SetColour(
+		self.DNA.Colour.r,
+		self.DNA.Colour.g,
+		self.DNA.Colour.b,
+		self.DNA.Colour.a
+	)
 end

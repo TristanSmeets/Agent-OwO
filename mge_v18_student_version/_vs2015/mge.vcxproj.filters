@@ -119,6 +119,9 @@
     <ClInclude Include="..\src\mge\util\RectangleShapeWrapper.hpp">
       <Filter>MGE Source files\mge\util</Filter>
     </ClInclude>
+    <ClInclude Include="..\src\mge\DesignerScene.hpp">
+      <Filter>MGE Source files\mge</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\main.cpp">
@@ -211,6 +214,9 @@
     <ClCompile Include="..\src\mge\util\RectangleShapeWrapper.cpp">
       <Filter>MGE Source files\mge\util</Filter>
     </ClCompile>
+    <ClCompile Include="..\src\mge\DesignerScene.cpp">
+      <Filter>MGE Source files\mge</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram.cd" />
@@ -232,6 +238,9 @@
       <Filter>LuaScripts</Filter>
     </CopyFileToFolders>
     <CopyFileToFolders Include="..\assets\LuaGameScripts\RuleChecker.lua">
+      <Filter>LuaScripts</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="..\assets\LuaGameScripts\ModelViewer.lua">
       <Filter>LuaScripts</Filter>
     </CopyFileToFolders>
   </ItemGroup>

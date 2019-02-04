@@ -36,10 +36,10 @@ function GridGenerator:CreateNewOrganismGrid(columns, rows, DNATable)
 	  DNA.Reproduction = DNATable[math.random(#DNATable)].Reproduction
 
       if aliveValue == 1 then
-        DNA.IsAlive = true
         newCellGrid[RowIndex][ColumnIndex] = BaseOrganism:new(DNA)
       else
         DNA.IsAlive = false
+		DNA.Colour = {r = 0, g = 0, b = 0, a = 0}
         newCellGrid[RowIndex][ColumnIndex] = BaseOrganism:new(DNA)
       end
     end
@@ -57,7 +57,7 @@ function GridGenerator:CreateRectangleShapeGrid(columns, rows, squareSize)
 			newRectangleShapeGrid[RowIndex][ColumnIndex] = RectangleShape:New()
 			newRectangleShapeGrid[RowIndex][ColumnIndex]:SetSquareSize(squareSize - 1)
 			newRectangleShapeGrid[RowIndex][ColumnIndex]:SetPosition((ColumnIndex -1) * squareSize, (RowIndex - 1) * squareSize)
-			newRectangleShapeGrid[RowIndex][ColumnIndex]:SetColour(0,0,0,1)
+			newRectangleShapeGrid[RowIndex][ColumnIndex]:SetColour(1,1,1,1)
 		end
 	end
 	return newRectangleShapeGrid

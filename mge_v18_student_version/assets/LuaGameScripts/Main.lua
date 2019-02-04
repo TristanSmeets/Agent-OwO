@@ -44,7 +44,7 @@ function Start(pScreenWidth, pScreenHeight, pSquareSize)
 	local DNA4 = OrganismDNA:NewColoured(0, 0, 1)
 	table.insert(DNATable, DNA4)
 	
-	local DNA5 = OrganismDNA:NewPopulation(1, 2, 2)
+	local DNA5 = OrganismDNA:NewPopulationThressholds(1, 2, 2)
 	table.insert(DNATable, DNA5)
 	
 	print("Creating GameGrid")

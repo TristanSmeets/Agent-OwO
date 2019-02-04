@@ -5,6 +5,8 @@ require("LuaGameScripts\\GridGenerator")
 require("LuaGameScripts\\BaseOrganism")
 require("LuaGameScripts\\OrganismDNA")
 
+math.randomseed(os.time())
+
 --Local variables
 local columns = nil
 local rows = nil
@@ -26,10 +28,10 @@ function RuleChecker:UpdateGrid(gameGrid, totalColumns, totalRows)
 
 		if checkIsAlive(LiveNeighbours,gameGrid[i][j].DNA) then
 			local newDNA = createInheritedDNA(gameGrid, j, i)
-			newDNA.IsAlive = true
 			UpdatedGrid[i][j] = BaseOrganism:new(newDNA)
 		else
 			local deadDNA = OrganismDNA:NewColoured(0, 0, 0)
+			deadDNA.IsAlive = false
 			UpdatedGrid[i][j] = BaseOrganism:new(deadDNA)
 		end
     end
@@ -72,9 +74,9 @@ end
 
 --[[Creates a new OrganismDNA that inherits values from surrounding alive Organisms
 	Returns a the new OrganismDNA]]
-function createInheritedDNA(Grid, x, y)
+function createInheritedDNA(grid, x, y)
 	local CreatedDNA = OrganismDNA:base()
-	local DnaSamples = getNeighboursDNA(Grid, x, y)
+	local DnaSamples = getNeighboursDNA(grid, x, y)
 	
 	local inheritedColour = { r = DnaSamples[math.random(#DnaSamples)].Colour.r, g = DnaSamples[math.random(#DnaSamples)].Colour.g, b = DnaSamples[math.random(#DnaSamples)].Colour.b}
 	

@@ -8,8 +8,8 @@ function BaseOrganism:new(organismDNA)
   return baseOrganism
 end
 
-function BaseOrganism:Draw(drawRectangle)
-	drawRectangle:SetColour(
+function BaseOrganism:Draw(rectangleShape)
+	rectangleShape:SetColour(
 		self.DNA.Colour.r,
 		self.DNA.Colour.g,
 		self.DNA.Colour.b,

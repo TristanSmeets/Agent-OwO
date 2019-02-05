@@ -72,13 +72,47 @@ function checkIsAlive(aliveNeighbours, DNA)
   end
 end
 
---[[Creates a new OrganismDNA that inherits values from surrounding alive Organisms
+--[[Creates a new OrganismDNA that inherits values from surrounding alive Organisms.
+	Inherits colour values by taking the average of all the neighbouring DNA.
+	Returns a the new OrganismDNA]]
+--[[function createInheritedDNA(grid, x, y)
+	local CreatedDNA = OrganismDNA:base()
+	local DnaSamples = getNeighboursDNA(grid, x, y)
+	
+	local inheritedColour = { r = 0, g = 0 , b = 0 }
+	
+	for DNA, Sample in pairs(DnaSamples) do
+		inheritedColour.r = inheritedColour.r + Sample.Colour.r
+		inheritedColour.g = inheritedColour.g + Sample.Colour.g
+		inheritedColour.b = inheritedColour.b + Sample.Colour.b
+	end
+
+	inheritedColour.r = inheritedColour.r / #DnaSamples
+	inheritedColour.g = inheritedColour.g / #DnaSamples
+	inheritedColour.b = inheritedColour.b / #DnaSamples
+
+	local newUnderPop = DnaSamples[math.random(#DnaSamples)].UnderPopulatedThresshold
+	local newOverPop = DnaSamples[math.random(#DnaSamples)].OverPopulatedThresshold
+	local newRepro = DnaSamples[math.random(#DnaSamples)].Reproduction
+
+	CreatedDNA.Colour = { r = inheritedColour.r, g = inheritedColour.g, b = inheritedColour.b, a = 1}
+	CreatedDNA.UnderPopulatedThresshold = newUnderPop
+	CreatedDNA.OverPopulatedThresshold = newOverPop
+	CreatedDNA.Reproduction = newRepro
+
+	return CreatedDNA
+end]]
+
+--[[Creates a new OrganismDNA that inherits values from surrounding alive Organisms.
+	Inherits colour values by taking values randomly from the neighbouring DNA.
 	Returns a the new OrganismDNA]]
 function createInheritedDNA(grid, x, y)
 	local CreatedDNA = OrganismDNA:base()
 	local DnaSamples = getNeighboursDNA(grid, x, y)
 	
-	local inheritedColour = { r = DnaSamples[math.random(#DnaSamples)].Colour.r, g = DnaSamples[math.random(#DnaSamples)].Colour.g, b = DnaSamples[math.random(#DnaSamples)].Colour.b}
+	local inheritedColour = {	r = DnaSamples[math.random(#DnaSamples)].Colour.r, 
+								g = DnaSamples[math.random(#DnaSamples)].Colour.g, 
+								b = DnaSamples[math.random(#DnaSamples)].Colour.b}
 	
 	--Check if the new inherited colour isn't black. If it is black create a new random colour.
 	if inheritedColour.r == 0 and inheritedColour.g == 0 and inheritedColour.b == 0 then

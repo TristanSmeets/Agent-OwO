@@ -91,8 +91,7 @@ function createInheritedDNA(grid, x, y)
 	local newOverPop = DnaSamples[math.random(#DnaSamples)].OverPopulatedThresshold
 	local newRepro = DnaSamples[math.random(#DnaSamples)].Reproduction
 
-	local averageColour = { r = inheritedColour.r, g = inheritedColour.g, b = inheritedColour.b, a = 1}
-	CreatedDNA.Colour = averageColour
+	CreatedDNA.Colour = { r = inheritedColour.r, g = inheritedColour.g, b = inheritedColour.b, a = 1}
 	CreatedDNA.UnderPopulatedThresshold = newUnderPop
 	CreatedDNA.OverPopulatedThresshold = newOverPop
 	CreatedDNA.Reproduction = newRepro

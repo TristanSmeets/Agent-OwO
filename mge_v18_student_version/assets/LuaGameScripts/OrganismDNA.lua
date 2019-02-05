@@ -27,7 +27,6 @@ function OrganismDNA:NewRandomColour()
 	return randomDNA
 end
 
-
 function OrganismDNA:NewPopulationThressholds(underPopulated, overPopulated, reproduction)
 	local populateDNA = OrganismDNA:base()
 	setmetatable(populateDNA, self)

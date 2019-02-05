@@ -19,35 +19,29 @@ function Start(pScreenWidth, pScreenHeight, pSquareSize)
 	RectangleGrid = GridGenerator:CreateRectangleShapeGrid(columns, rows, squareSize) 
 
 	local DNATable = {}
-
-	local randomDNA = OrganismDNA:NewRandomColour()
-	table.insert(DNATable, randomDNA)
-
-	local randomDNA2 = OrganismDNA:NewRandomColour()
-	table.insert(DNATable, randomDNA2)
 	
-	local randomDNA3 = OrganismDNA:NewRandomColour()
-	table.insert(DNATable, randomDNA3)
-	
-	local randomDNA4 = OrganismDNA:NewRandomColour()
-	table.insert(DNATable, randomDNA4)
-	
-	local randomDNA5 = OrganismDNA:NewRandomColour()
-	table.insert(DNATable, randomDNA5)
+	--Create 5 OrganismDNAs with random colour values.
+	for i = 1, 5 do
+		local randomDNA = OrganismDNA:NewRandomColour()
+		table.insert(DNATable, randomDNA)
+	end
 
+	--Create an OrganismDNA that is red
 	local DNA2 = OrganismDNA:NewColoured(1, 0, 0)
 	table.insert(DNATable, DNA2)
 	
+	--Create an OrganismDNA that is green
 	local DNA3 = OrganismDNA:NewColoured(0, 1, 0)
 	table.insert(DNATable, DNA3)
 	
+	--Create an OrganismDNA that is blue
 	local DNA4 = OrganismDNA:NewColoured(0, 0, 1)
 	table.insert(DNATable, DNA4)
 	
+	--Create an Organism with adjusted population thressholds
 	local DNA5 = OrganismDNA:NewPopulationThressholds(1, 2, 2)
 	table.insert(DNATable, DNA5)
-	
-	print("Creating GameGrid")
+
 	GameGrid = GridGenerator:CreateNewOrganismGrid(columns, rows, DNATable)
 end
 

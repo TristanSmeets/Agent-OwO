@@ -77,24 +77,31 @@ end
 	Returns a the new OrganismDNA]]
 --[[function createInheritedDNA(grid, x, y)
 	local CreatedDNA = OrganismDNA:base()
+	
+	--Get a list of all the OrganismDNA from alive neighbours
 	local DnaSamples = getNeighboursDNA(grid, x, y)
 	
+	--Create a table to store red, green and blue values in.
 	local inheritedColour = { r = 0, g = 0 , b = 0 }
 	
+	--Loop through the list of OrganismDNA and add their values to the storage table
 	for DNA, Sample in pairs(DnaSamples) do
 		inheritedColour.r = inheritedColour.r + Sample.Colour.r
 		inheritedColour.g = inheritedColour.g + Sample.Colour.g
 		inheritedColour.b = inheritedColour.b + Sample.Colour.b
 	end
 
+	--Divide the values by the amount of OrganismDNA in the table to get the average value.
 	inheritedColour.r = inheritedColour.r / #DnaSamples
 	inheritedColour.g = inheritedColour.g / #DnaSamples
 	inheritedColour.b = inheritedColour.b / #DnaSamples
 
+	--Inherit the population thressholds randomly from the DNASamples
 	local newUnderPop = DnaSamples[math.random(#DnaSamples)].UnderPopulatedThresshold
 	local newOverPop = DnaSamples[math.random(#DnaSamples)].OverPopulatedThresshold
 	local newRepro = DnaSamples[math.random(#DnaSamples)].Reproduction
 
+	--Setting the values of the newly created OrganismDNA
 	CreatedDNA.Colour = { r = inheritedColour.r, g = inheritedColour.g, b = inheritedColour.b, a = 1}
 	CreatedDNA.UnderPopulatedThresshold = newUnderPop
 	CreatedDNA.OverPopulatedThresshold = newOverPop
@@ -108,8 +115,11 @@ end]]
 	Returns a the new OrganismDNA]]
 function createInheritedDNA(grid, x, y)
 	local CreatedDNA = OrganismDNA:base()
+	
+	--Get a list of all the OrganismDNA from alive neighbours
 	local DnaSamples = getNeighboursDNA(grid, x, y)
 	
+	--Get the red, green and blue values randomly from one of the DNASamples.
 	local inheritedColour = {	r = DnaSamples[math.random(#DnaSamples)].Colour.r, 
 								g = DnaSamples[math.random(#DnaSamples)].Colour.g, 
 								b = DnaSamples[math.random(#DnaSamples)].Colour.b}
@@ -121,10 +131,12 @@ function createInheritedDNA(grid, x, y)
 		inheritedColour.b = math.random()
 	end
 
+	--Inherit the population thressholds randomly from the DNASamples
 	local newUnderPop = DnaSamples[math.random(#DnaSamples)].UnderPopulatedThresshold
 	local newOverPop = DnaSamples[math.random(#DnaSamples)].OverPopulatedThresshold
 	local newRepro = DnaSamples[math.random(#DnaSamples)].Reproduction
 
+	--Setting the values of the newly created OrganismDNA
 	CreatedDNA.Colour = { r = inheritedColour.r, g = inheritedColour.g, b = inheritedColour.b, a = 1}
 	CreatedDNA.UnderPopulatedThresshold = newUnderPop
 	CreatedDNA.OverPopulatedThresshold = newOverPop

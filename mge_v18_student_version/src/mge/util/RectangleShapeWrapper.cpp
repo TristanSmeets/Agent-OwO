@@ -6,7 +6,7 @@
 #define TRISTAN_LUA_VARIABLE_NAME "RectangleShape"
 #define TRISTAN_LUA_METATABLE "meta.RectangleShape"
 #define TRISTAN_LUA_INDEX "__index"
-#define TRISTAN_LUA_FILEPATH "LuaGameScripts\\GridGenerator.lua"
+#define TRISTAN_LUA_FILEPATH "LuaGameScripts\\Main.lua"
 #define TRISTAN_LUA_COLOUR "Colour"
 
 RectangleShapeWrapper::RectangleShapeWrapper()

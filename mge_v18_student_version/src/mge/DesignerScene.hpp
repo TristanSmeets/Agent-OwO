@@ -17,8 +17,6 @@ protected:
 	virtual void _render();
 
 private:
-	DebugHud* hud;
-	void updateHud();
 };
 
 #endif

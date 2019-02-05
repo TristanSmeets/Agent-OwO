@@ -23,21 +23,17 @@
 #include "DesignerScene.hpp"
 #include "mge/config.hpp"
 
-DesignerScene::DesignerScene() : AbstractGame(), hud(0)
+DesignerScene::DesignerScene() : AbstractGame()
 {
 }
 
 DesignerScene::~DesignerScene()
 {
-	if (nullptr != hud) delete hud;
 }
 
 void DesignerScene::initialize()
 {
 	AbstractGame::initialize();
-	std::cout << "Initializing HUD" << std::endl;
-	hud = new DebugHud(_window);
-	std::cout << "HUD initialized.\n" << std::endl;
 }
 
 void DesignerScene::_initializeScene()
@@ -69,21 +65,18 @@ void DesignerScene::_initializeScene()
 		lighting->Type = LightType::DIRECTIONAL;
 		break;
 	}
-
 	std::cout << "Getting Ambient Colour" << std::endl;
 	lighting->Ambient = glm::vec3(
 		LuaWrapper::GetTableValue<float>(modelViewer, "Ambient", "red"),
 		LuaWrapper::GetTableValue<float>(modelViewer,"Ambient", "green"),
 		LuaWrapper::GetTableValue<float>(modelViewer,"Ambient", "blue")
 	);
-	
 	std::cout << "Getting Diffuse Colour" << std::endl;
 	lighting->Diffuse = glm::vec3(
 		LuaWrapper::GetTableValue<float>(modelViewer, "Diffuse", "red"),
 		LuaWrapper::GetTableValue<float>(modelViewer, "Diffuse", "green"),
 		LuaWrapper::GetTableValue<float>(modelViewer, "Diffuse", "blue")
 	);
-	
 	std::cout << "Getting Specular Colour" << std::endl;
 	lighting->Specular = glm::vec3(
 		LuaWrapper::GetTableValue<float>(modelViewer, "Specular", "red"),
@@ -99,14 +92,19 @@ void DesignerScene::_initializeScene()
 	//Creating AbstractMaterial
 	AbstractMaterial* colourMaterial = new ColorMaterial(lighting->Ambient);
 
-	//Creating Material
+	//Creating Material struct
 	std::cout << "Creating Material" << std::endl;
 	Material* material = new Material();
 	material->DiffuseTexture = Texture::load(LuaWrapper::GetString(modelViewer, "DiffuseTexture"));
 	material->SpecularTexture = Texture::load(LuaWrapper::GetString(modelViewer, "SpecularTexture"));
 	material->ShininessFactor = LuaWrapper::GetNumber<int>(modelViewer, "ShininessFactor");
 
+	//Creating AbstractMaterial
+	std::cout << "Creating LitMaterial" << std::endl;
+	AbstractMaterial* litMaterial = new LitMaterial(material);
+
 	//Creating Mesh
+	std::cout << "Creating Meshes" << std::endl;
 	Mesh* objectMesh = Mesh::load(LuaWrapper::GetString(modelViewer, "ModelPath"));
 	Mesh* cubeMesh = Mesh::load(config::MGE_MODEL_PATH + "cube_flat.obj");
 	/**/
@@ -118,6 +116,23 @@ void DesignerScene::_initializeScene()
 	_world->setMainCamera(camera);
 
 	/**/
+	//Creating GameObject that will hold model
+	std::cout << "Creating Model GameObject" << std::endl;
+	GameObject* model = new GameObject("Model", glm::vec3(0, 0, 0));
+	model->scale(glm::vec3(1, 1, 1));
+	model->setMesh(objectMesh);
+	model->setMaterial(litMaterial);
+	_world->add(model);
+
+	//Setting CameraOrbitBehavior
+	camera->setBehaviour(new CameraOrbitBehaviour(
+		LuaWrapper::GetNumber<float>(modelViewer, "CameraDistance"),
+		89.0f,
+		LuaWrapper::GetNumber<float>(modelViewer, "CameraMoveSpeed"),
+		model, _window));
+	/**/
+
+	/**/
 	//Creating Light
 	std::cout << "Creating Light" << std::endl;
 	Light* light = new Light("light", glm::vec3(2, 0, 0), lighting);
@@ -126,33 +141,10 @@ void DesignerScene::_initializeScene()
 	light->setMaterial(colourMaterial);
 	light->setBehaviour(new KeysBehaviour(40, 100));
 	_world->add(light);
-
-	//Creating GameObject that will hold model
-	GameObject* model = new GameObject("Model", glm::vec3(0, 0, 0));
-	model->scale(glm::vec3(1, 1, 1));
-	model->setMesh(objectMesh);
-	model->setMaterial(new LitMaterial(material));
-	_world->add(model);
-	
-	//Setting CameraOrbitBehavior
-	camera->setBehaviour(new CameraOrbitBehaviour(
-		LuaWrapper::GetNumber<float>(modelViewer, "CameraDistance"), 
-		89.0f, 
-		LuaWrapper::GetNumber<float>(modelViewer, "CameraMoveSpeed"), 
-		model, _window));
-	/**/
 }
 
 void DesignerScene::_render()
 {
 	AbstractGame::_render();
-	updateHud();
 }
 
-void DesignerScene::updateHud()
-{
-	std::string debugInfo = "";
-	debugInfo += std::string("FPS: ") + std::to_string((int)_fps) + "\n";
-	hud->setDebugInfo(debugInfo);
-	hud->draw();
-}

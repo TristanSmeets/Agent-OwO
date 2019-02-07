@@ -275,7 +275,187 @@
       <FileType>Document</FileType>
       <DestinationFolders Condition="'$(Configuration)|$(Platform)'=='Debug Static|Win32'">$(OutDir)\LuaGameScripts</DestinationFolders>
     </CopyFileToFolders>
+    <CopyFileToFolders Include="..\assets\mge\shaders\color.fs">
+      <FileType>Document</FileType>
+      <DestinationFolders Condition="'$(Configuration)|$(Platform)'=='Debug Static|Win32'">$(OutDir)\mge\shaders</DestinationFolders>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="..\assets\mge\shaders\color.vs">
+      <FileType>Document</FileType>
+      <DestinationFolders Condition="'$(Configuration)|$(Platform)'=='Debug Static|Win32'">$(OutDir)\mge\shaders</DestinationFolders>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="..\assets\mge\shaders\lit.fs">
+      <FileType>Document</FileType>
+      <DestinationFolders Condition="'$(Configuration)|$(Platform)'=='Debug Static|Win32'">$(OutDir)\mge\shaders</DestinationFolders>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="..\assets\mge\shaders\lit.vs">
+      <FileType>Document</FileType>
+      <DestinationFolders Condition="'$(Configuration)|$(Platform)'=='Debug Static|Win32'">$(OutDir)\mge\shaders</DestinationFolders>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="..\assets\mge\shaders\terrain.fs">
+      <FileType>Document</FileType>
+      <DestinationFolders Condition="'$(Configuration)|$(Platform)'=='Debug Static|Win32'">$(OutDir)\mge\shaders</DestinationFolders>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="..\assets\mge\shaders\terrain.vs">
+      <FileType>Document</FileType>
+      <DestinationFolders Condition="'$(Configuration)|$(Platform)'=='Debug Static|Win32'">$(OutDir)\mge\shaders</DestinationFolders>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="..\assets\mge\shaders\texture.fs">
+      <FileType>Document</FileType>
+      <DestinationFolders Condition="'$(Configuration)|$(Platform)'=='Debug Static|Win32'">$(OutDir)\mge\shaders</DestinationFolders>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="..\assets\mge\shaders\texture.vs">
+      <FileType>Document</FileType>
+      <DestinationFolders Condition="'$(Configuration)|$(Platform)'=='Debug Static|Win32'">$(OutDir)\mge\shaders</DestinationFolders>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="..\assets\mge\shaders\wobble.fs">
+      <FileType>Document</FileType>
+      <DestinationFolders Condition="'$(Configuration)|$(Platform)'=='Debug Static|Win32'">$(OutDir)\mge\shaders</DestinationFolders>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="..\assets\mge\shaders\wobble.vs">
+      <FileType>Document</FileType>
+      <DestinationFolders Condition="'$(Configuration)|$(Platform)'=='Debug Static|Win32'">$(OutDir)\mge\shaders</DestinationFolders>
+    </CopyFileToFolders>
     <None Include="ClassDiagram.cd" />
+  </ItemGroup>
+  <ItemGroup>
+    <CopyFileToFolders Include="..\assets\mge\textures\bricks.jpg">
+      <DestinationFolders Condition="'$(Configuration)|$(Platform)'=='Debug Static|Win32'">$(OutDir)\mge\textures</DestinationFolders>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="..\assets\mge\textures\container2.png">
+      <DestinationFolders Condition="'$(Configuration)|$(Platform)'=='Debug Static|Win32'">$(OutDir)\mge\textures</DestinationFolders>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="..\assets\mge\textures\container2_specular.png">
+      <DestinationFolders Condition="'$(Configuration)|$(Platform)'=='Debug Static|Win32'">$(OutDir)\mge\textures</DestinationFolders>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="..\assets\mge\textures\diffuse1.jpg">
+      <DestinationFolders Condition="'$(Configuration)|$(Platform)'=='Debug Static|Win32'">$(OutDir)\mge\textures</DestinationFolders>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="..\assets\mge\textures\diffuse2.jpg">
+      <DestinationFolders Condition="'$(Configuration)|$(Platform)'=='Debug Static|Win32'">$(OutDir)\mge\textures</DestinationFolders>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="..\assets\mge\textures\diffuse3.jpg">
+      <DestinationFolders Condition="'$(Configuration)|$(Platform)'=='Debug Static|Win32'">$(OutDir)\mge\textures</DestinationFolders>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="..\assets\mge\textures\diffuse4.jpg">
+      <DestinationFolders Condition="'$(Configuration)|$(Platform)'=='Debug Static|Win32'">$(OutDir)\mge\textures</DestinationFolders>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="..\assets\mge\textures\heightmap.png">
+      <DestinationFolders Condition="'$(Configuration)|$(Platform)'=='Debug Static|Win32'">$(OutDir)\mge\textures</DestinationFolders>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="..\assets\mge\textures\land.jpg">
+      <DestinationFolders Condition="'$(Configuration)|$(Platform)'=='Debug Static|Win32'">$(OutDir)\mge\textures</DestinationFolders>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="..\assets\mge\textures\runicfloor.png">
+      <DestinationFolders Condition="'$(Configuration)|$(Platform)'=='Debug Static|Win32'">$(OutDir)\mge\textures</DestinationFolders>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="..\assets\mge\textures\splatmap.png">
+      <DestinationFolders Condition="'$(Configuration)|$(Platform)'=='Debug Static|Win32'">$(OutDir)\mge\textures</DestinationFolders>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="..\assets\mge\textures\water.jpg">
+      <DestinationFolders Condition="'$(Configuration)|$(Platform)'=='Debug Static|Win32'">$(OutDir)\mge\textures</DestinationFolders>
+    </CopyFileToFolders>
+  </ItemGroup>
+  <ItemGroup>
+    <CopyFileToFolders Include="..\assets\mge\models\cone_flat.obj">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug Static|Win32'">false</ExcludedFromBuild>
+      <FileType>Document</FileType>
+      <DestinationFolders Condition="'$(Configuration)|$(Platform)'=='Debug Static|Win32'">$(OutDir)\mge\models</DestinationFolders>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="..\assets\mge\models\cone_smooth.obj">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug Static|Win32'">false</ExcludedFromBuild>
+      <FileType>Document</FileType>
+      <DestinationFolders Condition="'$(Configuration)|$(Platform)'=='Debug Static|Win32'">$(OutDir)\mge\models</DestinationFolders>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="..\assets\mge\models\cube_flat.obj">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug Static|Win32'">false</ExcludedFromBuild>
+      <FileType>Document</FileType>
+      <DestinationFolders Condition="'$(Configuration)|$(Platform)'=='Debug Static|Win32'">$(OutDir)\mge\models</DestinationFolders>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="..\assets\mge\models\cube_smooth.obj">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug Static|Win32'">false</ExcludedFromBuild>
+      <FileType>Document</FileType>
+      <DestinationFolders Condition="'$(Configuration)|$(Platform)'=='Debug Static|Win32'">$(OutDir)\mge\models</DestinationFolders>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="..\assets\mge\models\cylinder_flat.obj">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug Static|Win32'">false</ExcludedFromBuild>
+      <FileType>Document</FileType>
+      <DestinationFolders Condition="'$(Configuration)|$(Platform)'=='Debug Static|Win32'">$(OutDir)\mge\models</DestinationFolders>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="..\assets\mge\models\cylinder_smooth.obj">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug Static|Win32'">false</ExcludedFromBuild>
+      <FileType>Document</FileType>
+      <DestinationFolders Condition="'$(Configuration)|$(Platform)'=='Debug Static|Win32'">$(OutDir)\mge\models</DestinationFolders>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="..\assets\mge\models\plane.obj">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug Static|Win32'">false</ExcludedFromBuild>
+      <FileType>Document</FileType>
+      <DestinationFolders Condition="'$(Configuration)|$(Platform)'=='Debug Static|Win32'">$(OutDir)\mge\models</DestinationFolders>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="..\assets\mge\models\plane20x20_2048tris_aligned_uvs.obj">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug Static|Win32'">false</ExcludedFromBuild>
+      <FileType>Document</FileType>
+      <DestinationFolders Condition="'$(Configuration)|$(Platform)'=='Debug Static|Win32'">$(OutDir)\mge\models</DestinationFolders>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="..\assets\mge\models\plane20x20_2tris_aligned_uvs.obj">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug Static|Win32'">false</ExcludedFromBuild>
+      <FileType>Document</FileType>
+      <DestinationFolders Condition="'$(Configuration)|$(Platform)'=='Debug Static|Win32'">$(OutDir)\mge\models</DestinationFolders>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="..\assets\mge\models\plane_8192.obj">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug Static|Win32'">false</ExcludedFromBuild>
+      <FileType>Document</FileType>
+      <DestinationFolders Condition="'$(Configuration)|$(Platform)'=='Debug Static|Win32'">$(OutDir)\mge\models</DestinationFolders>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="..\assets\mge\models\sphere1.obj">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug Static|Win32'">false</ExcludedFromBuild>
+      <FileType>Document</FileType>
+      <DestinationFolders Condition="'$(Configuration)|$(Platform)'=='Debug Static|Win32'">$(OutDir)\mge\models</DestinationFolders>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="..\assets\mge\models\sphere2.obj">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug Static|Win32'">false</ExcludedFromBuild>
+      <FileType>Document</FileType>
+      <DestinationFolders Condition="'$(Configuration)|$(Platform)'=='Debug Static|Win32'">$(OutDir)\mge\models</DestinationFolders>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="..\assets\mge\models\sphere3.obj">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug Static|Win32'">false</ExcludedFromBuild>
+      <FileType>Document</FileType>
+      <DestinationFolders Condition="'$(Configuration)|$(Platform)'=='Debug Static|Win32'">$(OutDir)\mge\models</DestinationFolders>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="..\assets\mge\models\sphere4.obj">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug Static|Win32'">false</ExcludedFromBuild>
+      <FileType>Document</FileType>
+      <DestinationFolders Condition="'$(Configuration)|$(Platform)'=='Debug Static|Win32'">$(OutDir)\mge\models</DestinationFolders>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="..\assets\mge\models\sphere_flat.obj">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug Static|Win32'">false</ExcludedFromBuild>
+      <FileType>Document</FileType>
+      <DestinationFolders Condition="'$(Configuration)|$(Platform)'=='Debug Static|Win32'">$(OutDir)\mge\models</DestinationFolders>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="..\assets\mge\models\sphere_smooth.obj">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug Static|Win32'">false</ExcludedFromBuild>
+      <FileType>Document</FileType>
+      <DestinationFolders Condition="'$(Configuration)|$(Platform)'=='Debug Static|Win32'">$(OutDir)\mge\models</DestinationFolders>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="..\assets\mge\models\suzanna_flat.obj">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug Static|Win32'">false</ExcludedFromBuild>
+      <FileType>Document</FileType>
+      <DestinationFolders Condition="'$(Configuration)|$(Platform)'=='Debug Static|Win32'">$(OutDir)\mge\models</DestinationFolders>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="..\assets\mge\models\suzanna_smooth.obj">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug Static|Win32'">false</ExcludedFromBuild>
+      <FileType>Document</FileType>
+      <DestinationFolders Condition="'$(Configuration)|$(Platform)'=='Debug Static|Win32'">$(OutDir)\mge\models</DestinationFolders>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="..\assets\mge\models\teapot_flat.obj">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug Static|Win32'">false</ExcludedFromBuild>
+      <FileType>Document</FileType>
+      <DestinationFolders Condition="'$(Configuration)|$(Platform)'=='Debug Static|Win32'">$(OutDir)\mge\models</DestinationFolders>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="..\assets\mge\models\teapot_smooth.obj">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug Static|Win32'">false</ExcludedFromBuild>
+      <FileType>Document</FileType>
+      <DestinationFolders Condition="'$(Configuration)|$(Platform)'=='Debug Static|Win32'">$(OutDir)\mge\models</DestinationFolders>
+    </CopyFileToFolders>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

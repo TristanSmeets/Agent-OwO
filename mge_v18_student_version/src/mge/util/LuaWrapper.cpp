@@ -11,7 +11,7 @@ lua_State* LuaWrapper::InitializeLuaState(const std::string& filePath)
 	std::cout << "Initializing Lua file: " << filePath << std::endl;
 	//std::cout << filePath <<" at: " << lua << std::endl;
 	luaL_loadfile(lua, filePath.c_str());
-	//std::cout << filePath << " initialized at: " << lua <<std::endl;
+	std::cout << filePath << " initialized at: " << lua <<std::endl;
 	int status = lua_pcall(lua, 0, 0, 0, 0);
 	if (status)
 		std::cout << "Lua Error: " << std::to_string(status) << "\n" << lua_tostring(lua, -1) << "\nStack: " << lua_gettop(lua) << std::endl;

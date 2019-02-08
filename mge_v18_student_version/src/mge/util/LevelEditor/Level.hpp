@@ -20,6 +20,7 @@ public:
 private:
 	World* world;
 	AbstractFactory* factory;
+	std::vector<GameObject*> gameObjects;
 };
 
 #endif // !LEVEL_HPP

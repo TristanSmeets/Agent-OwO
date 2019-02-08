@@ -22,6 +22,7 @@
 #include "mge/util/LuaScripting/LuaWrapper.hpp"
 #include "DesignerScene.hpp"
 #include "mge/config.hpp"
+#include "mge/util/LevelEditor/Level.hpp"
 
 DesignerScene::DesignerScene() : AbstractGame()
 {
@@ -141,6 +142,10 @@ void DesignerScene::_initializeScene()
 	light->setMaterial(colourMaterial);
 	light->setBehaviour(new KeysBehaviour(40, 100));
 	_world->add(light);
+
+	Level* level = new Level(_world);
+	level->CreateLevel("LuaGameScripts\\Example.lua");
+	delete level;
 }
 
 void DesignerScene::_render()

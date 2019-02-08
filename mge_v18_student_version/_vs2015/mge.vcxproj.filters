@@ -143,6 +143,12 @@
     <ClInclude Include="..\src\mge\util\LuaScripting\RectangleShapeWrapper.hpp">
       <Filter>MGE Source files\mge\util\LuaScripting</Filter>
     </ClInclude>
+    <ClInclude Include="..\src\mge\util\LevelEditor\GameObjectFactory.hpp">
+      <Filter>MGE Source files\mge\util\LevelEditor</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\mge\util\LevelEditor\Level.hpp">
+      <Filter>MGE Source files\mge\util\LevelEditor</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\main.cpp">
@@ -240,6 +246,12 @@
     </ClCompile>
     <ClCompile Include="..\src\mge\util\LuaScripting\RectangleShapeWrapper.cpp">
       <Filter>MGE Source files\mge\util\LuaScripting</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\mge\util\LevelEditor\GameObjectFactory.cpp">
+      <Filter>MGE Source files\mge\util\LevelEditor</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\mge\util\LevelEditor\Level.cpp">
+      <Filter>MGE Source files\mge\util\LevelEditor</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

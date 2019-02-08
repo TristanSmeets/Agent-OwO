@@ -60,10 +60,29 @@ public:
 		else if (lua_isboolean(luaState, -1))
 			value = (T)lua_toboolean(luaState, -1);
 
-		lua_pop(luaState, -1);
+		lua_pop(luaState, 1);
 		return value;
 	}
 
+	template <typename T> static T GetTableKeyValue(lua_State* luaState, const std::string& key)
+	{
+		//Pushing key to stack.
+		lua_pushstring(luaState, key.c_str());
+		//Putting key value on stack
+		lua_gettable(luaState, -2);
+
+		T value;
+		if (lua_isstring(luaState, -1))
+			value = lua_tostring(luaState, -1);
+		else if (lua_isnumber(luaState, -1))
+			value = lua_tonumber(luaState, -1);
+		else if (lua_isboolean(luaState, -1))
+			value = lua_tonumber(luaState, -1);
+
+		lua_pop(luaState, 1);
+		return value;
+	}
+	
 	//Freeing Lua
 	//Closes a lua_State
 	static void CloseLuaState(lua_State* luaState);

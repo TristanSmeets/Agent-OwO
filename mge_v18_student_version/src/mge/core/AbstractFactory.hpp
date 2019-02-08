@@ -8,7 +8,7 @@ class AbstractFactory
 public:
 	AbstractFactory();
 	virtual ~AbstractFactory();
-	virtual GameObject* CreateGameObject(int objectType) = 0;
+	virtual GameObject* CreateGameObject(const std::string& typeName) = 0;
 };
 
 #endif // !ABSTRACTFACTORY_HPP

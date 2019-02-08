@@ -2,7 +2,7 @@
 #define GAMEOFLIFE_H
 
 #include "mge/core/AbstractGame.hpp"
-#include "mge/util/DisplayGrid.h"
+#include "mge/util/LuaScripting/DisplayGrid.h"
 #include "mge/util/DebugHud.hpp"
 #include <lua.hpp>
 

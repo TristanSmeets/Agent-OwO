@@ -15,7 +15,7 @@
 //Behaviours
 #include "mge/behaviours/RotatingBehaviour.hpp"
 
-#include "mge/util/LuaWrapper.hpp"
+#include "mge/util/LuaScripting/LuaWrapper.hpp"
 #include "mge/config.hpp"
 #include "TerrainScene.hpp"
 

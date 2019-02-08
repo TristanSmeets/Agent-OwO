@@ -1,12 +1,12 @@
 #include <iostream>
 
 #include "mge/core/AbstractGame.hpp"
-#include "mge/MGEDemo.hpp"
-#include "mge/TristanScene.h"
-#include "mge/BrokenOBJ.hpp"
-#include "mge/GameOfLife.h"
-#include "mge/TerrainScene.hpp"
-#include "mge/DesignerScene.hpp"
+#include "mge/scenes/MGEDemo.hpp"
+#include "mge/scenes/TristanScene.h"
+#include "mge/scenes/BrokenOBJ.hpp"
+#include "mge/scenes/GameOfLife.h"
+#include "mge/scenes/TerrainScene.hpp"
+#include "mge/scenes/DesignerScene.hpp"
 #include <lua.hpp>
 /**
  * Main entry point for the Micro Engine.

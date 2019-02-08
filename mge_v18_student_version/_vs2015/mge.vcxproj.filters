@@ -32,6 +32,15 @@
     <Filter Include="Textures">
       <UniqueIdentifier>{d82a0eda-d925-48fd-9d80-82807a531e7d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="MGE Source files\mge\scenes">
+      <UniqueIdentifier>{fdff79f7-3288-4d4a-9a21-27e7905cf53a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MGE Source files\mge\util\LuaScripting">
+      <UniqueIdentifier>{77601d15-d1d9-46fb-849f-10d7f1e24530}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MGE Source files\mge\util\LevelEditor">
+      <UniqueIdentifier>{39255c40-2e47-495d-98c6-32074920cc12}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\src\glm.hpp">
@@ -89,26 +98,8 @@
       <Filter>MGE Source files\mge\core</Filter>
     </ClInclude>
     <ClInclude Include="..\src\main.h" />
-    <ClInclude Include="..\src\mge\MGEDemo.hpp">
-      <Filter>MGE Source files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\mge\TristanScene.h">
-      <Filter>MGE Source files\mge</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\mge\util\LuaWrapper.hpp">
-      <Filter>MGE Source files\mge\util</Filter>
-    </ClInclude>
     <ClInclude Include="..\src\mge\behaviours\CameraOrbitBehaviour.hpp">
       <Filter>MGE Source files\mge\behaviours</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\mge\BrokenOBJ.hpp">
-      <Filter>MGE Source files\mge</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\mge\GameOfLife.h">
-      <Filter>MGE Source files\mge</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\mge\util\DisplayGrid.h">
-      <Filter>MGE Source files\mge\util</Filter>
     </ClInclude>
     <ClInclude Include="..\src\mge\materials\WobbleMaterial.hpp">
       <Filter>MGE Source files\mge\materials</Filter>
@@ -119,17 +110,38 @@
     <ClInclude Include="..\src\mge\materials\TerrainMaterial.hpp">
       <Filter>MGE Source files\mge\materials</Filter>
     </ClInclude>
-    <ClInclude Include="..\src\mge\TerrainScene.hpp">
-      <Filter>MGE Source files\mge</Filter>
-    </ClInclude>
     <ClInclude Include="..\src\mge\behaviours\LuaBehaviour.hpp">
       <Filter>MGE Source files\mge\behaviours</Filter>
     </ClInclude>
-    <ClInclude Include="..\src\mge\util\RectangleShapeWrapper.hpp">
-      <Filter>MGE Source files\mge\util</Filter>
+    <ClInclude Include="..\src\mge\core\AbstractFactory.hpp">
+      <Filter>MGE Source files\mge\core</Filter>
     </ClInclude>
-    <ClInclude Include="..\src\mge\DesignerScene.hpp">
-      <Filter>MGE Source files\mge</Filter>
+    <ClInclude Include="..\src\mge\scenes\BrokenOBJ.hpp">
+      <Filter>MGE Source files\mge\scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\mge\scenes\DesignerScene.hpp">
+      <Filter>MGE Source files\mge\scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\mge\scenes\GameOfLife.h">
+      <Filter>MGE Source files\mge\scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\mge\scenes\MGEDemo.hpp">
+      <Filter>MGE Source files\mge\scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\mge\scenes\TerrainScene.hpp">
+      <Filter>MGE Source files\mge\scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\mge\scenes\TristanScene.h">
+      <Filter>MGE Source files\mge\scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\mge\util\LuaScripting\DisplayGrid.h">
+      <Filter>MGE Source files\mge\util\LuaScripting</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\mge\util\LuaScripting\LuaWrapper.hpp">
+      <Filter>MGE Source files\mge\util\LuaScripting</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\mge\util\LuaScripting\RectangleShapeWrapper.hpp">
+      <Filter>MGE Source files\mge\util\LuaScripting</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -184,26 +196,8 @@
     <ClCompile Include="..\src\mge\core\Light.cpp">
       <Filter>MGE Source files\mge\core</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\mge\MGEDemo.cpp">
-      <Filter>MGE Source files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\mge\TristanScene.cpp">
-      <Filter>MGE Source files\mge</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\mge\util\LuaWrapper.cpp">
-      <Filter>MGE Source files\mge\util</Filter>
-    </ClCompile>
     <ClCompile Include="..\src\mge\behaviours\CameraOrbitBehaviour.cpp">
       <Filter>MGE Source files\mge\behaviours</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\mge\BrokenOBJ.cpp">
-      <Filter>MGE Source files\mge</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\mge\GameOfLife.cpp">
-      <Filter>MGE Source files\mge</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\mge\util\DisplayGrid.cpp">
-      <Filter>MGE Source files\mge\util</Filter>
     </ClCompile>
     <ClCompile Include="..\src\mge\materials\WobbleMaterial.cpp">
       <Filter>MGE Source files\mge\materials</Filter>
@@ -214,17 +208,38 @@
     <ClCompile Include="..\src\mge\materials\TerrainMaterial.cpp">
       <Filter>MGE Source files\mge\materials</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\mge\TerrainScene.cpp">
-      <Filter>MGE Source files\mge</Filter>
-    </ClCompile>
     <ClCompile Include="..\src\mge\behaviours\LuaBehaviour.cpp">
       <Filter>MGE Source files\mge\behaviours</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\mge\util\RectangleShapeWrapper.cpp">
-      <Filter>MGE Source files\mge\util</Filter>
+    <ClCompile Include="..\src\mge\core\AbstractFactory.cpp">
+      <Filter>MGE Source files\mge\core</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\mge\DesignerScene.cpp">
-      <Filter>MGE Source files\mge</Filter>
+    <ClCompile Include="..\src\mge\scenes\BrokenOBJ.cpp">
+      <Filter>MGE Source files\mge\scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\mge\scenes\DesignerScene.cpp">
+      <Filter>MGE Source files\mge\scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\mge\scenes\GameOfLife.cpp">
+      <Filter>MGE Source files\mge\scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\mge\scenes\MGEDemo.cpp">
+      <Filter>MGE Source files\mge\scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\mge\scenes\TerrainScene.cpp">
+      <Filter>MGE Source files\mge\scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\mge\scenes\TristanScene.cpp">
+      <Filter>MGE Source files\mge\scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\mge\util\LuaScripting\DisplayGrid.cpp">
+      <Filter>MGE Source files\mge\util\LuaScripting</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\mge\util\LuaScripting\LuaWrapper.cpp">
+      <Filter>MGE Source files\mge\util\LuaScripting</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\mge\util\LuaScripting\RectangleShapeWrapper.cpp">
+      <Filter>MGE Source files\mge\util\LuaScripting</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

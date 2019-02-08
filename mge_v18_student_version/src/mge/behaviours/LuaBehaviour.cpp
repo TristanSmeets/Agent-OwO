@@ -1,9 +1,9 @@
 #include "mge/behaviours/LuaBehaviour.hpp"
 #include "mge/core/GameObject.hpp"
 #include <iostream>
-#include "mge/util/LuaWrapper.hpp"
+#include "mge/util/LuaScripting/LuaWrapper.hpp"
 #include <lua.hpp>
-#include "mge/util/RectangleShapeWrapper.hpp"
+#include "mge/util/LuaScripting/RectangleShapeWrapper.hpp"
 
 LuaBehaviour::LuaBehaviour(lua_State* luaState) : AbstractBehaviour(), main(luaState)
 {

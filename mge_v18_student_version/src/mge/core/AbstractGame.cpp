@@ -3,7 +3,7 @@
 #include "AbstractGame.hpp"
 #include "mge/core/Renderer.hpp"
 #include "mge/core/World.hpp"
-#include "mge/util/LuaWrapper.hpp"
+#include "mge/util/LuaScripting/LuaWrapper.hpp"
 
 AbstractGame::AbstractGame():_window(NULL),_renderer(NULL),_world(NULL), _fps(0)
 {

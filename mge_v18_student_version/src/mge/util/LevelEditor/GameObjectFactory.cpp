@@ -10,7 +10,7 @@ GameObjectFactory::~GameObjectFactory()
 	std::cout << "running GC on:GameObjectFactory." << std::endl;
 }
 
-GameObject * GameObjectFactory::CreateGameObject(int objectType)
+GameObject * GameObjectFactory::CreateGameObject(const std::string& objectType)
 {
 	return nullptr;
 }

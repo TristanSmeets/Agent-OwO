@@ -21,5 +21,5 @@ SpecularTexture = "mge/textures/container2_specular.png"	--Path to the specular 
 ShininessFactor = 32										--How shiny the material is. (Use a power of 2)
 
 --Camera
-CameraDistance = 5
+CameraDistance = 15
 CameraMoveSpeed = 0.5

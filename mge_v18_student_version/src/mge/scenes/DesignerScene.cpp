@@ -23,6 +23,7 @@
 #include "DesignerScene.hpp"
 #include "mge/config.hpp"
 #include "mge/util/LevelEditor/Level.hpp"
+#include "mge/util/LevelEditor/TestFactory.hpp"
 
 DesignerScene::DesignerScene() : AbstractGame()
 {
@@ -143,9 +144,11 @@ void DesignerScene::_initializeScene()
 	light->setBehaviour(new KeysBehaviour(40, 100));
 	_world->add(light);
 
+	AbstractFactory* testFactory = new TestFactory();
+
 	Level* level = new Level(_world);
+	level->SetFactory(testFactory);
 	level->CreateLevel("LuaGameScripts\\Example.lua");
-	delete level;
 }
 
 void DesignerScene::_render()

@@ -149,6 +149,9 @@
     <ClInclude Include="..\src\mge\util\LevelEditor\Level.hpp">
       <Filter>MGE Source files\mge\util\LevelEditor</Filter>
     </ClInclude>
+    <ClInclude Include="..\src\mge\util\LevelEditor\TestFactory.hpp">
+      <Filter>MGE Source files\mge\util\LevelEditor</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\main.cpp">
@@ -251,6 +254,9 @@
       <Filter>MGE Source files\mge\util\LevelEditor</Filter>
     </ClCompile>
     <ClCompile Include="..\src\mge\util\LevelEditor\Level.cpp">
+      <Filter>MGE Source files\mge\util\LevelEditor</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\mge\util\LevelEditor\TestFactory.cpp">
       <Filter>MGE Source files\mge\util\LevelEditor</Filter>
     </ClCompile>
   </ItemGroup>

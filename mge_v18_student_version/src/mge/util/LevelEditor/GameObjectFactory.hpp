@@ -8,6 +8,6 @@ class GameObjectFactory :
 public:
 	GameObjectFactory();
 	virtual ~GameObjectFactory();
-	GameObject* CreateGameObject(int objectType);
+	GameObject* CreateGameObject(const std::string& typeName);
 };
 

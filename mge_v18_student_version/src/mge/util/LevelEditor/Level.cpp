@@ -2,6 +2,7 @@
 #include <lua.hpp>
 #include <string>
 #include "glm.hpp"
+#include "mge/core/World.hpp"
 
 Level::Level(World * world) : world(world)
 {
@@ -9,7 +10,13 @@ Level::Level(World * world) : world(world)
 
 Level::~Level()
 {
-	std::cout << "Calling GC on:Level." << std::endl;
+	std::cout << "GC running on:Level." << std::endl;
+	for (int index = gameObjects.size() - 1; index >= 0; index--)
+	{
+		delete gameObjects[index];
+	}
+
+	delete factory;
 }
 
 void Level::SetFactory(AbstractFactory * factory)
@@ -50,12 +57,14 @@ void Level::CreateLevel(const std::string & filePath)
 		printf("Rotation: (%f, %f, %f)\n", rotation.x, rotation.y, rotation.z);
 		printf("Scale: (%f, %f, %f)\n", scale.x, scale.y, scale.z);
 
-		/*
-				GameObject* newGameObject = factory->CreateGameObject(typeString);
+		GameObject* newGameObject = factory->CreateGameObject(typeString);
+		glm::mat4 rotationMatrix = glm::eulerAngleXYZ(rotation.x, rotation.y, rotation.z);
+		glm::mat4 translationMatrix = glm::translate(glm::mat4(), position);
+		newGameObject->setTransform(rotationMatrix * translationMatrix);
+		newGameObject->scale(scale);
+		world->add(newGameObject);
+		gameObjects.push_back(newGameObject);
 
-				newGameObject->setTransform();
-				gameObjects.push_back(newGameObject);
-		*/
 
 		/*Removes 'value'. keeps 'key' for next iteration*/
 		lua_pop(lua, 1);

@@ -321,6 +321,7 @@
       <FileType>Document</FileType>
       <DestinationFolders Condition="'$(Configuration)|$(Platform)'=='Debug Static|Win32'">$(OutDir)\mge\shaders</DestinationFolders>
     </CopyFileToFolders>
+    <None Include="..\assets\LuaGameScripts\Example.lua" />
     <None Include="ClassDiagram.cd" />
   </ItemGroup>
   <ItemGroup>

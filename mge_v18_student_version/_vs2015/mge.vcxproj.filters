@@ -256,6 +256,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram.cd" />
+    <None Include="..\assets\LuaGameScripts\Example.lua">
+      <Filter>LuaScripts</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <CopyFileToFolders Include="..\assets\LuaGameScripts\OrganismDNA.lua">

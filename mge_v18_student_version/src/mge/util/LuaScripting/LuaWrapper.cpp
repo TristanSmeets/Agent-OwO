@@ -31,6 +31,59 @@ std::string LuaWrapper::GetString(lua_State* luaState, const std::string& variab
 		throw std::invalid_argument("variable isn't a string");
 }
 
+std::string LuaWrapper::GetTableString(lua_State * luaState, const std::string& key)
+{
+	lua_pushstring(luaState, key.c_str());
+	lua_gettable(luaState, -2);
+
+	std::string value;
+
+	if (lua_isstring(luaState, -1))
+		value = lua_tostring(luaState, -1);
+	else
+		throw std::invalid_argument("Not a string.");
+
+	lua_pop(luaState, 1);
+	return value;
+}
+
+double LuaWrapper::GetTableNumber(lua_State * luaState, const std::string& key)
+{
+	lua_pushstring(luaState, key.c_str());
+
+	lua_gettable(luaState, -2);
+	double value;
+
+	if (lua_isnumber(luaState, -1))
+		value = lua_tonumber(luaState, -1);
+	else
+		throw std::invalid_argument("variable isn't a number");
+	
+	lua_pop(luaState, 1);
+
+	return value;
+}
+
+glm::vec3 LuaWrapper::GetTableVec3(lua_State * luaState, const std::string & key)
+{
+	//Pushing value on stack
+	lua_pushstring(luaState, key.c_str());
+	//Putting key value on stack
+	lua_gettable(luaState, -2);
+	glm::vec3 position;
+	if (lua_istable(luaState, -1))
+	{
+		position = glm::vec3(
+			LuaWrapper::GetTableNumber(luaState, "x"),
+			LuaWrapper::GetTableNumber(luaState, "y"),
+			LuaWrapper::GetTableNumber(luaState, "z"));
+	}
+	else
+		throw std::invalid_argument("Not a table.");
+	lua_pop(luaState, 1);
+	return position;
+}
+
 void LuaWrapper::CloseLuaState(lua_State * luaState)
 {
 	std::cout << "Closing lua_State at " << luaState << std::endl;

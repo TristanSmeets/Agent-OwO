@@ -262,27 +262,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram.cd" />
-    <None Include="..\assets\LuaGameScripts\Example.lua">
-      <Filter>LuaScripts</Filter>
-    </None>
   </ItemGroup>
   <ItemGroup>
-    <CopyFileToFolders Include="..\assets\LuaGameScripts\OrganismDNA.lua">
-      <Filter>LuaScripts</Filter>
-    </CopyFileToFolders>
-    <CopyFileToFolders Include="..\assets\LuaGameScripts\Main.lua">
-      <Filter>LuaScripts</Filter>
-    </CopyFileToFolders>
-    <CopyFileToFolders Include="..\assets\LuaGameScripts\GridGenerator.lua">
-      <Filter>LuaScripts</Filter>
-    </CopyFileToFolders>
     <CopyFileToFolders Include="..\assets\LuaGameScripts\config.lua">
-      <Filter>LuaScripts</Filter>
-    </CopyFileToFolders>
-    <CopyFileToFolders Include="..\assets\LuaGameScripts\BaseOrganism.lua">
-      <Filter>LuaScripts</Filter>
-    </CopyFileToFolders>
-    <CopyFileToFolders Include="..\assets\LuaGameScripts\RuleChecker.lua">
       <Filter>LuaScripts</Filter>
     </CopyFileToFolders>
     <CopyFileToFolders Include="..\assets\LuaGameScripts\ModelViewer.lua">
@@ -413,6 +395,9 @@
     </CopyFileToFolders>
     <CopyFileToFolders Include="..\assets\mge\shaders\wobble.vs">
       <Filter>Shaders</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="..\assets\LuaGameScripts\GameObject.lua">
+      <Filter>LuaScripts</Filter>
     </CopyFileToFolders>
   </ItemGroup>
 </Project>

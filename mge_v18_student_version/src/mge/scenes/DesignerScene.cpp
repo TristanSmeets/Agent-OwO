@@ -148,7 +148,7 @@ void DesignerScene::_initializeScene()
 
 	Level* level = new Level(_world);
 	level->SetFactory(testFactory);
-	level->CreateLevel("LuaGameScripts\\Example.lua");
+	level->CreateLevel("LuaGameScripts\\Example(1)(1)(1)(1).lua");
 }
 
 void DesignerScene::_render()

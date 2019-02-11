@@ -58,9 +58,9 @@ void Level::CreateLevel(const std::string & filePath)
 		printf("Scale: (%f, %f, %f)\n", scale.x, scale.y, scale.z);
 
 		GameObject* newGameObject = factory->CreateGameObject(typeString);
-		glm::mat4 rotationMatrix = glm::eulerAngleXYZ(rotation.x, rotation.y, rotation.z);
+		glm::mat4 rotationMatrix = glm::eulerAngleXYZ(rotation.x, -rotation.y, -rotation.z);
 		glm::mat4 translationMatrix = glm::translate(glm::mat4(), position);
-		newGameObject->setTransform(rotationMatrix * translationMatrix);
+		newGameObject->setTransform(translationMatrix * rotationMatrix);
 		newGameObject->scale(scale);
 		world->add(newGameObject);
 		gameObjects.push_back(newGameObject);

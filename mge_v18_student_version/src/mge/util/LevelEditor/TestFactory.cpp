@@ -19,6 +19,11 @@ TestFactory::~TestFactory()
 GameObject * TestFactory::CreateGameObject(const std::string & objectType)
 {
 	GameObject* newGameObject = new GameObject(objectType, glm::vec3(0, 0, 0));
+	GameObject* smallCube = new GameObject("SmallBox", glm::vec3(0, 3, 0));
+	smallCube->setMesh(cubeMesh);
+	smallCube->setMaterial(colourMaterial);
+	smallCube->scale(glm::vec3(0.1f, 0.1f, 0.1f));
+	newGameObject->add(smallCube);
 	newGameObject->setMesh(cubeMesh);
 	newGameObject->setMaterial(colourMaterial);
 	return newGameObject;

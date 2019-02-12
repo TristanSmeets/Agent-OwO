@@ -30,7 +30,8 @@ void Level::CreateLevel(const std::string & filePath)
 	lua_State* lua = LuaWrapper::InitializeLuaState(filePath);
 
 	//Get table size
-	unsigned int tableSize = LuaWrapper::GetNumber<int>(lua, "TableSize");
+	/*std::cout << "Getting TableSize\n";
+	unsigned int tableSize = LuaWrapper::GetNumber<int>(lua, "TableSize");*/
 
 	//Get table from luaFile and put it on the stack at -1
 	std::cout << "Getting GameObjects table from lua" << std::endl;

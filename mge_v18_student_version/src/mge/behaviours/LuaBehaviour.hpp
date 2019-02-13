@@ -9,7 +9,7 @@ class LuaBehaviour : public AbstractBehaviour
 {
 public:
 	LuaBehaviour(lua_State* luaState);
-	virtual ~LuaBehaviour();
+	~LuaBehaviour();
 
 	virtual void update(float pStep);
 

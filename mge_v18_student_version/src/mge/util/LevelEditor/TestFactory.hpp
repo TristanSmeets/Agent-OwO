@@ -11,9 +11,12 @@ class TestFactory : public AbstractFactory
 public:
 	TestFactory();
 	virtual ~TestFactory();
-	GameObject* CreateGameObject(const std::string& objectType);
+	GameObject* CreateGameObject(const std::string& name);
 
 private:
+	void addMesh(GameObject* gameObject);
+	void addMaterial(GameObject* gameObject);
+	void addBehaviour(GameObject* gameObject);
 	ColorMaterial* colourMaterial;
 	Mesh* cubeMesh;
 	TextureMaterial* textureMaterial;

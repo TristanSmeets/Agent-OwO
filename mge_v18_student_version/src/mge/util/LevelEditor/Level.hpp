@@ -2,7 +2,8 @@
 #define LEVEL_HPP
 
 #include "mge/util/LuaScripting/LuaWrapper.hpp"
-#include "mge/util/LevelEditor/GameObjectFactory.hpp"
+#include "mge/util/LevelEditor/TileFactory.hpp"
+#include "mge/core/World.hpp"
 #include <string>
 
 /*	Class that will be responsible for setting up the level.
@@ -20,6 +21,7 @@ public:
 private:
 	World* world;
 	AbstractFactory* factory;
+	TileFactory* tileFactory;
 	std::vector<GameObject*> gameObjects;
 };
 

@@ -143,12 +143,6 @@ void DesignerScene::_initializeScene()
 	light->setMaterial(colourMaterial);
 	light->setBehaviour(new KeysBehaviour(40, 100));
 	_world->add(light);
-
-	AbstractFactory* testFactory = new TestFactory();
-
-	Level* level = new Level(_world);
-	level->SetFactory(testFactory);
-	level->CreateLevel("LuaGameScripts\\Example.lua");
 }
 
 void DesignerScene::_render()

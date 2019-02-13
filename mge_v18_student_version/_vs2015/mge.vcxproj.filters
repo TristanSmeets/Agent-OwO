@@ -143,14 +143,17 @@
     <ClInclude Include="..\src\mge\util\LuaScripting\RectangleShapeWrapper.hpp">
       <Filter>MGE Source files\mge\util\LuaScripting</Filter>
     </ClInclude>
-    <ClInclude Include="..\src\mge\util\LevelEditor\GameObjectFactory.hpp">
-      <Filter>MGE Source files\mge\util\LevelEditor</Filter>
-    </ClInclude>
     <ClInclude Include="..\src\mge\util\LevelEditor\Level.hpp">
       <Filter>MGE Source files\mge\util\LevelEditor</Filter>
     </ClInclude>
     <ClInclude Include="..\src\mge\util\LevelEditor\TestFactory.hpp">
       <Filter>MGE Source files\mge\util\LevelEditor</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\mge\util\LevelEditor\TileFactory.hpp">
+      <Filter>MGE Source files\mge\util\LevelEditor</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\mge\behaviours\NullBehaviour.hpp">
+      <Filter>MGE Source files\mge\behaviours</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -250,14 +253,17 @@
     <ClCompile Include="..\src\mge\util\LuaScripting\RectangleShapeWrapper.cpp">
       <Filter>MGE Source files\mge\util\LuaScripting</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\mge\util\LevelEditor\GameObjectFactory.cpp">
-      <Filter>MGE Source files\mge\util\LevelEditor</Filter>
-    </ClCompile>
     <ClCompile Include="..\src\mge\util\LevelEditor\Level.cpp">
       <Filter>MGE Source files\mge\util\LevelEditor</Filter>
     </ClCompile>
     <ClCompile Include="..\src\mge\util\LevelEditor\TestFactory.cpp">
       <Filter>MGE Source files\mge\util\LevelEditor</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\mge\util\LevelEditor\TileFactory.cpp">
+      <Filter>MGE Source files\mge\util\LevelEditor</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\mge\behaviours\NullBehaviour.cpp">
+      <Filter>MGE Source files\mge\behaviours</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -397,6 +403,9 @@
       <Filter>Shaders</Filter>
     </CopyFileToFolders>
     <CopyFileToFolders Include="..\assets\LuaGameScripts\GameObject.lua">
+      <Filter>LuaScripts</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="..\assets\LuaGameScripts\Tile.lua">
       <Filter>LuaScripts</Filter>
     </CopyFileToFolders>
   </ItemGroup>

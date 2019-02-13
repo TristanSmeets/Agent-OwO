@@ -1,10 +1,8 @@
 #include "Level.hpp"
-#include <lua.hpp>
 #include <string>
 #include "glm.hpp"
-#include "mge/core/World.hpp"
 
-Level::Level(World * world) : world(world)
+Level::Level(World * world) : world(world), tileFactory(new TileFactory())
 {
 }
 
@@ -17,6 +15,7 @@ Level::~Level()
 	}
 
 	delete factory;
+	delete tileFactory;
 }
 
 void Level::SetFactory(AbstractFactory * factory)
@@ -54,7 +53,13 @@ void Level::CreateLevel(const std::string & filePath)
 		printf("Rotation: (%f, %f, %f)\n", rotation.x, rotation.y, rotation.z);
 		printf("Scale: (%f, %f, %f)\n", scale.x, scale.y, scale.z);
 
-		GameObject* newGameObject = factory->CreateGameObject(typeString);
+		GameObject* newGameObject;
+
+		if (typeString == "TILE")
+			newGameObject = tileFactory->CreateGameObject(typeString);
+		else
+			newGameObject = factory->CreateGameObject(typeString);
+
 		glm::mat4 rotationMatrix = glm::eulerAngleXYZ(rotation.x, -rotation.y, -rotation.z);
 		glm::mat4 translationMatrix = glm::translate(glm::mat4(), position);
 		newGameObject->setTransform(translationMatrix * rotationMatrix);

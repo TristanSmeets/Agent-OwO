@@ -22,9 +22,9 @@ TestFactory::~TestFactory()
 	cubeMesh = nullptr;
 }
 
-GameObject * TestFactory::CreateGameObject(const std::string & objectType)
+GameObject * TestFactory::CreateGameObject(const std::string& name)
 {
-	GameObject* newGameObject = new GameObject(objectType, glm::vec3(0, 0, 0));
+	GameObject* newGameObject = new GameObject(name, glm::vec3(0, 0, 0));
 	/*GameObject* smallCube = new GameObject("SmallBox", glm::vec3(0, 3, 0));
 	smallCube->setMesh(cubeMesh);
 	smallCube->setMaterial(colourMaterial);
@@ -33,4 +33,16 @@ GameObject * TestFactory::CreateGameObject(const std::string & objectType)
 	newGameObject->setMesh(cubeMesh);
 	newGameObject->setMaterial(textureMaterial);
 	return newGameObject;
+}
+
+void TestFactory::addMesh(GameObject * gameObject)
+{
+}
+
+void TestFactory::addMaterial(GameObject * gameObject)
+{
+}
+
+void TestFactory::addBehaviour(GameObject * gameObject)
+{
 }

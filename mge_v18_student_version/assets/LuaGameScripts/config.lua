@@ -13,6 +13,9 @@ end
 --Window Title
 Title = "Pjauna Gryba uwu"
 
+--Cpp project lua file paths
+Tile = "luaGameScripts/Tile.lua"
+
 --Assignment 2 paths
 ModelToLoad = "mge/models/sphere2.obj"
 TextureToLoad = "mge/textures/bricks.jpg"

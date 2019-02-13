@@ -26,20 +26,20 @@
 
 int main()
 {
-    std::cout << "Starting Game" << std::endl;
+	std::cout << "Starting Game" << std::endl;
 
-    //AbstractGame* game = new MGEDemo();
+	//AbstractGame* game = new MGEDemo();
 	//AbstractGame* game = new TristanScene();			//Assignment 1 + 3
 	//AbstractGame* game = new BrokenOBJ();				//Assignment 2
 	//AbstractGame* game = new TerrainScene();			//Assignment 4
 	//AbstractGame* game = new GameOfLife();				//LuaGame
 	AbstractGame* game = new DesignerScene();
 	game->initialize();
-    game->run();
+	game->run();
 
 	delete game;
 
-    return 0;
+	return 0;
 }
 
 

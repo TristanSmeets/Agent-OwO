@@ -1,5 +1,5 @@
 --Mesh
-ModelPath = "mge/models/cube_flat.obj"		--Path to the model here
+ModelPath = "mge/models/Test_player.obj"		--Path to the model here
 
 --Lighting
 LightType = 0								--0 = Directional, 1 = Point, 2 = Spotlight
@@ -21,5 +21,5 @@ SpecularTexture = "mge/textures/container2_specular.png"	--Path to the specular 
 ShininessFactor = 32										--How shiny the material is. (Use a power of 2)
 
 --Camera
-CameraDistance = 15
+CameraDistance = 5
 CameraMoveSpeed = 0.5

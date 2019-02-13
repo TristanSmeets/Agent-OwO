@@ -3,6 +3,7 @@
 
 #include "mge/core/AbstractFactory.hpp"
 #include "mge/materials/ColorMaterial.hpp"
+#include "mge/materials/TextureMaterial.hpp"
 #include "mge/core/Mesh.hpp"
 
 class TestFactory : public AbstractFactory
@@ -15,6 +16,7 @@ public:
 private:
 	ColorMaterial* colourMaterial;
 	Mesh* cubeMesh;
+	TextureMaterial* textureMaterial;
 };
 
 #endif // !TESTFACTORY_HPP

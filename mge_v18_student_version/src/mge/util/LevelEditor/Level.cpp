@@ -13,7 +13,7 @@ Level::~Level()
 	std::cout << "GC running on:Level." << std::endl;
 	for (int index = gameObjects.size() - 1; index >= 0; index--)
 	{
-		delete gameObjects[index];
+		//delete gameObjects[index];
 	}
 
 	delete factory;
@@ -28,10 +28,6 @@ void Level::CreateLevel(const std::string & filePath)
 {
 	//Open the lua file.
 	lua_State* lua = LuaWrapper::InitializeLuaState(filePath);
-
-	//Get table size
-	/*std::cout << "Getting TableSize\n";
-	unsigned int tableSize = LuaWrapper::GetNumber<int>(lua, "TableSize");*/
 
 	//Get table from luaFile and put it on the stack at -1
 	std::cout << "Getting GameObjects table from lua" << std::endl;

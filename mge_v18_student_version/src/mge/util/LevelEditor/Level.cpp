@@ -2,7 +2,7 @@
 #include <string>
 #include "glm.hpp"
 
-Level::Level(World * world) : world(world), tileFactory(new TileFactory())
+Level::Level(World * world) : world(world)
 {
 }
 

@@ -14,7 +14,12 @@ end
 Title = "Pjauna Gryba uwu"
 
 --Cpp project lua file paths
-Tile = "luaGameScripts/Tile.lua"
+Tile = "LuaGameScripts/Tile.lua"
+Player = "LuaGameScripts/Player.lua"
+Exit = "LuaGameScripts/Exit.lua"
+Box = "LuaGameScripts/Box.lua"
+Switch = "LuaGameScripts/Switch.lua"
+
 LevelToLoad = "Example.lua"
 
 --Assignment 2 paths

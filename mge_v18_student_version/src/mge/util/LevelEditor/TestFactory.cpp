@@ -34,15 +34,3 @@ GameObject * TestFactory::CreateGameObject(const std::string& name)
 	newGameObject->setMaterial(textureMaterial);
 	return newGameObject;
 }
-
-void TestFactory::addMesh(GameObject * gameObject)
-{
-}
-
-void TestFactory::addMaterial(GameObject * gameObject)
-{
-}
-
-void TestFactory::addBehaviour(GameObject * gameObject)
-{
-}

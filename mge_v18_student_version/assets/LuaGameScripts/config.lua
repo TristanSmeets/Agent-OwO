@@ -15,6 +15,7 @@ Title = "Pjauna Gryba uwu"
 
 --Cpp project lua file paths
 Tile = "luaGameScripts/Tile.lua"
+LevelToLoad = "Example.lua"
 
 --Assignment 2 paths
 ModelToLoad = "mge/models/sphere2.obj"

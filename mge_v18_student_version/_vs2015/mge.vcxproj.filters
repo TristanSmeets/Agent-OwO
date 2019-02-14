@@ -41,6 +41,9 @@
     <Filter Include="MGE Source files\mge\util\LevelEditor">
       <UniqueIdentifier>{39255c40-2e47-495d-98c6-32074920cc12}</UniqueIdentifier>
     </Filter>
+    <Filter Include="MGE Source files\mge\util\LevelEditor\Factories">
+      <UniqueIdentifier>{730ed11b-73e1-4438-a22f-1d636babeebe}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\src\glm.hpp">
@@ -146,14 +149,32 @@
     <ClInclude Include="..\src\mge\util\LevelEditor\Level.hpp">
       <Filter>MGE Source files\mge\util\LevelEditor</Filter>
     </ClInclude>
-    <ClInclude Include="..\src\mge\util\LevelEditor\TestFactory.hpp">
-      <Filter>MGE Source files\mge\util\LevelEditor</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\mge\util\LevelEditor\TileFactory.hpp">
-      <Filter>MGE Source files\mge\util\LevelEditor</Filter>
-    </ClInclude>
     <ClInclude Include="..\src\mge\behaviours\NullBehaviour.hpp">
       <Filter>MGE Source files\mge\behaviours</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\mge\scenes\GameScene.hpp">
+      <Filter>MGE Source files\mge\scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\mge\util\LevelEditor\Factories\CameraFactory.hpp">
+      <Filter>MGE Source files\mge\util\LevelEditor\Factories</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\mge\util\LevelEditor\TestFactory.hpp">
+      <Filter>MGE Source files\mge\util\LevelEditor\Factories</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\mge\util\LevelEditor\Factories\SwitchFactory.hpp">
+      <Filter>MGE Source files\mge\util\LevelEditor\Factories</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\mge\util\LevelEditor\Factories\PlayerFactory.hpp">
+      <Filter>MGE Source files\mge\util\LevelEditor\Factories</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\mge\util\LevelEditor\Factories\TileFactory.hpp">
+      <Filter>MGE Source files\mge\util\LevelEditor\Factories</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\mge\util\LevelEditor\Factories\ExitFactory.hpp">
+      <Filter>MGE Source files\mge\util\LevelEditor\Factories</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\mge\util\LevelEditor\Factories\BoxFactory.hpp">
+      <Filter>MGE Source files\mge\util\LevelEditor\Factories</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -256,14 +277,32 @@
     <ClCompile Include="..\src\mge\util\LevelEditor\Level.cpp">
       <Filter>MGE Source files\mge\util\LevelEditor</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\mge\util\LevelEditor\TestFactory.cpp">
-      <Filter>MGE Source files\mge\util\LevelEditor</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\mge\util\LevelEditor\TileFactory.cpp">
-      <Filter>MGE Source files\mge\util\LevelEditor</Filter>
-    </ClCompile>
     <ClCompile Include="..\src\mge\behaviours\NullBehaviour.cpp">
       <Filter>MGE Source files\mge\behaviours</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\mge\scenes\GameScene.cpp">
+      <Filter>MGE Source files\mge\scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\mge\util\LevelEditor\TestFactory.cpp">
+      <Filter>MGE Source files\mge\util\LevelEditor\Factories</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\mge\util\LevelEditor\Factories\CameraFactory.cpp">
+      <Filter>MGE Source files\mge\util\LevelEditor\Factories</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\mge\util\LevelEditor\Factories\SwitchFactory.cpp">
+      <Filter>MGE Source files\mge\util\LevelEditor\Factories</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\mge\util\LevelEditor\Factories\PlayerFactory.cpp">
+      <Filter>MGE Source files\mge\util\LevelEditor\Factories</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\mge\util\LevelEditor\Factories\TileFactory.cpp">
+      <Filter>MGE Source files\mge\util\LevelEditor\Factories</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\mge\util\LevelEditor\Factories\ExitFactory.cpp">
+      <Filter>MGE Source files\mge\util\LevelEditor\Factories</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\mge\util\LevelEditor\Factories\BoxFactory.cpp">
+      <Filter>MGE Source files\mge\util\LevelEditor\Factories</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

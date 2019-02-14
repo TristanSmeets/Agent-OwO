@@ -2,7 +2,7 @@
 #define LEVEL_HPP
 
 #include "mge/util/LuaScripting/LuaWrapper.hpp"
-#include "mge/util/LevelEditor/TileFactory.hpp"
+#include "mge/util/LevelEditor/Factories/TileFactory.hpp"
 #include "mge/core/World.hpp"
 #include <string>
 

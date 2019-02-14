@@ -4,8 +4,11 @@
 #include "mge/core/GameObject.hpp"
 #include "mge/core/Texture.hpp"
 #include "mge/core/Mesh.hpp"
+#include "mge/behaviours/NullBehaviour.hpp"
 //Because all classes that inherit will need access to lua files.
 #include "mge/util/LuaScripting/LuaWrapper.hpp"
+#include "mge/materials/TextureMaterial.hpp"
+#include "mge/behaviours/NullBehaviour.hpp"
 
 class AbstractFactory
 {
@@ -14,9 +17,11 @@ public:
 	virtual ~AbstractFactory();
 	virtual GameObject* CreateGameObject(const std::string& name) = 0;
 protected:
-	virtual void addMesh(GameObject* gameObject) = 0;
-	virtual void addMaterial(GameObject* gameObject) = 0;
-	virtual void addBehaviour(GameObject* gameObject) = 0;
+	virtual void addMesh(GameObject* gameObject);
+	virtual void addMaterial(GameObject* gameObject);
+	virtual void addBehaviour(GameObject* gameObject);
+	virtual Mesh* getMesh(lua_State* lua);
+	virtual TextureMaterial* getTextureMaterial(lua_State* lua);
 	AbstractMaterial* material;
 	Mesh* mesh;
 	AbstractBehaviour* behaviour;

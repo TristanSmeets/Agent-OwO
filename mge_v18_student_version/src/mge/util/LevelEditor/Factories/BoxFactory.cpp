@@ -20,3 +20,12 @@ BoxFactory::~BoxFactory()
 	delete material;
 	delete behaviour;
 }
+
+GameObject * BoxFactory::CreateGameObject(const std::string & name)
+{
+	GameObject* newBox = new GameObject(name);
+	addMesh(newBox);
+	addMaterial(newBox);
+	addBehaviour(newBox);
+	return newBox;
+}

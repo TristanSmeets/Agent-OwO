@@ -17,7 +17,7 @@
 //Behaviours
 #include "mge/behaviours/CameraOrbitBehaviour.hpp"
 
-#include "mge/util/LuaWrapper.hpp"
+#include "mge/util/LuaScripting/LuaWrapper.hpp"
 #include "BrokenOBJ.hpp"
 #include "mge/config.hpp"
 

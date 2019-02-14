@@ -3,6 +3,7 @@
 
 #include <lua.hpp>
 #include <string>
+#include "glm.hpp"
 
 class LuaWrapper
 {
@@ -60,10 +61,12 @@ public:
 		else if (lua_isboolean(luaState, -1))
 			value = (T)lua_toboolean(luaState, -1);
 
-		lua_pop(luaState, -1);
+		lua_pop(luaState, 1);
 		return value;
 	}
-
+	static std::string GetTableString(lua_State* luaState, const std::string& key);
+	static double GetTableNumber(lua_State* luaState, const std::string& key);
+	static glm::vec3 GetTableVec3(lua_State* luaState, const std::string& key);
 	//Freeing Lua
 	//Closes a lua_State
 	static void CloseLuaState(lua_State* luaState);

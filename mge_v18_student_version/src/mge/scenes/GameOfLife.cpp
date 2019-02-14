@@ -16,7 +16,10 @@
 //Behaviour
 #include "mge/behaviours/LuaBehaviour.hpp"
 
+//Util
 #include "mge/util/DebugHud.hpp"
+#include "mge/util/LuaScripting/LuaWrapper.hpp"
+
 #include <lua.hpp>
 #include <iostream>
 

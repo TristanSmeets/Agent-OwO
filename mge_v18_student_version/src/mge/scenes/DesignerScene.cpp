@@ -19,9 +19,11 @@
 
 //Utils
 #include "mge/util/DebugHud.hpp"
-#include "mge/util/LuaWrapper.hpp"
+#include "mge/util/LuaScripting/LuaWrapper.hpp"
 #include "DesignerScene.hpp"
 #include "mge/config.hpp"
+#include "mge/util/LevelEditor/Level.hpp"
+#include "mge/util/LevelEditor/TestFactory.hpp"
 
 DesignerScene::DesignerScene() : AbstractGame()
 {

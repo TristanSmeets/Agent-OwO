@@ -173,9 +173,10 @@
     <ClInclude Include="..\src\mge\behaviours\CameraOrbitBehaviour.hpp" />
     <ClInclude Include="..\src\mge\behaviours\KeysBehaviour.hpp" />
     <ClInclude Include="..\src\mge\behaviours\LuaBehaviour.hpp" />
+    <ClInclude Include="..\src\mge\behaviours\NullBehaviour.hpp" />
     <ClInclude Include="..\src\mge\behaviours\RotatingBehaviour.hpp" />
-    <ClInclude Include="..\src\mge\BrokenOBJ.hpp" />
     <ClInclude Include="..\src\mge\config.hpp" />
+    <ClInclude Include="..\src\mge\core\AbstractFactory.hpp" />
     <ClInclude Include="..\src\mge\core\AbstractGame.hpp" />
     <ClInclude Include="..\src\mge\core\Camera.hpp" />
     <ClInclude Include="..\src\mge\core\GameObject.hpp" />
@@ -185,21 +186,31 @@
     <ClInclude Include="..\src\mge\core\ShaderProgram.hpp" />
     <ClInclude Include="..\src\mge\core\Texture.hpp" />
     <ClInclude Include="..\src\mge\core\World.hpp" />
-    <ClInclude Include="..\src\mge\DesignerScene.hpp" />
-    <ClInclude Include="..\src\mge\GameOfLife.h" />
     <ClInclude Include="..\src\mge\materials\AbstractMaterial.hpp" />
     <ClInclude Include="..\src\mge\materials\ColorMaterial.hpp" />
     <ClInclude Include="..\src\mge\materials\LitMaterial.hpp" />
     <ClInclude Include="..\src\mge\materials\TerrainMaterial.hpp" />
     <ClInclude Include="..\src\mge\materials\TextureMaterial.hpp" />
     <ClInclude Include="..\src\mge\materials\WobbleMaterial.hpp" />
-    <ClInclude Include="..\src\mge\MGEDemo.hpp" />
-    <ClInclude Include="..\src\mge\TerrainScene.hpp" />
-    <ClInclude Include="..\src\mge\TristanScene.h" />
+    <ClInclude Include="..\src\mge\scenes\BrokenOBJ.hpp" />
+    <ClInclude Include="..\src\mge\scenes\DesignerScene.hpp" />
+    <ClInclude Include="..\src\mge\scenes\GameOfLife.h" />
+    <ClInclude Include="..\src\mge\scenes\GameScene.hpp" />
+    <ClInclude Include="..\src\mge\scenes\MGEDemo.hpp" />
+    <ClInclude Include="..\src\mge\scenes\TerrainScene.hpp" />
+    <ClInclude Include="..\src\mge\scenes\TristanScene.h" />
     <ClInclude Include="..\src\mge\util\DebugHud.hpp" />
-    <ClInclude Include="..\src\mge\util\DisplayGrid.h" />
-    <ClInclude Include="..\src\mge\util\RectangleShapeWrapper.hpp" />
-    <ClInclude Include="..\src\mge\util\LuaWrapper.hpp" />
+    <ClInclude Include="..\src\mge\util\LevelEditor\Factories\BoxFactory.hpp" />
+    <ClInclude Include="..\src\mge\util\LevelEditor\Factories\CameraFactory.hpp" />
+    <ClInclude Include="..\src\mge\util\LevelEditor\Factories\ExitFactory.hpp" />
+    <ClInclude Include="..\src\mge\util\LevelEditor\Factories\PlayerFactory.hpp" />
+    <ClInclude Include="..\src\mge\util\LevelEditor\Factories\SwitchFactory.hpp" />
+    <ClInclude Include="..\src\mge\util\LevelEditor\Factories\TileFactory.hpp" />
+    <ClInclude Include="..\src\mge\util\LevelEditor\Level.hpp" />
+    <ClInclude Include="..\src\mge\util\LevelEditor\TestFactory.hpp" />
+    <ClInclude Include="..\src\mge\util\LuaScripting\DisplayGrid.h" />
+    <ClInclude Include="..\src\mge\util\LuaScripting\LuaWrapper.hpp" />
+    <ClInclude Include="..\src\mge\util\LuaScripting\RectangleShapeWrapper.hpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\main.cpp" />
@@ -207,8 +218,9 @@
     <ClCompile Include="..\src\mge\behaviours\CameraOrbitBehaviour.cpp" />
     <ClCompile Include="..\src\mge\behaviours\KeysBehaviour.cpp" />
     <ClCompile Include="..\src\mge\behaviours\LuaBehaviour.cpp" />
+    <ClCompile Include="..\src\mge\behaviours\NullBehaviour.cpp" />
     <ClCompile Include="..\src\mge\behaviours\RotatingBehaviour.cpp" />
-    <ClCompile Include="..\src\mge\BrokenOBJ.cpp" />
+    <ClCompile Include="..\src\mge\core\AbstractFactory.cpp" />
     <ClCompile Include="..\src\mge\core\AbstractGame.cpp" />
     <ClCompile Include="..\src\mge\core\Camera.cpp" />
     <ClCompile Include="..\src\mge\core\GameObject.cpp" />
@@ -218,54 +230,34 @@
     <ClCompile Include="..\src\mge\core\ShaderProgram.cpp" />
     <ClCompile Include="..\src\mge\core\Texture.cpp" />
     <ClCompile Include="..\src\mge\core\World.cpp" />
-    <ClCompile Include="..\src\mge\DesignerScene.cpp" />
-    <ClCompile Include="..\src\mge\GameOfLife.cpp" />
     <ClCompile Include="..\src\mge\materials\AbstractMaterial.cpp" />
     <ClCompile Include="..\src\mge\materials\ColorMaterial.cpp" />
     <ClCompile Include="..\src\mge\materials\LitMaterial.cpp" />
     <ClCompile Include="..\src\mge\materials\TerrainMaterial.cpp" />
     <ClCompile Include="..\src\mge\materials\TextureMaterial.cpp" />
     <ClCompile Include="..\src\mge\materials\WobbleMaterial.cpp" />
-    <ClCompile Include="..\src\mge\MGEDemo.cpp" />
-    <ClCompile Include="..\src\mge\TerrainScene.cpp" />
-    <ClCompile Include="..\src\mge\TristanScene.cpp" />
+    <ClCompile Include="..\src\mge\scenes\BrokenOBJ.cpp" />
+    <ClCompile Include="..\src\mge\scenes\DesignerScene.cpp" />
+    <ClCompile Include="..\src\mge\scenes\GameOfLife.cpp" />
+    <ClCompile Include="..\src\mge\scenes\GameScene.cpp" />
+    <ClCompile Include="..\src\mge\scenes\MGEDemo.cpp" />
+    <ClCompile Include="..\src\mge\scenes\TerrainScene.cpp" />
+    <ClCompile Include="..\src\mge\scenes\TristanScene.cpp" />
     <ClCompile Include="..\src\mge\util\DebugHud.cpp" />
-    <ClCompile Include="..\src\mge\util\DisplayGrid.cpp" />
-    <ClCompile Include="..\src\mge\util\RectangleShapeWrapper.cpp" />
-    <ClCompile Include="..\src\mge\util\LuaWrapper.cpp" />
+    <ClCompile Include="..\src\mge\util\LevelEditor\Factories\BoxFactory.cpp" />
+    <ClCompile Include="..\src\mge\util\LevelEditor\Factories\CameraFactory.cpp" />
+    <ClCompile Include="..\src\mge\util\LevelEditor\Factories\ExitFactory.cpp" />
+    <ClCompile Include="..\src\mge\util\LevelEditor\Factories\PlayerFactory.cpp" />
+    <ClCompile Include="..\src\mge\util\LevelEditor\Factories\SwitchFactory.cpp" />
+    <ClCompile Include="..\src\mge\util\LevelEditor\Factories\TileFactory.cpp" />
+    <ClCompile Include="..\src\mge\util\LevelEditor\Level.cpp" />
+    <ClCompile Include="..\src\mge\util\LevelEditor\TestFactory.cpp" />
+    <ClCompile Include="..\src\mge\util\LuaScripting\DisplayGrid.cpp" />
+    <ClCompile Include="..\src\mge\util\LuaScripting\LuaWrapper.cpp" />
+    <ClCompile Include="..\src\mge\util\LuaScripting\RectangleShapeWrapper.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <CopyFileToFolders Include="..\assets\LuaGameScripts\BaseOrganism.lua">
-      <FileType>Document</FileType>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug Static|Win32'">false</ExcludedFromBuild>
-      <DestinationFolders Condition="'$(Configuration)|$(Platform)'=='Debug Static|Win32'">$(OutDir)\LuaGameScripts</DestinationFolders>
-      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Debug Static|Win32'">true</DeploymentContent>
-    </CopyFileToFolders>
     <CopyFileToFolders Include="..\assets\LuaGameScripts\config.lua">
-      <FileType>Document</FileType>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug Static|Win32'">false</ExcludedFromBuild>
-      <DestinationFolders Condition="'$(Configuration)|$(Platform)'=='Debug Static|Win32'">$(OutDir)\LuaGameScripts</DestinationFolders>
-      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Debug Static|Win32'">true</DeploymentContent>
-    </CopyFileToFolders>
-    <CopyFileToFolders Include="..\assets\LuaGameScripts\RuleChecker.lua">
-      <FileType>Document</FileType>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug Static|Win32'">false</ExcludedFromBuild>
-      <DestinationFolders Condition="'$(Configuration)|$(Platform)'=='Debug Static|Win32'">$(OutDir)\LuaGameScripts</DestinationFolders>
-      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Debug Static|Win32'">true</DeploymentContent>
-    </CopyFileToFolders>
-    <CopyFileToFolders Include="..\assets\LuaGameScripts\GridGenerator.lua">
-      <FileType>Document</FileType>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug Static|Win32'">false</ExcludedFromBuild>
-      <DestinationFolders Condition="'$(Configuration)|$(Platform)'=='Debug Static|Win32'">$(OutDir)\LuaGameScripts</DestinationFolders>
-      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Debug Static|Win32'">true</DeploymentContent>
-    </CopyFileToFolders>
-    <CopyFileToFolders Include="..\assets\LuaGameScripts\Main.lua">
-      <FileType>Document</FileType>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug Static|Win32'">false</ExcludedFromBuild>
-      <DestinationFolders Condition="'$(Configuration)|$(Platform)'=='Debug Static|Win32'">$(OutDir)\LuaGameScripts</DestinationFolders>
-      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Debug Static|Win32'">true</DeploymentContent>
-    </CopyFileToFolders>
-    <CopyFileToFolders Include="..\assets\LuaGameScripts\OrganismDNA.lua">
       <FileType>Document</FileType>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug Static|Win32'">false</ExcludedFromBuild>
       <DestinationFolders Condition="'$(Configuration)|$(Platform)'=='Debug Static|Win32'">$(OutDir)\LuaGameScripts</DestinationFolders>
@@ -314,6 +306,14 @@
     <CopyFileToFolders Include="..\assets\mge\shaders\wobble.vs">
       <FileType>Document</FileType>
       <DestinationFolders Condition="'$(Configuration)|$(Platform)'=='Debug Static|Win32'">$(OutDir)\mge\shaders</DestinationFolders>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="..\assets\LuaGameScripts\GameObject.lua">
+      <FileType>Document</FileType>
+      <DestinationFolders Condition="'$(Configuration)|$(Platform)'=='Debug Static|Win32'">$(OutDir)\LuaGameScripts</DestinationFolders>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="..\assets\LuaGameScripts\Tile.lua">
+      <FileType>Document</FileType>
+      <DestinationFolders Condition="'$(Configuration)|$(Platform)'=='Debug Static|Win32'">$(OutDir)\LuaGameScripts</DestinationFolders>
     </CopyFileToFolders>
     <None Include="ClassDiagram.cd" />
   </ItemGroup>

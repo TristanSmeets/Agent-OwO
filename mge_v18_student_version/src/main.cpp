@@ -1,13 +1,14 @@
 #include <iostream>
 
 #include "mge/core/AbstractGame.hpp"
-#include "mge/MGEDemo.hpp"
-#include "mge/TristanScene.h"
-#include "mge/BrokenOBJ.hpp"
-#include "mge/GameOfLife.h"
-#include "mge/TerrainScene.hpp"
-#include "mge/DesignerScene.hpp"
-#include <lua.hpp>
+#include "mge/scenes/MGEDemo.hpp"
+#include "mge/scenes/TristanScene.h"
+#include "mge/scenes/BrokenOBJ.hpp"
+#include "mge/scenes/GameOfLife.h"
+#include "mge/scenes/TerrainScene.hpp"
+#include "mge/scenes/DesignerScene.hpp"
+#include "mge/scenes/GameScene.hpp"
+
 /**
  * Main entry point for the Micro Engine.
 
@@ -26,20 +27,20 @@
 
 int main()
 {
-    std::cout << "Starting Game" << std::endl;
+	std::cout << "Starting Game" << std::endl;
 
-    //AbstractGame* game = new MGEDemo();
+	//AbstractGame* game = new MGEDemo();
 	//AbstractGame* game = new TristanScene();			//Assignment 1 + 3
 	//AbstractGame* game = new BrokenOBJ();				//Assignment 2
 	//AbstractGame* game = new TerrainScene();			//Assignment 4
-	//AbstractGame* game = new GameOfLife();				//LuaGame
-	AbstractGame* game = new DesignerScene();
+	//AbstractGame* game = new DesignerScene();
+	AbstractGame* game = new GameScene();
 	game->initialize();
-    game->run();
+	game->run();
 
 	delete game;
 
-    return 0;
+	return 0;
 }
 
 

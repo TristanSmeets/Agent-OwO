@@ -3,7 +3,7 @@
 
 #include <SFML/Graphics.hpp>
 #include <vector>
-#include "mge/util/RectangleShapeWrapper.hpp"
+#include "mge/util/LuaScripting/RectangleShapeWrapper.hpp"
 
 /*Class that creates and renders a grid of rectangles through SFML*/
 class DisplayGrid

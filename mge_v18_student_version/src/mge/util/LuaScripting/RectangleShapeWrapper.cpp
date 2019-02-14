@@ -1,5 +1,5 @@
-#include "mge/util/RectangleShapeWrapper.hpp"
-#include "mge/util/DisplayGrid.h"
+#include "mge/util/LuaScripting/RectangleShapeWrapper.hpp"
+#include "mge/util/LuaScripting/DisplayGrid.h"
 #include <iostream>
 #include <new>
 

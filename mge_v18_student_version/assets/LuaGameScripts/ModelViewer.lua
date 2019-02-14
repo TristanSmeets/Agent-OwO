@@ -1,5 +1,5 @@
 --Mesh
-ModelPath = "mge/models/cube_flat.obj"		--Path to the model here
+ModelPath = "mge/models/Test_player.obj"		--Path to the model here
 
 --Lighting
 LightType = 0								--0 = Directional, 1 = Point, 2 = Spotlight

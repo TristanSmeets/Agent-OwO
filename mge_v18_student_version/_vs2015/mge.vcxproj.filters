@@ -26,9 +26,6 @@
     <Filter Include="Shaders">
       <UniqueIdentifier>{73a21963-a059-4ee7-a072-8d26a76b3bb6}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Models">
-      <UniqueIdentifier>{31b3e9c4-c512-4cf1-942f-62ec632a8280}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Textures">
       <UniqueIdentifier>{d82a0eda-d925-48fd-9d80-82807a531e7d}</UniqueIdentifier>
     </Filter>
@@ -43,6 +40,9 @@
     </Filter>
     <Filter Include="MGE Source files\mge\util\LevelEditor\Factories">
       <UniqueIdentifier>{730ed11b-73e1-4438-a22f-1d636babeebe}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Models">
+      <UniqueIdentifier>{2e5d919d-5f57-4633-907c-7b5440309a0b}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -315,66 +315,6 @@
     <CopyFileToFolders Include="..\assets\LuaGameScripts\ModelViewer.lua">
       <Filter>LuaScripts</Filter>
     </CopyFileToFolders>
-    <CopyFileToFolders Include="..\assets\mge\models\cone_flat.obj">
-      <Filter>Models</Filter>
-    </CopyFileToFolders>
-    <CopyFileToFolders Include="..\assets\mge\models\cone_smooth.obj">
-      <Filter>Models</Filter>
-    </CopyFileToFolders>
-    <CopyFileToFolders Include="..\assets\mge\models\cube_flat.obj">
-      <Filter>Models</Filter>
-    </CopyFileToFolders>
-    <CopyFileToFolders Include="..\assets\mge\models\cube_smooth.obj">
-      <Filter>Models</Filter>
-    </CopyFileToFolders>
-    <CopyFileToFolders Include="..\assets\mge\models\cylinder_flat.obj">
-      <Filter>Models</Filter>
-    </CopyFileToFolders>
-    <CopyFileToFolders Include="..\assets\mge\models\cylinder_smooth.obj">
-      <Filter>Models</Filter>
-    </CopyFileToFolders>
-    <CopyFileToFolders Include="..\assets\mge\models\plane.obj">
-      <Filter>Models</Filter>
-    </CopyFileToFolders>
-    <CopyFileToFolders Include="..\assets\mge\models\plane_8192.obj">
-      <Filter>Models</Filter>
-    </CopyFileToFolders>
-    <CopyFileToFolders Include="..\assets\mge\models\plane20x20_2tris_aligned_uvs.obj">
-      <Filter>Models</Filter>
-    </CopyFileToFolders>
-    <CopyFileToFolders Include="..\assets\mge\models\plane20x20_2048tris_aligned_uvs.obj">
-      <Filter>Models</Filter>
-    </CopyFileToFolders>
-    <CopyFileToFolders Include="..\assets\mge\models\sphere_flat.obj">
-      <Filter>Models</Filter>
-    </CopyFileToFolders>
-    <CopyFileToFolders Include="..\assets\mge\models\sphere_smooth.obj">
-      <Filter>Models</Filter>
-    </CopyFileToFolders>
-    <CopyFileToFolders Include="..\assets\mge\models\sphere1.obj">
-      <Filter>Models</Filter>
-    </CopyFileToFolders>
-    <CopyFileToFolders Include="..\assets\mge\models\sphere2.obj">
-      <Filter>Models</Filter>
-    </CopyFileToFolders>
-    <CopyFileToFolders Include="..\assets\mge\models\sphere3.obj">
-      <Filter>Models</Filter>
-    </CopyFileToFolders>
-    <CopyFileToFolders Include="..\assets\mge\models\sphere4.obj">
-      <Filter>Models</Filter>
-    </CopyFileToFolders>
-    <CopyFileToFolders Include="..\assets\mge\models\suzanna_flat.obj">
-      <Filter>Models</Filter>
-    </CopyFileToFolders>
-    <CopyFileToFolders Include="..\assets\mge\models\suzanna_smooth.obj">
-      <Filter>Models</Filter>
-    </CopyFileToFolders>
-    <CopyFileToFolders Include="..\assets\mge\models\teapot_flat.obj">
-      <Filter>Models</Filter>
-    </CopyFileToFolders>
-    <CopyFileToFolders Include="..\assets\mge\models\teapot_smooth.obj">
-      <Filter>Models</Filter>
-    </CopyFileToFolders>
     <CopyFileToFolders Include="..\assets\mge\textures\bricks.jpg">
       <Filter>Textures</Filter>
     </CopyFileToFolders>
@@ -461,6 +401,33 @@
     </CopyFileToFolders>
     <CopyFileToFolders Include="..\assets\LuaGameScripts\TestLevel.lua">
       <Filter>LuaScripts</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="..\assets\mge\models\Box.obj">
+      <Filter>Models</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="..\assets\mge\models\cube1cm.obj">
+      <Filter>Models</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="..\assets\mge\models\Cube2cm.obj">
+      <Filter>Models</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="..\assets\mge\models\Exit.obj">
+      <Filter>Models</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="..\assets\mge\models\GenTile.obj">
+      <Filter>Models</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="..\assets\mge\models\gentile-test.obj">
+      <Filter>Models</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="..\assets\mge\models\Start.obj">
+      <Filter>Models</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="..\assets\mge\models\Switch.obj">
+      <Filter>Models</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="..\assets\mge\models\Test_player.obj">
+      <Filter>Models</Filter>
     </CopyFileToFolders>
   </ItemGroup>
 </Project>

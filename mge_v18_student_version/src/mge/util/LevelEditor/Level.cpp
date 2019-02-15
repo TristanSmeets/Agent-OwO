@@ -1,5 +1,6 @@
 #include "Level.hpp"
 #include "glm.hpp"
+#include <glm/gtx/quaternion.hpp>
 #include "mge/util/LevelEditor/Factories/BoxFactory.hpp"
 #include "mge/util/LevelEditor/Factories/CameraFactory.hpp"
 #include "mge/util/LevelEditor/Factories/ExitFactory.hpp"
@@ -36,13 +37,14 @@ Level::Level(World * world) : world(world), config(LuaWrapper::InitializeLuaStat
 Level::~Level()
 {
 	std::cout << "GC running on:Level.\n";
-	
+
 	delete boxFactory;
 	delete cameraFactory;
 	delete exitFactory;
 	delete playerFactory;
 	delete switchFactory;
 	delete tileFactory;
+	delete testFactory;
 
 	LuaWrapper::CloseLuaState(config);
 }
@@ -64,11 +66,11 @@ void Level::CreateLevel(const std::string & filePath)
 
 		std::string typeString = LuaWrapper::GetTableString(lua, "Type");
 		glm::vec3 position = LuaWrapper::GetTableVec3(lua, "Position");
-		glm::vec3 rotation = LuaWrapper::GetTableVec3(lua, "Rotation");
+		glm::quat rotation = LuaWrapper::GetTableQuat(lua, "Rotation");
 		glm::vec3 scale = LuaWrapper::GetTableVec3(lua, "Scale");
 		std::cout << "\nType: " << typeString << std::endl;
 		printf("Position: (%f, %f, %f)\n", position.x, position.y, position.z);
-		printf("Rotation: (%f, %f, %f)\n", rotation.x, rotation.y, rotation.z);
+		printf("Rotation: (%f, %f, %f, %f)\n", rotation.x, rotation.y, rotation.z, rotation.w);
 		printf("Scale: (%f, %f, %f)\n", scale.x, scale.y, scale.z);
 
 		//GameObject* newGameObject = factoryMap[typeString]->CreateGameObject(typeString);
@@ -76,7 +78,7 @@ void Level::CreateLevel(const std::string & filePath)
 		if ("BOX" == typeString)
 			newGameObject = boxFactory->CreateGameObject(typeString);
 		if ("CAMERA" == typeString)
-			newGameObject = testFactory->CreateGameObject(typeString);
+			newGameObject = cameraFactory->CreateGameObject(typeString);
 		if ("EXIT" == typeString)
 			newGameObject = exitFactory->CreateGameObject(typeString);
 		if ("PLAYER" == typeString)
@@ -86,17 +88,19 @@ void Level::CreateLevel(const std::string & filePath)
 		if ("TILE" == typeString)
 			newGameObject = tileFactory->CreateGameObject(typeString);
 
-		glm::mat4 rotationMatrix = glm::eulerAngleXYZ(rotation.x, -rotation.y, -rotation.z);
+		glm::mat4 rotationMatrix = glm::toMat4(rotation);
+		
 		glm::mat4 translationMatrix = glm::translate(glm::mat4(), position);
 		newGameObject->setTransform(translationMatrix * rotationMatrix);
 		newGameObject->scale(scale);
 		world->add(newGameObject);
-		/*if ("CAMERA" == typeString)
+		if ("CAMERA" == typeString)
 		{
-			Camera* camera = new Camera();
-			world->add(camera);
+			newGameObject->setBehaviour(new KeysBehaviour());
+			newGameObject->rotate(glm::radians(180.0f), glm::vec3(0, 1, 0));
+			//newGameObject->rotate(glm::radians(180.0f), glm::vec3(0, 0, 1));
 			world->setMainCamera(dynamic_cast<Camera*>(newGameObject));
-		}*/
+		}
 		//Removes 'value'. keeps 'key' for next iteration
 		lua_pop(lua, 1);
 	}

@@ -70,10 +70,10 @@ glm::vec3 LuaWrapper::GetTableVec3(lua_State * luaState, const std::string & key
 	lua_pushstring(luaState, key.c_str());
 	//Putting key value on stack
 	lua_gettable(luaState, -2);
-	glm::vec3 position;
+	glm::vec3 vector3;
 	if (lua_istable(luaState, -1))
 	{
-		position = glm::vec3(
+		vector3 = glm::vec3(
 			LuaWrapper::GetTableNumber(luaState, "x"),
 			LuaWrapper::GetTableNumber(luaState, "y"),
 			LuaWrapper::GetTableNumber(luaState, "z"));
@@ -81,7 +81,50 @@ glm::vec3 LuaWrapper::GetTableVec3(lua_State * luaState, const std::string & key
 	else
 		throw std::invalid_argument("Not a table.");
 	lua_pop(luaState, 1);
-	return position;
+	return vector3;
+}
+
+glm::vec4 LuaWrapper::GetTableVec4(lua_State * luaState, const std::string & key)
+{
+	//Pushing value on stack
+	lua_pushstring(luaState, key.c_str());
+	//Putting key value on stack
+	lua_gettable(luaState, -2);
+	glm::vec4 vector4;
+	if (lua_istable(luaState, -1))
+	{
+		vector4 = glm::vec4(
+			LuaWrapper::GetTableNumber(luaState, "x"),
+			LuaWrapper::GetTableNumber(luaState, "y"),
+			LuaWrapper::GetTableNumber(luaState, "z"),
+			LuaWrapper::GetTableNumber(luaState, "w"));
+	}
+	else
+		throw std::invalid_argument("Not a table.");
+	lua_pop(luaState, 1);
+	return glm::vec4();
+}
+
+glm::quat LuaWrapper::GetTableQuat(lua_State * luaState, const std::string & key)
+{
+	//Pushing value on stack
+	lua_pushstring(luaState, key.c_str());
+	//Putting key value on stack
+	lua_gettable(luaState, -2);
+
+	glm::quat rotation;
+	if (lua_istable(luaState, -1))
+	{
+		rotation = glm::quat(
+			LuaWrapper::GetTableNumber(luaState, "w"),
+			LuaWrapper::GetTableNumber(luaState, "x"),
+			LuaWrapper::GetTableNumber(luaState, "y"),
+			LuaWrapper::GetTableNumber(luaState, "z"));
+	}
+	else
+		throw std::invalid_argument("Not a table.");
+	lua_pop(luaState, 1);
+	return rotation;
 }
 
 void LuaWrapper::CloseLuaState(lua_State * luaState)

@@ -20,4 +20,4 @@ Exit = "LuaGameScripts/Exit.lua"
 Box = "LuaGameScripts/Box.lua"
 Switch = "LuaGameScripts/Switch.lua"
 
-LevelToLoad = "LuaGameScripts/TestLevel.lua"
+LevelToLoad = "LuaGameScripts/Example.lua"

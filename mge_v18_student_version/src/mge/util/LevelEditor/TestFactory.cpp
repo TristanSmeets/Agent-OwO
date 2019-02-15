@@ -28,11 +28,11 @@ TestFactory::~TestFactory()
 GameObject* TestFactory::CreateGameObject(const std::string& name)
 {
 	GameObject* newGameObject = new GameObject(name, glm::vec3(0, 0, 0));
-	/*GameObject* smallCube = new GameObject("SmallBox", glm::vec3(0, 3, 0));
+	GameObject* smallCube = new GameObject("SmallBox", glm::vec3(0, 0, 3));
 	smallCube->setMesh(cubeMesh);
 	smallCube->setMaterial(colourMaterial);
 	smallCube->scale(glm::vec3(0.1f, 0.1f, 0.1f));
-	newGameObject->add(smallCube);*/
+	newGameObject->add(smallCube);
 	newGameObject->setMesh(cubeMesh);
 	newGameObject->setMaterial(textureMaterial);
 	return newGameObject;

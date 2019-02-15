@@ -27,7 +27,7 @@ PlayerFactory::~PlayerFactory()
 
 GameObject* PlayerFactory::CreateGameObject(const std::string & name)
 {
-	std::cout << "Creating %s\n", name;
+	std::cout << "Creating " << name << std::endl;
 	GameObject* newPlayer = new GameObject(name);
 	addMesh(newPlayer);
 	addMaterial(newPlayer);

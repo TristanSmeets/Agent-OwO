@@ -1,6 +1,10 @@
 #include "ExitFactory.hpp"
 
-ExitFactory::ExitFactory(lua_State* config)
+ExitFactory::ExitFactory() : AbstractFactory()
+{
+}
+
+ExitFactory::ExitFactory(lua_State* config) : AbstractFactory()
 {
 	std::string exitFile = LuaWrapper::GetString(config, "Exit");
 	lua_State* luaExit = LuaWrapper::InitializeLuaState(exitFile);
@@ -21,8 +25,9 @@ ExitFactory::~ExitFactory()
 	delete behaviour;
 }
 
-GameObject * ExitFactory::CreateGameObject(const std::string & name)
+GameObject* ExitFactory::CreateGameObject(const std::string & name)
 {
+	std::cout << "Creating %s\n", name;
 	GameObject* newExit = new GameObject(name);
 	addMesh(newExit);
 	addMaterial(newExit);

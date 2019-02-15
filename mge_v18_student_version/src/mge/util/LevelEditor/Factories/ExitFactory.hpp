@@ -5,6 +5,8 @@
 class ExitFactory :
 	public AbstractFactory
 {
+public:
+	ExitFactory();
 	ExitFactory(lua_State* config);
 	~ExitFactory();
 	GameObject* CreateGameObject(const std::string& name);

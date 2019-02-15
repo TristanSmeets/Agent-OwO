@@ -6,7 +6,8 @@ class PlayerFactory :
 	public AbstractFactory
 {
 public:
+	PlayerFactory();
 	PlayerFactory(lua_State* config);
-	~PlayerFactory();
+	virtual ~PlayerFactory();
 	GameObject* CreateGameObject(const std::string& name);
 };

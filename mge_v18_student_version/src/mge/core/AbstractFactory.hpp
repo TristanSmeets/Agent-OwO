@@ -20,8 +20,8 @@ protected:
 	virtual void addMesh(GameObject* gameObject);
 	virtual void addMaterial(GameObject* gameObject);
 	virtual void addBehaviour(GameObject* gameObject);
-	virtual Mesh* getMesh(lua_State* lua);
-	virtual TextureMaterial* getTextureMaterial(lua_State* lua);
+	Mesh* getMesh(lua_State* lua);
+	TextureMaterial* getTextureMaterial(lua_State* lua);
 	AbstractMaterial* material;
 	Mesh* mesh;
 	AbstractBehaviour* behaviour;

@@ -5,7 +5,8 @@
 class CameraFactory : 
 	public AbstractFactory
 {
+public:
 	CameraFactory();
-	~CameraFactory();
+	virtual ~CameraFactory();
 	GameObject* CreateGameObject(const std::string& name);
 };

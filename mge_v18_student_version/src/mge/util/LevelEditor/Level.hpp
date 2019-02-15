@@ -2,9 +2,16 @@
 #define LEVEL_HPP
 
 #include "mge/util/LuaScripting/LuaWrapper.hpp"
+#include "mge/util/LevelEditor/Factories/BoxFactory.hpp"
+#include "mge/util/LevelEditor/Factories/CameraFactory.hpp"
+#include "mge/util/LevelEditor/Factories/ExitFactory.hpp"
+#include "mge/util/LevelEditor/Factories/PlayerFactory.hpp"
+#include "mge/util/LevelEditor/Factories/SwitchFactory.hpp"
 #include "mge/util/LevelEditor/Factories/TileFactory.hpp"
+#include "mge/util/LevelEditor/TestFactory.hpp"
 #include "mge/core/World.hpp"
 #include <string>
+#include <map>
 
 /*	Class that will be responsible for setting up the level.
 	Reads a lua file with gameobjects specified in it.
@@ -16,13 +23,17 @@ class Level
 public:
 	Level(World* world);
 	~Level();
-	void SetFactory(AbstractFactory* factory);
 	void CreateLevel(const std::string& filePath);
 private:
 	World* world;
-	AbstractFactory* factory;
+	lua_State* config;
+	BoxFactory* boxFactory;
+	CameraFactory* cameraFactory;
+	ExitFactory* exitFactory;
+	PlayerFactory* playerFactory;
+	SwitchFactory* switchFactory;
 	TileFactory* tileFactory;
-	std::vector<GameObject*> gameObjects;
+	TestFactory* testFactory;
 };
 
 #endif // !LEVEL_HPP

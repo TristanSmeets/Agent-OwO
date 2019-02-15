@@ -6,7 +6,8 @@ class SwitchFactory :
 	public AbstractFactory
 {
 public:
+	SwitchFactory();
 	SwitchFactory(lua_State* config);
-	~SwitchFactory();
+	virtual ~SwitchFactory();
 	GameObject* CreateGameObject(const std::string& name);
 };

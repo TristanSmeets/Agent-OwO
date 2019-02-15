@@ -33,8 +33,8 @@ int main()
 	//AbstractGame* game = new TristanScene();			//Assignment 1 + 3
 	//AbstractGame* game = new BrokenOBJ();				//Assignment 2
 	//AbstractGame* game = new TerrainScene();			//Assignment 4
-	AbstractGame* game = new DesignerScene();
-	//AbstractGame* game = new GameScene();
+	//AbstractGame* game = new DesignerScene();
+	AbstractGame* game = new GameScene();
 	game->initialize();
 	game->run();
 

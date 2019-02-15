@@ -17,6 +17,7 @@ Level::Level(World * world) : world(world), config(LuaWrapper::InitializeLuaStat
 	cameraFactory = new CameraFactory();
 	exitFactory = new ExitFactory(config);
 	playerFactory = new PlayerFactory(config);
+	startFactory = new StartFactory(config);
 	switchFactory = new SwitchFactory(config);
 	tileFactory = new TileFactory(config);
 	testFactory = new TestFactory();
@@ -42,6 +43,7 @@ Level::~Level()
 	delete cameraFactory;
 	delete exitFactory;
 	delete playerFactory;
+	delete startFactory;
 	delete switchFactory;
 	delete tileFactory;
 	delete testFactory;
@@ -85,6 +87,8 @@ void Level::CreateLevel(const std::string & filePath)
 			newGameObject = playerFactory->CreateGameObject(typeString);
 		if ("SWITCH" == typeString)
 			newGameObject = switchFactory->CreateGameObject(typeString);
+		if ("START" == typeString)
+			newGameObject = startFactory->CreateGameObject(typeString);
 		if ("TILE" == typeString)
 			newGameObject = tileFactory->CreateGameObject(typeString);
 

@@ -204,6 +204,7 @@
     <ClInclude Include="..\src\mge\util\LevelEditor\Factories\CameraFactory.hpp" />
     <ClInclude Include="..\src\mge\util\LevelEditor\Factories\ExitFactory.hpp" />
     <ClInclude Include="..\src\mge\util\LevelEditor\Factories\PlayerFactory.hpp" />
+    <ClInclude Include="..\src\mge\util\LevelEditor\Factories\StartFactory.hpp" />
     <ClInclude Include="..\src\mge\util\LevelEditor\Factories\SwitchFactory.hpp" />
     <ClInclude Include="..\src\mge\util\LevelEditor\Factories\TileFactory.hpp" />
     <ClInclude Include="..\src\mge\util\LevelEditor\Level.hpp" />
@@ -248,6 +249,7 @@
     <ClCompile Include="..\src\mge\util\LevelEditor\Factories\CameraFactory.cpp" />
     <ClCompile Include="..\src\mge\util\LevelEditor\Factories\ExitFactory.cpp" />
     <ClCompile Include="..\src\mge\util\LevelEditor\Factories\PlayerFactory.cpp" />
+    <ClCompile Include="..\src\mge\util\LevelEditor\Factories\StartFactory.cpp" />
     <ClCompile Include="..\src\mge\util\LevelEditor\Factories\SwitchFactory.cpp" />
     <ClCompile Include="..\src\mge\util\LevelEditor\Factories\TileFactory.cpp" />
     <ClCompile Include="..\src\mge\util\LevelEditor\Level.cpp" />
@@ -332,6 +334,10 @@
       <DestinationFolders Condition="'$(Configuration)|$(Platform)'=='Debug Static|Win32'">$(OutDir)\LuaGameScripts</DestinationFolders>
     </CopyFileToFolders>
     <CopyFileToFolders Include="..\assets\LuaGameScripts\TestLevel.lua">
+      <FileType>Document</FileType>
+      <DestinationFolders Condition="'$(Configuration)|$(Platform)'=='Debug Static|Win32'">$(OutDir)\LuaGameScripts</DestinationFolders>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="..\assets\LuaGameScripts\Start.lua">
       <FileType>Document</FileType>
       <DestinationFolders Condition="'$(Configuration)|$(Platform)'=='Debug Static|Win32'">$(OutDir)\LuaGameScripts</DestinationFolders>
     </CopyFileToFolders>

@@ -20,6 +20,6 @@ GameObject* CameraFactory::CreateGameObject(const std::string & name)
 	std::cout << "Creating " << name << std::endl;
 	return new Camera(name);//,
 		//glm::vec3(0,0,0),
-		//glm::orthoRH(0.0f,1280.0f,0.0f,720.0f,0.1f,100.0f));
+		//glm::ortho(0.0f,1280.0f,0.0f,720.0f,0.1f,100.0f));
 }
 

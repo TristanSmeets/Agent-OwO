@@ -6,6 +6,7 @@
 #include "mge/util/LevelEditor/Factories/CameraFactory.hpp"
 #include "mge/util/LevelEditor/Factories/ExitFactory.hpp"
 #include "mge/util/LevelEditor/Factories/PlayerFactory.hpp"
+#include "mge/util/LevelEditor/Factories/StartFactory.hpp"
 #include "mge/util/LevelEditor/Factories/SwitchFactory.hpp"
 #include "mge/util/LevelEditor/Factories/TileFactory.hpp"
 #include "mge/util/LevelEditor/TestFactory.hpp"
@@ -31,6 +32,7 @@ private:
 	CameraFactory* cameraFactory;
 	ExitFactory* exitFactory;
 	PlayerFactory* playerFactory;
+	StartFactory* startFactory;
 	SwitchFactory* switchFactory;
 	TileFactory* tileFactory;
 	TestFactory* testFactory;

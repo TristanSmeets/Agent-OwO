@@ -176,6 +176,9 @@
     <ClInclude Include="..\src\mge\util\LevelEditor\Factories\BoxFactory.hpp">
       <Filter>MGE Source files\mge\util\LevelEditor\Factories</Filter>
     </ClInclude>
+    <ClInclude Include="..\src\mge\util\LevelEditor\Factories\StartFactory.hpp">
+      <Filter>MGE Source files\mge\util\LevelEditor\Factories</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\main.cpp">
@@ -304,6 +307,9 @@
     <ClCompile Include="..\src\mge\util\LevelEditor\Factories\BoxFactory.cpp">
       <Filter>MGE Source files\mge\util\LevelEditor\Factories</Filter>
     </ClCompile>
+    <ClCompile Include="..\src\mge\util\LevelEditor\Factories\StartFactory.cpp">
+      <Filter>MGE Source files\mge\util\LevelEditor\Factories</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram.cd" />
@@ -428,6 +434,9 @@
     </CopyFileToFolders>
     <CopyFileToFolders Include="..\assets\mge\models\Test_player.obj">
       <Filter>Models</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="..\assets\LuaGameScripts\Start.lua">
+      <Filter>LuaScripts</Filter>
     </CopyFileToFolders>
   </ItemGroup>
 </Project>

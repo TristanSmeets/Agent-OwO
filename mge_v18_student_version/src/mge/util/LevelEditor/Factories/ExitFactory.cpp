@@ -27,7 +27,7 @@ ExitFactory::~ExitFactory()
 
 GameObject* ExitFactory::CreateGameObject(const std::string & name)
 {
-	std::cout << "Creating %s\n", name;
+	std::cout << "Creating " << name << std::endl;
 	GameObject* newExit = new GameObject(name);
 	addMesh(newExit);
 	addMaterial(newExit);

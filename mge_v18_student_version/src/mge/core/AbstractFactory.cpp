@@ -25,7 +25,7 @@ void AbstractFactory::addBehaviour(GameObject * gameObject)
 	gameObject->setBehaviour(behaviour);
 }
 
-Mesh * AbstractFactory::getMesh(lua_State * lua)
+Mesh* AbstractFactory::getMesh(lua_State * lua)
 {
 	return Mesh::load(LuaWrapper::GetString(lua, "Mesh"));
 }

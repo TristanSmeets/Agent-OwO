@@ -20,7 +20,7 @@ public:
 	void CreateLevel(const std::string& filePath);
 private:
 	World* world;
-	std::map<std::string, AbstractFactory> factoryMap;
+	std::map<std::string, AbstractFactory*> factoryMap;
 	lua_State* config;
 
 };

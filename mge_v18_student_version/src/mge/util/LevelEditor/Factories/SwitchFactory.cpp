@@ -2,6 +2,10 @@
 
 #include <iostream>
 
+SwitchFactory::SwitchFactory() : AbstractFactory()
+{
+}
+
 SwitchFactory::SwitchFactory(lua_State* config) : AbstractFactory()
 {
 	std::string switchFile = LuaWrapper::GetString(config, "Switch");
@@ -23,7 +27,7 @@ SwitchFactory::~SwitchFactory()
 	delete behaviour;
 }
 
-GameObject * SwitchFactory::CreateGameObject(const std::string & name)
+GameObject* SwitchFactory::CreateGameObject(const std::string& name)
 {
 	std::cout << "Creating %s\n", name;
 	GameObject* newSwitch = new GameObject(name);

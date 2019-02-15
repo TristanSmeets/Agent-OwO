@@ -3,6 +3,10 @@
 //For printing debug info
 #include <iostream>
 
+TileFactory::TileFactory() : AbstractFactory()
+{
+}
+
 TileFactory::TileFactory(lua_State* config) : AbstractFactory()
 {
 	std::string tileFile = LuaWrapper::GetString(config, "Tile");
@@ -25,7 +29,7 @@ TileFactory::~TileFactory()
 	delete behaviour;
 }
 
-GameObject * TileFactory::CreateGameObject(const std::string & name)
+GameObject* TileFactory::CreateGameObject(const std::string& name)
 {
 	std::cout << "Creating %s\n", name;
 	GameObject* newGameObject = new GameObject(name);

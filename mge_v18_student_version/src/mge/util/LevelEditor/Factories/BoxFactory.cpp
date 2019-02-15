@@ -1,6 +1,10 @@
 #include "mge/util/LevelEditor/Factories/BoxFactory.hpp"
 
-BoxFactory::BoxFactory(lua_State* config) : AbstractFactory()
+BoxFactory::BoxFactory()  : AbstractFactory()
+{
+}
+
+BoxFactory::BoxFactory(lua_State* config)
 {
 	std::string boxFile = LuaWrapper::GetString(config, "Box");
 	lua_State* luaBox = LuaWrapper::InitializeLuaState(boxFile);
@@ -21,7 +25,7 @@ BoxFactory::~BoxFactory()
 	delete behaviour;
 }
 
-GameObject * BoxFactory::CreateGameObject(const std::string & name)
+GameObject* BoxFactory::CreateGameObject(const std::string &name)
 {
 	GameObject* newBox = new GameObject(name);
 	addMesh(newBox);

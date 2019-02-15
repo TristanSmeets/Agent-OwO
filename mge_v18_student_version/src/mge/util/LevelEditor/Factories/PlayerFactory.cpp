@@ -1,5 +1,9 @@
 #include "mge/util/LevelEditor/Factories/PlayerFactory.hpp"
 
+PlayerFactory::PlayerFactory() : AbstractFactory()
+{
+}
+
 PlayerFactory::PlayerFactory(lua_State* config) : AbstractFactory()
 {
 	std::string playerFile = LuaWrapper::GetString(config, "Player");
@@ -21,7 +25,7 @@ PlayerFactory::~PlayerFactory()
 	delete behaviour;
 }
 
-GameObject * PlayerFactory::CreateGameObject(const std::string & name)
+GameObject* PlayerFactory::CreateGameObject(const std::string & name)
 {
 	std::cout << "Creating %s\n", name;
 	GameObject* newPlayer = new GameObject(name);

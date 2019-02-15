@@ -1,4 +1,4 @@
-Mesh = "mge/models/suzanna_smooth.obj" --Add path to the model.
+Mesh = "mge/models/cone_flat.obj" --Add path to the model.
 Texture = "mge/textures/container2.png" --Add path to the texture
 
 --Specific Exit Coding goes here

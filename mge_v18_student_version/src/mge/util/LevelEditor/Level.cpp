@@ -7,24 +7,27 @@
 #include "Factories/SwitchFactory.hpp"
 #include "Factories/TileFactory.hpp"
 #include "mge/core/Camera.hpp"
+#include "mge/util/LevelEditor/TestFactory.hpp"
 
 Level::Level(World * world) : world(world), config(LuaWrapper::InitializeLuaState("LuaGameScripts\\config.lua"))
 {
 	std::cout << "Filling factoryMap\nAdding CameraFactory\n";
-	factoryMap["CAMERA"] = CameraFactory();
+	factoryMap["CAMERA"] = new CameraFactory();
 	std::cout << "Adding ExitFactory\n";
-	factoryMap["EXIT"] = ExitFactory(config);
+	factoryMap["EXIT"] = new TestFactory();
 	std::cout << "Adding PlayerFactory\n";
-	factoryMap["PLAYER"] = PlayerFactory(config);
+	factoryMap["PLAYER"] = new TestFactory();
 	std::cout << "Adding SwitchFactory\n";
-	factoryMap["SWITCH"] = SwitchFactory(config);
+	factoryMap["SWITCH"] = new TestFactory();
 	std::cout << "Adding TileFactory\n";
-	factoryMap["TILE"] = TileFactory(config);
+	factoryMap["TILE"] = new TestFactory();
 }
 
 Level::~Level()
 {
 	std::cout << "GC running on:Level.\n";
+	
+	
 	factoryMap.clear();
 	LuaWrapper::CloseLuaState(config);
 }
@@ -59,7 +62,7 @@ void Level::CreateLevel(const std::string & filePath)
 		printf("Rotation: (%f, %f, %f)\n", rotation.x, rotation.y, rotation.z);
 		printf("Scale: (%f, %f, %f)\n", scale.x, scale.y, scale.z);
 
-		GameObject* newGameObject = factoryMap[typeString].CreateGameObject(typeString);
+		GameObject* newGameObject = factoryMap[typeString]->CreateGameObject(typeString);
 		glm::mat4 rotationMatrix = glm::eulerAngleXYZ(rotation.x, -rotation.y, -rotation.z);
 		glm::mat4 translationMatrix = glm::translate(glm::mat4(), position);
 		newGameObject->setTransform(translationMatrix * rotationMatrix);

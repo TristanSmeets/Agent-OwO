@@ -15,7 +15,7 @@ CameraFactory::~CameraFactory()
 	delete behaviour;
 }
 
-GameObject * CameraFactory::CreateGameObject(const std::string & name)
+GameObject* CameraFactory::CreateGameObject(const std::string & name)
 {
 	std::cout << "Creating %s\n", name;
 	return new Camera(name);

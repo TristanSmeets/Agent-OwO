@@ -6,6 +6,7 @@ class TileFactory :
 	public AbstractFactory
 {
 public:
+	TileFactory();
 	TileFactory(lua_State* config);
 	virtual ~TileFactory();
 	GameObject* CreateGameObject(const std::string& name);

@@ -2,7 +2,7 @@
 #include "mge/core/Camera.hpp"
 #include <iostream>
 
-CameraFactory::CameraFactory()
+CameraFactory::CameraFactory() : AbstractFactory()
 {
 	material = nullptr;
 	mesh = nullptr;
@@ -17,6 +17,7 @@ CameraFactory::~CameraFactory()
 
 GameObject * CameraFactory::CreateGameObject(const std::string & name)
 {
+	std::cout << "Creating %s\n", name;
 	return new Camera(name);
 }
 

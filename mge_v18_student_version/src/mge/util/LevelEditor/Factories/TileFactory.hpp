@@ -7,7 +7,7 @@ class TileFactory :
 {
 public:
 	TileFactory(lua_State* config);
-	~TileFactory();
+	virtual ~TileFactory();
 	GameObject* CreateGameObject(const std::string& name);
 private:
 	/*void addMesh(GameObject* gameObject);

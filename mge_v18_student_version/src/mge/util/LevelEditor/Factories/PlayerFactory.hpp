@@ -7,6 +7,6 @@ class PlayerFactory :
 {
 public:
 	PlayerFactory(lua_State* config);
-	~PlayerFactory();
+	virtual ~PlayerFactory();
 	GameObject* CreateGameObject(const std::string& name);
 };

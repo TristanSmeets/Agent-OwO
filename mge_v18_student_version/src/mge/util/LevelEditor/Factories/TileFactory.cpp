@@ -3,7 +3,7 @@
 //For printing debug info
 #include <iostream>
 
-TileFactory::TileFactory(lua_State* config)
+TileFactory::TileFactory(lua_State* config) : AbstractFactory()
 {
 	std::string tileFile = LuaWrapper::GetString(config, "Tile");
 	lua_State* luaTile = LuaWrapper::InitializeLuaState(tileFile);
@@ -27,6 +27,7 @@ TileFactory::~TileFactory()
 
 GameObject * TileFactory::CreateGameObject(const std::string & name)
 {
+	std::cout << "Creating %s\n", name;
 	GameObject* newGameObject = new GameObject(name);
 	addMesh(newGameObject);
 	addMaterial(newGameObject);

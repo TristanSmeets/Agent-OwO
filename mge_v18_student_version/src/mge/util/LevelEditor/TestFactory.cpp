@@ -5,7 +5,7 @@
 #include "mge/config.hpp"
 #include "mge/util/LuaScripting/LuaWrapper.hpp"
 
-TestFactory::TestFactory()
+TestFactory::TestFactory() : AbstractFactory()
 {
 	lua_State* lua = LuaWrapper::InitializeLuaState("LuaGameScripts\\ModelViewer.lua");
 	colourMaterial = new ColorMaterial(glm::vec3(0, 1, 0));

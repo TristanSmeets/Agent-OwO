@@ -1,26 +1,32 @@
 #include "Level.hpp"
-#include <string>
 #include "glm.hpp"
+#include "Factories/BoxFactory.hpp"
+#include "Factories/CameraFactory.hpp"
+#include "Factories/ExitFactory.hpp"
+#include "Factories/PlayerFactory.hpp"
+#include "Factories/SwitchFactory.hpp"
+#include "Factories/TileFactory.hpp"
+#include "mge/core/Camera.hpp"
 
-Level::Level(World * world) : world(world)
+Level::Level(World * world) : world(world), config(LuaWrapper::InitializeLuaState("LuaGameScripts\\config.lua"))
 {
+	std::cout << "Filling factoryMap\nAdding CameraFactory\n";
+	factoryMap["CAMERA"] = CameraFactory();
+	std::cout << "Adding ExitFactory\n";
+	factoryMap["EXIT"] = ExitFactory(config);
+	std::cout << "Adding PlayerFactory\n";
+	factoryMap["PLAYER"] = PlayerFactory(config);
+	std::cout << "Adding SwitchFactory\n";
+	factoryMap["SWITCH"] = SwitchFactory(config);
+	std::cout << "Adding TileFactory\n";
+	factoryMap["TILE"] = TileFactory(config);
 }
 
 Level::~Level()
 {
-	std::cout << "GC running on:Level." << std::endl;
-	for (int index = gameObjects.size() - 1; index >= 0; index--)
-	{
-		//delete gameObjects[index];
-	}
-
-	delete factory;
-	delete tileFactory;
-}
-
-void Level::SetFactory(AbstractFactory * factory)
-{
-	this->factory = factory;
+	std::cout << "GC running on:Level.\n";
+	factoryMap.clear();
+	LuaWrapper::CloseLuaState(config);
 }
 
 void Level::CreateLevel(const std::string & filePath)
@@ -53,20 +59,14 @@ void Level::CreateLevel(const std::string & filePath)
 		printf("Rotation: (%f, %f, %f)\n", rotation.x, rotation.y, rotation.z);
 		printf("Scale: (%f, %f, %f)\n", scale.x, scale.y, scale.z);
 
-		GameObject* newGameObject;
-
-		if (typeString == "TILE")
-			newGameObject = tileFactory->CreateGameObject(typeString);
-		else
-			newGameObject = factory->CreateGameObject(typeString);
-
+		GameObject* newGameObject = factoryMap[typeString].CreateGameObject(typeString);
 		glm::mat4 rotationMatrix = glm::eulerAngleXYZ(rotation.x, -rotation.y, -rotation.z);
 		glm::mat4 translationMatrix = glm::translate(glm::mat4(), position);
 		newGameObject->setTransform(translationMatrix * rotationMatrix);
 		newGameObject->scale(scale);
 		world->add(newGameObject);
-		gameObjects.push_back(newGameObject);
-
+		if ("CAMERA" == typeString)
+			world->setMainCamera(dynamic_cast<Camera*>(newGameObject));
 
 		/*Removes 'value'. keeps 'key' for next iteration*/
 		lua_pop(lua, 1);

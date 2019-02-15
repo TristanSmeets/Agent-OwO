@@ -1,6 +1,6 @@
 #include "mge/util/LevelEditor/Factories/BoxFactory.hpp"
 
-BoxFactory::BoxFactory(lua_State* config)
+BoxFactory::BoxFactory(lua_State* config) : AbstractFactory()
 {
 	std::string boxFile = LuaWrapper::GetString(config, "Box");
 	lua_State* luaBox = LuaWrapper::InitializeLuaState(boxFile);

@@ -19,6 +19,7 @@ void GameScene::initialize()
 void GameScene::_initializeScene()
 {
 	lua_State* config = LuaWrapper::InitializeLuaState("LuaGameScripts\\config.lua");
+	std::cout << "Creating the Level\n";
 	level->CreateLevel(LuaWrapper::GetString(config, "LevelToLoad"));
 }
 

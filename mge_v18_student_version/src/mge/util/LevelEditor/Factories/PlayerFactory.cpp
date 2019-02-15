@@ -1,6 +1,6 @@
 #include "mge/util/LevelEditor/Factories/PlayerFactory.hpp"
 
-PlayerFactory::PlayerFactory(lua_State* config)
+PlayerFactory::PlayerFactory(lua_State* config) : AbstractFactory()
 {
 	std::string playerFile = LuaWrapper::GetString(config, "Player");
 	lua_State* luaPlayer = LuaWrapper::InitializeLuaState(playerFile);
@@ -23,6 +23,7 @@ PlayerFactory::~PlayerFactory()
 
 GameObject * PlayerFactory::CreateGameObject(const std::string & name)
 {
+	std::cout << "Creating %s\n", name;
 	GameObject* newPlayer = new GameObject(name);
 	addMesh(newPlayer);
 	addMaterial(newPlayer);

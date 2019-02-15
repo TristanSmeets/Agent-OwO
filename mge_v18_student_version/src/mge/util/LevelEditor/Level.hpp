@@ -8,6 +8,7 @@
 #include "mge/util/LevelEditor/Factories/PlayerFactory.hpp"
 #include "mge/util/LevelEditor/Factories/SwitchFactory.hpp"
 #include "mge/util/LevelEditor/Factories/TileFactory.hpp"
+#include "mge/util/LevelEditor/TestFactory.hpp"
 #include "mge/core/World.hpp"
 #include <string>
 #include <map>
@@ -32,6 +33,7 @@ private:
 	PlayerFactory* playerFactory;
 	SwitchFactory* switchFactory;
 	TileFactory* tileFactory;
+	TestFactory* testFactory;
 };
 
 #endif // !LEVEL_HPP

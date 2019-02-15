@@ -18,6 +18,7 @@ Level::Level(World * world) : world(world), config(LuaWrapper::InitializeLuaStat
 	playerFactory = new PlayerFactory(config);
 	switchFactory = new SwitchFactory(config);
 	tileFactory = new TileFactory(config);
+	testFactory = new TestFactory();
 
 	/*TestFactory* testFactory = new TestFactory();
 	std::cout << "Filling factoryMap\nAdding CameraFactory\n";
@@ -75,7 +76,7 @@ void Level::CreateLevel(const std::string & filePath)
 		if ("BOX" == typeString)
 			newGameObject = boxFactory->CreateGameObject(typeString);
 		if ("CAMERA" == typeString)
-			newGameObject = cameraFactory->CreateGameObject(typeString);
+			newGameObject = testFactory->CreateGameObject(typeString);
 		if ("EXIT" == typeString)
 			newGameObject = exitFactory->CreateGameObject(typeString);
 		if ("PLAYER" == typeString)
@@ -90,10 +91,12 @@ void Level::CreateLevel(const std::string & filePath)
 		newGameObject->setTransform(translationMatrix * rotationMatrix);
 		newGameObject->scale(scale);
 		world->add(newGameObject);
-		if ("CAMERA" == typeString)
-			newGameObject->setBehaviour(new KeysBehaviour());
+		/*if ("CAMERA" == typeString)
+		{
+			Camera* camera = new Camera();
+			world->add(camera);
 			world->setMainCamera(dynamic_cast<Camera*>(newGameObject));
-
+		}*/
 		//Removes 'value'. keeps 'key' for next iteration
 		lua_pop(lua, 1);
 	}

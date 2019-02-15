@@ -1,4 +1,4 @@
-Mesh = "mge/models/cube2cm.obj" --Add path to the model.
-Texture = "mge/textures/diffuse1.jpg" --Add path to the texture
+Mesh = "mge/models/Test_player.obj" --Add path to the model.
+Texture = "mge/textures/runicfloor.png" --Add path to the texture
 
 --Specific Player Coding could go here.

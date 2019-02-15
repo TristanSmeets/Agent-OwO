@@ -315,6 +315,22 @@
       <FileType>Document</FileType>
       <DestinationFolders Condition="'$(Configuration)|$(Platform)'=='Debug Static|Win32'">$(OutDir)\LuaGameScripts</DestinationFolders>
     </CopyFileToFolders>
+    <CopyFileToFolders Include="..\assets\LuaGameScripts\Box.lua">
+      <FileType>Document</FileType>
+      <DestinationFolders Condition="'$(Configuration)|$(Platform)'=='Debug Static|Win32'">$(OutDir)\LuaGameScripts</DestinationFolders>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="..\assets\LuaGameScripts\Exit.lua">
+      <FileType>Document</FileType>
+      <DestinationFolders Condition="'$(Configuration)|$(Platform)'=='Debug Static|Win32'">$(OutDir)\LuaGameScripts</DestinationFolders>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="..\assets\LuaGameScripts\Player.lua">
+      <FileType>Document</FileType>
+      <DestinationFolders Condition="'$(Configuration)|$(Platform)'=='Debug Static|Win32'">$(OutDir)\LuaGameScripts</DestinationFolders>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="..\assets\LuaGameScripts\Switch.lua">
+      <FileType>Document</FileType>
+      <DestinationFolders Condition="'$(Configuration)|$(Platform)'=='Debug Static|Win32'">$(OutDir)\LuaGameScripts</DestinationFolders>
+    </CopyFileToFolders>
     <None Include="ClassDiagram.cd" />
   </ItemGroup>
   <ItemGroup>

@@ -447,5 +447,17 @@
     <CopyFileToFolders Include="..\assets\LuaGameScripts\Tile.lua">
       <Filter>LuaScripts</Filter>
     </CopyFileToFolders>
+    <CopyFileToFolders Include="..\assets\LuaGameScripts\Box.lua">
+      <Filter>LuaScripts</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="..\assets\LuaGameScripts\Exit.lua">
+      <Filter>LuaScripts</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="..\assets\LuaGameScripts\Player.lua">
+      <Filter>LuaScripts</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="..\assets\LuaGameScripts\Switch.lua">
+      <Filter>LuaScripts</Filter>
+    </CopyFileToFolders>
   </ItemGroup>
 </Project>

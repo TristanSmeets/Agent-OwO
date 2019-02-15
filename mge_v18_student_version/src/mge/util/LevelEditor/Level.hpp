@@ -2,7 +2,12 @@
 #define LEVEL_HPP
 
 #include "mge/util/LuaScripting/LuaWrapper.hpp"
-#include "mge/core/AbstractFactory.hpp"
+#include "mge/util/LevelEditor/Factories/BoxFactory.hpp"
+#include "mge/util/LevelEditor/Factories/CameraFactory.hpp"
+#include "mge/util/LevelEditor/Factories/ExitFactory.hpp"
+#include "mge/util/LevelEditor/Factories/PlayerFactory.hpp"
+#include "mge/util/LevelEditor/Factories/SwitchFactory.hpp"
+#include "mge/util/LevelEditor/Factories/TileFactory.hpp"
 #include "mge/core/World.hpp"
 #include <string>
 #include <map>
@@ -20,9 +25,13 @@ public:
 	void CreateLevel(const std::string& filePath);
 private:
 	World* world;
-	std::map<std::string, AbstractFactory*> factoryMap;
 	lua_State* config;
-
+	BoxFactory* boxFactory;
+	CameraFactory* cameraFactory;
+	ExitFactory* exitFactory;
+	PlayerFactory* playerFactory;
+	SwitchFactory* switchFactory;
+	TileFactory* tileFactory;
 };
 
 #endif // !LEVEL_HPP

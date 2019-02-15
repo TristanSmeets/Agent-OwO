@@ -1,7 +1,7 @@
 #include "mge/scenes/GameScene.hpp"
 #include <iostream>
 
-GameScene::GameScene() : AbstractGame(), level(new Level(_world))
+GameScene::GameScene() : AbstractGame()
 {
 }
 
@@ -20,6 +20,7 @@ void GameScene::_initializeScene()
 {
 	lua_State* config = LuaWrapper::InitializeLuaState("LuaGameScripts\\config.lua");
 	std::cout << "Creating the Level\n";
+	level = new Level(_world);
 	level->CreateLevel(LuaWrapper::GetString(config, "LevelToLoad"));
 }
 

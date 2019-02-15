@@ -31,7 +31,7 @@ TileFactory::~TileFactory()
 
 GameObject* TileFactory::CreateGameObject(const std::string& name)
 {
-	std::cout << "Creating %s\n", name;
+	std::cout << "Creating " << name << std::endl;
 	GameObject* newGameObject = new GameObject(name);
 	addMesh(newGameObject);
 	addMaterial(newGameObject);

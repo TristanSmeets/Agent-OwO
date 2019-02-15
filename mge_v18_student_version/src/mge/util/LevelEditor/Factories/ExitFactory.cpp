@@ -10,7 +10,7 @@ ExitFactory::ExitFactory(lua_State* config) : AbstractFactory()
 	lua_State* luaExit = LuaWrapper::InitializeLuaState(exitFile);
 
 	std::cout << "Loading Exit Mesh\n";
-	mesh = Mesh::load(LuaWrapper::GetString(luaExit, "Mesh")); //getMesh(luaExit);
+	mesh = getMesh(luaExit);
 	std::cout << "Loading Exit TextureMaterial\n";
 	material = getTextureMaterial(luaExit);
 	behaviour = new NullBehaviour();

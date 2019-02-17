@@ -44,6 +44,9 @@
     <Filter Include="Models">
       <UniqueIdentifier>{2e5d919d-5f57-4633-907c-7b5440309a0b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="MGE Source files\mge\gameplay">
+      <UniqueIdentifier>{a1aa9017-863b-4a9a-a565-2986f23cfd4e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\src\glm.hpp">
@@ -179,6 +182,9 @@
     <ClInclude Include="..\src\mge\util\LevelEditor\Factories\StartFactory.hpp">
       <Filter>MGE Source files\mge\util\LevelEditor\Factories</Filter>
     </ClInclude>
+    <ClInclude Include="..\src\mge\gameplay\Node.hpp">
+      <Filter>MGE Source files\mge\gameplay</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\main.cpp">
@@ -309,6 +315,9 @@
     </ClCompile>
     <ClCompile Include="..\src\mge\util\LevelEditor\Factories\StartFactory.cpp">
       <Filter>MGE Source files\mge\util\LevelEditor\Factories</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\mge\gameplay\Node.cpp">
+      <Filter>MGE Source files\mge\gameplay</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

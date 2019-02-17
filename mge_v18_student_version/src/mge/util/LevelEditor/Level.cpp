@@ -21,18 +21,6 @@ Level::Level(World * world) : world(world), config(LuaWrapper::InitializeLuaStat
 	switchFactory = new SwitchFactory(config);
 	tileFactory = new TileFactory(config);
 	testFactory = new TestFactory();
-
-	/*TestFactory* testFactory = new TestFactory();
-	std::cout << "Filling factoryMap\nAdding CameraFactory\n";
-	factoryMap["CAMERA"] = new CameraFactory();
-	std::cout << "Adding ExitFactory\n";
-	factoryMap["EXIT"] = testFactory;
-	std::cout << "Adding PlayerFactory\n";
-	factoryMap["PLAYER"] = testFactory;
-	std::cout << "Adding SwitchFactory\n";
-	factoryMap["SWITCH"] = testFactory;
-	std::cout << "Adding TileFactory\n";
-	factoryMap["TILE"] = testFactory;*/
 }
 
 Level::~Level()
@@ -75,7 +63,6 @@ void Level::CreateLevel(const std::string & filePath)
 		printf("Rotation: (%f, %f, %f, %f)\n", rotation.x, rotation.y, rotation.z, rotation.w);
 		printf("Scale: (%f, %f, %f)\n", scale.x, scale.y, scale.z);
 
-		//GameObject* newGameObject = factoryMap[typeString]->CreateGameObject(typeString);
 		GameObject* newGameObject;
 		if ("BOX" == typeString)
 			newGameObject = boxFactory->CreateGameObject(typeString);
@@ -102,7 +89,6 @@ void Level::CreateLevel(const std::string & filePath)
 		{
 			newGameObject->setBehaviour(new KeysBehaviour());
 			newGameObject->rotate(glm::radians(180.0f), glm::vec3(0, 1, 0));
-			//newGameObject->rotate(glm::radians(180.0f), glm::vec3(0, 0, 1));
 			world->setMainCamera(dynamic_cast<Camera*>(newGameObject));
 		}
 		//Removes 'value'. keeps 'key' for next iteration

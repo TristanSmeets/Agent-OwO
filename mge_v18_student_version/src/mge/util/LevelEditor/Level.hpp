@@ -12,7 +12,6 @@
 #include "mge/util/LevelEditor/TestFactory.hpp"
 #include "mge/core/World.hpp"
 #include <string>
-#include <map>
 
 /*	Class that will be responsible for setting up the level.
 	Reads a lua file with gameobjects specified in it.

@@ -6,6 +6,17 @@
 #include "mge/gameplay/Command/RightCommand.hpp"
 #include <iostream>
 
+
+MovableBehaviour::MovableBehaviour()
+{
+	std::cout << "Creating MovableBehavior\n";
+	inputHandler = new InputHandler();
+	inputHandler->SetMoveUp(new UpCommand(*this));
+	inputHandler->SetMoveDown(new DownCommand(*this));
+	inputHandler->SetMoveLeft(new LeftCommand(*this));
+	inputHandler->SetMoveRight(new LeftCommand(*this));
+}
+
 MovableBehaviour::MovableBehaviour(Node * startingNode) : currentNode(startingNode)
 {
 	std::cout << "Creating MovableBehaviour at:" << startingNode->GetPosition() << std::endl;
@@ -31,21 +42,26 @@ Node * MovableBehaviour::GetCurrentNode()
 
 void MovableBehaviour::SetDestination(Node * node)
 {
+	destinationNode = node;
+}
+
+void MovableBehaviour::SetCurrentNode(Node * node)
+{
 	currentNode = node;
 }
 
 void MovableBehaviour::update(float pStep)
 {
 	inputHandler->HandleInput();
-	move();
+	//move();
 }
 
 void MovableBehaviour::move()
 {
-	//Do some stuff
-	if (currentNode->GetPosition() != _owner->getLocalPosition())
+	if (destinationNode->GetPosition() != _owner->getLocalPosition())
 	{
 		glm::vec3 translation = currentNode->GetPosition() - _owner->getLocalPosition();
 		_owner->translate(translation);
+		currentNode = destinationNode;
 	}
 }

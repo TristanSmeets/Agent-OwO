@@ -22,4 +22,8 @@ private:
 	Command* moveDown;
 	Command* moveLeft;
 	Command* moveRight;
+	bool up;
+	bool down;
+	bool left;
+	bool right;
 };

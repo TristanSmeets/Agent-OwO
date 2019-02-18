@@ -47,6 +47,9 @@
     <Filter Include="MGE Source files\mge\gameplay">
       <UniqueIdentifier>{a1aa9017-863b-4a9a-a565-2986f23cfd4e}</UniqueIdentifier>
     </Filter>
+    <Filter Include="MGE Source files\mge\gameplay\Command">
+      <UniqueIdentifier>{19f6ca53-a1cf-483f-97fd-46e02ca601aa}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\src\glm.hpp">
@@ -188,6 +191,24 @@
     <ClInclude Include="..\src\mge\util\LevelEditor\Factories\AbstractFactory.hpp">
       <Filter>MGE Source files\mge\util\LevelEditor\Factories</Filter>
     </ClInclude>
+    <ClInclude Include="..\src\mge\gameplay\Command\Command.hpp">
+      <Filter>MGE Source files\mge\gameplay\Command</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\mge\gameplay\Command\UpCommand.hpp">
+      <Filter>MGE Source files\mge\gameplay\Command</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\mge\gameplay\Command\DownCommand.hpp">
+      <Filter>MGE Source files\mge\gameplay\Command</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\mge\gameplay\Command\LeftCommand.hpp">
+      <Filter>MGE Source files\mge\gameplay\Command</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\mge\gameplay\Command\RightCommand.hpp">
+      <Filter>MGE Source files\mge\gameplay\Command</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\mge\gameplay\InputHandler.hpp">
+      <Filter>MGE Source files\mge\gameplay</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\main.cpp">
@@ -324,6 +345,24 @@
     </ClCompile>
     <ClCompile Include="..\src\mge\behaviours\MovableBehaviour.cpp">
       <Filter>MGE Source files\mge\behaviours</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\mge\gameplay\Command\Command.cpp">
+      <Filter>MGE Source files\mge\gameplay\Command</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\mge\gameplay\Command\UpCommand.cpp">
+      <Filter>MGE Source files\mge\gameplay\Command</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\mge\gameplay\Command\DownCommand.cpp">
+      <Filter>MGE Source files\mge\gameplay\Command</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\mge\gameplay\Command\LeftCommand.cpp">
+      <Filter>MGE Source files\mge\gameplay\Command</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\mge\gameplay\Command\RightCommand.cpp">
+      <Filter>MGE Source files\mge\gameplay\Command</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\mge\gameplay\InputHandler.cpp">
+      <Filter>MGE Source files\mge\gameplay</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

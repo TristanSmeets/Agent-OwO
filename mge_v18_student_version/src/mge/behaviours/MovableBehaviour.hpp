@@ -2,6 +2,7 @@
 
 #include "mge/behaviours/AbstractBehaviour.hpp"
 #include "mge/gameplay/Node.hpp"
+#include "mge/gameplay/InputHandler.hpp"
 
 class MovableBehaviour : public AbstractBehaviour
 {
@@ -10,11 +11,11 @@ public:
 	~MovableBehaviour();
 	Node* GetCurrentNode();
 	void SetDestination(Node* node);
-	//TODO Add GetInputHandler()
+	InputHandler& GetInputHandler();
 	virtual void update(float pStep);
 
 private:
 	Node* currentNode;
 	void move();
-	//TODO: Add inputhandler
+	InputHandler inputHandler;
 };

@@ -15,6 +15,6 @@ public:
 
 private:
 	Node* currentNode;
-	void mode();
+	void move();
 	//TODO: Add inputhandler
 };

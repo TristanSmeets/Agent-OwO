@@ -4,12 +4,18 @@
 #include "mge/behaviours/MovableBehaviour.hpp"
 #include "mge/gameplay/Command/Command.hpp"
 
+class Command;
+
 class InputHandler
 {
 public:
-	InputHandler(MovableBehaviour& movable);
+	InputHandler();
 	~InputHandler();
 	void HandleInput();
+	void SetMoveUp(Command* upCommand);
+	void SetMoveDown(Command* downCommand);
+	void SetMoveLeft(Command* leftCommand);
+	void SetMoveRight(Command* rightCommand);
 
 private:
 	Command* moveUp;

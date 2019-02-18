@@ -1,14 +1,8 @@
 #include "InputHandler.hpp"
-#include "mge/gameplay/Command/UpCommand.hpp"
-#include "mge/gameplay/Command/DownCommand.hpp"
-#include "mge/gameplay/Command/LeftCommand.hpp"
-#include "mge/gameplay/Command/RightCommand.hpp"
 #include <iostream>
 
 
-InputHandler::InputHandler(MovableBehaviour & movable) :
-	moveUp(new UpCommand(movable)), moveDown(new DownCommand(movable)), 
-	moveLeft(new LeftCommand(movable)), moveRight(new RightCommand(movable))
+InputHandler::InputHandler()
 {
 }
 
@@ -47,4 +41,24 @@ void InputHandler::HandleInput()
 		std::cout << "Pressing RIGHT\n";
 		//moveRight->Execute();
 	}
+}
+
+void InputHandler::SetMoveUp(Command * upCommand)
+{
+	moveUp = upCommand;
+}
+
+void InputHandler::SetMoveDown(Command * downCommand)
+{
+	moveDown = downCommand;
+}
+
+void InputHandler::SetMoveLeft(Command * leftCommand)
+{
+	moveLeft = leftCommand;
+}
+
+void InputHandler::SetMoveRight(Command * rightCommand)
+{
+	moveRight = rightCommand;
 }

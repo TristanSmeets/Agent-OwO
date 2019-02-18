@@ -2,7 +2,7 @@
 #include "mge/core/GameObject.hpp"
 #include <iostream>
 
-MovableBehaviour::MovableBehaviour(Node * startingNode) : currentNode(startingNode)
+MovableBehaviour::MovableBehaviour(Node * startingNode) : currentNode(startingNode), inputHandler(InputHandler(*this))
 {
 	std::cout << "Creating MovableBehaviour at:" << startingNode->GetPosition() << std::endl;
 }
@@ -24,8 +24,14 @@ void MovableBehaviour::SetDestination(Node * node)
 	currentNode = node;
 }
 
+InputHandler & MovableBehaviour::GetInputHandler()
+{
+	return inputHandler;
+}
+
 void MovableBehaviour::update(float pStep)
 {
+	inputHandler.HandleInput();
 	move();
 }
 

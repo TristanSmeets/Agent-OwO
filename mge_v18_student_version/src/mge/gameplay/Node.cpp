@@ -50,7 +50,14 @@ int Node::GetConnectionCount()
 
 Node * Node::GetConnectionAt(DIRECTION direction)
 {
-	return connections[direction];
+	std::map<DIRECTION, Node*>::iterator itr = connections.find(direction);
+
+	if (itr != connections.end())
+	{
+		return itr->second;
+	}
+	else
+		return nullptr;
 }
 
 void Node::CreateConnections(const std::vector<Node*> &nodes, int currentNode)

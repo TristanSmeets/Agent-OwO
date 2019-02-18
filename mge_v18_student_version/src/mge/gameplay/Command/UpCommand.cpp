@@ -1,6 +1,6 @@
 #include "UpCommand.hpp"
 
-UpCommand::UpCommand() : Command()
+UpCommand::UpCommand(MovableBehaviour& movable) : Command(), movableObject(movable)
 {}
 
 UpCommand::~UpCommand()
@@ -8,7 +8,7 @@ UpCommand::~UpCommand()
 	std::cout << "GC running on:UpCommand\n";
 }
 
-void UpCommand::Execute(MovableBehaviour& movableObject)
+void UpCommand::Execute()
 {
 	Node* currentNode = movableObject.GetCurrentNode();
 	if (checkHasNeighbour(currentNode, DIRECTION::UP))

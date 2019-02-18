@@ -8,7 +8,7 @@ class Command
 public:
 	Command();
 	virtual ~Command();
-	virtual void Execute(MovableBehaviour& movableObject) = 0;
+	virtual void Execute() = 0;
 protected:
 	bool checkHasNeighbour(Node* node, DIRECTION direction);
 	bool checkIsWalkable(Node* node);

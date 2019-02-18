@@ -1,6 +1,6 @@
 #pragma once
 
-#include "mge/core/AbstractFactory.hpp"
+#include "mge/util/LevelEditor/Factories/AbstractFactory.hpp"
 
 class StartFactory : public AbstractFactory
 {

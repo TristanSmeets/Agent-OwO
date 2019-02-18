@@ -173,10 +173,10 @@
     <ClInclude Include="..\src\mge\behaviours\CameraOrbitBehaviour.hpp" />
     <ClInclude Include="..\src\mge\behaviours\KeysBehaviour.hpp" />
     <ClInclude Include="..\src\mge\behaviours\LuaBehaviour.hpp" />
+    <ClInclude Include="..\src\mge\behaviours\MovableBehaviour.hpp" />
     <ClInclude Include="..\src\mge\behaviours\NullBehaviour.hpp" />
     <ClInclude Include="..\src\mge\behaviours\RotatingBehaviour.hpp" />
     <ClInclude Include="..\src\mge\config.hpp" />
-    <ClInclude Include="..\src\mge\core\AbstractFactory.hpp" />
     <ClInclude Include="..\src\mge\core\AbstractGame.hpp" />
     <ClInclude Include="..\src\mge\core\Camera.hpp" />
     <ClInclude Include="..\src\mge\core\GameObject.hpp" />
@@ -201,6 +201,7 @@
     <ClInclude Include="..\src\mge\scenes\TerrainScene.hpp" />
     <ClInclude Include="..\src\mge\scenes\TristanScene.h" />
     <ClInclude Include="..\src\mge\util\DebugHud.hpp" />
+    <ClInclude Include="..\src\mge\util\LevelEditor\Factories\AbstractFactory.hpp" />
     <ClInclude Include="..\src\mge\util\LevelEditor\Factories\BoxFactory.hpp" />
     <ClInclude Include="..\src\mge\util\LevelEditor\Factories\CameraFactory.hpp" />
     <ClInclude Include="..\src\mge\util\LevelEditor\Factories\ExitFactory.hpp" />
@@ -220,9 +221,9 @@
     <ClCompile Include="..\src\mge\behaviours\CameraOrbitBehaviour.cpp" />
     <ClCompile Include="..\src\mge\behaviours\KeysBehaviour.cpp" />
     <ClCompile Include="..\src\mge\behaviours\LuaBehaviour.cpp" />
+    <ClCompile Include="..\src\mge\behaviours\MovableBehaviour.cpp" />
     <ClCompile Include="..\src\mge\behaviours\NullBehaviour.cpp" />
     <ClCompile Include="..\src\mge\behaviours\RotatingBehaviour.cpp" />
-    <ClCompile Include="..\src\mge\core\AbstractFactory.cpp" />
     <ClCompile Include="..\src\mge\core\AbstractGame.cpp" />
     <ClCompile Include="..\src\mge\core\Camera.cpp" />
     <ClCompile Include="..\src\mge\core\GameObject.cpp" />
@@ -247,6 +248,7 @@
     <ClCompile Include="..\src\mge\scenes\TerrainScene.cpp" />
     <ClCompile Include="..\src\mge\scenes\TristanScene.cpp" />
     <ClCompile Include="..\src\mge\util\DebugHud.cpp" />
+    <ClCompile Include="..\src\mge\util\LevelEditor\Factories\AbstractFactory.cpp" />
     <ClCompile Include="..\src\mge\util\LevelEditor\Factories\BoxFactory.cpp" />
     <ClCompile Include="..\src\mge\util\LevelEditor\Factories\CameraFactory.cpp" />
     <ClCompile Include="..\src\mge\util\LevelEditor\Factories\ExitFactory.cpp" />

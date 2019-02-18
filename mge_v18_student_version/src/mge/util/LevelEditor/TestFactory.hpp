@@ -1,7 +1,7 @@
 #ifndef TESTFACTORY_HPP
 #define TESTFACTORY_HPP
 
-#include "mge/core/AbstractFactory.hpp"
+#include "mge/util/LevelEditor/Factories/AbstractFactory.hpp"
 #include "mge/materials/ColorMaterial.hpp"
 #include "mge/materials/TextureMaterial.hpp"
 #include "mge/core/Mesh.hpp"

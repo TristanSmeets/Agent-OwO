@@ -11,6 +11,8 @@
 #include "mge/util/LevelEditor/Factories/TileFactory.hpp"
 #include "mge/util/LevelEditor/TestFactory.hpp"
 #include "mge/core/World.hpp"
+#include "mge/gameplay/Node.hpp"
+#include <vector>
 #include <string>
 
 /*	Class that will be responsible for setting up the level.
@@ -35,6 +37,7 @@ private:
 	SwitchFactory* switchFactory;
 	TileFactory* tileFactory;
 	TestFactory* testFactory;
+	std::vector<Node*> nodes;
 };
 
 #endif // !LEVEL_HPP

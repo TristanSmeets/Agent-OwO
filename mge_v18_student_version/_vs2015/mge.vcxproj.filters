@@ -119,9 +119,6 @@
     <ClInclude Include="..\src\mge\behaviours\LuaBehaviour.hpp">
       <Filter>MGE Source files\mge\behaviours</Filter>
     </ClInclude>
-    <ClInclude Include="..\src\mge\core\AbstractFactory.hpp">
-      <Filter>MGE Source files\mge\core</Filter>
-    </ClInclude>
     <ClInclude Include="..\src\mge\scenes\BrokenOBJ.hpp">
       <Filter>MGE Source files\mge\scenes</Filter>
     </ClInclude>
@@ -184,6 +181,12 @@
     </ClInclude>
     <ClInclude Include="..\src\mge\gameplay\Node.hpp">
       <Filter>MGE Source files\mge\gameplay</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\mge\behaviours\MovableBehaviour.hpp">
+      <Filter>MGE Source files\mge\behaviours</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\mge\util\LevelEditor\Factories\AbstractFactory.hpp">
+      <Filter>MGE Source files\mge\util\LevelEditor\Factories</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -253,9 +256,6 @@
     <ClCompile Include="..\src\mge\behaviours\LuaBehaviour.cpp">
       <Filter>MGE Source files\mge\behaviours</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\mge\core\AbstractFactory.cpp">
-      <Filter>MGE Source files\mge\core</Filter>
-    </ClCompile>
     <ClCompile Include="..\src\mge\scenes\BrokenOBJ.cpp">
       <Filter>MGE Source files\mge\scenes</Filter>
     </ClCompile>
@@ -318,6 +318,12 @@
     </ClCompile>
     <ClCompile Include="..\src\mge\gameplay\Node.cpp">
       <Filter>MGE Source files\mge\gameplay</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\mge\util\LevelEditor\Factories\AbstractFactory.cpp">
+      <Filter>MGE Source files\mge\util\LevelEditor\Factories</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\mge\behaviours\MovableBehaviour.cpp">
+      <Filter>MGE Source files\mge\behaviours</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

@@ -53,8 +53,9 @@ Node * Node::GetConnectionAt(DIRECTION direction)
 	return connections[direction];
 }
 
-void Node::CreateConnections(std::vector<Node*> nodes, int currentNode)
+void Node::CreateConnections(const std::vector<Node*> &nodes, int currentNode)
 {
+	std::cout << "Creating connections for Node#" << currentNode << std::endl;
 	for (int index = 0; index < nodes.size(); ++index)
 	{
 		if (currentNode != index)

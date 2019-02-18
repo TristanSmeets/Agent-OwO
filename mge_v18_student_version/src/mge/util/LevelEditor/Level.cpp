@@ -36,6 +36,12 @@ Level::~Level()
 	delete tileFactory;
 	delete testFactory;
 
+	std::cout << "Cleaning Nodes\n";
+	for (int index = 0; index < nodes.size(); ++index)
+	{
+		delete nodes[index];
+	}
+	nodes.clear();
 	LuaWrapper::CloseLuaState(config);
 }
 
@@ -44,7 +50,6 @@ void Level::CreateLevel(const std::string & filePath)
 	//Open the lua file.
 	lua_State* lua = LuaWrapper::InitializeLuaState(filePath);
 	//Get table from luaFile and put it on the stack at -1
-	//std::cout << "Stack size: " << lua_gettop(lua) << std::endl;
 	std::cout << "Getting GameObjects table from lua" << std::endl;
 	lua_getglobal(lua, "GameObjects");
 
@@ -68,17 +73,32 @@ void Level::CreateLevel(const std::string & filePath)
 			newGameObject = boxFactory->CreateGameObject(typeString);
 		if ("CAMERA" == typeString)
 			newGameObject = cameraFactory->CreateGameObject(typeString);
-		if ("EXIT" == typeString)
+		if ("EXIT" == typeString) 
+		{
+			Node* newExitNode = new Node(position, 1.0f, false, TILETYPE::EXIT);
+			nodes.push_back(newExitNode);
 			newGameObject = exitFactory->CreateGameObject(typeString);
+		}
 		if ("PLAYER" == typeString)
 			newGameObject = playerFactory->CreateGameObject(typeString);
 		if ("SWITCH" == typeString)
+		{
+			Node* newSwitchNode = new Node(position, 1.0f, true, TILETYPE::SWITCH);
+			nodes.push_back(newSwitchNode);
 			newGameObject = switchFactory->CreateGameObject(typeString);
+		}
 		if ("START" == typeString)
+		{
+			Node* newStartNode = new Node(position);
+			nodes.push_back(newStartNode);
 			newGameObject = startFactory->CreateGameObject(typeString);
+		}
 		if ("TILE" == typeString)
+		{
+			Node* newGentileNode = new Node(position);
+			nodes.push_back(newGentileNode);
 			newGameObject = tileFactory->CreateGameObject(typeString);
-
+		}
 		glm::mat4 rotationMatrix = glm::toMat4(rotation);
 		
 		glm::mat4 translationMatrix = glm::translate(glm::mat4(), position);
@@ -96,4 +116,9 @@ void Level::CreateLevel(const std::string & filePath)
 	}
 	lua_pop(lua, 1);
 	std::cout << "Stack size: " << lua_gettop(lua) << std::endl;
+
+	for (int index = 0; index < nodes.size(); ++index)
+	{
+		nodes[index]->CreateConnections(nodes, index);
+	}
 }

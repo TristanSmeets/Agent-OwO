@@ -35,7 +35,7 @@ public:
 	void AddConnection(DIRECTION direction, Node* node);
 	int GetConnectionCount();
 	Node* GetConnectionAt(DIRECTION direction);
-	void CreateConnections(std::vector<Node*> nodes, int currentNode);
+	void CreateConnections(const std::vector<Node*> &nodes, int currentNode);
 
 private:
 	glm::vec3 position;

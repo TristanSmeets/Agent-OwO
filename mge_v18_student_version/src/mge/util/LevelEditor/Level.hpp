@@ -27,9 +27,9 @@ public:
 	~Level();
 	void CreateLevel(const std::string& filePath);
 	void CreateNodeConnections();
-	void PutObjectsOnNodes();
+	void SetPlayerStartNode();
 private:
-	Node* getNodeAtPosition(glm::vec3 position);
+	Node* getStartNode();
 
 	World* world;
 	lua_State* config;

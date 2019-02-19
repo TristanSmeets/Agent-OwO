@@ -96,6 +96,7 @@ void Level::CreateLevel(const std::string & filePath)
 			newGameObject = startFactory->CreateGameObject(typeString);
 			dynamic_cast<TileObject*>(newGameObject)->GetNode()->SetPosition(position);
 			tileObjects.push_back(dynamic_cast<TileObject*>(newGameObject));
+
 		}
 		if ("TILE" == typeString)
 		{
@@ -109,6 +110,7 @@ void Level::CreateLevel(const std::string & filePath)
 		newGameObject->setTransform(translationMatrix * rotationMatrix);
 		newGameObject->scale(scale);
 		world->add(newGameObject);
+		
 		if ("CAMERA" == typeString)
 		{
 			newGameObject->setBehaviour(new KeysBehaviour());
@@ -119,8 +121,6 @@ void Level::CreateLevel(const std::string & filePath)
 		lua_pop(lua, 1);
 	}
 	lua_pop(lua, 1);
-	std::cout << "Stack size: " << lua_gettop(lua) << std::endl;
-	std::cout << "tileObjects size: " << tileObjects.size() << std::endl;
 	CreateNodeConnections();
 }
 
@@ -135,24 +135,23 @@ void Level::CreateNodeConnections()
 	}
 }
 
-void Level::PutObjectsOnNodes()
+void Level::SetPlayerStartNode()
 {
 	MovableBehaviour* movable = dynamic_cast<MovableBehaviour*>(player->getBehaviour());
-	movable->SetCurrentNode(getNodeAtPosition(player->getLocalPosition()));
+	movable->SetCurrentNode(getStartNode());
 }
 
-Node * Level::getNodeAtPosition(glm::vec3 position)
+
+Node * Level::getStartNode()
 {
 	for (int index = 0; index < tileObjects.size(); ++index)
 	{
-		glm::vec3 nodePosition = tileObjects[index]->GetNode()->GetPosition();
-
-		if (position.x == nodePosition.x &&
-			position.y == nodePosition.y &&
-			position.z == nodePosition.z)
+		if (tileObjects[index]->GetNode()->GetTileType() == TILETYPE::START)
+		{
+			std::cout << "Found START node\n";
 			return tileObjects[index]->GetNode();
-		else
-			return nullptr;
+		}
 	}
+	return nullptr;
 }
 

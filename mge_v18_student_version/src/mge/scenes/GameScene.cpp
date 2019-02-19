@@ -39,6 +39,7 @@ void GameScene::_initializeScene()
 	std::cout << "Creating the Level\n";
 	level = new Level(_world);
 	level->CreateLevel(LuaWrapper::GetString(config, "LevelToLoad"));
+	level->SetPlayerStartNode();
 }
 
 void GameScene::_render()

@@ -35,3 +35,9 @@ GameObject* PlayerFactory::CreateGameObject(const std::string & name)
 	addBehaviour(newPlayer);
 	return newPlayer;
 }
+
+GameObject * PlayerFactory::CreateGameObjectWithNode(const std::string & name, Node * node)
+{
+	behaviour = new MovableBehaviour(node);
+	return CreateGameObject(name);
+}

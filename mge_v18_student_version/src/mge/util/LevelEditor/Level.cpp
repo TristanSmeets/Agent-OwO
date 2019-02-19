@@ -8,7 +8,6 @@
 #include "mge/util/LevelEditor/Factories/SwitchFactory.hpp"
 #include "mge/util/LevelEditor/Factories/TileFactory.hpp"
 #include "mge/core/Camera.hpp"
-#include "mge/util/LevelEditor/TestFactory.hpp"
 #include "mge/behaviours/KeysBehaviour.hpp"
 #include "mge/behaviours/MovableBehaviour.hpp"
 
@@ -21,7 +20,6 @@ Level::Level(World * world) : world(world), config(LuaWrapper::InitializeLuaStat
 	startFactory = new StartFactory(config);
 	switchFactory = new SwitchFactory(config);
 	tileFactory = new TileFactory(config);
-	testFactory = new TestFactory();
 }
 
 Level::~Level()
@@ -35,7 +33,6 @@ Level::~Level()
 	delete startFactory;
 	delete switchFactory;
 	delete tileFactory;
-	delete testFactory;
 
 	std::cout << "Cleaning TileObjects\n";
 	for (int index = 0; index < tileObjects.size(); ++index)

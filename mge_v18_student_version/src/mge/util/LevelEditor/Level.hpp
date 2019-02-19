@@ -40,7 +40,6 @@ private:
 	StartFactory* startFactory;
 	SwitchFactory* switchFactory;
 	TileFactory* tileFactory;
-	TestFactory* testFactory;
 	GameObject* player;
 	std::vector<TileObject*> tileObjects;
 };

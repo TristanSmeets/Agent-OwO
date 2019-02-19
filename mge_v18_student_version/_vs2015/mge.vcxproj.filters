@@ -53,6 +53,9 @@
     <Filter Include="MGE Source files\mge\gameplay\GameObjects">
       <UniqueIdentifier>{1e7d5f18-4191-4153-873b-80f872fd227e}</UniqueIdentifier>
     </Filter>
+    <Filter Include="LuaScripts\Levels">
+      <UniqueIdentifier>{b8de47c0-7ec8-46fa-94ee-da9985931e79}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\src\glm.hpp">
@@ -162,9 +165,6 @@
       <Filter>MGE Source files\mge\scenes</Filter>
     </ClInclude>
     <ClInclude Include="..\src\mge\util\LevelEditor\Factories\CameraFactory.hpp">
-      <Filter>MGE Source files\mge\util\LevelEditor\Factories</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\mge\util\LevelEditor\TestFactory.hpp">
       <Filter>MGE Source files\mge\util\LevelEditor\Factories</Filter>
     </ClInclude>
     <ClInclude Include="..\src\mge\util\LevelEditor\Factories\SwitchFactory.hpp">
@@ -318,9 +318,6 @@
     </ClCompile>
     <ClCompile Include="..\src\mge\scenes\GameScene.cpp">
       <Filter>MGE Source files\mge\scenes</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\mge\util\LevelEditor\TestFactory.cpp">
-      <Filter>MGE Source files\mge\util\LevelEditor\Factories</Filter>
     </ClCompile>
     <ClCompile Include="..\src\mge\util\LevelEditor\Factories\CameraFactory.cpp">
       <Filter>MGE Source files\mge\util\LevelEditor\Factories</Filter>
@@ -500,6 +497,24 @@
     </CopyFileToFolders>
     <CopyFileToFolders Include="..\assets\LuaGameScripts\Start.lua">
       <Filter>LuaScripts</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="..\assets\LuaGameScripts\Level\Level_1.lua">
+      <Filter>LuaScripts\Levels</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="..\assets\LuaGameScripts\Level\Level_2.lua">
+      <Filter>LuaScripts\Levels</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="..\assets\LuaGameScripts\Level\Level_3.lua">
+      <Filter>LuaScripts\Levels</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="..\assets\LuaGameScripts\Level\Level_4.lua">
+      <Filter>LuaScripts\Levels</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="..\assets\LuaGameScripts\Level\Level_5.lua">
+      <Filter>LuaScripts\Levels</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="..\assets\LuaGameScripts\Level\Level_6.lua">
+      <Filter>LuaScripts\Levels</Filter>
     </CopyFileToFolders>
   </ItemGroup>
 </Project>

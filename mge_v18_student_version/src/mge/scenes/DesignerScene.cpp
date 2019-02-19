@@ -23,7 +23,6 @@
 #include "DesignerScene.hpp"
 #include "mge/config.hpp"
 #include "mge/util/LevelEditor/Level.hpp"
-#include "mge/util/LevelEditor/TestFactory.hpp"
 
 DesignerScene::DesignerScene() : AbstractGame()
 {

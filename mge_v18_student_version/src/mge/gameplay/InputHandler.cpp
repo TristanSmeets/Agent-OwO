@@ -15,40 +15,21 @@ InputHandler::~InputHandler()
 	delete moveRight;
 }
 
-void InputHandler::HandleInput()
+Command* InputHandler::HandleInput()
 {
 	//UP
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::W) == true && 
-		up == false)
-	{
-		std::cout << "Pressing UP\n";
-		moveUp->Execute();
-	}
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::W))
+		return moveUp;
 	//DOWN
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::S) == true &&
-		down == false)
-	{
-		std::cout << "Pressing DOWN\n";
-		moveDown->Execute();
-	}
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::S))
+		return moveDown;
 	//LEFT
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::A) == true &&
-		left == false)
-	{
-		std::cout << "Pressing LEFT\n";
-		moveLeft->Execute();
-	}
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::A))
+		return moveLeft;
 	//RIGHT
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::D) == true &&
-		right == false)
-	{
-		std::cout << "Pressing RIGHT\n";
-		moveRight->Execute();
-	}
-	up = sf::Keyboard::isKeyPressed(sf::Keyboard::W);
-	down = sf::Keyboard::isKeyPressed(sf::Keyboard::S);
-	left = sf::Keyboard::isKeyPressed(sf::Keyboard::A);
-	right= sf::Keyboard::isKeyPressed(sf::Keyboard::D);
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))
+		return moveRight;
+	return nullptr;
 }
 
 void InputHandler::SetMoveUp(Command * upCommand)

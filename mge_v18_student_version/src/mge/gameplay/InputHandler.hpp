@@ -11,7 +11,7 @@ class InputHandler
 public:
 	InputHandler();
 	~InputHandler();
-	void HandleInput();
+	Command* HandleInput();
 	void SetMoveUp(Command* upCommand);
 	void SetMoveDown(Command* downCommand);
 	void SetMoveLeft(Command* leftCommand);
@@ -22,8 +22,4 @@ private:
 	Command* moveDown;
 	Command* moveLeft;
 	Command* moveRight;
-	bool up;
-	bool down;
-	bool left;
-	bool right;
 };

@@ -22,4 +22,5 @@ private:
 	Node* currentNode;
 	Node* destinationNode;
 	InputHandler* inputHandler;
+	bool buttonPushed;
 };

@@ -9,7 +9,6 @@
 #include "mge/util/LevelEditor/Factories/StartFactory.hpp"
 #include "mge/util/LevelEditor/Factories/SwitchFactory.hpp"
 #include "mge/util/LevelEditor/Factories/TileFactory.hpp"
-#include "mge/util/LevelEditor/TestFactory.hpp"
 #include "mge/core/World.hpp"
 #include "mge/gameplay/Node.hpp"
 #include <vector>

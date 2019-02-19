@@ -52,7 +52,13 @@ void MovableBehaviour::SetCurrentNode(Node * node)
 
 void MovableBehaviour::update(float pStep)
 {
-	inputHandler->HandleInput();
+	Command* command = inputHandler->HandleInput();
+	if (command && buttonPushed == false)
+	{
+		command->Execute();
+		buttonPushed = true;
+	}
+	buttonPushed = command != nullptr;
 }
 
 void MovableBehaviour::move()

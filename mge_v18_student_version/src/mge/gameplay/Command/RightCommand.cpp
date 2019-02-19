@@ -11,6 +11,8 @@ RightCommand::~RightCommand()
 
 void RightCommand::Execute()
 {
+	std::cout << "Executing RightCommand\n";
+
 	Node* currentNode = movableObject.GetCurrentNode();
 	if (checkHasNeighbour(currentNode, DIRECTION::RIGHT))
 	{
@@ -20,6 +22,9 @@ void RightCommand::Execute()
 		{
 			std::cout << "Destination Node is walkable\n";
 			movableObject.SetDestination(destinationNode);
+			//movableObject.move();
 		}
 	}
+	else
+		std::cout << "No RIGHT connection\n";
 }

@@ -14,7 +14,7 @@ MovableBehaviour::MovableBehaviour()
 	inputHandler->SetMoveUp(new UpCommand(*this));
 	inputHandler->SetMoveDown(new DownCommand(*this));
 	inputHandler->SetMoveLeft(new LeftCommand(*this));
-	inputHandler->SetMoveRight(new LeftCommand(*this));
+	inputHandler->SetMoveRight(new RightCommand(*this));
 }
 
 MovableBehaviour::MovableBehaviour(Node * startingNode) : currentNode(startingNode)
@@ -24,7 +24,7 @@ MovableBehaviour::MovableBehaviour(Node * startingNode) : currentNode(startingNo
 	inputHandler->SetMoveUp(new UpCommand(*this));
 	inputHandler->SetMoveDown(new DownCommand(*this));
 	inputHandler->SetMoveLeft(new LeftCommand(*this));
-	inputHandler->SetMoveRight(new LeftCommand(*this));
+	inputHandler->SetMoveRight(new RightCommand(*this));
 }
 
 MovableBehaviour::~MovableBehaviour()
@@ -53,7 +53,6 @@ void MovableBehaviour::SetCurrentNode(Node * node)
 void MovableBehaviour::update(float pStep)
 {
 	inputHandler->HandleInput();
-	//move();
 }
 
 void MovableBehaviour::move()

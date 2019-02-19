@@ -16,10 +16,10 @@ public:
 	void SetDestination(Node* node);
 	void SetCurrentNode(Node* node);
 	virtual void update(float pStep);
+	void move();
 
 private:
 	Node* currentNode;
 	Node* destinationNode;
-	void move();
 	InputHandler* inputHandler;
 };

@@ -26,7 +26,11 @@ public:
 	Level(World* world);
 	~Level();
 	void CreateLevel(const std::string& filePath);
+	void CreateNodeConnections();
+	void SetPlayerStartNode();
 private:
+	Node* getStartNode();
+
 	World* world;
 	lua_State* config;
 	BoxFactory* boxFactory;
@@ -37,7 +41,8 @@ private:
 	SwitchFactory* switchFactory;
 	TileFactory* tileFactory;
 	TestFactory* testFactory;
-	std::vector<Node*> nodes;
+	GameObject* player;
+	std::vector<TileObject*> tileObjects;
 };
 
 #endif // !LEVEL_HPP

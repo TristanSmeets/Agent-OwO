@@ -10,6 +10,7 @@
 #include "mge/core/Camera.hpp"
 #include "mge/util/LevelEditor/TestFactory.hpp"
 #include "mge/behaviours/KeysBehaviour.hpp"
+#include "mge/behaviours/MovableBehaviour.hpp"
 
 Level::Level(World * world) : world(world), config(LuaWrapper::InitializeLuaState("LuaGameScripts\\config.lua"))
 {
@@ -36,12 +37,12 @@ Level::~Level()
 	delete tileFactory;
 	delete testFactory;
 
-	std::cout << "Cleaning Nodes\n";
-	for (int index = 0; index < nodes.size(); ++index)
+	std::cout << "Cleaning TileObjects\n";
+	for (int index = 0; index < tileObjects.size(); ++index)
 	{
-		delete nodes[index];
+		tileObjects[index] = nullptr;
 	}
-	nodes.clear();
+	tileObjects.clear();
 	LuaWrapper::CloseLuaState(config);
 }
 
@@ -75,29 +76,33 @@ void Level::CreateLevel(const std::string & filePath)
 			newGameObject = cameraFactory->CreateGameObject(typeString);
 		if ("EXIT" == typeString) 
 		{
-			Node* newExitNode = new Node(position, 1.0f, false, TILETYPE::EXIT);
-			nodes.push_back(newExitNode);
 			newGameObject = exitFactory->CreateGameObject(typeString);
+			dynamic_cast<TileObject*>(newGameObject)->SetNodePosition(position);
+			tileObjects.push_back(dynamic_cast<TileObject*>(newGameObject));
 		}
 		if ("PLAYER" == typeString)
+		{
 			newGameObject = playerFactory->CreateGameObject(typeString);
+			player = newGameObject;
+		}
 		if ("SWITCH" == typeString)
 		{
-			Node* newSwitchNode = new Node(position, 1.0f, true, TILETYPE::SWITCH);
-			nodes.push_back(newSwitchNode);
 			newGameObject = switchFactory->CreateGameObject(typeString);
+			dynamic_cast<TileObject*>(newGameObject)->SetNodePosition(position);
+			tileObjects.push_back(dynamic_cast<TileObject*>(newGameObject));
 		}
 		if ("START" == typeString)
 		{
-			Node* newStartNode = new Node(position);
-			nodes.push_back(newStartNode);
 			newGameObject = startFactory->CreateGameObject(typeString);
+			dynamic_cast<TileObject*>(newGameObject)->SetNodePosition(position);
+			tileObjects.push_back(dynamic_cast<TileObject*>(newGameObject));
+
 		}
 		if ("TILE" == typeString)
 		{
-			Node* newGentileNode = new Node(position);
-			nodes.push_back(newGentileNode);
 			newGameObject = tileFactory->CreateGameObject(typeString);
+			dynamic_cast<TileObject*>(newGameObject)->SetNodePosition(position);
+			tileObjects.push_back(dynamic_cast<TileObject*>(newGameObject));
 		}
 		glm::mat4 rotationMatrix = glm::toMat4(rotation);
 		
@@ -105,6 +110,7 @@ void Level::CreateLevel(const std::string & filePath)
 		newGameObject->setTransform(translationMatrix * rotationMatrix);
 		newGameObject->scale(scale);
 		world->add(newGameObject);
+		
 		if ("CAMERA" == typeString)
 		{
 			newGameObject->setBehaviour(new KeysBehaviour());
@@ -115,10 +121,38 @@ void Level::CreateLevel(const std::string & filePath)
 		lua_pop(lua, 1);
 	}
 	lua_pop(lua, 1);
-	std::cout << "Stack size: " << lua_gettop(lua) << std::endl;
+	CreateNodeConnections();
+}
 
-	for (int index = 0; index < nodes.size(); ++index)
+void Level::CreateNodeConnections()
+{
+	for (int index = 0; index < tileObjects.size(); ++index)
 	{
-		nodes[index]->CreateConnections(nodes, index);
+		tileObjects[index]->CreateNodeConnections(tileObjects, index);
+		//std::cout << "Tile#" << index << " Local Position: " << tileObjects[index]->getLocalPosition() << std::endl;
+		//std::cout << "Tile#" << index << " World Position: " << tileObjects[index]->getWorldPosition() << std::endl;
+		std::cout << "Amount of Connections: " << tileObjects[index]->GetNode()->GetConnectionCount() << std::endl << std::endl;
 	}
 }
+
+void Level::SetPlayerStartNode()
+{
+	MovableBehaviour* movable = dynamic_cast<MovableBehaviour*>(player->getBehaviour());
+	movable->SetCurrentNode(getStartNode());
+	player->setLocalPosition(getStartNode()->GetPosition());
+}
+
+
+Node * Level::getStartNode()
+{
+	for (int index = 0; index < tileObjects.size(); ++index)
+	{
+		if (tileObjects[index]->GetNode()->GetTileType() == TILETYPE::START)
+		{
+			std::cout << "Found START node\n";
+			return tileObjects[index]->GetNode();
+		}
+	}
+	return nullptr;
+}
+

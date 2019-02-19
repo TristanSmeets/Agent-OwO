@@ -12,7 +12,6 @@ Command::~Command()
 
 bool Command::checkHasNeighbour(Node * node, DIRECTION direction)
 {
-
 	if (nullptr != node->GetConnectionAt(direction))
 		return true;
 	else

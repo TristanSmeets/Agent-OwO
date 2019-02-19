@@ -27,6 +27,7 @@ BoxFactory::~BoxFactory()
 
 GameObject* BoxFactory::CreateGameObject(const std::string &name)
 {
+	std::cout << "Creating " << name << std::endl;
 	GameObject* newBox = new GameObject(name);
 	addMesh(newBox);
 	addMaterial(newBox);

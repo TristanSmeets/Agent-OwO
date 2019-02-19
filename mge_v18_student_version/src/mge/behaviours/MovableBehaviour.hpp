@@ -4,18 +4,22 @@
 #include "mge/gameplay/Node.hpp"
 #include "mge/gameplay/InputHandler.hpp"
 
+class InputHandler;
+
 class MovableBehaviour : public AbstractBehaviour
 {
 public:
+	MovableBehaviour();
 	MovableBehaviour(Node* startingNode);		//TODO: Add input handler
 	~MovableBehaviour();
 	Node* GetCurrentNode();
 	void SetDestination(Node* node);
-	InputHandler& GetInputHandler();
+	void SetCurrentNode(Node* node);
 	virtual void update(float pStep);
+	void move();
 
 private:
 	Node* currentNode;
-	void move();
-	InputHandler inputHandler;
+	Node* destinationNode;
+	InputHandler* inputHandler;
 };

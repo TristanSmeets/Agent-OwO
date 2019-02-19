@@ -186,6 +186,13 @@
     <ClInclude Include="..\src\mge\core\ShaderProgram.hpp" />
     <ClInclude Include="..\src\mge\core\Texture.hpp" />
     <ClInclude Include="..\src\mge\core\World.hpp" />
+    <ClInclude Include="..\src\mge\gameplay\Command\Command.hpp" />
+    <ClInclude Include="..\src\mge\gameplay\Command\DownCommand.hpp" />
+    <ClInclude Include="..\src\mge\gameplay\Command\LeftCommand.hpp" />
+    <ClInclude Include="..\src\mge\gameplay\Command\RightCommand.hpp" />
+    <ClInclude Include="..\src\mge\gameplay\Command\UpCommand.hpp" />
+    <ClInclude Include="..\src\mge\gameplay\GameObjects\TileObject.hpp" />
+    <ClInclude Include="..\src\mge\gameplay\InputHandler.hpp" />
     <ClInclude Include="..\src\mge\gameplay\Node.hpp" />
     <ClInclude Include="..\src\mge\materials\AbstractMaterial.hpp" />
     <ClInclude Include="..\src\mge\materials\ColorMaterial.hpp" />
@@ -233,6 +240,13 @@
     <ClCompile Include="..\src\mge\core\ShaderProgram.cpp" />
     <ClCompile Include="..\src\mge\core\Texture.cpp" />
     <ClCompile Include="..\src\mge\core\World.cpp" />
+    <ClCompile Include="..\src\mge\gameplay\Command\Command.cpp" />
+    <ClCompile Include="..\src\mge\gameplay\Command\DownCommand.cpp" />
+    <ClCompile Include="..\src\mge\gameplay\Command\LeftCommand.cpp" />
+    <ClCompile Include="..\src\mge\gameplay\Command\RightCommand.cpp" />
+    <ClCompile Include="..\src\mge\gameplay\Command\UpCommand.cpp" />
+    <ClCompile Include="..\src\mge\gameplay\GameObjects\TileObject.cpp" />
+    <ClCompile Include="..\src\mge\gameplay\InputHandler.cpp" />
     <ClCompile Include="..\src\mge\gameplay\Node.cpp" />
     <ClCompile Include="..\src\mge\materials\AbstractMaterial.cpp" />
     <ClCompile Include="..\src\mge\materials\ColorMaterial.cpp" />

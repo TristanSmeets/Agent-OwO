@@ -10,6 +10,7 @@ DownCommand::~DownCommand()
 
 void DownCommand::Execute()
 {
+	std::cout << "Executing DownCommand\n";
 	Node* currentNode = movableObject.GetCurrentNode();
 	if (checkHasNeighbour(currentNode, DIRECTION::DOWN))
 	{
@@ -17,8 +18,13 @@ void DownCommand::Execute()
 		Node* destinationNode = currentNode->GetConnectionAt(DIRECTION::DOWN);
 		if (destinationNode->GetIsWalkable())
 		{
-			std::cout << "Destination Node is walkable\n";
+			std::cout << "NODE is walkable\n";
 			movableObject.SetDestination(destinationNode);
+			movableObject.move();
 		}
+		else
+			std::cout << "NODE isn't walkable\n";
 	}
+	else
+		std::cout << "No DOWN connection\n";
 }

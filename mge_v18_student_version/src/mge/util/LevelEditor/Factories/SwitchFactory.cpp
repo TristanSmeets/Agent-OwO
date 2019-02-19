@@ -1,5 +1,5 @@
 #include "SwitchFactory.hpp"
-
+#include "mge/gameplay/GameObjects/TileObject.hpp"
 #include <iostream>
 
 SwitchFactory::SwitchFactory() : AbstractFactory()
@@ -9,14 +9,13 @@ SwitchFactory::SwitchFactory() : AbstractFactory()
 SwitchFactory::SwitchFactory(lua_State* config) : AbstractFactory()
 {
 	std::string switchFile = LuaWrapper::GetString(config, "Switch");
-	lua_State* luaSwitch = LuaWrapper::InitializeLuaState(switchFile);
+	luaSwitch = LuaWrapper::InitializeLuaState(switchFile);
 
 	std::cout << "Loading Switch Mesh\n";
 	mesh = getMesh(luaSwitch);
 	std::cout << "Loading Switch TextureMaterial\n";
 	material = getTextureMaterial(luaSwitch);
 	behaviour = new NullBehaviour();
-	LuaWrapper::CloseLuaState(luaSwitch);
 }
 
 SwitchFactory::~SwitchFactory()
@@ -25,12 +24,14 @@ SwitchFactory::~SwitchFactory()
 	mesh = nullptr;
 	delete material;
 	delete behaviour;
+	LuaWrapper::CloseLuaState(luaSwitch);
 }
 
 GameObject* SwitchFactory::CreateGameObject(const std::string& name)
 {
-	std::cout << "Creating %s\n", name;
-	GameObject* newSwitch = new GameObject(name);
+	std::cout << "Creating " << name << std::endl;
+	TileObject* newSwitch = new TileObject(luaSwitch, name);
+	newSwitch->GetNode()->SetTileType(TILETYPE::SWITCH);
 	addMesh(newSwitch);
 	addMaterial(newSwitch);
 	addBehaviour(newSwitch);

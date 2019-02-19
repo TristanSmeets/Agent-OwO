@@ -1,4 +1,5 @@
 #include "mge/util/LevelEditor/Factories/PlayerFactory.hpp"
+#include "mge/behaviours/MovableBehaviour.hpp"
 
 PlayerFactory::PlayerFactory() : AbstractFactory()
 {
@@ -13,7 +14,7 @@ PlayerFactory::PlayerFactory(lua_State* config) : AbstractFactory()
 	mesh = getMesh(luaPlayer);
 	std::cout << "Loading Player TextureMaterial\n";
 	material = getTextureMaterial(luaPlayer);
-	behaviour = new NullBehaviour();
+	behaviour = new MovableBehaviour();
 	LuaWrapper::CloseLuaState(luaPlayer);
 }
 
@@ -33,4 +34,10 @@ GameObject* PlayerFactory::CreateGameObject(const std::string & name)
 	addMaterial(newPlayer);
 	addBehaviour(newPlayer);
 	return newPlayer;
+}
+
+GameObject * PlayerFactory::CreateGameObjectWithNode(const std::string & name, Node * node)
+{
+	behaviour = new MovableBehaviour(node);
+	return CreateGameObject(name);
 }

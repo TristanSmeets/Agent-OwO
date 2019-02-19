@@ -1,14 +1,8 @@
 #include "InputHandler.hpp"
-#include "mge/gameplay/Command/UpCommand.hpp"
-#include "mge/gameplay/Command/DownCommand.hpp"
-#include "mge/gameplay/Command/LeftCommand.hpp"
-#include "mge/gameplay/Command/RightCommand.hpp"
 #include <iostream>
 
 
-InputHandler::InputHandler(MovableBehaviour & movable) :
-	moveUp(new UpCommand(movable)), moveDown(new DownCommand(movable)), 
-	moveLeft(new LeftCommand(movable)), moveRight(new RightCommand(movable))
+InputHandler::InputHandler()
 {
 }
 
@@ -24,27 +18,55 @@ InputHandler::~InputHandler()
 void InputHandler::HandleInput()
 {
 	//UP
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::W))
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::W) == true && 
+		up == false)
 	{
 		std::cout << "Pressing UP\n";
-		//moveUp->Execute();
+		moveUp->Execute();
 	}
 	//DOWN
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::S))
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::S) == true &&
+		down == false)
 	{
 		std::cout << "Pressing DOWN\n";
-		//moveDown->Execute();
+		moveDown->Execute();
 	}
 	//LEFT
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::A))
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::A) == true &&
+		left == false)
 	{
 		std::cout << "Pressing LEFT\n";
-		//moveLeft->Execute();
+		moveLeft->Execute();
 	}
 	//RIGHT
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::D) == true &&
+		right == false)
 	{
 		std::cout << "Pressing RIGHT\n";
-		//moveRight->Execute();
+		moveRight->Execute();
 	}
+	up = sf::Keyboard::isKeyPressed(sf::Keyboard::W);
+	down = sf::Keyboard::isKeyPressed(sf::Keyboard::S);
+	left = sf::Keyboard::isKeyPressed(sf::Keyboard::A);
+	right= sf::Keyboard::isKeyPressed(sf::Keyboard::D);
+}
+
+void InputHandler::SetMoveUp(Command * upCommand)
+{
+	moveUp = upCommand;
+}
+
+void InputHandler::SetMoveDown(Command * downCommand)
+{
+	moveDown = downCommand;
+}
+
+void InputHandler::SetMoveLeft(Command * leftCommand)
+{
+	moveLeft = leftCommand;
+}
+
+void InputHandler::SetMoveRight(Command * rightCommand)
+{
+	moveRight = rightCommand;
 }

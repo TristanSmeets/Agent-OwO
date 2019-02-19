@@ -10,4 +10,6 @@ public:
 	SwitchFactory(lua_State* config);
 	virtual ~SwitchFactory();
 	GameObject* CreateGameObject(const std::string& name);
+private:
+	lua_State* luaSwitch;
 };

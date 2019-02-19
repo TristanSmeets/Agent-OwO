@@ -10,7 +10,9 @@ LeftCommand::~LeftCommand()
 
 void LeftCommand::Execute()
 {
+	std::cout << "Executing LeftCommand\n";
 	Node* currentNode = movableObject.GetCurrentNode();
+	
 	if (checkHasNeighbour(currentNode, DIRECTION::LEFT))
 	{
 		std::cout << "Current Node has LEFT connection\n";
@@ -19,6 +21,11 @@ void LeftCommand::Execute()
 		{
 			std::cout << "Destination Node is walkable\n";
 			movableObject.SetDestination(destinationNode);
+			movableObject.move();
 		}
+		else
+			std::cout << "NODE isn't walkable\n";
 	}
+	else
+		std::cout << "No LEFT connection\n";
 }

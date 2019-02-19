@@ -10,6 +10,7 @@ UpCommand::~UpCommand()
 
 void UpCommand::Execute()
 {
+	std::cout << "Executing UpCommand\n";
 	Node* currentNode = movableObject.GetCurrentNode();
 	if (checkHasNeighbour(currentNode, DIRECTION::UP))
 	{
@@ -19,7 +20,12 @@ void UpCommand::Execute()
 		{
 			std::cout << "Destination Node is walkable\n";
 			movableObject.SetDestination(destinationNode);
+			movableObject.move();
 		}
+		else
+			std::cout << "NODE isn't walkable\n";
 	}
+	else
+		std::cout << "No UP connection\n";
 }
 

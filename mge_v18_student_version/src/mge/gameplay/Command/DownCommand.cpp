@@ -18,10 +18,12 @@ void DownCommand::Execute()
 		Node* destinationNode = currentNode->GetConnectionAt(DIRECTION::DOWN);
 		if (destinationNode->GetIsWalkable())
 		{
-			std::cout << "Destination Node is walkable\n";
+			std::cout << "NODE is walkable\n";
 			movableObject.SetDestination(destinationNode);
-			//movableObject.move();
+			movableObject.move();
 		}
+		else
+			std::cout << "NODE isn't walkable\n";
 	}
 	else
 		std::cout << "No DOWN connection\n";

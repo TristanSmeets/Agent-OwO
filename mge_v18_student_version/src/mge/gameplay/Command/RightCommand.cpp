@@ -22,8 +22,10 @@ void RightCommand::Execute()
 		{
 			std::cout << "Destination Node is walkable\n";
 			movableObject.SetDestination(destinationNode);
-			//movableObject.move();
+			movableObject.move();
 		}
+		else
+			std::cout << "NODE isn't walkable\n";
 	}
 	else
 		std::cout << "No RIGHT connection\n";

@@ -25,7 +25,13 @@ Node * TileObject::GetNode()
 
 void TileObject::SetNodePosition(const glm::vec3& position)
 {
-	node->SetPosition(position);
+	float tileSize = GetNode()->GetSize();
+	glm::vec3 correctedPosition = glm::vec3(
+		position.x - tileSize * 0.5f,
+		position.y,
+		position.z + tileSize * 0.5f);
+
+	node->SetPosition(correctedPosition);
 }
 
 void TileObject::CreateNodeConnections(const std::vector<TileObject*>& tileObjects, int currentTile)

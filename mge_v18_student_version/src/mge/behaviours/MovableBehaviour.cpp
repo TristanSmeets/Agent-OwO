@@ -57,10 +57,6 @@ void MovableBehaviour::update(float pStep)
 
 void MovableBehaviour::move()
 {
-	if (destinationNode->GetPosition() != _owner->getLocalPosition())
-	{
-		glm::vec3 translation = currentNode->GetPosition() - _owner->getLocalPosition();
-		_owner->translate(translation);
-		currentNode = destinationNode;
-	}
+	_owner->setLocalPosition(destinationNode->GetPosition());
+	currentNode = destinationNode;
 }

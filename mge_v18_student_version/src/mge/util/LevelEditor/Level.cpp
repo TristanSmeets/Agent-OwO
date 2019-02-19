@@ -77,7 +77,7 @@ void Level::CreateLevel(const std::string & filePath)
 		if ("EXIT" == typeString) 
 		{
 			newGameObject = exitFactory->CreateGameObject(typeString);
-			dynamic_cast<TileObject*>(newGameObject)->GetNode()->SetPosition(position);
+			dynamic_cast<TileObject*>(newGameObject)->SetNodePosition(position);
 			tileObjects.push_back(dynamic_cast<TileObject*>(newGameObject));
 		}
 		if ("PLAYER" == typeString)
@@ -88,20 +88,20 @@ void Level::CreateLevel(const std::string & filePath)
 		if ("SWITCH" == typeString)
 		{
 			newGameObject = switchFactory->CreateGameObject(typeString);
-			dynamic_cast<TileObject*>(newGameObject)->GetNode()->SetPosition(position);
+			dynamic_cast<TileObject*>(newGameObject)->SetNodePosition(position);
 			tileObjects.push_back(dynamic_cast<TileObject*>(newGameObject));
 		}
 		if ("START" == typeString)
 		{
 			newGameObject = startFactory->CreateGameObject(typeString);
-			dynamic_cast<TileObject*>(newGameObject)->GetNode()->SetPosition(position);
+			dynamic_cast<TileObject*>(newGameObject)->SetNodePosition(position);
 			tileObjects.push_back(dynamic_cast<TileObject*>(newGameObject));
 
 		}
 		if ("TILE" == typeString)
 		{
 			newGameObject = tileFactory->CreateGameObject(typeString);
-			dynamic_cast<TileObject*>(newGameObject)->GetNode()->SetPosition(position);
+			dynamic_cast<TileObject*>(newGameObject)->SetNodePosition(position);
 			tileObjects.push_back(dynamic_cast<TileObject*>(newGameObject));
 		}
 		glm::mat4 rotationMatrix = glm::toMat4(rotation);
@@ -139,6 +139,7 @@ void Level::SetPlayerStartNode()
 {
 	MovableBehaviour* movable = dynamic_cast<MovableBehaviour*>(player->getBehaviour());
 	movable->SetCurrentNode(getStartNode());
+	player->setLocalPosition(getStartNode()->GetPosition());
 }
 
 

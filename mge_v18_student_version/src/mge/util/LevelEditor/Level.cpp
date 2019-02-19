@@ -37,12 +37,12 @@ Level::~Level()
 	delete tileFactory;
 	delete testFactory;
 
-	std::cout << "Cleaning Nodes\n";
-	for (int index = 0; index < nodes.size(); ++index)
+	std::cout << "Cleaning TileObjects\n";
+	for (int index = 0; index < tileObjects.size(); ++index)
 	{
-		delete nodes[index];
+		tileObjects[index] = nullptr;
 	}
-	nodes.clear();
+	tileObjects.clear();
 	LuaWrapper::CloseLuaState(config);
 }
 
@@ -78,6 +78,7 @@ void Level::CreateLevel(const std::string & filePath)
 		{
 			newGameObject = exitFactory->CreateGameObject(typeString);
 			dynamic_cast<TileObject*>(newGameObject)->GetNode()->SetPosition(position);
+			tileObjects.push_back(dynamic_cast<TileObject*>(newGameObject));
 		}
 		if ("PLAYER" == typeString)
 		{
@@ -88,16 +89,19 @@ void Level::CreateLevel(const std::string & filePath)
 		{
 			newGameObject = switchFactory->CreateGameObject(typeString);
 			dynamic_cast<TileObject*>(newGameObject)->GetNode()->SetPosition(position);
+			tileObjects.push_back(dynamic_cast<TileObject*>(newGameObject));
 		}
 		if ("START" == typeString)
 		{
 			newGameObject = startFactory->CreateGameObject(typeString);
 			dynamic_cast<TileObject*>(newGameObject)->GetNode()->SetPosition(position);
+			tileObjects.push_back(dynamic_cast<TileObject*>(newGameObject));
 		}
 		if ("TILE" == typeString)
 		{
 			newGameObject = tileFactory->CreateGameObject(typeString);
 			dynamic_cast<TileObject*>(newGameObject)->GetNode()->SetPosition(position);
+			tileObjects.push_back(dynamic_cast<TileObject*>(newGameObject));
 		}
 		glm::mat4 rotationMatrix = glm::toMat4(rotation);
 		
@@ -116,11 +120,18 @@ void Level::CreateLevel(const std::string & filePath)
 	}
 	lua_pop(lua, 1);
 	std::cout << "Stack size: " << lua_gettop(lua) << std::endl;
-	std::cout << "Nodes size: " << nodes.size() << std::endl;
-	for (int index = 0; index < nodes.size(); ++index)
+	std::cout << "tileObjects size: " << tileObjects.size() << std::endl;
+	CreateNodeConnections();
+}
+
+void Level::CreateNodeConnections()
+{
+	for (int index = 0; index < tileObjects.size(); ++index)
 	{
-		nodes[index]->CreateConnections(nodes, index);
-		std::cout << "Amount of Connections: " << nodes[index]->GetConnectionCount() << std::endl;
+		tileObjects[index]->CreateNodeConnections(tileObjects, index);
+		//std::cout << "Tile#" << index << " Local Position: " << tileObjects[index]->getLocalPosition() << std::endl;
+		//std::cout << "Tile#" << index << " World Position: " << tileObjects[index]->getWorldPosition() << std::endl;
+		std::cout << "Amount of Connections: " << tileObjects[index]->GetNode()->GetConnectionCount() << std::endl << std::endl;
 	}
 }
 
@@ -132,14 +143,14 @@ void Level::PutObjectsOnNodes()
 
 Node * Level::getNodeAtPosition(glm::vec3 position)
 {
-	for (int index = 0; index < nodes.size(); ++index)
+	for (int index = 0; index < tileObjects.size(); ++index)
 	{
-		glm::vec3 nodePosition = nodes[index]->GetPosition();
+		glm::vec3 nodePosition = tileObjects[index]->GetNode()->GetPosition();
 
 		if (position.x == nodePosition.x &&
 			position.y == nodePosition.y &&
 			position.z == nodePosition.z)
-			return nodes[index];
+			return tileObjects[index]->GetNode();
 		else
 			return nullptr;
 	}

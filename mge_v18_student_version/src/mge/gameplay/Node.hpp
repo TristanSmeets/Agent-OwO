@@ -3,6 +3,7 @@
 #include "glm.hpp"
 #include <map>
 #include <vector>
+#include "mge/gameplay/GameObjects/TileObject.hpp"
 
 enum DIRECTION
 {
@@ -40,7 +41,6 @@ public:
 	int GetConnectionCount();
 	Node* GetConnectionAt(DIRECTION direction);
 	bool HasConnection(DIRECTION direction);
-	void CreateConnections(const std::vector<Node*> &nodes, int currentNode);
 
 private:
 	glm::vec3 position;

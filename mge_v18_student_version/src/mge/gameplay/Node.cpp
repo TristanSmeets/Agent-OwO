@@ -74,29 +74,3 @@ bool Node::HasConnection(DIRECTION direction)
 	return connections.find(direction) != connections.end();
 }
 
-void Node::CreateConnections(const std::vector<Node*> &nodes, int currentNode)
-{
-	std::cout << "Creating connections for Node#" << currentNode << std::endl;
-	for (int index = 0; index < nodes.size(); ++index)
-	{
-		if (currentNode != index)
-		{
-			if (position.x - tileSize < nodes[index]->GetPosition().x + (nodes[index]->GetSize() * 0.5f))
-			{
-				connections[DIRECTION::LEFT] = nodes[index];
-			}
-			if (position.x + tileSize > nodes[index]->GetPosition().x - (nodes[index]->GetSize() * 0.5f))
-			{
-				connections[DIRECTION::RIGHT] = nodes[index];
-			}
-			if (position.z - tileSize < nodes[index]->GetPosition().z + (nodes[index]->GetSize() * 0.5f))
-			{
-				connections[DIRECTION::DOWN] = nodes[index];
-			}
-			if (position.z + tileSize > nodes[index]->GetPosition().z - (nodes[index]->GetSize() * 0.5f))
-			{
-				connections[DIRECTION::UP] = nodes[index];
-			}
-		}
-	}
-}

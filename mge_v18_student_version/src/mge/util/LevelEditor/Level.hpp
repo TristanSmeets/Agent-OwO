@@ -26,6 +26,7 @@ public:
 	Level(World* world);
 	~Level();
 	void CreateLevel(const std::string& filePath);
+	void CreateNodeConnections();
 	void PutObjectsOnNodes();
 private:
 	Node* getNodeAtPosition(glm::vec3 position);
@@ -41,7 +42,7 @@ private:
 	TileFactory* tileFactory;
 	TestFactory* testFactory;
 	GameObject* player;
-	std::vector<Node*> nodes;
+	std::vector<TileObject*> tileObjects;
 };
 
 #endif // !LEVEL_HPP

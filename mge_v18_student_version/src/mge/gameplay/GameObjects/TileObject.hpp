@@ -4,6 +4,8 @@
 #include "mge/gameplay/Node.hpp"
 #include "mge/util/LuaScripting/LuaWrapper.hpp"
 
+class Node;
+
 class TileObject : public GameObject
 {
 public:
@@ -11,6 +13,7 @@ public:
 	virtual ~TileObject();
 	Node* GetNode();
 	void SetNodePosition(const glm::vec3& position);
+	void CreateNodeConnections(const std::vector<TileObject*>& tileObjects, int currentTile);
 
 protected:
 	Node* node;

@@ -10,6 +10,7 @@
 #include "mge/core/Camera.hpp"
 #include "mge/util/LevelEditor/TestFactory.hpp"
 #include "mge/behaviours/KeysBehaviour.hpp"
+#include "mge/behaviours/MovableBehaviour.hpp"
 
 Level::Level(World * world) : world(world), config(LuaWrapper::InitializeLuaState("LuaGameScripts\\config.lua"))
 {
@@ -75,29 +76,28 @@ void Level::CreateLevel(const std::string & filePath)
 			newGameObject = cameraFactory->CreateGameObject(typeString);
 		if ("EXIT" == typeString) 
 		{
-			Node* newExitNode = new Node(position, 1.0f, false, TILETYPE::EXIT);
-			nodes.push_back(newExitNode);
 			newGameObject = exitFactory->CreateGameObject(typeString);
+			dynamic_cast<TileObject*>(newGameObject)->GetNode()->SetPosition(position);
 		}
 		if ("PLAYER" == typeString)
+		{
 			newGameObject = playerFactory->CreateGameObject(typeString);
+			player = newGameObject;
+		}
 		if ("SWITCH" == typeString)
 		{
-			Node* newSwitchNode = new Node(position, 1.0f, true, TILETYPE::SWITCH);
-			nodes.push_back(newSwitchNode);
 			newGameObject = switchFactory->CreateGameObject(typeString);
+			dynamic_cast<TileObject*>(newGameObject)->GetNode()->SetPosition(position);
 		}
 		if ("START" == typeString)
 		{
-			Node* newStartNode = new Node(position);
-			nodes.push_back(newStartNode);
 			newGameObject = startFactory->CreateGameObject(typeString);
+			dynamic_cast<TileObject*>(newGameObject)->GetNode()->SetPosition(position);
 		}
 		if ("TILE" == typeString)
 		{
-			Node* newGentileNode = new Node(position);
-			nodes.push_back(newGentileNode);
 			newGameObject = tileFactory->CreateGameObject(typeString);
+			dynamic_cast<TileObject*>(newGameObject)->GetNode()->SetPosition(position);
 		}
 		glm::mat4 rotationMatrix = glm::toMat4(rotation);
 		
@@ -116,9 +116,32 @@ void Level::CreateLevel(const std::string & filePath)
 	}
 	lua_pop(lua, 1);
 	std::cout << "Stack size: " << lua_gettop(lua) << std::endl;
-
+	std::cout << "Nodes size: " << nodes.size() << std::endl;
 	for (int index = 0; index < nodes.size(); ++index)
 	{
 		nodes[index]->CreateConnections(nodes, index);
+		std::cout << "Amount of Connections: " << nodes[index]->GetConnectionCount() << std::endl;
 	}
 }
+
+void Level::PutObjectsOnNodes()
+{
+	MovableBehaviour* movable = dynamic_cast<MovableBehaviour*>(player->getBehaviour());
+	movable->SetCurrentNode(getNodeAtPosition(player->getLocalPosition()));
+}
+
+Node * Level::getNodeAtPosition(glm::vec3 position)
+{
+	for (int index = 0; index < nodes.size(); ++index)
+	{
+		glm::vec3 nodePosition = nodes[index]->GetPosition();
+
+		if (position.x == nodePosition.x &&
+			position.y == nodePosition.y &&
+			position.z == nodePosition.z)
+			return nodes[index];
+		else
+			return nullptr;
+	}
+}
+

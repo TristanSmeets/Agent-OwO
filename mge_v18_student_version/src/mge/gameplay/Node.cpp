@@ -1,10 +1,10 @@
 #include "Node.hpp"
 #include <iostream>
 
-Node::Node(glm::vec3 position, float size, bool isWalkable, TILETYPE tileType) : 
+Node::Node(const glm::vec3& position, float size, bool isWalkable, TILETYPE tileType) : 
 	position(position), tileSize(size), isWalkable(isWalkable), tileType(tileType)
 {
-	std::cout << "Creating Node at: " << position << std::endl;
+	//std::cout << "Creating Node at: " << position << std::endl;
 }
 
 Node::~Node()
@@ -23,14 +23,30 @@ glm::vec3 Node::GetPosition()
 	return position;
 }
 
+void Node::SetPosition(const glm::vec3 & newPosition)
+{
+	std::cout << "Setting NODE to " << newPosition << std::endl;
+	position = newPosition;
+}
+
 float Node::GetSize()
 {
 	return tileSize;
 }
 
+void Node::SetIsWalkable(bool value)
+{
+	isWalkable = value;
+}
+
 bool Node::GetIsWalkable()
 {
 	return isWalkable;
+}
+
+void Node::SetTileType(const TILETYPE & newTileType)
+{
+	tileType = newTileType;
 }
 
 TILETYPE Node::GetTileType()
@@ -50,14 +66,12 @@ int Node::GetConnectionCount()
 
 Node * Node::GetConnectionAt(DIRECTION direction)
 {
-	std::map<DIRECTION, Node*>::iterator itr = connections.find(direction);
+	return connections[direction];
+}
 
-	if (itr != connections.end())
-	{
-		return itr->second;
-	}
-	else
-		return nullptr;
+bool Node::HasConnection(DIRECTION direction)
+{
+	return connections.find(direction) != connections.end();
 }
 
 void Node::CreateConnections(const std::vector<Node*> &nodes, int currentNode)
@@ -68,13 +82,21 @@ void Node::CreateConnections(const std::vector<Node*> &nodes, int currentNode)
 		if (currentNode != index)
 		{
 			if (position.x - tileSize < nodes[index]->GetPosition().x + (nodes[index]->GetSize() * 0.5f))
+			{
 				connections[DIRECTION::LEFT] = nodes[index];
+			}
 			if (position.x + tileSize > nodes[index]->GetPosition().x - (nodes[index]->GetSize() * 0.5f))
+			{
 				connections[DIRECTION::RIGHT] = nodes[index];
+			}
 			if (position.z - tileSize < nodes[index]->GetPosition().z + (nodes[index]->GetSize() * 0.5f))
+			{
 				connections[DIRECTION::DOWN] = nodes[index];
+			}
 			if (position.z + tileSize > nodes[index]->GetPosition().z - (nodes[index]->GetSize() * 0.5f))
+			{
 				connections[DIRECTION::UP] = nodes[index];
+			}
 		}
 	}
 }

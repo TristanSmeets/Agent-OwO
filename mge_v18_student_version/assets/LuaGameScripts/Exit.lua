@@ -3,6 +3,8 @@ Texture = "mge/textures/diffuse2.jpg" --Add path to the texture
 
 --Specific Exit Coding goes here
 
+TileSize = 1
+
 --Table with the amount of switches in each level.
 Switches = {
 	Level1 = 0,

@@ -26,7 +26,10 @@ public:
 	Level(World* world);
 	~Level();
 	void CreateLevel(const std::string& filePath);
+	void PutObjectsOnNodes();
 private:
+	Node* getNodeAtPosition(glm::vec3 position);
+
 	World* world;
 	lua_State* config;
 	BoxFactory* boxFactory;
@@ -37,6 +40,7 @@ private:
 	SwitchFactory* switchFactory;
 	TileFactory* tileFactory;
 	TestFactory* testFactory;
+	GameObject* player;
 	std::vector<Node*> nodes;
 };
 

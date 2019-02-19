@@ -1,12 +1,14 @@
 #include "StartFactory.hpp"
 
+#include "mge/gameplay/GameObjects/TileObject.hpp"
+
 StartFactory::StartFactory() : AbstractFactory()
 {
 }
 
 StartFactory::StartFactory(lua_State* config) : AbstractFactory()
 {
-	lua_State* luaStart = LuaWrapper::InitializeLuaState(
+	luaStart = LuaWrapper::InitializeLuaState(
 	LuaWrapper::GetString(config,"Start"));
 
 	std::cout << "Loading Start Mesh\n";
@@ -14,7 +16,6 @@ StartFactory::StartFactory(lua_State* config) : AbstractFactory()
 	std::cout << "Loading Start TextureMaterial\n";
 	material = getTextureMaterial(luaStart);
 	behaviour = new NullBehaviour();
-	LuaWrapper::CloseLuaState(luaStart);
 }
 
 StartFactory::~StartFactory()
@@ -23,15 +24,17 @@ StartFactory::~StartFactory()
 	mesh = nullptr;
 	delete material;
 	delete behaviour;
+	LuaWrapper::CloseLuaState(luaStart);
 }
 
 GameObject * StartFactory::CreateGameObject(const std::string & name)
 {
 	std::cout << "Creating " << name << std::endl;
-	GameObject* newStart = new GameObject(name);
+	TileObject* newStart = new TileObject(luaStart, name);
+	newStart->GetNode()->SetTileType(TILETYPE::START);
 	addMesh(newStart);
 	addMaterial(newStart);
 	addBehaviour(newStart);
-	return nullptr;
+	return newStart;
 }
 

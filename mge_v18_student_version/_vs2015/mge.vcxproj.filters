@@ -50,6 +50,9 @@
     <Filter Include="MGE Source files\mge\gameplay\Command">
       <UniqueIdentifier>{19f6ca53-a1cf-483f-97fd-46e02ca601aa}</UniqueIdentifier>
     </Filter>
+    <Filter Include="MGE Source files\mge\gameplay\GameObjects">
+      <UniqueIdentifier>{1e7d5f18-4191-4153-873b-80f872fd227e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\src\glm.hpp">
@@ -209,6 +212,9 @@
     <ClInclude Include="..\src\mge\gameplay\InputHandler.hpp">
       <Filter>MGE Source files\mge\gameplay</Filter>
     </ClInclude>
+    <ClInclude Include="..\src\mge\gameplay\GameObjects\TileObject.hpp">
+      <Filter>MGE Source files\mge\gameplay\GameObjects</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\main.cpp">
@@ -363,6 +369,9 @@
     </ClCompile>
     <ClCompile Include="..\src\mge\gameplay\InputHandler.cpp">
       <Filter>MGE Source files\mge\gameplay</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\mge\gameplay\GameObjects\TileObject.cpp">
+      <Filter>MGE Source files\mge\gameplay\GameObjects</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

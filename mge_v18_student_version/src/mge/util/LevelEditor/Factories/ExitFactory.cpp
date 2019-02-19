@@ -1,5 +1,7 @@
 #include "ExitFactory.hpp"
 
+#include "mge/gameplay/GameObjects/TileObject.hpp"
+
 ExitFactory::ExitFactory() : AbstractFactory()
 {
 }
@@ -7,14 +9,13 @@ ExitFactory::ExitFactory() : AbstractFactory()
 ExitFactory::ExitFactory(lua_State* config) : AbstractFactory()
 {
 	std::string exitFile = LuaWrapper::GetString(config, "Exit");
-	lua_State* luaExit = LuaWrapper::InitializeLuaState(exitFile);
+	luaExit = LuaWrapper::InitializeLuaState(exitFile);
 
 	std::cout << "Loading Exit Mesh\n";
 	mesh = getMesh(luaExit);
 	std::cout << "Loading Exit TextureMaterial\n";
 	material = getTextureMaterial(luaExit);
 	behaviour = new NullBehaviour();
-	LuaWrapper::CloseLuaState(luaExit);
 }
 
 ExitFactory::~ExitFactory()
@@ -23,12 +24,15 @@ ExitFactory::~ExitFactory()
 	mesh = nullptr;
 	delete material;
 	delete behaviour;
+	LuaWrapper::CloseLuaState(luaExit);
 }
 
 GameObject* ExitFactory::CreateGameObject(const std::string & name)
 {
 	std::cout << "Creating " << name << std::endl;
-	GameObject* newExit = new GameObject(name);
+	TileObject* newExit = new TileObject(luaExit, name);
+	newExit->GetNode()->SetTileType(TILETYPE::EXIT);
+	newExit->GetNode()->SetIsWalkable(false);
 	addMesh(newExit);
 	addMaterial(newExit);
 	addBehaviour(newExit);

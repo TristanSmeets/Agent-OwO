@@ -194,6 +194,7 @@
     <ClInclude Include="..\src\mge\gameplay\GameObjects\TileObject.hpp" />
     <ClInclude Include="..\src\mge\gameplay\InputHandler.hpp" />
     <ClInclude Include="..\src\mge\gameplay\Node.hpp" />
+    <ClInclude Include="..\src\mge\gameplay\PlayerInput.hpp" />
     <ClInclude Include="..\src\mge\materials\AbstractMaterial.hpp" />
     <ClInclude Include="..\src\mge\materials\ColorMaterial.hpp" />
     <ClInclude Include="..\src\mge\materials\LitMaterial.hpp" />
@@ -247,6 +248,7 @@
     <ClCompile Include="..\src\mge\gameplay\GameObjects\TileObject.cpp" />
     <ClCompile Include="..\src\mge\gameplay\InputHandler.cpp" />
     <ClCompile Include="..\src\mge\gameplay\Node.cpp" />
+    <ClCompile Include="..\src\mge\gameplay\PlayerInput.cpp" />
     <ClCompile Include="..\src\mge\materials\AbstractMaterial.cpp" />
     <ClCompile Include="..\src\mge\materials\ColorMaterial.cpp" />
     <ClCompile Include="..\src\mge\materials\LitMaterial.cpp" />

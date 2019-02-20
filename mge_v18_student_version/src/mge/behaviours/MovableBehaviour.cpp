@@ -1,30 +1,19 @@
 #include "MovableBehaviour.hpp"
 #include "mge/core/GameObject.hpp"
-#include "mge/gameplay/Command/UpCommand.hpp"
-#include "mge/gameplay/Command/DownCommand.hpp"
-#include "mge/gameplay/Command/LeftCommand.hpp"
-#include "mge/gameplay/Command/RightCommand.hpp"
+#include "mge/gameplay/PlayerInput.hpp"
 #include <iostream>
 
 
-MovableBehaviour::MovableBehaviour()
+MovableBehaviour::MovableBehaviour() : AbstractBehaviour()
 {
 	std::cout << "Creating MovableBehavior\n";
-	inputHandler = new InputHandler();
-	inputHandler->SetMoveUp(new UpCommand(*this));
-	inputHandler->SetMoveDown(new DownCommand(*this));
-	inputHandler->SetMoveLeft(new LeftCommand(*this));
-	inputHandler->SetMoveRight(new RightCommand(*this));
+	inputHandler = new PlayerInput(this);
 }
 
-MovableBehaviour::MovableBehaviour(Node * startingNode) : currentNode(startingNode)
+MovableBehaviour::MovableBehaviour(Node * startingNode) : AbstractBehaviour(), currentNode(startingNode)
 {
 	std::cout << "Creating MovableBehaviour at:" << startingNode->GetPosition() << std::endl;
-	inputHandler = new InputHandler();
-	inputHandler->SetMoveUp(new UpCommand(*this));
-	inputHandler->SetMoveDown(new DownCommand(*this));
-	inputHandler->SetMoveLeft(new LeftCommand(*this));
-	inputHandler->SetMoveRight(new RightCommand(*this));
+	inputHandler = new PlayerInput(this);
 }
 
 MovableBehaviour::~MovableBehaviour()

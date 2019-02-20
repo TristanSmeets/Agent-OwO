@@ -215,6 +215,9 @@
     <ClInclude Include="..\src\mge\gameplay\GameObjects\TileObject.hpp">
       <Filter>MGE Source files\mge\gameplay\GameObjects</Filter>
     </ClInclude>
+    <ClInclude Include="..\src\mge\gameplay\PlayerInput.hpp">
+      <Filter>MGE Source files\mge\gameplay</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\main.cpp">
@@ -369,6 +372,9 @@
     </ClCompile>
     <ClCompile Include="..\src\mge\gameplay\GameObjects\TileObject.cpp">
       <Filter>MGE Source files\mge\gameplay\GameObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\mge\gameplay\PlayerInput.cpp">
+      <Filter>MGE Source files\mge\gameplay</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

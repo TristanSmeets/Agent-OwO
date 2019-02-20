@@ -1,4 +1,5 @@
 #include "mge/util/LevelEditor/Factories/BoxFactory.hpp"
+#include "mge/behaviours/MovableBehaviour.hpp"
 
 BoxFactory::BoxFactory()  : AbstractFactory()
 {
@@ -13,7 +14,7 @@ BoxFactory::BoxFactory(lua_State* config)
 	mesh = getMesh(luaBox);
 	std::cout << "Loading Box TextureMaterial\n";
 	material = getTextureMaterial(luaBox);
-	behaviour = new NullBehaviour();
+	behaviour = new MovableBehaviour(MOVABLE_TYPE::BOX);
 	LuaWrapper::CloseLuaState(luaBox);
 }
 

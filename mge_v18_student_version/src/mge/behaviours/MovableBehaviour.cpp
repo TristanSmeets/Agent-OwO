@@ -1,30 +1,28 @@
 #include "MovableBehaviour.hpp"
 #include "mge/core/GameObject.hpp"
-#include "mge/gameplay/Command/UpCommand.hpp"
-#include "mge/gameplay/Command/DownCommand.hpp"
-#include "mge/gameplay/Command/LeftCommand.hpp"
-#include "mge/gameplay/Command/RightCommand.hpp"
+#include "mge/gameplay/Input/PlayerInput.hpp"
+#include "mge/gameplay/Input/BoxInput.hpp"
 #include <iostream>
 
 
-MovableBehaviour::MovableBehaviour()
+MovableBehaviour::MovableBehaviour() : AbstractBehaviour()
 {
 	std::cout << "Creating MovableBehavior\n";
-	inputHandler = new InputHandler();
-	inputHandler->SetMoveUp(new UpCommand(*this));
-	inputHandler->SetMoveDown(new DownCommand(*this));
-	inputHandler->SetMoveLeft(new LeftCommand(*this));
-	inputHandler->SetMoveRight(new RightCommand(*this));
+	inputHandler = new PlayerInput(this);
 }
 
-MovableBehaviour::MovableBehaviour(Node * startingNode) : currentNode(startingNode)
+MovableBehaviour::MovableBehaviour(MOVABLE_TYPE movable) : AbstractBehaviour(), movableType(movable)
 {
-	std::cout << "Creating MovableBehaviour at:" << startingNode->GetPosition() << std::endl;
-	inputHandler = new InputHandler();
-	inputHandler->SetMoveUp(new UpCommand(*this));
-	inputHandler->SetMoveDown(new DownCommand(*this));
-	inputHandler->SetMoveLeft(new LeftCommand(*this));
-	inputHandler->SetMoveRight(new RightCommand(*this));
+	std::cout << "Creating MovableBehaviour\n";
+	switch (movable)
+	{
+	case MOVABLE_TYPE::BOX:
+		inputHandler = new BoxInput(this);
+		break;
+	case MOVABLE_TYPE::PLAYER:
+		inputHandler = new PlayerInput(this);
+		break;
+	}
 }
 
 MovableBehaviour::~MovableBehaviour()
@@ -65,4 +63,9 @@ void MovableBehaviour::move()
 {
 	_owner->setLocalPosition(destinationNode->GetPosition());
 	currentNode = destinationNode;
+}
+
+MOVABLE_TYPE MovableBehaviour::GetMovableType()
+{
+	return movableType;
 }

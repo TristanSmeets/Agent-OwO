@@ -12,5 +12,4 @@ public:
 	PlayerFactory(lua_State* config);
 	virtual ~PlayerFactory();
 	GameObject* CreateGameObject(const std::string& name);
-	GameObject* CreateGameObjectWithNode(const std::string& name, Node* node);
 };

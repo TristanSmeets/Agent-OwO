@@ -135,8 +135,9 @@ void Level::CreateNodeConnections()
 void Level::SetPlayerStartNode()
 {
 	MovableBehaviour* movable = dynamic_cast<MovableBehaviour*>(player->getBehaviour());
-	movable->SetCurrentNode(getStartNode());
-	player->setLocalPosition(getStartNode()->GetPosition());
+	Node* startNode = getStartNode();
+	movable->SetCurrentNode(startNode);
+	player->setLocalPosition(startNode->GetPosition());
 }
 
 

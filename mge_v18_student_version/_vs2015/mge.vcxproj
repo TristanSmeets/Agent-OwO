@@ -192,7 +192,9 @@
     <ClInclude Include="..\src\mge\gameplay\Command\RightCommand.hpp" />
     <ClInclude Include="..\src\mge\gameplay\Command\UpCommand.hpp" />
     <ClInclude Include="..\src\mge\gameplay\GameObjects\TileObject.hpp" />
-    <ClInclude Include="..\src\mge\gameplay\InputHandler.hpp" />
+    <ClInclude Include="..\src\mge\gameplay\Input\BoxInput.hpp" />
+    <ClInclude Include="..\src\mge\gameplay\Input\InputHandler.hpp" />
+    <ClInclude Include="..\src\mge\gameplay\Input\PlayerInput.hpp" />
     <ClInclude Include="..\src\mge\gameplay\Node.hpp" />
     <ClInclude Include="..\src\mge\materials\AbstractMaterial.hpp" />
     <ClInclude Include="..\src\mge\materials\ColorMaterial.hpp" />
@@ -245,7 +247,9 @@
     <ClCompile Include="..\src\mge\gameplay\Command\RightCommand.cpp" />
     <ClCompile Include="..\src\mge\gameplay\Command\UpCommand.cpp" />
     <ClCompile Include="..\src\mge\gameplay\GameObjects\TileObject.cpp" />
-    <ClCompile Include="..\src\mge\gameplay\InputHandler.cpp" />
+    <ClCompile Include="..\src\mge\gameplay\Input\BoxInput.cpp" />
+    <ClCompile Include="..\src\mge\gameplay\Input\InputHandler.cpp" />
+    <ClCompile Include="..\src\mge\gameplay\Input\PlayerInput.cpp" />
     <ClCompile Include="..\src\mge\gameplay\Node.cpp" />
     <ClCompile Include="..\src\mge\materials\AbstractMaterial.cpp" />
     <ClCompile Include="..\src\mge\materials\ColorMaterial.cpp" />

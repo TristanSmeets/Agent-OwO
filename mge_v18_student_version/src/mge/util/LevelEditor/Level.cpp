@@ -40,6 +40,15 @@ Level::~Level()
 		tileObjects[index] = nullptr;
 	}
 	tileObjects.clear();
+
+	std::cout << "Cleaning BoxObjects\n";
+	for (int index = 0; index < boxObjects.size(); ++index)
+	{
+		delete boxObjects[index]->getBehaviour();
+		boxObjects[index] = nullptr;
+	}
+	boxObjects.clear();
+
 	LuaWrapper::CloseLuaState(config);
 }
 

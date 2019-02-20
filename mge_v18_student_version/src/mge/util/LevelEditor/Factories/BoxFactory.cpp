@@ -14,7 +14,6 @@ BoxFactory::BoxFactory(lua_State* config)
 	mesh = getMesh(luaBox);
 	std::cout << "Loading Box TextureMaterial\n";
 	material = getTextureMaterial(luaBox);
-	behaviour = new MovableBehaviour(MOVABLE_TYPE::BOX_OBJECT);
 	LuaWrapper::CloseLuaState(luaBox);
 }
 
@@ -23,7 +22,7 @@ BoxFactory::~BoxFactory()
 	std::cout << "GC running on:BoxFactory\n";
 	mesh = nullptr;
 	delete material;
-	delete behaviour;
+	behaviour = nullptr;
 }
 
 GameObject* BoxFactory::CreateGameObject(const std::string &name)
@@ -32,6 +31,7 @@ GameObject* BoxFactory::CreateGameObject(const std::string &name)
 	GameObject* newBox = new GameObject(name);
 	addMesh(newBox);
 	addMaterial(newBox);
+	behaviour = new MovableBehaviour(MOVABLE_TYPE::BOX_OBJECT);
 	addBehaviour(newBox);
 	return newBox;
 }

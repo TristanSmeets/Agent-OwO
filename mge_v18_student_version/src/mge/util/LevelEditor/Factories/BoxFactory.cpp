@@ -14,7 +14,7 @@ BoxFactory::BoxFactory(lua_State* config)
 	mesh = getMesh(luaBox);
 	std::cout << "Loading Box TextureMaterial\n";
 	material = getTextureMaterial(luaBox);
-	behaviour = new MovableBehaviour(MOVABLE_TYPE::BOX);
+	behaviour = new MovableBehaviour(MOVABLE_TYPE::BOX_OBJECT);
 	LuaWrapper::CloseLuaState(luaBox);
 }
 

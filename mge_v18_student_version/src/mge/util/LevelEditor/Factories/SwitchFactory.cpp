@@ -31,7 +31,7 @@ GameObject* SwitchFactory::CreateGameObject(const std::string& name)
 {
 	std::cout << "Creating " << name << std::endl;
 	TileObject* newSwitch = new TileObject(luaSwitch, name);
-	newSwitch->GetNode()->SetTileType(TILETYPE::SWITCH);
+	newSwitch->GetNode()->SetNodeType(NODETYPE::SWITCH);
 	addMesh(newSwitch);
 	addMaterial(newSwitch);
 	addBehaviour(newSwitch);

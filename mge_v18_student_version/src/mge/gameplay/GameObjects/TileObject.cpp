@@ -7,8 +7,7 @@ TileObject::TileObject(lua_State* tileLua, const std::string & name, const glm::
 {
 	node = new Node(position,
 		LuaWrapper::GetNumber<float>(tileLua, "TileSize"),
-		true,
-		TILETYPE::GENERIC);
+		NODETYPE::GENERIC);
 }
 
 TileObject::~TileObject()
@@ -38,7 +37,7 @@ void TileObject::CreateNodeConnections(const std::vector<TileObject*>& tileObjec
 {
 	glm::vec3 position = getLocalPosition();
 	float tileSize = GetNode()->GetSize();
-	std::cout << "Creating connections for TileType"<< GetNode()->GetTileType() <<" Node in TileObject#" << currentTile << std::endl;
+	std::cout << "Creating connections for TileType"<< GetNode()->GetNodeType() <<" Node in TileObject#" << currentTile << std::endl;
 	for (int index = 0; index < tileObjects.size(); index++)
 	{
 		if (index != currentTile)

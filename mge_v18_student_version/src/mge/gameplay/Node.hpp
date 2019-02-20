@@ -13,8 +13,9 @@ enum DIRECTION
 	RIGHT
 };
 
-enum TILETYPE
+enum NODETYPE
 {
+	BOX,
 	GENERIC,
 	START,
 	SWITCH,
@@ -25,27 +26,26 @@ class Node
 {
 public:
 	Node(const glm::vec3& position = glm::vec3(0,0,0), 
-		float size = 1.0f, 
-		bool isWalkable = true, 
-		TILETYPE tileType = TILETYPE::GENERIC);
+		float size = 1.0f,
+		NODETYPE tileType = NODETYPE::GENERIC);
 
 	~Node();
 	glm::vec3 GetPosition();
 	void SetPosition(const glm::vec3& newPosition);
 	float GetSize();
-	void SetIsWalkable(bool value);
 	bool GetIsWalkable();
-	void SetTileType(const TILETYPE& newTileType);
-	TILETYPE GetTileType();
+	void SetNodeType(const NODETYPE& newTileType);
+	NODETYPE GetNodeType();
 	void AddConnection(DIRECTION direction, Node* node);
 	int GetConnectionCount();
 	Node* GetConnectionAt(DIRECTION direction);
 	bool HasConnection(DIRECTION direction);
+	void ResetNodeType();
 
 private:
 	glm::vec3 position;
 	float tileSize;
 	std::map<DIRECTION, Node*> connections;
-	bool isWalkable;
-	TILETYPE tileType;
+	NODETYPE tileType;
+	NODETYPE startType;
 };

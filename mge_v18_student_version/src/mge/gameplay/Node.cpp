@@ -1,10 +1,10 @@
 #include "Node.hpp"
 #include <iostream>
 
-Node::Node(const glm::vec3& position, float size, bool isWalkable, TILETYPE tileType) : 
-	position(position), tileSize(size), isWalkable(isWalkable), tileType(tileType)
+Node::Node(const glm::vec3& position, float size, NODETYPE tileType) : 
+	position(position), tileSize(size), tileType(tileType), startType(tileType)
 {
-	//std::cout << "Creating Node at: " << position << std::endl;
+	std::cout << "Creating NODE." << std::endl;
 }
 
 Node::~Node()
@@ -34,22 +34,34 @@ float Node::GetSize()
 	return tileSize;
 }
 
-void Node::SetIsWalkable(bool value)
-{
-	isWalkable = value;
-}
-
 bool Node::GetIsWalkable()
 {
-	return isWalkable;
+	switch (GetNodeType())
+	{
+	case NODETYPE::BOX:
+		return false;
+		break;
+	case NODETYPE::EXIT:
+		return false;
+		break;
+	case NODETYPE::GENERIC:
+		return true;
+		break;
+	case NODETYPE::SWITCH:
+		return true;
+		break;
+	default:
+		return true;
+		break;
+	}
 }
 
-void Node::SetTileType(const TILETYPE & newTileType)
+void Node::SetNodeType(const NODETYPE & newTileType)
 {
 	tileType = newTileType;
 }
 
-TILETYPE Node::GetTileType()
+NODETYPE Node::GetNodeType()
 {
 	return tileType;
 }
@@ -72,5 +84,10 @@ Node * Node::GetConnectionAt(DIRECTION direction)
 bool Node::HasConnection(DIRECTION direction)
 {
 	return connections.find(direction) != connections.end();
+}
+
+void Node::ResetNodeType()
+{
+	SetNodeType(startType);
 }
 

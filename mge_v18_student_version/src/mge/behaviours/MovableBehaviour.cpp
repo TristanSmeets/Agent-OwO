@@ -16,10 +16,10 @@ MovableBehaviour::MovableBehaviour(MOVABLE_TYPE movable) : AbstractBehaviour(), 
 	std::cout << "Creating MovableBehaviour\n";
 	switch (movable)
 	{
-	case MOVABLE_TYPE::BOX:
+	case MOVABLE_TYPE::BOX_OBJECT:
 		inputHandler = new BoxInput(this);
 		break;
-	case MOVABLE_TYPE::PLAYER:
+	case MOVABLE_TYPE::PLAYER_OBJECT:
 		inputHandler = new PlayerInput(this);
 		break;
 	}

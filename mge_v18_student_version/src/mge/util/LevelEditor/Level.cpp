@@ -145,7 +145,7 @@ void Level::SetMovableBehaviourStartNodes()
 	for (int index = 0; index < boxObjects.size(); ++index)
 	{
 		Node* boxNode = getNodeAtPosition(boxObjects[index]->getLocalPosition());
-
+		boxNode->SetNodeType(NODETYPE::BOX);
 		MovableBehaviour* boxBehaviour = dynamic_cast<MovableBehaviour*>(boxObjects[index]->getBehaviour());
 		boxBehaviour->SetCurrentNode(boxNode);
 		boxObjects[index]->setLocalPosition(boxNode->GetPosition());
@@ -157,7 +157,7 @@ Node * Level::getStartNode()
 {
 	for (int index = 0; index < tileObjects.size(); ++index)
 	{
-		if (tileObjects[index]->GetNode()->GetTileType() == TILETYPE::START)
+		if (tileObjects[index]->GetNode()->GetNodeType() == NODETYPE::START)
 		{
 			std::cout << "Found START node\n";
 			return tileObjects[index]->GetNode();

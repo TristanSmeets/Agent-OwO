@@ -6,7 +6,7 @@
 
 class InputHandler;
 
-enum MOVABLE_TYPE { BOX, PLAYER };
+enum MOVABLE_TYPE { BOX_OBJECT, PLAYER_OBJECT };
 
 class MovableBehaviour : public AbstractBehaviour
 {

@@ -1,6 +1,7 @@
 #include "MovableBehaviour.hpp"
 #include "mge/core/GameObject.hpp"
 #include "mge/gameplay/Input/PlayerInput.hpp"
+#include "mge/gameplay/Input/BoxInput.hpp"
 #include <iostream>
 
 
@@ -10,10 +11,18 @@ MovableBehaviour::MovableBehaviour() : AbstractBehaviour()
 	inputHandler = new PlayerInput(this);
 }
 
-MovableBehaviour::MovableBehaviour(Node * startingNode) : AbstractBehaviour(), currentNode(startingNode)
+MovableBehaviour::MovableBehaviour(MOVABLE_TYPE movable) : AbstractBehaviour(), movableType(movable)
 {
-	std::cout << "Creating MovableBehaviour at:" << startingNode->GetPosition() << std::endl;
-	inputHandler = new PlayerInput(this);
+	std::cout << "Creating MovableBehaviour\n";
+	switch (movable)
+	{
+	case MOVABLE_TYPE::BOX:
+		inputHandler = new BoxInput(this);
+		break;
+	case MOVABLE_TYPE::PLAYER:
+		inputHandler = new PlayerInput(this);
+		break;
+	}
 }
 
 MovableBehaviour::~MovableBehaviour()
@@ -54,4 +63,9 @@ void MovableBehaviour::move()
 {
 	_owner->setLocalPosition(destinationNode->GetPosition());
 	currentNode = destinationNode;
+}
+
+MOVABLE_TYPE MovableBehaviour::GetMovableType()
+{
+	return movableType;
 }

@@ -6,21 +6,25 @@
 
 class InputHandler;
 
+enum MOVABLE_TYPE { BOX, PLAYER };
+
 class MovableBehaviour : public AbstractBehaviour
 {
 public:
 	MovableBehaviour();
-	MovableBehaviour(Node* startingNode);		//TODO: Add input handler
+	MovableBehaviour(MOVABLE_TYPE movable);
 	~MovableBehaviour();
 	Node* GetCurrentNode();
 	void SetDestination(Node* node);
 	void SetCurrentNode(Node* node);
 	virtual void update(float pStep);
 	void move();
+	MOVABLE_TYPE GetMovableType();
 
 private:
 	Node* currentNode;
 	Node* destinationNode;
 	InputHandler* inputHandler;
 	bool buttonPushed;
+	MOVABLE_TYPE movableType;
 };

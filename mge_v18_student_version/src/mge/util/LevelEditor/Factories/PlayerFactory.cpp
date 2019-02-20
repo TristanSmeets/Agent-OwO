@@ -14,7 +14,7 @@ PlayerFactory::PlayerFactory(lua_State* config) : AbstractFactory()
 	mesh = getMesh(luaPlayer);
 	std::cout << "Loading Player TextureMaterial\n";
 	material = getTextureMaterial(luaPlayer);
-	behaviour = new MovableBehaviour();
+	behaviour = new MovableBehaviour(MOVABLE_TYPE::PLAYER);
 	LuaWrapper::CloseLuaState(luaPlayer);
 }
 
@@ -34,10 +34,4 @@ GameObject* PlayerFactory::CreateGameObject(const std::string & name)
 	addMaterial(newPlayer);
 	addBehaviour(newPlayer);
 	return newPlayer;
-}
-
-GameObject * PlayerFactory::CreateGameObjectWithNode(const std::string & name, Node * node)
-{
-	behaviour = new MovableBehaviour(node);
-	return CreateGameObject(name);
 }

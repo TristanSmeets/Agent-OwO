@@ -20,6 +20,7 @@ public:
 	virtual void update(float pStep);
 	void Move();
 	MOVABLE_TYPE GetMovableType();
+	InputHandler* GetInputHandler();
 
 private:
 	Node* currentNode;

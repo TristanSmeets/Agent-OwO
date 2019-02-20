@@ -69,3 +69,8 @@ MOVABLE_TYPE MovableBehaviour::GetMovableType()
 {
 	return movableType;
 }
+
+InputHandler * MovableBehaviour::GetInputHandler()
+{
+	return inputHandler;
+}

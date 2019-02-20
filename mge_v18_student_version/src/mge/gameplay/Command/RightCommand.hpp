@@ -1,17 +1,12 @@
 #pragma once
 
-#include "mge/gameplay/Command/Command.hpp"
+#include "mge/gameplay/Command/MoveCommand.hpp"
 
-class RightCommand : public Command
+class RightCommand : public MoveCommand
 {
 public:
 	RightCommand(MovableBehaviour& movable);
 	virtual ~RightCommand();
-	void Execute();
 	void BoxMovement();
-	void MoveObject(Node * destination, Node * currentNode);
 	void PlayerMovement();
-	void Walkable(Node * destinationNode);
-private:
-	MovableBehaviour& movableObject;
 };

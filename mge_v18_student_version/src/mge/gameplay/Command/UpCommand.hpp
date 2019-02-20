@@ -1,13 +1,12 @@
 #pragma once
 
-#include "mge/gameplay/Command/Command.hpp"
+#include "mge/gameplay/Command/MoveCommand.hpp"
 
-class UpCommand : public Command
+class UpCommand : public MoveCommand
 {
 public:
 	UpCommand(MovableBehaviour& movable);
 	virtual ~UpCommand();
-	void Execute();
-private:
-	MovableBehaviour& movableObject;
+	void BoxMovement();
+	void PlayerMovement();
 };

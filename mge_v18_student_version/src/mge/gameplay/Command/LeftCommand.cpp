@@ -1,31 +1,30 @@
 #include "LeftCommand.hpp"
 
-LeftCommand::LeftCommand(MovableBehaviour& movable) : Command(), movableObject(movable)
+LeftCommand::LeftCommand(MovableBehaviour& movable) : MoveCommand(movable)
 {}
 
 LeftCommand::~LeftCommand()
 {
 	std::cout << "GC running on:LeftCommand\n";
+	MoveCommand::~MoveCommand();
 }
 
-void LeftCommand::Execute()
+void LeftCommand::BoxMovement()
 {
-	std::cout << "Executing LeftCommand\n";
-	Node* currentNode = movableObject.GetCurrentNode();
-	
-	if (checkHasNeighbour(currentNode, DIRECTION::LEFT))
+	Node* current = movableObject.GetCurrentNode();
+	if (checkHasNeighbour(current, DIRECTION::LEFT))
 	{
-		std::cout << "Current Node has LEFT connection\n";
-		Node* destinationNode = currentNode->GetConnectionAt(DIRECTION::LEFT);
-		if (destinationNode->GetIsWalkable())
-		{
-			std::cout << "Destination Node is walkable\n";
-			movableObject.SetDestination(destinationNode);
-			movableObject.Move();
-		}
-		else
-			std::cout << "NODE isn't walkable\n";
+		Node* destination = current->GetConnectionAt(DIRECTION::LEFT);
+		moveObject(current, DIRECTION::LEFT);
 	}
-	else
-		std::cout << "No LEFT connection\n";
+}
+
+void LeftCommand::PlayerMovement()
+{
+	Node* current = movableObject.GetCurrentNode();
+	if (checkHasNeighbour(current, DIRECTION::LEFT))
+	{
+		nodeBoxCheck(current, DIRECTION::LEFT);
+		moveObject(current, DIRECTION::LEFT);
+	}
 }

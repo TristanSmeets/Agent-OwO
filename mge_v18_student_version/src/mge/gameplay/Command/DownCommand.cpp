@@ -20,7 +20,7 @@ void DownCommand::Execute()
 		{
 			std::cout << "NODE is walkable\n";
 			movableObject.SetDestination(destinationNode);
-			movableObject.move();
+			movableObject.Move();
 		}
 		else
 			std::cout << "NODE isn't walkable\n";

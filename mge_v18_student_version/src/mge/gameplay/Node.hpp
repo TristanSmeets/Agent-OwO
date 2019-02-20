@@ -3,7 +3,7 @@
 #include "glm.hpp"
 #include <map>
 #include <vector>
-#include "mge/gameplay/GameObjects/TileObject.hpp"
+#include "mge/core/GameObject.hpp"
 
 enum DIRECTION
 {
@@ -41,6 +41,9 @@ public:
 	Node* GetConnectionAt(DIRECTION direction);
 	bool HasConnection(DIRECTION direction);
 	void ResetNodeType();
+	void SetCurrentGameObject(GameObject* gameObject);
+	void ClearCurrentGameObject();
+	GameObject* GetCurrentGameObject();
 
 private:
 	glm::vec3 position;
@@ -48,4 +51,5 @@ private:
 	std::map<DIRECTION, Node*> connections;
 	NODETYPE tileType;
 	NODETYPE startType;
+	GameObject* currentGameObject;
 };

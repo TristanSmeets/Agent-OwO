@@ -91,3 +91,18 @@ void Node::ResetNodeType()
 	SetNodeType(startType);
 }
 
+void Node::SetCurrentGameObject(GameObject * gameObject)
+{
+	currentGameObject = gameObject;
+}
+
+void Node::ClearCurrentGameObject()
+{
+	currentGameObject = nullptr;
+}
+
+GameObject * Node::GetCurrentGameObject()
+{
+	return currentGameObject;
+}
+

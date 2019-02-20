@@ -18,7 +18,7 @@ public:
 	void SetDestination(Node* node);
 	void SetCurrentNode(Node* node);
 	virtual void update(float pStep);
-	void move();
+	void Move();
 	MOVABLE_TYPE GetMovableType();
 
 private:

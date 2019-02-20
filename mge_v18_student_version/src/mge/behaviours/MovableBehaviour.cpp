@@ -59,7 +59,7 @@ void MovableBehaviour::update(float pStep)
 	buttonPushed = command != nullptr;
 }
 
-void MovableBehaviour::move()
+void MovableBehaviour::Move()
 {
 	_owner->setLocalPosition(destinationNode->GetPosition());
 	currentNode = destinationNode;

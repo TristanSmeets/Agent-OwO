@@ -22,7 +22,7 @@ void RightCommand::Execute()
 		{
 			std::cout << "Destination Node is walkable\n";
 			movableObject.SetDestination(destinationNode);
-			movableObject.move();
+			movableObject.Move();
 		}
 		else
 			std::cout << "NODE isn't walkable\n";

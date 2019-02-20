@@ -146,6 +146,8 @@ void Level::SetMovableBehaviourStartNodes()
 	{
 		Node* boxNode = getNodeAtPosition(boxObjects[index]->getLocalPosition());
 		boxNode->SetNodeType(NODETYPE::BOX);
+		boxNode->SetCurrentGameObject(boxObjects[index]);
+
 		MovableBehaviour* boxBehaviour = dynamic_cast<MovableBehaviour*>(boxObjects[index]->getBehaviour());
 		boxBehaviour->SetCurrentNode(boxNode);
 		boxObjects[index]->setLocalPosition(boxNode->GetPosition());

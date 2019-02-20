@@ -1,32 +1,31 @@
 #include "RightCommand.hpp"
 
-RightCommand::RightCommand(MovableBehaviour & movable) : Command(), movableObject(movable)
+
+RightCommand::RightCommand(MovableBehaviour & movable) : MoveCommand(movable)
 {
 }
 
 RightCommand::~RightCommand()
 {
 	std::cout << "GC running on:RightCommand\n";
+	MoveCommand::~MoveCommand();
 }
 
-void RightCommand::Execute()
+void RightCommand::BoxMovement()
 {
-	std::cout << "Executing RightCommand\n";
-
-	Node* currentNode = movableObject.GetCurrentNode();
-	if (checkHasNeighbour(currentNode, DIRECTION::RIGHT))
+	Node* current = movableObject.GetCurrentNode();
+	if (checkHasNeighbour(current, DIRECTION::RIGHT))
 	{
-		std::cout << "Current Node has RIGHT connection\n";
-		Node* destinationNode = currentNode->GetConnectionAt(DIRECTION::RIGHT);
-		if (destinationNode->GetIsWalkable())
-		{
-			std::cout << "Destination Node is walkable\n";
-			movableObject.SetDestination(destinationNode);
-			movableObject.move();
-		}
-		else
-			std::cout << "NODE isn't walkable\n";
+		moveObject(current, DIRECTION::RIGHT);
 	}
-	else
-		std::cout << "No RIGHT connection\n";
+}
+
+void RightCommand::PlayerMovement()
+{
+	Node* current = movableObject.GetCurrentNode();
+	if (checkHasNeighbour(current, DIRECTION::RIGHT))
+	{
+		nodeBoxCheck(current, DIRECTION::RIGHT);
+		moveObject(current, DIRECTION::RIGHT);
+	}
 }

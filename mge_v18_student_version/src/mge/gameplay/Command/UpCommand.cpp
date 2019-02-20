@@ -1,31 +1,31 @@
 #include "UpCommand.hpp"
 
-UpCommand::UpCommand(MovableBehaviour& movable) : Command(), movableObject(movable)
+UpCommand::UpCommand(MovableBehaviour& movable) : MoveCommand(movable)
 {}
 
 UpCommand::~UpCommand()
 {
 	std::cout << "GC running on:UpCommand\n";
+	MoveCommand::~MoveCommand();
 }
 
-void UpCommand::Execute()
+void UpCommand::BoxMovement()
 {
-	std::cout << "Executing UpCommand\n";
-	Node* currentNode = movableObject.GetCurrentNode();
-	if (checkHasNeighbour(currentNode, DIRECTION::UP))
+	Node* current = movableObject.GetCurrentNode();
+	if (checkHasNeighbour(current, DIRECTION::UP))
 	{
-		std::cout << "Current Node has UP connection\n";
-		Node* destinationNode = currentNode->GetConnectionAt(DIRECTION::UP);
-		if (destinationNode->GetIsWalkable())
-		{
-			std::cout << "Destination Node is walkable\n";
-			movableObject.SetDestination(destinationNode);
-			movableObject.move();
-		}
-		else
-			std::cout << "NODE isn't walkable\n";
+		Node* destination = current->GetConnectionAt(DIRECTION::UP);
+		moveObject(current, DIRECTION::UP);
 	}
-	else
-		std::cout << "No UP connection\n";
+}
+
+void UpCommand::PlayerMovement()
+{
+	Node* current = movableObject.GetCurrentNode();
+	if (checkHasNeighbour(current, DIRECTION::UP))
+	{
+		nodeBoxCheck(current, DIRECTION::UP);
+		moveObject(current, DIRECTION::UP);
+	}
 }
 

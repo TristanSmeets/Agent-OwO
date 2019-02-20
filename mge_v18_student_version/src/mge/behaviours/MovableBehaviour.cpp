@@ -16,10 +16,10 @@ MovableBehaviour::MovableBehaviour(MOVABLE_TYPE movable) : AbstractBehaviour(), 
 	std::cout << "Creating MovableBehaviour\n";
 	switch (movable)
 	{
-	case MOVABLE_TYPE::BOX:
+	case MOVABLE_TYPE::BOX_OBJECT:
 		inputHandler = new BoxInput(this);
 		break;
-	case MOVABLE_TYPE::PLAYER:
+	case MOVABLE_TYPE::PLAYER_OBJECT:
 		inputHandler = new PlayerInput(this);
 		break;
 	}
@@ -59,7 +59,7 @@ void MovableBehaviour::update(float pStep)
 	buttonPushed = command != nullptr;
 }
 
-void MovableBehaviour::move()
+void MovableBehaviour::Move()
 {
 	_owner->setLocalPosition(destinationNode->GetPosition());
 	currentNode = destinationNode;
@@ -68,4 +68,9 @@ void MovableBehaviour::move()
 MOVABLE_TYPE MovableBehaviour::GetMovableType()
 {
 	return movableType;
+}
+
+InputHandler * MovableBehaviour::GetInputHandler()
+{
+	return inputHandler;
 }

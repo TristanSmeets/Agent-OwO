@@ -189,6 +189,7 @@
     <ClInclude Include="..\src\mge\gameplay\Command\Command.hpp" />
     <ClInclude Include="..\src\mge\gameplay\Command\DownCommand.hpp" />
     <ClInclude Include="..\src\mge\gameplay\Command\LeftCommand.hpp" />
+    <ClInclude Include="..\src\mge\gameplay\Command\MoveCommand.hpp" />
     <ClInclude Include="..\src\mge\gameplay\Command\RightCommand.hpp" />
     <ClInclude Include="..\src\mge\gameplay\Command\UpCommand.hpp" />
     <ClInclude Include="..\src\mge\gameplay\GameObjects\TileObject.hpp" />
@@ -244,6 +245,7 @@
     <ClCompile Include="..\src\mge\gameplay\Command\Command.cpp" />
     <ClCompile Include="..\src\mge\gameplay\Command\DownCommand.cpp" />
     <ClCompile Include="..\src\mge\gameplay\Command\LeftCommand.cpp" />
+    <ClCompile Include="..\src\mge\gameplay\Command\MoveCommand.cpp" />
     <ClCompile Include="..\src\mge\gameplay\Command\RightCommand.cpp" />
     <ClCompile Include="..\src\mge\gameplay\Command\UpCommand.cpp" />
     <ClCompile Include="..\src\mge\gameplay\GameObjects\TileObject.cpp" />

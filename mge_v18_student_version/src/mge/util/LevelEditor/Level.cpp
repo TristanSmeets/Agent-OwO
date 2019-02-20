@@ -40,6 +40,15 @@ Level::~Level()
 		tileObjects[index] = nullptr;
 	}
 	tileObjects.clear();
+
+	std::cout << "Cleaning BoxObjects\n";
+	for (int index = 0; index < boxObjects.size(); ++index)
+	{
+		delete boxObjects[index]->getBehaviour();
+		boxObjects[index] = nullptr;
+	}
+	boxObjects.clear();
+
 	LuaWrapper::CloseLuaState(config);
 }
 
@@ -145,6 +154,8 @@ void Level::SetMovableBehaviourStartNodes()
 	for (int index = 0; index < boxObjects.size(); ++index)
 	{
 		Node* boxNode = getNodeAtPosition(boxObjects[index]->getLocalPosition());
+		boxNode->SetNodeType(NODETYPE::BOX);
+		boxNode->SetCurrentGameObject(boxObjects[index]);
 
 		MovableBehaviour* boxBehaviour = dynamic_cast<MovableBehaviour*>(boxObjects[index]->getBehaviour());
 		boxBehaviour->SetCurrentNode(boxNode);
@@ -157,7 +168,7 @@ Node * Level::getStartNode()
 {
 	for (int index = 0; index < tileObjects.size(); ++index)
 	{
-		if (tileObjects[index]->GetNode()->GetTileType() == TILETYPE::START)
+		if (tileObjects[index]->GetNode()->GetNodeType() == NODETYPE::START)
 		{
 			std::cout << "Found START node\n";
 			return tileObjects[index]->GetNode();

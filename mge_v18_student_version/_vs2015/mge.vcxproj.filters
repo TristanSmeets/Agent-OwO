@@ -224,6 +224,9 @@
     <ClInclude Include="..\src\mge\gameplay\Input\PlayerInput.hpp">
       <Filter>MGE Source files\mge\gameplay\Input</Filter>
     </ClInclude>
+    <ClInclude Include="..\src\mge\gameplay\Command\MoveCommand.hpp">
+      <Filter>MGE Source files\mge\gameplay\Command</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\main.cpp">
@@ -384,6 +387,9 @@
     </ClCompile>
     <ClCompile Include="..\src\mge\gameplay\Input\BoxInput.cpp">
       <Filter>MGE Source files\mge\gameplay\Input</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\mge\gameplay\Command\MoveCommand.cpp">
+      <Filter>MGE Source files\mge\gameplay\Command</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

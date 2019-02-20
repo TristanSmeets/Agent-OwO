@@ -6,7 +6,7 @@
 
 class InputHandler;
 
-enum MOVABLE_TYPE { BOX, PLAYER };
+enum MOVABLE_TYPE { BOX_OBJECT, PLAYER_OBJECT };
 
 class MovableBehaviour : public AbstractBehaviour
 {
@@ -18,8 +18,9 @@ public:
 	void SetDestination(Node* node);
 	void SetCurrentNode(Node* node);
 	virtual void update(float pStep);
-	void move();
+	void Move();
 	MOVABLE_TYPE GetMovableType();
+	InputHandler* GetInputHandler();
 
 private:
 	Node* currentNode;

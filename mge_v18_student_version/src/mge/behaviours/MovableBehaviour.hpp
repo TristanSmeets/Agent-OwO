@@ -2,7 +2,7 @@
 
 #include "mge/behaviours/AbstractBehaviour.hpp"
 #include "mge/gameplay/Node.hpp"
-#include "mge/gameplay/InputHandler.hpp"
+#include "mge/gameplay/Input/InputHandler.hpp"
 
 class InputHandler;
 

@@ -1,6 +1,6 @@
 #include "MovableBehaviour.hpp"
 #include "mge/core/GameObject.hpp"
-#include "mge/gameplay/PlayerInput.hpp"
+#include "mge/gameplay/Input/PlayerInput.hpp"
 #include <iostream>
 
 

@@ -56,6 +56,9 @@
     <Filter Include="LuaScripts\Levels">
       <UniqueIdentifier>{b8de47c0-7ec8-46fa-94ee-da9985931e79}</UniqueIdentifier>
     </Filter>
+    <Filter Include="MGE Source files\mge\gameplay\Input">
+      <UniqueIdentifier>{a4198c19-9e2f-4cac-8fcd-fd6adf093efc}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\src\glm.hpp">
@@ -209,14 +212,17 @@
     <ClInclude Include="..\src\mge\gameplay\Command\RightCommand.hpp">
       <Filter>MGE Source files\mge\gameplay\Command</Filter>
     </ClInclude>
-    <ClInclude Include="..\src\mge\gameplay\InputHandler.hpp">
-      <Filter>MGE Source files\mge\gameplay</Filter>
-    </ClInclude>
     <ClInclude Include="..\src\mge\gameplay\GameObjects\TileObject.hpp">
       <Filter>MGE Source files\mge\gameplay\GameObjects</Filter>
     </ClInclude>
-    <ClInclude Include="..\src\mge\gameplay\PlayerInput.hpp">
-      <Filter>MGE Source files\mge\gameplay</Filter>
+    <ClInclude Include="..\src\mge\gameplay\Input\BoxInput.hpp">
+      <Filter>MGE Source files\mge\gameplay\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\mge\gameplay\Input\InputHandler.hpp">
+      <Filter>MGE Source files\mge\gameplay\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\mge\gameplay\Input\PlayerInput.hpp">
+      <Filter>MGE Source files\mge\gameplay\Input</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -367,14 +373,17 @@
     <ClCompile Include="..\src\mge\gameplay\Command\RightCommand.cpp">
       <Filter>MGE Source files\mge\gameplay\Command</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\mge\gameplay\InputHandler.cpp">
-      <Filter>MGE Source files\mge\gameplay</Filter>
-    </ClCompile>
     <ClCompile Include="..\src\mge\gameplay\GameObjects\TileObject.cpp">
       <Filter>MGE Source files\mge\gameplay\GameObjects</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\mge\gameplay\PlayerInput.cpp">
-      <Filter>MGE Source files\mge\gameplay</Filter>
+    <ClCompile Include="..\src\mge\gameplay\Input\InputHandler.cpp">
+      <Filter>MGE Source files\mge\gameplay\Input</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\mge\gameplay\Input\PlayerInput.cpp">
+      <Filter>MGE Source files\mge\gameplay\Input</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\mge\gameplay\Input\BoxInput.cpp">
+      <Filter>MGE Source files\mge\gameplay\Input</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

@@ -68,7 +68,10 @@ void Level::CreateLevel(const std::string & filePath)
 
 		GameObject* newGameObject;
 		if ("BOX" == typeString)
+		{
 			newGameObject = boxFactory->CreateGameObject(typeString);
+			boxObjects.push_back(newGameObject);
+		}
 		if ("CAMERA" == typeString)
 			newGameObject = cameraFactory->CreateGameObject(typeString);
 		if ("EXIT" == typeString) 
@@ -132,12 +135,21 @@ void Level::CreateNodeConnections()
 	}
 }
 
-void Level::SetPlayerStartNode()
+void Level::SetMovableBehaviourStartNodes()
 {
-	MovableBehaviour* movable = dynamic_cast<MovableBehaviour*>(player->getBehaviour());
+	MovableBehaviour* playerBehaviour = dynamic_cast<MovableBehaviour*>(player->getBehaviour());
 	Node* startNode = getStartNode();
-	movable->SetCurrentNode(startNode);
+	playerBehaviour->SetCurrentNode(startNode);
 	player->setLocalPosition(startNode->GetPosition());
+
+	for (int index = 0; index < boxObjects.size(); ++index)
+	{
+		Node* boxNode = getNodeAtPosition(boxObjects[index]->getLocalPosition());
+
+		MovableBehaviour* boxBehaviour = dynamic_cast<MovableBehaviour*>(boxObjects[index]->getBehaviour());
+		boxBehaviour->SetCurrentNode(boxNode);
+		boxObjects[index]->setLocalPosition(boxNode->GetPosition());
+	}
 }
 
 
@@ -148,6 +160,22 @@ Node * Level::getStartNode()
 		if (tileObjects[index]->GetNode()->GetTileType() == TILETYPE::START)
 		{
 			std::cout << "Found START node\n";
+			return tileObjects[index]->GetNode();
+		}
+	}
+	return nullptr;
+}
+
+Node * Level::getNodeAtPosition(const glm::vec3 & position)
+{
+	for (int index = 0; index < tileObjects.size(); ++index)
+	{
+		glm::vec3 nodePosition = tileObjects[index]->getLocalPosition();
+		if (position.x == nodePosition.x &&
+			position.y == nodePosition.y &&
+			position.z == nodePosition.z)
+		{
+			std::cout << "Found NODE at " << position << std::endl;
 			return tileObjects[index]->GetNode();
 		}
 	}

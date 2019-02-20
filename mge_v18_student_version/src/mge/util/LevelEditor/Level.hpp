@@ -11,6 +11,7 @@
 #include "mge/util/LevelEditor/Factories/TileFactory.hpp"
 #include "mge/core/World.hpp"
 #include "mge/gameplay/Node.hpp"
+#include "glm.hpp"
 #include <vector>
 #include <string>
 
@@ -26,9 +27,10 @@ public:
 	~Level();
 	void CreateLevel(const std::string& filePath);
 	void CreateNodeConnections();
-	void SetPlayerStartNode();
+	void SetMovableBehaviourStartNodes();
 private:
 	Node* getStartNode();
+	Node* getNodeAtPosition(const glm::vec3& position);
 
 	World* world;
 	lua_State* config;
@@ -41,6 +43,7 @@ private:
 	TileFactory* tileFactory;
 	GameObject* player;
 	std::vector<TileObject*> tileObjects;
+	std::vector<GameObject*> boxObjects;
 };
 
 #endif // !LEVEL_HPP

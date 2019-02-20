@@ -27,9 +27,9 @@ void TileObject::SetNodePosition(const glm::vec3& position)
 {
 	float tileSize = GetNode()->GetSize();
 	glm::vec3 correctedPosition = glm::vec3(
-		position.x - tileSize * 0.5f,
-		position.y,
-		position.z + tileSize * 0.5f);
+		position.x,
+		position.y + 0.15f,
+		position.z);
 
 	node->SetPosition(correctedPosition);
 }

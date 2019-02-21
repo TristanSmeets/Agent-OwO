@@ -4,7 +4,7 @@
 
 struct EventInfo
 {
-
+	int switchState = 0;
 };
 
 class Observer

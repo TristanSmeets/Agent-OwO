@@ -42,7 +42,7 @@ bool Node::GetIsWalkable()
 		return false;
 		break;
 	case NODETYPE::EXIT:
-		return false;
+		return isOpen;
 		break;
 	case NODETYPE::GENERIC:
 		return true;
@@ -59,6 +59,11 @@ bool Node::GetIsWalkable()
 void Node::SetNodeType(const NODETYPE & newTileType)
 {
 	tileType = newTileType;
+}
+
+void Node::SetStartType(const NODETYPE & newStartType)
+{
+	startType = newStartType;
 }
 
 NODETYPE Node::GetNodeType()
@@ -104,5 +109,10 @@ void Node::ClearCurrentGameObject()
 GameObject * Node::GetCurrentGameObject()
 {
 	return currentGameObject;
+}
+
+void Node::SetIsOpen(bool value)
+{
+	isOpen = value;
 }
 

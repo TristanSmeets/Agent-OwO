@@ -212,7 +212,7 @@ newGameObject29.Type = 'TILE'
 table.insert(GameObjects, newGameObject29)
 
 local newGameObject30 = GameObject:new()
-newGameObject30.Position = { x = -3.5308, y = 0, z = 5.4692 }
+newGameObject30.Position = { x = -3.5, y = 0, z = 5.5}
 newGameObject30.Rotation = { x = 0, y = 0.7071071, z = 0, w = 0.7071065 }
 newGameObject30.Scale = { x = 1, y = 1, z = 1 }
 newGameObject30.Type = 'EXIT'

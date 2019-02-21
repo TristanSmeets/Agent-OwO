@@ -4,16 +4,16 @@
 #include "mge/core/Subject.hpp"
 #include "mge/gameplay/Node.hpp"
 
-class SwitchBehaviour : public AbstractBehaviour, Subject
+class SwitchBehaviour : public AbstractBehaviour, public Subject
 {
 public:
-	SwitchBehaviour();
+	SwitchBehaviour(Node& node);
 	virtual ~SwitchBehaviour();
-	void SetSwitchNode(Node* node);
+	void SetSwitchNode(Node& node);
 	void update(float pStep);
 
 private:
-	void checkNodeType();
-	Node* switchNode;
+	void checkNode();
+	Node& switchNode;
 	NODETYPE previousType;
 };

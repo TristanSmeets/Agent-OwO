@@ -38,7 +38,7 @@ void GameScene::_initializeScene()
 	lua_State* config = LuaWrapper::InitializeLuaState("LuaGameScripts\\config.lua");
 	std::cout << "Creating the Level\n";
 	level = new Level(_world);
-	level->CreateLevel(LuaWrapper::GetString(config, "LevelToLoad"));
+	level->CreateLevel(LuaWrapper::GetNumber<int>(config, "LevelToLoad"));
 	level->SetMovableBehaviourStartNodes();
 }
 

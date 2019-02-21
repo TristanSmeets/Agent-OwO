@@ -35,6 +35,7 @@ public:
 	float GetSize();
 	bool GetIsWalkable();
 	void SetNodeType(const NODETYPE& newTileType);
+	void SetStartType(const NODETYPE& newStartType);
 	NODETYPE GetNodeType();
 	void AddConnection(DIRECTION direction, Node* node);
 	int GetConnectionCount();
@@ -44,6 +45,7 @@ public:
 	void SetCurrentGameObject(GameObject* gameObject);
 	void ClearCurrentGameObject();
 	GameObject* GetCurrentGameObject();
+	void SetIsOpen(bool value);
 
 private:
 	glm::vec3 position;
@@ -52,4 +54,5 @@ private:
 	NODETYPE tileType;
 	NODETYPE startType;
 	GameObject* currentGameObject;
+	bool isOpen = false;
 };

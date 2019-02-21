@@ -16,11 +16,13 @@ Subject::~Subject()
 
 void Subject::AddObserver(Observer * observer)
 {
+	std::cout << "Adding Subcriber\n";
 	observers.push_back(observer);
 }
 
 void Subject::RemoveObserver(Observer * observer)
 {
+	std::cout << "Removing Subscriber\n";
 	observers.erase(std::remove(observers.begin(), observers.end(), observer), observers.end());
 }
 

@@ -227,6 +227,15 @@
     <ClInclude Include="..\src\mge\gameplay\Command\MoveCommand.hpp">
       <Filter>MGE Source files\mge\gameplay\Command</Filter>
     </ClInclude>
+    <ClInclude Include="..\src\mge\core\Observer.hpp">
+      <Filter>MGE Source files\mge\core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\mge\core\Subject.hpp">
+      <Filter>MGE Source files\mge\core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\mge\behaviours\SwitchBehaviour.hpp">
+      <Filter>MGE Source files\mge\behaviours</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\main.cpp">
@@ -390,6 +399,15 @@
     </ClCompile>
     <ClCompile Include="..\src\mge\gameplay\Command\MoveCommand.cpp">
       <Filter>MGE Source files\mge\gameplay\Command</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\mge\core\Observer.cpp">
+      <Filter>MGE Source files\mge\core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\mge\core\Subject.cpp">
+      <Filter>MGE Source files\mge\core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\mge\behaviours\SwitchBehaviour.cpp">
+      <Filter>MGE Source files\mge\behaviours</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

@@ -176,6 +176,7 @@
     <ClInclude Include="..\src\mge\behaviours\MovableBehaviour.hpp" />
     <ClInclude Include="..\src\mge\behaviours\NullBehaviour.hpp" />
     <ClInclude Include="..\src\mge\behaviours\RotatingBehaviour.hpp" />
+    <ClInclude Include="..\src\mge\behaviours\SwitchBehaviour.hpp" />
     <ClInclude Include="..\src\mge\config.hpp" />
     <ClInclude Include="..\src\mge\core\AbstractGame.hpp" />
     <ClInclude Include="..\src\mge\core\Camera.hpp" />
@@ -235,6 +236,7 @@
     <ClCompile Include="..\src\mge\behaviours\MovableBehaviour.cpp" />
     <ClCompile Include="..\src\mge\behaviours\NullBehaviour.cpp" />
     <ClCompile Include="..\src\mge\behaviours\RotatingBehaviour.cpp" />
+    <ClCompile Include="..\src\mge\behaviours\SwitchBehaviour.cpp" />
     <ClCompile Include="..\src\mge\core\AbstractGame.cpp" />
     <ClCompile Include="..\src\mge\core\Camera.cpp" />
     <ClCompile Include="..\src\mge\core\GameObject.cpp" />

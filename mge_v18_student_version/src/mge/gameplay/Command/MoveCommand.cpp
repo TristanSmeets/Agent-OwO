@@ -50,5 +50,7 @@ void MoveCommand::nodeBoxCheck(Node * current, DIRECTION direction)
 		MovableBehaviour* movable = dynamic_cast<MovableBehaviour*>(box->getBehaviour());
 		BoxInput* boxInput = dynamic_cast<BoxInput*>(movable->GetInputHandler());
 		boxInput->PushBox(direction);
+		movableObject.SetDestination(destination);
+		movableObject.Move();
 	}
 }

@@ -23,7 +23,16 @@ void MoveCommand::moveObject(Node * current, DIRECTION direction)
 	Node* destination = current->GetConnectionAt(direction);
 	if (destination->GetIsWalkable())
 	{
-		destination->SetNodeType(current->GetNodeType());
+		switch (movableObject.GetMovableType())
+		{
+		case MOVABLE_TYPE::PLAYER_OBJECT:
+			destination->SetNodeType(NODETYPE::GENERIC);
+			break;
+		case MOVABLE_TYPE::BOX_OBJECT:
+			destination->SetNodeType(NODETYPE::BOX);
+			break;
+		}
+
 		destination->SetCurrentGameObject(current->GetCurrentGameObject());
 		current->ResetNodeType();
 		current->ClearCurrentGameObject();

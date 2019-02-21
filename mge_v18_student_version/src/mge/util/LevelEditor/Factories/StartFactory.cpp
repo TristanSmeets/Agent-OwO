@@ -32,6 +32,7 @@ GameObject * StartFactory::CreateGameObject(const std::string & name)
 	std::cout << "Creating " << name << std::endl;
 	TileObject* newStart = new TileObject(luaStart, name);
 	newStart->GetNode()->SetNodeType(NODETYPE::START);
+	newStart->GetNode()->SetStartType(NODETYPE::START);
 	addMesh(newStart);
 	addMaterial(newStart);
 	addBehaviour(newStart);

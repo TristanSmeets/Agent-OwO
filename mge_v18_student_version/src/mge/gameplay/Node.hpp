@@ -35,6 +35,7 @@ public:
 	float GetSize();
 	bool GetIsWalkable();
 	void SetNodeType(const NODETYPE& newTileType);
+	void SetStartType(const NODETYPE& newStartType);
 	NODETYPE GetNodeType();
 	void AddConnection(DIRECTION direction, Node* node);
 	int GetConnectionCount();

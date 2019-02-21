@@ -1,8 +1,9 @@
 #include "SwitchBehaviour.hpp"
 
-SwitchBehaviour::SwitchBehaviour() : AbstractBehaviour(), Subject()
+SwitchBehaviour::SwitchBehaviour(Node& node) : AbstractBehaviour(), Subject(), switchNode(node)
 {
 	std::cout << "Creating SwitchBehaviour\n";
+	previousType = node.GetNodeType();
 }
 
 SwitchBehaviour::~SwitchBehaviour()
@@ -10,10 +11,9 @@ SwitchBehaviour::~SwitchBehaviour()
 	std::cout << "GC running on:SwitchBehaviour\n";
 	AbstractBehaviour::~AbstractBehaviour();
 	Subject::~Subject();
-	switchNode = nullptr;
 }
 
-void SwitchBehaviour::SetSwitchNode(Node* node)
+void SwitchBehaviour::SetSwitchNode(Node& node)
 {
 	switchNode = node;
 }
@@ -25,11 +25,10 @@ void SwitchBehaviour::update(float pStep)
 
 void SwitchBehaviour::checkNodeType()
 {
-	if (previousType != switchNode->GetNodeType())
+	if (previousType != switchNode.GetNodeType())
 	{
-		std::cout << "Switch NodeType got changed.\n";
 		EventInfo info = EventInfo();
-		switch (switchNode->GetNodeType())
+		switch (switchNode.GetNodeType())
 		{
 		case NODETYPE::BOX:
 			info.activeSwitch = 1;
@@ -39,5 +38,6 @@ void SwitchBehaviour::checkNodeType()
 			break;
 		}
 		notify(info);
+		previousType = switchNode.GetNodeType();
 	}
 }

@@ -7,13 +7,13 @@
 class SwitchBehaviour : public AbstractBehaviour, Subject
 {
 public:
-	SwitchBehaviour();
+	SwitchBehaviour(Node& node);
 	virtual ~SwitchBehaviour();
-	void SetSwitchNode(Node* node);
+	void SetSwitchNode(Node& node);
 	void update(float pStep);
 
 private:
 	void checkNodeType();
-	Node* switchNode;
+	Node& switchNode;
 	NODETYPE previousType;
 };

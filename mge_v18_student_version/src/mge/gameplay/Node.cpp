@@ -61,6 +61,11 @@ void Node::SetNodeType(const NODETYPE & newTileType)
 	tileType = newTileType;
 }
 
+void Node::SetStartType(const NODETYPE & newStartType)
+{
+	startType = newStartType;
+}
+
 NODETYPE Node::GetNodeType()
 {
 	return tileType;

@@ -25,7 +25,7 @@ class Level
 public:
 	Level(World* world);
 	~Level();
-	void CreateLevel(const std::string& filePath);
+	void CreateLevel(int levelNumber);
 	void CreateNodeConnections();
 	void SetMovableBehaviourStartNodes();
 private:
@@ -42,8 +42,10 @@ private:
 	SwitchFactory* switchFactory;
 	TileFactory* tileFactory;
 	GameObject* player;
+	GameObject* exitObject;
 	std::vector<TileObject*> tileObjects;
 	std::vector<GameObject*> boxObjects;
+	std::vector<GameObject*> switchObjects;
 };
 
 #endif // !LEVEL_HPP

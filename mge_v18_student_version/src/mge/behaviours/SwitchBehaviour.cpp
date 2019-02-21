@@ -20,12 +20,14 @@ void SwitchBehaviour::SetSwitchNode(Node& node)
 
 void SwitchBehaviour::update(float pStep)
 {
-	checkNodeType();
+	checkNode();
 }
 
-void SwitchBehaviour::checkNodeType()
+void SwitchBehaviour::checkNode()
 {
-	if (previousType != switchNode.GetNodeType())
+	if (previousType != switchNode.GetNodeType() &&
+		switchNode.GetNodeType() != NODETYPE::GENERIC &&
+		previousType != NODETYPE::GENERIC)
 	{
 		EventInfo info = EventInfo();
 		switch (switchNode.GetNodeType())
@@ -36,7 +38,11 @@ void SwitchBehaviour::checkNodeType()
 		case NODETYPE::SWITCH:
 			info.activeSwitch = -1;
 			break;
+		default:
+			info.activeSwitch = 0;
+			break;
 		}
+		std::cout << "Sending notify\n";
 		notify(info);
 		previousType = switchNode.GetNodeType();
 	}

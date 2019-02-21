@@ -45,6 +45,7 @@ public:
 	void SetCurrentGameObject(GameObject* gameObject);
 	void ClearCurrentGameObject();
 	GameObject* GetCurrentGameObject();
+	void SetIsOpen(bool value);
 
 private:
 	glm::vec3 position;
@@ -53,4 +54,5 @@ private:
 	NODETYPE tileType;
 	NODETYPE startType;
 	GameObject* currentGameObject;
+	bool isOpen = false;
 };

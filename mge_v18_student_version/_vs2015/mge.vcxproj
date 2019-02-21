@@ -171,6 +171,7 @@
     <ClInclude Include="..\src\main.h" />
     <ClInclude Include="..\src\mge\behaviours\AbstractBehaviour.hpp" />
     <ClInclude Include="..\src\mge\behaviours\CameraOrbitBehaviour.hpp" />
+    <ClInclude Include="..\src\mge\behaviours\ExitBehaviour.hpp" />
     <ClInclude Include="..\src\mge\behaviours\KeysBehaviour.hpp" />
     <ClInclude Include="..\src\mge\behaviours\LuaBehaviour.hpp" />
     <ClInclude Include="..\src\mge\behaviours\MovableBehaviour.hpp" />
@@ -231,6 +232,7 @@
     <ClCompile Include="..\src\main.cpp" />
     <ClCompile Include="..\src\mge\behaviours\AbstractBehaviour.cpp" />
     <ClCompile Include="..\src\mge\behaviours\CameraOrbitBehaviour.cpp" />
+    <ClCompile Include="..\src\mge\behaviours\ExitBehaviour.cpp" />
     <ClCompile Include="..\src\mge\behaviours\KeysBehaviour.cpp" />
     <ClCompile Include="..\src\mge\behaviours\LuaBehaviour.cpp" />
     <ClCompile Include="..\src\mge\behaviours\MovableBehaviour.cpp" />

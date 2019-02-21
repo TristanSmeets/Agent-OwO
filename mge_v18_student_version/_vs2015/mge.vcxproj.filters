@@ -236,6 +236,9 @@
     <ClInclude Include="..\src\mge\behaviours\SwitchBehaviour.hpp">
       <Filter>MGE Source files\mge\behaviours</Filter>
     </ClInclude>
+    <ClInclude Include="..\src\mge\behaviours\ExitBehaviour.hpp">
+      <Filter>MGE Source files\mge\behaviours</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\main.cpp">
@@ -407,6 +410,9 @@
       <Filter>MGE Source files\mge\core</Filter>
     </ClCompile>
     <ClCompile Include="..\src\mge\behaviours\SwitchBehaviour.cpp">
+      <Filter>MGE Source files\mge\behaviours</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\mge\behaviours\ExitBehaviour.cpp">
       <Filter>MGE Source files\mge\behaviours</Filter>
     </ClCompile>
   </ItemGroup>

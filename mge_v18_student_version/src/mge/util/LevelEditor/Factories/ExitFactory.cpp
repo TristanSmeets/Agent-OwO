@@ -1,6 +1,7 @@
 #include "ExitFactory.hpp"
 
 #include "mge/gameplay/GameObjects/TileObject.hpp"
+#include "mge/behaviours/ExitBehaviour.hpp"
 
 ExitFactory::ExitFactory() : AbstractFactory()
 {
@@ -15,7 +16,13 @@ ExitFactory::ExitFactory(lua_State* config) : AbstractFactory()
 	mesh = getMesh(luaExit);
 	std::cout << "Loading Exit TextureMaterial\n";
 	material = getTextureMaterial(luaExit);
-	behaviour = new NullBehaviour();
+
+	unsigned int levelNumber = LuaWrapper::GetNumber<int>(config, "LevelToLoad");
+
+	lua_getglobal(luaExit, "Switches");
+	int switches = LuaWrapper::GetTableNumber(luaExit, "Level_" + std::to_string(levelNumber));
+	std::cout << "\nAmount of Switches: " << switches << std::endl;
+	behaviour = new ExitBehaviour(switches);
 }
 
 ExitFactory::~ExitFactory()

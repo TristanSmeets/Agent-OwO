@@ -4,7 +4,7 @@
 #include "mge/core/Subject.hpp"
 #include "mge/gameplay/Node.hpp"
 
-class SwitchBehaviour : public AbstractBehaviour, Subject
+class SwitchBehaviour : public AbstractBehaviour, public Subject
 {
 public:
 	SwitchBehaviour(Node& node);
@@ -13,7 +13,7 @@ public:
 	void update(float pStep);
 
 private:
-	void checkNodeType();
+	void checkNode();
 	Node& switchNode;
 	NODETYPE previousType;
 };

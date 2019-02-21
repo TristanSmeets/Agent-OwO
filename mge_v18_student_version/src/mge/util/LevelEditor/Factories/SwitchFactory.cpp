@@ -23,7 +23,7 @@ SwitchFactory::~SwitchFactory()
 	std::cout << "GC running on:SwitchFactory\n";
 	mesh = nullptr;
 	delete material;
-	delete behaviour;
+	behaviour = nullptr;
 	LuaWrapper::CloseLuaState(luaSwitch);
 }
 

@@ -42,7 +42,7 @@ bool Node::GetIsWalkable()
 		return false;
 		break;
 	case NODETYPE::EXIT:
-		return false;
+		return isOpen;
 		break;
 	case NODETYPE::GENERIC:
 		return true;
@@ -109,5 +109,10 @@ void Node::ClearCurrentGameObject()
 GameObject * Node::GetCurrentGameObject()
 {
 	return currentGameObject;
+}
+
+void Node::SetIsOpen(bool value)
+{
+	isOpen = value;
 }
 

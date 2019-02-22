@@ -5,6 +5,7 @@
 struct EventInfo
 {
 	int activeSwitch = 0;
+	int stepTaken = 0;
 };
 
 class Observer

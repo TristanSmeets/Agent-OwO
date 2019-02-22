@@ -27,6 +27,7 @@ void MoveCommand::moveObject(Node * current, DIRECTION direction)
 		{
 		case MOVABLE_TYPE::PLAYER_OBJECT:
 			destination->SetNodeType(NODETYPE::GENERIC);
+			EventQueue::QueueEvent(createMovedEvent());
 			break;
 		case MOVABLE_TYPE::BOX_OBJECT:
 			destination->SetNodeType(NODETYPE::BOX);
@@ -52,5 +53,14 @@ void MoveCommand::nodeBoxCheck(Node * current, DIRECTION direction)
 		boxInput->PushBox(direction);
 		movableObject.SetDestination(destination);
 		movableObject.Move();
+		
+		EventQueue::QueueEvent(createMovedEvent());
 	}
+}
+
+const EventInfo& MoveCommand::createMovedEvent()
+{
+	EventInfo info = EventInfo();
+	info.stepTaken = 1;
+	return info;
 }

@@ -3,6 +3,7 @@
 #include "mge/gameplay/Command\Command.hpp"
 #include "mge/core/GameObject.hpp"
 #include "mge/gameplay/Input/BoxInput.hpp"
+#include "mge/util/EventQueue/EventQueue.hpp"
 
 class MoveCommand : public Command
 {
@@ -15,5 +16,6 @@ public:
 protected:
 	void moveObject(Node* current, DIRECTION direction);
 	void nodeBoxCheck(Node* current, DIRECTION direction);
+	const EventInfo& createMovedEvent();
 	MovableBehaviour& movableObject;
 };

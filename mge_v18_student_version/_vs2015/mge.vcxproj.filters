@@ -573,5 +573,8 @@
     <CopyFileToFolders Include="..\assets\LuaGameScripts\Level\Level_6.lua">
       <Filter>LuaScripts\Levels</Filter>
     </CopyFileToFolders>
+    <CopyFileToFolders Include="..\assets\LuaGameScripts\Level\Level_Info.lua">
+      <Filter>LuaScripts\Levels</Filter>
+    </CopyFileToFolders>
   </ItemGroup>
 </Project>

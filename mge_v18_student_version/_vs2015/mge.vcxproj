@@ -398,6 +398,10 @@
       <FileType>Document</FileType>
       <DestinationFolders Condition="'$(Configuration)|$(Platform)'=='Debug Static|Win32'">$(OutDir)\LuaGameScripts\Level</DestinationFolders>
     </CopyFileToFolders>
+    <CopyFileToFolders Include="..\assets\LuaGameScripts\Level\Level_Info.lua">
+      <FileType>Document</FileType>
+      <DestinationFolders Condition="'$(Configuration)|$(Platform)'=='Debug Static|Win32'">$(OutDir)\LuaGameScripts\Level</DestinationFolders>
+    </CopyFileToFolders>
     <None Include="ClassDiagram.cd" />
   </ItemGroup>
   <ItemGroup>

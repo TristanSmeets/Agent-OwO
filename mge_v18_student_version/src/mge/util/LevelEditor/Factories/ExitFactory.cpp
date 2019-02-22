@@ -19,10 +19,14 @@ ExitFactory::ExitFactory(lua_State* config) : AbstractFactory()
 
 	unsigned int levelNumber = LuaWrapper::GetNumber<int>(config, "LevelToLoad");
 
-	lua_getglobal(luaExit, "Switches");
-	int switches = LuaWrapper::GetTableNumber(luaExit, "Level_" + std::to_string(levelNumber));
+	lua_State* levelInfo = LuaWrapper::InitializeLuaState("LuaGameScripts/Level/Level_Info.lua");
+
+	lua_getglobal(levelInfo, "Switches");
+	int switches = LuaWrapper::GetTableNumber(levelInfo, "Level_" + std::to_string(levelNumber));
 	std::cout << "\nAmount of Switches: " << switches << std::endl;
 	behaviour = new ExitBehaviour(switches);
+
+	LuaWrapper::CloseLuaState(levelInfo);
 }
 
 ExitFactory::~ExitFactory()

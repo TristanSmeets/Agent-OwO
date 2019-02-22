@@ -202,6 +202,7 @@
     <ClInclude Include="..\src\mge\gameplay\Input\InputHandler.hpp" />
     <ClInclude Include="..\src\mge\gameplay\Input\PlayerInput.hpp" />
     <ClInclude Include="..\src\mge\gameplay\Node.hpp" />
+    <ClInclude Include="..\src\mge\gameplay\StepTracker.hpp" />
     <ClInclude Include="..\src\mge\materials\AbstractMaterial.hpp" />
     <ClInclude Include="..\src\mge\materials\ColorMaterial.hpp" />
     <ClInclude Include="..\src\mge\materials\LitMaterial.hpp" />
@@ -263,6 +264,7 @@
     <ClCompile Include="..\src\mge\gameplay\Input\InputHandler.cpp" />
     <ClCompile Include="..\src\mge\gameplay\Input\PlayerInput.cpp" />
     <ClCompile Include="..\src\mge\gameplay\Node.cpp" />
+    <ClCompile Include="..\src\mge\gameplay\StepTracker.cpp" />
     <ClCompile Include="..\src\mge\materials\AbstractMaterial.cpp" />
     <ClCompile Include="..\src\mge\materials\ColorMaterial.cpp" />
     <ClCompile Include="..\src\mge\materials\LitMaterial.cpp" />
@@ -395,6 +397,10 @@
       <DestinationFolders Condition="'$(Configuration)|$(Platform)'=='Debug Static|Win32'">$(OutDir)\LuaGameScripts\Level</DestinationFolders>
     </CopyFileToFolders>
     <CopyFileToFolders Include="..\assets\LuaGameScripts\Level\Level_6.lua">
+      <FileType>Document</FileType>
+      <DestinationFolders Condition="'$(Configuration)|$(Platform)'=='Debug Static|Win32'">$(OutDir)\LuaGameScripts\Level</DestinationFolders>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="..\assets\LuaGameScripts\Level\Level_Info.lua">
       <FileType>Document</FileType>
       <DestinationFolders Condition="'$(Configuration)|$(Platform)'=='Debug Static|Win32'">$(OutDir)\LuaGameScripts\Level</DestinationFolders>
     </CopyFileToFolders>

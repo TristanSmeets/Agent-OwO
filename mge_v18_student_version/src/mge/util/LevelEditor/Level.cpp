@@ -26,7 +26,8 @@ Level::Level(World * world) : world(world), config(LuaWrapper::InitializeLuaStat
 Level::~Level()
 {
 	std::cout << "GC running on:Level.\n";
-
+	
+	delete stepTracker;
 	delete boxFactory;
 	delete cameraFactory;
 	delete exitFactory;
@@ -66,6 +67,8 @@ Level::~Level()
 
 void Level::CreateLevel(int levelNumber)
 {
+	stepTracker = new StepTracker(levelNumber);
+
 	//Open the lua file.
 	std::string filePath = "LuaGameScripts/Level/Level_" + std::to_string(levelNumber) + ".lua";
 

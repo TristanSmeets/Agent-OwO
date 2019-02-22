@@ -12,6 +12,7 @@
 #include "mge/core/World.hpp"
 #include "mge/gameplay/Node.hpp"
 #include "glm.hpp"
+#include "mge/gameplay/StepTracker.hpp"
 #include <vector>
 #include <string>
 
@@ -32,6 +33,7 @@ private:
 	Node* getStartNode();
 	Node* getNodeAtPosition(const glm::vec3& position);
 
+	StepTracker* stepTracker;
 	World* world;
 	lua_State* config;
 	BoxFactory* boxFactory;
@@ -46,6 +48,7 @@ private:
 	std::vector<TileObject*> tileObjects;
 	std::vector<GameObject*> boxObjects;
 	std::vector<GameObject*> switchObjects;
+	
 };
 
 #endif // !LEVEL_HPP

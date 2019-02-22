@@ -16,6 +16,6 @@ public:
 protected:
 	void moveObject(Node* current, DIRECTION direction);
 	void nodeBoxCheck(Node* current, DIRECTION direction);
-	const GeneralEvent& createMovedEvent();
+	GeneralEvent* createMovedEvent();
 	MovableBehaviour& movableObject;
 };

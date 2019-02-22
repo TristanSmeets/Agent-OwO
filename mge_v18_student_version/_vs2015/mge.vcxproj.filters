@@ -251,6 +251,9 @@
     <ClInclude Include="..\src\mge\util\EventQueue\EventStructs.hpp">
       <Filter>MGE Source files\mge\util\EventQueue</Filter>
     </ClInclude>
+    <ClInclude Include="..\src\mge\gameplay\StepTracker.hpp">
+      <Filter>MGE Source files\mge\gameplay</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\main.cpp">
@@ -426,6 +429,9 @@
     </ClCompile>
     <ClCompile Include="..\src\mge\behaviours\EventQueueBehaviour.cpp">
       <Filter>MGE Source files\mge\behaviours</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\mge\gameplay\StepTracker.cpp">
+      <Filter>MGE Source files\mge\gameplay</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

@@ -4,21 +4,6 @@ int EventQueue::numberPending = 0;
 std::vector<Observer*> EventQueue::observers;
 EventInfo EventQueue::pending[maxQueueSize];
 
-EventQueue::EventQueue()
-{
-	std::cout << "Creating EventQueue.\n";
-}
-
-EventQueue::~EventQueue()
-{
-	std::cout << "GC running on:EventQueue.\n";
-	for (int index = 0; index < observers.size(); ++index)
-	{
-		observers[index] = nullptr;
-	}
-	observers.clear();
-}
-
 void EventQueue::AddObserver(Observer * observer)
 {
 	std::cout << "Adding Observer to EventQueue.\n";

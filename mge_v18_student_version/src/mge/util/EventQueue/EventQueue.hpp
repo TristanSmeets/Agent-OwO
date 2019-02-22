@@ -8,8 +8,6 @@
 class EventQueue
 {
 public:
-	EventQueue();
-	virtual ~EventQueue();
 	static void AddObserver(Observer* observer);
 	static void RemoveObserver(Observer* observer);
 	static void QueueEvent(const EventInfo& eventInfo);

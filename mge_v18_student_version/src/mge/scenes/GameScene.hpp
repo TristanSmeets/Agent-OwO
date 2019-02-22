@@ -2,8 +2,8 @@
 
 #include "mge/core/AbstractGame.hpp"
 #include "mge/util/LevelEditor/Level.hpp"
-#include "mge/util/LevelEditor/Factories/BoxFactory.hpp"
 #include "mge/util/LuaScripting/LuaWrapper.hpp"
+#include "mge/behaviours/EventQueueBehaviour.hpp"
 
 class GameScene : public AbstractGame
 {
@@ -18,6 +18,6 @@ protected:
 
 private:
 	Level* level;
-	BoxFactory* boxFactory;
 	lua_State* config;
+	EventQueueBehaviour* eventQueueBehaviour;
 };

@@ -245,6 +245,9 @@
     <ClInclude Include="..\src\mge\util\EventQueue\EventQueue.hpp">
       <Filter>MGE Source files\mge\util\EventQueue</Filter>
     </ClInclude>
+    <ClInclude Include="..\src\mge\behaviours\EventQueueBehaviour.hpp">
+      <Filter>MGE Source files\mge\behaviours</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\main.cpp">
@@ -423,6 +426,9 @@
     </ClCompile>
     <ClCompile Include="..\src\mge\util\EventQueue\EventQueue.cpp">
       <Filter>MGE Source files\mge\util\EventQueue</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\mge\behaviours\EventQueueBehaviour.cpp">
+      <Filter>MGE Source files\mge\behaviours</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

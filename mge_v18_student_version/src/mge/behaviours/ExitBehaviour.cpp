@@ -24,12 +24,12 @@ void ExitBehaviour::update(float pStep)
 {
 	checkNode();
 }
-//
-//void ExitBehaviour::OnNotify(const SwitchEvent & info)
-//{
-//	activatedSwitches += info.activateSwitch;
-//	exitNode->SetIsOpen(amountOfSwitches == activatedSwitches);
-//}
+
+void ExitBehaviour::OnNotify(const SwitchEvent & info)
+{
+	activatedSwitches += info.activateSwitch;
+	exitNode->SetIsOpen(amountOfSwitches == activatedSwitches);
+}
 
 void ExitBehaviour::SubscribeToSubjects(std::vector<GameObject*> switchObjects)
 {

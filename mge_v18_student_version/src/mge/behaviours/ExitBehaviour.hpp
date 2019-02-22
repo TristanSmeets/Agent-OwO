@@ -12,11 +12,7 @@ public:
 	ExitBehaviour(unsigned int switches);
 	virtual ~ExitBehaviour();
 	void update(float pStep);
-	void OnNotify(const SwitchEvent& info)
-	{
-		activatedSwitches += info.activateSwitch;
-		exitNode->SetIsOpen(amountOfSwitches == activatedSwitches);
-	}
+	void OnNotify(const SwitchEvent& info);
 	void SubscribeToSubjects(std::vector<GameObject*> switchObjects);
 	void SetPreviousType(NODETYPE nodeType);
 	void SetExitNode(Node* node);

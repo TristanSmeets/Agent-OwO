@@ -1,22 +1,22 @@
 #include "EventQueue.hpp"
 
 int EventQueue::numberPending = 0;
-std::vector<Observer*> EventQueue::observers;
-EventInfo EventQueue::pending[maxQueueSize];
+std::vector<Observer<GeneralEvent>*> EventQueue::observers;
+GeneralEvent EventQueue::pending[maxQueueSize];
 
-void EventQueue::AddObserver(Observer * observer)
+void EventQueue::AddObserver(Observer<GeneralEvent> * observer)
 {
 	std::cout << "Adding Observer to EventQueue.\n";
 	observers.push_back(observer);
 }
 
-void EventQueue::RemoveObserver(Observer * observer)
+void EventQueue::RemoveObserver(Observer<GeneralEvent> * observer)
 {
 	std::cout << "Removing Observer From EventQueue.\n";
 	observers.erase(std::remove(observers.begin(), observers.end(), observer), observers.end());
 }
 
-void EventQueue::QueueEvent(const EventInfo & eventInfo)
+void EventQueue::QueueEvent(const GeneralEvent & eventInfo)
 {
 	assert(numberPending < maxQueueSize);
 	

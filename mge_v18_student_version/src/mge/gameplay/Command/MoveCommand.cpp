@@ -58,9 +58,9 @@ void MoveCommand::nodeBoxCheck(Node * current, DIRECTION direction)
 	}
 }
 
-const EventInfo& MoveCommand::createMovedEvent()
+const GeneralEvent& MoveCommand::createMovedEvent()
 {
-	EventInfo info = EventInfo();
-	info.stepTaken = 1;
+	GeneralEvent info = GeneralEvent();
+	info.stepsTaken = 1;
 	return info;
 }

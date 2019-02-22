@@ -217,6 +217,7 @@
     <ClInclude Include="..\src\mge\scenes\TristanScene.h" />
     <ClInclude Include="..\src\mge\util\DebugHud.hpp" />
     <ClInclude Include="..\src\mge\util\EventQueue\EventQueue.hpp" />
+    <ClInclude Include="..\src\mge\util\EventQueue\EventStructs.hpp" />
     <ClInclude Include="..\src\mge\util\LevelEditor\Factories\AbstractFactory.hpp" />
     <ClInclude Include="..\src\mge\util\LevelEditor\Factories\BoxFactory.hpp" />
     <ClInclude Include="..\src\mge\util\LevelEditor\Factories\CameraFactory.hpp" />

@@ -29,17 +29,17 @@ void SwitchBehaviour::checkNode()
 		switchNode.GetNodeType() != NODETYPE::GENERIC &&
 		previousType != NODETYPE::GENERIC)
 	{
-		EventInfo info = EventInfo();
+		SwitchEvent info = SwitchEvent();
 		switch (switchNode.GetNodeType())
 		{
 		case NODETYPE::BOX:
-			info.activeSwitch = 1;
+			info.activateSwitch = 1;
 			break;
 		case NODETYPE::SWITCH:
-			info.activeSwitch = -1;
+			info.activateSwitch = -1;
 			break;
 		default:
-			info.activeSwitch = 0;
+			info.activateSwitch = 0;
 			break;
 		}
 		notify(info);

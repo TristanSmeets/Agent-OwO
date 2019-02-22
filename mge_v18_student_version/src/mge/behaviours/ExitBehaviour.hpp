@@ -4,14 +4,19 @@
 #include "mge/core/Observer.hpp"
 #include "mge/gameplay/Node.hpp"
 #include "mge/util/LuaScripting/LuaWrapper.hpp"
+#include "mge/util/EventQueue/EventStructs.hpp"
 
-class ExitBehaviour : public AbstractBehaviour, public Observer
+class ExitBehaviour : public AbstractBehaviour, public Observer<SwitchEvent>
 {
 public:
 	ExitBehaviour(unsigned int switches);
 	virtual ~ExitBehaviour();
 	void update(float pStep);
-	void OnNotify(const EventInfo& info);
+	void OnNotify(const SwitchEvent& info)
+	{
+		activatedSwitches += info.activateSwitch;
+		exitNode->SetIsOpen(amountOfSwitches == activatedSwitches);
+	}
 	void SubscribeToSubjects(std::vector<GameObject*> switchObjects);
 	void SetPreviousType(NODETYPE nodeType);
 	void SetExitNode(Node* node);

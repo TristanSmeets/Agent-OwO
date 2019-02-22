@@ -2,16 +2,13 @@
 
 #include <iostream>
 
-struct EventInfo
-{
-	int activeSwitch = 0;
-	int stepTaken = 0;
-};
-
-class Observer
+template <typename T> class Observer
 {
 public:
-	Observer();
-	virtual ~Observer();
-	virtual void OnNotify(const EventInfo& eventInfo) = 0;
+	Observer() {};
+	virtual ~Observer() 
+	{
+		std::cout << "GC running on:Observer\n";
+	};
+	virtual void OnNotify(const T& eventInfo) = 0;
 };

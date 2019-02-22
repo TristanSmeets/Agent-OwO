@@ -2,7 +2,7 @@
 #include "mge/core/Subject.hpp"
 
 ExitBehaviour::ExitBehaviour(unsigned int switches) : 
-	AbstractBehaviour(), Observer(), amountOfSwitches(switches)
+	AbstractBehaviour(), Observer<SwitchEvent>(), amountOfSwitches(switches)
 {
 }
 
@@ -13,7 +13,7 @@ ExitBehaviour::~ExitBehaviour()
 	//Unsubcribing from subjects
 	for (unsigned int index = 0; index < subjects.size(); ++index)
 	{
-		Subject* subject = dynamic_cast<Subject*>(subjects[index]->getBehaviour());
+		Subject<SwitchEvent>* subject = dynamic_cast<Subject<SwitchEvent>*>(subjects[index]->getBehaviour());
 		subject->RemoveObserver(this);
 		subjects[index] = nullptr;
 	}
@@ -24,18 +24,18 @@ void ExitBehaviour::update(float pStep)
 {
 	checkNode();
 }
-
-void ExitBehaviour::OnNotify(const EventInfo & info)
-{
-	activatedSwitches += info.activeSwitch;
-	exitNode->SetIsOpen(amountOfSwitches == activatedSwitches);
-}
+//
+//void ExitBehaviour::OnNotify(const SwitchEvent & info)
+//{
+//	activatedSwitches += info.activateSwitch;
+//	exitNode->SetIsOpen(amountOfSwitches == activatedSwitches);
+//}
 
 void ExitBehaviour::SubscribeToSubjects(std::vector<GameObject*> switchObjects)
 {
 	for (unsigned int index = 0; index < switchObjects.size(); ++index)
 	{
-		Subject* subject = dynamic_cast<Subject*>(switchObjects[index]->getBehaviour());
+		Subject<SwitchEvent>* subject = dynamic_cast<Subject<SwitchEvent>*>(switchObjects[index]->getBehaviour());
 		subject->AddObserver(this);
 	}
 }

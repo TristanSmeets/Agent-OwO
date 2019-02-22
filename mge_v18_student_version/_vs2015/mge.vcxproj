@@ -215,6 +215,7 @@
     <ClInclude Include="..\src\mge\scenes\TerrainScene.hpp" />
     <ClInclude Include="..\src\mge\scenes\TristanScene.h" />
     <ClInclude Include="..\src\mge\util\DebugHud.hpp" />
+    <ClInclude Include="..\src\mge\util\EventQueue\EventQueue.hpp" />
     <ClInclude Include="..\src\mge\util\LevelEditor\Factories\AbstractFactory.hpp" />
     <ClInclude Include="..\src\mge\util\LevelEditor\Factories\BoxFactory.hpp" />
     <ClInclude Include="..\src\mge\util\LevelEditor\Factories\CameraFactory.hpp" />
@@ -275,6 +276,7 @@
     <ClCompile Include="..\src\mge\scenes\TerrainScene.cpp" />
     <ClCompile Include="..\src\mge\scenes\TristanScene.cpp" />
     <ClCompile Include="..\src\mge\util\DebugHud.cpp" />
+    <ClCompile Include="..\src\mge\util\EventQueue\EventQueue.cpp" />
     <ClCompile Include="..\src\mge\util\LevelEditor\Factories\AbstractFactory.cpp" />
     <ClCompile Include="..\src\mge\util\LevelEditor\Factories\BoxFactory.cpp" />
     <ClCompile Include="..\src\mge\util\LevelEditor\Factories\CameraFactory.cpp" />

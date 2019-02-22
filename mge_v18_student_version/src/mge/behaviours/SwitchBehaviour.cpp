@@ -42,7 +42,6 @@ void SwitchBehaviour::checkNode()
 			info.activeSwitch = 0;
 			break;
 		}
-		std::cout << "Sending notify\n";
 		notify(info);
 		previousType = switchNode.GetNodeType();
 	}

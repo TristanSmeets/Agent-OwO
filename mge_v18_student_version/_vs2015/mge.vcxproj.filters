@@ -59,6 +59,9 @@
     <Filter Include="MGE Source files\mge\gameplay\Input">
       <UniqueIdentifier>{a4198c19-9e2f-4cac-8fcd-fd6adf093efc}</UniqueIdentifier>
     </Filter>
+    <Filter Include="MGE Source files\mge\util\EventQueue">
+      <UniqueIdentifier>{9cb55cb0-c3c8-4343-bb1a-67545f9c2e03}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\src\glm.hpp">
@@ -239,6 +242,9 @@
     <ClInclude Include="..\src\mge\behaviours\ExitBehaviour.hpp">
       <Filter>MGE Source files\mge\behaviours</Filter>
     </ClInclude>
+    <ClInclude Include="..\src\mge\util\EventQueue\EventQueue.hpp">
+      <Filter>MGE Source files\mge\util\EventQueue</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\main.cpp">
@@ -414,6 +420,9 @@
     </ClCompile>
     <ClCompile Include="..\src\mge\behaviours\ExitBehaviour.cpp">
       <Filter>MGE Source files\mge\behaviours</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\mge\util\EventQueue\EventQueue.cpp">
+      <Filter>MGE Source files\mge\util\EventQueue</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

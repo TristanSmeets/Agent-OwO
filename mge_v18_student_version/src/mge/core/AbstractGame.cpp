@@ -126,7 +126,6 @@ void AbstractGame::run()
                 timeSinceLastFPSCalculation -= 1;
                 frameCount = 0;
             }
-
 		}
 
 		//empty the event queue
@@ -136,6 +135,7 @@ void AbstractGame::run()
 
 void AbstractGame::_update(float pStep) {
     _world->update(pStep);
+	_world->lateUpdate(pStep);
 }
 
 void AbstractGame::_render () {

@@ -183,6 +183,19 @@ void GameObject::update(float pStep)
     }
 }
 
+void GameObject::lateUpdate(float pStep)
+{
+	if (_behaviour)
+	{
+		_behaviour->lateUpdate(pStep);
+	}
+
+	for (int index = _children.size() - 1; index >= 0; --index)
+	{
+		_children[index]->lateUpdate(pStep);
+	}
+}
+
 void GameObject::_setWorldRecursively (World* pWorld) {
     _world = pWorld;
 

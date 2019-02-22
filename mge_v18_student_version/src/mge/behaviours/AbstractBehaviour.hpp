@@ -23,6 +23,8 @@ class AbstractBehaviour
         //behaviour should be able to update itself every step and MUST be implemented
 		virtual void update(float pStep) = 0;
 
+		virtual void lateUpdate(float pStep);
+
     protected:
 
 		GameObject* _owner;

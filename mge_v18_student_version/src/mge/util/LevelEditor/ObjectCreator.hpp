@@ -17,6 +17,7 @@ public:
 	ObjectCreator(lua_State* config, World* world);
 	~ObjectCreator();
 	void CreateGameObject(const std::string& objectType, const glm::vec3& position, const glm::quat& rotation, const glm::vec3& scale);
+	void ConfigureBehaviourStartNodes();
 	std::vector<TileObject*>& GetTileObjects();
 	std::vector<GameObject*>& GetBoxObjects();
 	std::vector<GameObject*>& GetSwitchObjects();
@@ -38,4 +39,6 @@ private:
 	std::vector<TileObject*> tileObjects;
 	std::vector<GameObject*> boxObjects;
 	std::vector<GameObject*> switchObjects;
+	
+	void addToTileObjectsandSetNode(GameObject * newGameObject, const glm::vec3 & position);
 };

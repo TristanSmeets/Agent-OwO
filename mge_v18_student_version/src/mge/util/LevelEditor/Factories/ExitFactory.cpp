@@ -44,6 +44,9 @@ GameObject* ExitFactory::CreateGameObject(const std::string & name)
 	TileObject* newExit = new TileObject(luaExit, name);
 	newExit->GetNode()->SetNodeType(NODETYPE::EXIT);
 	newExit->GetNode()->SetStartType(NODETYPE::EXIT);
+	ExitBehaviour* exitBehaviour = dynamic_cast<ExitBehaviour*>(behaviour);
+	exitBehaviour->SetExitNode(newExit->GetNode());
+	exitBehaviour->SetPreviousType(NODETYPE::EXIT);
 	addMesh(newExit);
 	addMaterial(newExit);
 	addBehaviour(newExit);

@@ -66,12 +66,7 @@ void ObjectCreator::CreateGameObject(const std::string & objectType, const glm::
 	if ("EXIT" == objectType)
 	{
 		newGameObject = exitFactory->CreateGameObject(objectType);
-		TileObject* tileObject = dynamic_cast<TileObject*>(newGameObject);
-		tileObject->SetNodePosition(position);
-		tileObjects.push_back(tileObject);
-		ExitBehaviour* exitBehaviour = dynamic_cast<ExitBehaviour*>(newGameObject->getBehaviour());
-		exitBehaviour->SetExitNode(tileObject->GetNode());
-		exitBehaviour->SetPreviousType(NODETYPE::EXIT);
+		addToTileObjectsandSetNode(newGameObject, position);
 		exitObject = newGameObject;
 	}
 	if ("PLAYER" == objectType)
@@ -82,22 +77,19 @@ void ObjectCreator::CreateGameObject(const std::string & objectType, const glm::
 	if ("SWITCH" == objectType)
 	{
 		newGameObject = switchFactory->CreateGameObject(objectType);
-		dynamic_cast<TileObject*>(newGameObject)->SetNodePosition(position);
-		tileObjects.push_back(dynamic_cast<TileObject*>(newGameObject));
+		addToTileObjectsandSetNode(newGameObject, position);
 		switchObjects.push_back(newGameObject);
 	}
 	if ("START" == objectType)
 	{
 		newGameObject = startFactory->CreateGameObject(objectType);
-		dynamic_cast<TileObject*>(newGameObject)->SetNodePosition(position);
-		tileObjects.push_back(dynamic_cast<TileObject*>(newGameObject));
+		addToTileObjectsandSetNode(newGameObject, position);
 
 	}
 	if ("TILE" == objectType)
 	{
 		newGameObject = tileFactory->CreateGameObject(objectType);
-		dynamic_cast<TileObject*>(newGameObject)->SetNodePosition(position);
-		tileObjects.push_back(dynamic_cast<TileObject*>(newGameObject));
+		addToTileObjectsandSetNode(newGameObject, position);
 	}
 	glm::mat4 rotationMatrix = glm::toMat4(rotation);
 
@@ -114,6 +106,36 @@ void ObjectCreator::CreateGameObject(const std::string & objectType, const glm::
 	}
 }
 
+void ObjectCreator::ConfigureBehaviourStartNodes()
+{
+	Node* startNode = TileObject::GetNodeOfType(GetTileObjects(), NODETYPE::START);
+	dynamic_cast<MovableBehaviour*>(playerObject->getBehaviour())->SetCurrentNode(startNode);
+	playerObject->setLocalPosition(startNode->GetPosition());
+
+	dynamic_cast<ExitBehaviour*>(exitObject->getBehaviour())->SubscribeToSubjects(GetSwitchObjects());
+
+	std::vector<GameObject*> boxObjects = GetBoxObjects();
+	for (unsigned int index = 0; index < boxObjects.size(); ++index)
+	{
+		GameObject* currentBox = boxObjects[index];
+
+		Node* boxNode = TileObject::GetNodeAtPosition(
+			GetTileObjects(),
+			currentBox->getLocalPosition());
+		boxNode->SetNodeType(NODETYPE::BOX);
+		boxNode->SetCurrentGameObject(currentBox);
+
+		dynamic_cast<MovableBehaviour*>(currentBox->getBehaviour())->SetCurrentNode(boxNode);
+		currentBox->setLocalPosition(boxNode->GetPosition());
+	}
+}
+
+void ObjectCreator::addToTileObjectsandSetNode(GameObject * newGameObject, const glm::vec3 & position)
+{
+	dynamic_cast<TileObject*>(newGameObject)->SetNodePosition(position);
+	tileObjects.push_back(dynamic_cast<TileObject*>(newGameObject));
+}
+
 std::vector<TileObject*>& ObjectCreator::GetTileObjects()
 {
 	return tileObjects;
@@ -126,7 +148,6 @@ std::vector<GameObject*>& ObjectCreator::GetBoxObjects()
 
 std::vector<GameObject*>& ObjectCreator::GetSwitchObjects()
 {
-	// TODO: insert return statement here
 	return switchObjects;
 }
 

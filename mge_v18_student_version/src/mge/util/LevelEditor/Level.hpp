@@ -3,12 +3,12 @@
 
 #include "mge/util/LuaScripting/LuaWrapper.hpp"
 #include "mge/core/World.hpp"
-#include "mge/gameplay/Node.hpp"
-#include "glm.hpp"
+#include "mge/util/LevelEditor/ObjectCreator.hpp"
 #include "mge/gameplay/StepTracker.hpp"
+#include "glm.hpp"
+#include <glm/gtx/quaternion.hpp>
 #include <vector>
 #include <string>
-#include "mge/util/LevelEditor/ObjectCreator.hpp"
 
 /*	Class that will be responsible for setting up the level.
 	Reads a lua file with gameobjects specified in it.
@@ -21,12 +21,7 @@ public:
 	Level(World* world);
 	~Level();
 	void CreateLevel(int levelNumber);
-	void CreateNodeConnections();
-	void SetBehaviourStartNodes();
 private:
-	Node* getStartNode();
-	Node* getNodeAtPosition(const glm::vec3& position);
-
 	World* world;
 	lua_State* config;
 	StepTracker* stepTracker;

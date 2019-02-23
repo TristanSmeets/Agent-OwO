@@ -1,8 +1,5 @@
 #include "Level.hpp"
-#include "glm.hpp"
-#include <glm/gtx/quaternion.hpp>
-#include "mge/behaviours/MovableBehaviour.hpp"
-#include "mge/behaviours/ExitBehaviour.hpp"
+
 
 Level::Level(World * world) :
 	world(world), config(LuaWrapper::InitializeLuaState("LuaGameScripts\\config.lua"))
@@ -48,68 +45,7 @@ void Level::CreateLevel(int levelNumber)
 		lua_pop(lua, 1);
 	}
 	lua_pop(lua, 1);
-	CreateNodeConnections();
+
+	TileObject::CreateNodeConnections(objectCreator->GetTileObjects());
+	objectCreator->ConfigureBehaviourStartNodes();
 }
-
-void Level::CreateNodeConnections()
-{
-	std::vector<TileObject*> tileObjects = objectCreator->GetTileObjects();
-
-	for (unsigned int index = 0; index < tileObjects.size(); ++index)
-	{
-		tileObjects[index]->CreateNodeConnections(tileObjects, index);
-		std::cout << "Amount of Connections: " << tileObjects[index]->GetNode()->GetConnectionCount() << std::endl << std::endl;
-	}
-}
-
-void Level::SetBehaviourStartNodes()
-{
-	GameObject* player = objectCreator->GetPlayer();
-	MovableBehaviour* playerBehaviour = dynamic_cast<MovableBehaviour*>(player->getBehaviour());
-	Node* startNode = getStartNode();
-	playerBehaviour->SetCurrentNode(startNode);
-	player->setLocalPosition(startNode->GetPosition());
-
-	GameObject* exitObject = objectCreator->GetExit();
-	ExitBehaviour* exitBehaviour = dynamic_cast<ExitBehaviour*>(exitObject->getBehaviour());
-	exitBehaviour->SubscribeToSubjects(objectCreator->GetSwitchObjects());
-
-	std::vector<GameObject*> boxObjects = objectCreator->GetBoxObjects();
-
-	for (unsigned int index = 0; index < boxObjects.size(); ++index)
-	{
-		Node* boxNode = getNodeAtPosition(boxObjects[index]->getLocalPosition());
-		boxNode->SetNodeType(NODETYPE::BOX);
-		boxNode->SetCurrentGameObject(boxObjects[index]);
-
-		MovableBehaviour* boxBehaviour = dynamic_cast<MovableBehaviour*>(boxObjects[index]->getBehaviour());
-		boxBehaviour->SetCurrentNode(boxNode);
-		boxObjects[index]->setLocalPosition(boxNode->GetPosition());
-	}
-}
-
-Node * Level::getStartNode()
-{
-	std::vector<TileObject*> tileObjects = objectCreator->GetTileObjects();
-	for (unsigned int index = 0; index < tileObjects.size(); ++index)
-	{
-		if (tileObjects[index]->GetNode()->GetNodeType() == NODETYPE::START)
-			return tileObjects[index]->GetNode();
-	}
-	return nullptr;
-}
-
-Node * Level::getNodeAtPosition(const glm::vec3 & position)
-{
-	std::vector<TileObject*> tileObjects = objectCreator->GetTileObjects();
-	for (unsigned int index = 0; index < tileObjects.size(); ++index)
-	{
-		glm::vec3 nodePosition = tileObjects[index]->getLocalPosition();
-		if (position.x == nodePosition.x &&
-			position.y == nodePosition.y &&
-			position.z == nodePosition.z)
-			return tileObjects[index]->GetNode();
-	}
-	return nullptr;
-}
-

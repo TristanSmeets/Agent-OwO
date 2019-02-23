@@ -130,13 +130,13 @@ std::vector<GameObject*>& ObjectCreator::GetSwitchObjects()
 	return switchObjects;
 }
 
-GameObject& ObjectCreator::GetPlayer()
+GameObject* ObjectCreator::GetPlayer()
 {
-	return *playerObject;
+	return playerObject;
 }
 
-GameObject & ObjectCreator::GetExit()
+GameObject* ObjectCreator::GetExit()
 {
-	return *exitObject;
+	return exitObject;
 }
 

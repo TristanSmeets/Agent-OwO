@@ -1,67 +1,20 @@
 #include "Level.hpp"
 #include "glm.hpp"
 #include <glm/gtx/quaternion.hpp>
-#include "mge/util/LevelEditor/Factories/BoxFactory.hpp"
-#include "mge/util/LevelEditor/Factories/CameraFactory.hpp"
-#include "mge/util/LevelEditor/Factories/ExitFactory.hpp"
-#include "mge/util/LevelEditor/Factories/PlayerFactory.hpp"
-#include "mge/util/LevelEditor/Factories/SwitchFactory.hpp"
-#include "mge/util/LevelEditor/Factories/TileFactory.hpp"
-#include "mge/core/Camera.hpp"
-#include "mge/behaviours/KeysBehaviour.hpp"
 #include "mge/behaviours/MovableBehaviour.hpp"
 #include "mge/behaviours/ExitBehaviour.hpp"
 
-Level::Level(World * world) : world(world), config(LuaWrapper::InitializeLuaState("LuaGameScripts\\config.lua"))
+Level::Level(World * world) :
+	world(world), config(LuaWrapper::InitializeLuaState("LuaGameScripts\\config.lua"))
 {
-	boxFactory = new BoxFactory(config);
-	cameraFactory = new CameraFactory();
-	exitFactory = new ExitFactory(config);
-	playerFactory = new PlayerFactory(config);
-	startFactory = new StartFactory(config);
-	switchFactory = new SwitchFactory(config);
-	tileFactory = new TileFactory(config);
+	objectCreator = new ObjectCreator(config, world);
 }
 
 Level::~Level()
 {
 	std::cout << "GC running on:Level.\n";
-	
 	delete stepTracker;
-	delete boxFactory;
-	delete cameraFactory;
-	delete exitFactory;
-	delete playerFactory;
-	delete startFactory;
-	delete switchFactory;
-	delete tileFactory;
-
-	std::cout << "\nCleaning TileObjects\n";
-	for (unsigned int index = 0; index < tileObjects.size(); ++index)
-	{
-		tileObjects[index] = nullptr;
-	}
-	tileObjects.clear();
-
-	std::cout << "\nCleaning BoxObjects\n";
-	for (unsigned int index = 0; index < boxObjects.size(); ++index)
-	{
-		delete boxObjects[index]->getBehaviour();
-		boxObjects[index] = nullptr;
-	}
-	boxObjects.clear();
-
-	std::cout << "\nCleaning SwitchObjects\n";
-	for (unsigned int index = 0; index < switchObjects.size(); ++index)
-	{
-		delete switchObjects[index]->getBehaviour();
-		switchObjects[index] = nullptr;
-	}
-	switchObjects.clear();
-
-	player = nullptr;
-	exitObject = nullptr;
-
+	delete objectCreator;
 	LuaWrapper::CloseLuaState(config);
 }
 
@@ -90,63 +43,7 @@ void Level::CreateLevel(int levelNumber)
 		printf("Rotation: (%f, %f, %f, %f)\n", rotation.x, rotation.y, rotation.z, rotation.w);
 		printf("Scale: (%f, %f, %f)\n", scale.x, scale.y, scale.z);*/
 
-		GameObject* newGameObject;
-		if ("BOX" == typeString)
-		{
-			newGameObject = boxFactory->CreateGameObject(typeString);
-			boxObjects.push_back(newGameObject);
-		}
-		if ("CAMERA" == typeString)
-			newGameObject = cameraFactory->CreateGameObject(typeString);
-		if ("EXIT" == typeString) 
-		{
-			newGameObject = exitFactory->CreateGameObject(typeString);
-			TileObject* tileObject = dynamic_cast<TileObject*>(newGameObject);
-			tileObject->SetNodePosition(position);
-			tileObjects.push_back(tileObject);
-			ExitBehaviour* exitBehaviour = dynamic_cast<ExitBehaviour*>(newGameObject->getBehaviour());
-			exitBehaviour->SetExitNode(tileObject->GetNode());
-			exitBehaviour->SetPreviousType(NODETYPE::EXIT);
-			exitObject = newGameObject;
-		}
-		if ("PLAYER" == typeString)
-		{
-			newGameObject = playerFactory->CreateGameObject(typeString);
-			player = newGameObject;
-		}
-		if ("SWITCH" == typeString)
-		{
-			newGameObject = switchFactory->CreateGameObject(typeString);
-			dynamic_cast<TileObject*>(newGameObject)->SetNodePosition(position);
-			tileObjects.push_back(dynamic_cast<TileObject*>(newGameObject));
-			switchObjects.push_back(newGameObject);
-		}
-		if ("START" == typeString)
-		{
-			newGameObject = startFactory->CreateGameObject(typeString);
-			dynamic_cast<TileObject*>(newGameObject)->SetNodePosition(position);
-			tileObjects.push_back(dynamic_cast<TileObject*>(newGameObject));
-
-		}
-		if ("TILE" == typeString)
-		{
-			newGameObject = tileFactory->CreateGameObject(typeString);
-			dynamic_cast<TileObject*>(newGameObject)->SetNodePosition(position);
-			tileObjects.push_back(dynamic_cast<TileObject*>(newGameObject));
-		}
-		glm::mat4 rotationMatrix = glm::toMat4(rotation);
-		
-		glm::mat4 translationMatrix = glm::translate(glm::mat4(), position);
-		newGameObject->setTransform(translationMatrix * rotationMatrix);
-		newGameObject->scale(scale);
-		world->add(newGameObject);
-		
-		if ("CAMERA" == typeString)
-		{
-			newGameObject->setBehaviour(new KeysBehaviour());
-			newGameObject->rotate(glm::radians(180.0f), glm::vec3(0, 1, 0));
-			world->setMainCamera(dynamic_cast<Camera*>(newGameObject));
-		}
+		objectCreator->CreateGameObject(typeString, position, rotation, scale);
 		//Removes 'value'. keeps 'key' for next iteration
 		lua_pop(lua, 1);
 	}
@@ -156,6 +53,8 @@ void Level::CreateLevel(int levelNumber)
 
 void Level::CreateNodeConnections()
 {
+	std::vector<TileObject*> tileObjects = objectCreator->GetTileObjects();
+
 	for (unsigned int index = 0; index < tileObjects.size(); ++index)
 	{
 		tileObjects[index]->CreateNodeConnections(tileObjects, index);
@@ -165,13 +64,17 @@ void Level::CreateNodeConnections()
 
 void Level::SetBehaviourStartNodes()
 {
+	GameObject* player = objectCreator->GetPlayer();
 	MovableBehaviour* playerBehaviour = dynamic_cast<MovableBehaviour*>(player->getBehaviour());
 	Node* startNode = getStartNode();
 	playerBehaviour->SetCurrentNode(startNode);
 	player->setLocalPosition(startNode->GetPosition());
 
+	GameObject* exitObject = objectCreator->GetExit();
 	ExitBehaviour* exitBehaviour = dynamic_cast<ExitBehaviour*>(exitObject->getBehaviour());
-	exitBehaviour->SubscribeToSubjects(switchObjects);
+	exitBehaviour->SubscribeToSubjects(objectCreator->GetSwitchObjects());
+
+	std::vector<GameObject*> boxObjects = objectCreator->GetBoxObjects();
 
 	for (unsigned int index = 0; index < boxObjects.size(); ++index)
 	{
@@ -187,6 +90,7 @@ void Level::SetBehaviourStartNodes()
 
 Node * Level::getStartNode()
 {
+	std::vector<TileObject*> tileObjects = objectCreator->GetTileObjects();
 	for (unsigned int index = 0; index < tileObjects.size(); ++index)
 	{
 		if (tileObjects[index]->GetNode()->GetNodeType() == NODETYPE::START)
@@ -197,6 +101,7 @@ Node * Level::getStartNode()
 
 Node * Level::getNodeAtPosition(const glm::vec3 & position)
 {
+	std::vector<TileObject*> tileObjects = objectCreator->GetTileObjects();
 	for (unsigned int index = 0; index < tileObjects.size(); ++index)
 	{
 		glm::vec3 nodePosition = tileObjects[index]->getLocalPosition();

@@ -2,19 +2,13 @@
 #define LEVEL_HPP
 
 #include "mge/util/LuaScripting/LuaWrapper.hpp"
-#include "mge/util/LevelEditor/Factories/BoxFactory.hpp"
-#include "mge/util/LevelEditor/Factories/CameraFactory.hpp"
-#include "mge/util/LevelEditor/Factories/ExitFactory.hpp"
-#include "mge/util/LevelEditor/Factories/PlayerFactory.hpp"
-#include "mge/util/LevelEditor/Factories/StartFactory.hpp"
-#include "mge/util/LevelEditor/Factories/SwitchFactory.hpp"
-#include "mge/util/LevelEditor/Factories/TileFactory.hpp"
 #include "mge/core/World.hpp"
 #include "mge/gameplay/Node.hpp"
 #include "glm.hpp"
 #include "mge/gameplay/StepTracker.hpp"
 #include <vector>
 #include <string>
+#include "mge/util/LevelEditor/ObjectCreator.hpp"
 
 /*	Class that will be responsible for setting up the level.
 	Reads a lua file with gameobjects specified in it.
@@ -33,22 +27,10 @@ private:
 	Node* getStartNode();
 	Node* getNodeAtPosition(const glm::vec3& position);
 
-	StepTracker* stepTracker;
 	World* world;
 	lua_State* config;
-	BoxFactory* boxFactory;
-	CameraFactory* cameraFactory;
-	ExitFactory* exitFactory;
-	PlayerFactory* playerFactory;
-	StartFactory* startFactory;
-	SwitchFactory* switchFactory;
-	TileFactory* tileFactory;
-	GameObject* player;
-	GameObject* exitObject;
-	std::vector<TileObject*> tileObjects;
-	std::vector<GameObject*> boxObjects;
-	std::vector<GameObject*> switchObjects;
-	
+	StepTracker* stepTracker;
+	ObjectCreator* objectCreator;
 };
 
 #endif // !LEVEL_HPP

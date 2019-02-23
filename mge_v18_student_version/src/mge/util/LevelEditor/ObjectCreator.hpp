@@ -9,6 +9,7 @@
 #include "mge/core/World.hpp"
 #include <vector>
 #include "glm.hpp"
+#include <glm/gtx/quaternion.hpp>
 
 class ObjectCreator
 {
@@ -19,8 +20,8 @@ public:
 	std::vector<TileObject*>& GetTileObjects();
 	std::vector<GameObject*>& GetBoxObjects();
 	std::vector<GameObject*>& GetSwitchObjects();
-	GameObject& GetPlayer();
-	GameObject& GetExit();
+	GameObject* GetPlayer();
+	GameObject* GetExit();
 
 private:
 	lua_State* config;

@@ -1,7 +1,4 @@
-#ifndef LEVEL_HPP
-#define LEVEL_HPP
-
-#include "mge/util/LuaScripting/LuaWrapper.hpp"
+#pragma once
 #include "mge/util/LevelEditor/Factories/BoxFactory.hpp"
 #include "mge/util/LevelEditor/Factories/CameraFactory.hpp"
 #include "mge/util/LevelEditor/Factories/ExitFactory.hpp"
@@ -10,32 +7,24 @@
 #include "mge/util/LevelEditor/Factories/SwitchFactory.hpp"
 #include "mge/util/LevelEditor/Factories/TileFactory.hpp"
 #include "mge/core/World.hpp"
-#include "mge/gameplay/Node.hpp"
-#include "glm.hpp"
-#include "mge/gameplay/StepTracker.hpp"
 #include <vector>
-#include <string>
+#include "glm.hpp"
 
-/*	Class that will be responsible for setting up the level.
-	Reads a lua file with gameobjects specified in it.
-	Calls on a factory to create the gameobjects.
-	Places the gameobjects it gets from the factory in the right position
-*/
-class Level
+class ObjectCreator
 {
 public:
-	Level(World* world);
-	~Level();
-	void CreateLevel(int levelNumber);
-	void CreateNodeConnections();
-	void SetBehaviourStartNodes();
-private:
-	Node* getStartNode();
-	Node* getNodeAtPosition(const glm::vec3& position);
+	ObjectCreator(lua_State* config, World* world);
+	~ObjectCreator();
+	void CreateGameObject(const std::string& objectType, const glm::vec3& position, const glm::quat& rotation, const glm::vec3& scale);
+	std::vector<TileObject*>& GetTileObjects();
+	std::vector<GameObject*>& GetBoxObjects();
+	std::vector<GameObject*>& GetSwitchObjects();
+	GameObject& GetPlayer();
+	GameObject& GetExit();
 
-	StepTracker* stepTracker;
-	World* world;
+private:
 	lua_State* config;
+	World* world;
 	BoxFactory* boxFactory;
 	CameraFactory* cameraFactory;
 	ExitFactory* exitFactory;
@@ -43,13 +32,9 @@ private:
 	StartFactory* startFactory;
 	SwitchFactory* switchFactory;
 	TileFactory* tileFactory;
-	GameObject* player;
+	GameObject* playerObject;
 	GameObject* exitObject;
 	std::vector<TileObject*> tileObjects;
 	std::vector<GameObject*> boxObjects;
 	std::vector<GameObject*> switchObjects;
-	
 };
-
-#endif // !LEVEL_HPP
-

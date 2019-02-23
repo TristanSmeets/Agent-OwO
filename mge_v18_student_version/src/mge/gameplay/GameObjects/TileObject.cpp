@@ -3,7 +3,7 @@
 #include <iostream>
 
 TileObject::TileObject(lua_State* tileLua, const std::string & name, const glm::vec3 & position)
-	: GameObject("GameObject: " + name, position)
+	: GameObject(name, position)
 {
 	node = new Node(position,
 		LuaWrapper::GetNumber<float>(tileLua, "TileSize"),
@@ -37,7 +37,7 @@ void TileObject::CreateNodeConnections(const std::vector<TileObject*>& tileObjec
 {
 	glm::vec3 position = getLocalPosition();
 	float tileSize = GetNode()->GetSize();
-	std::cout << "Creating connections for TileType"<< GetNode()->GetNodeType() <<" Node in TileObject#" << currentTile << std::endl;
+	std::cout << "Creating connections for TileType "<< GetNode()->GetNodeType() <<" Node in TileObject#" << currentTile << std::endl;
 	for (int index = 0; index < tileObjects.size(); index++)
 	{
 		if (index != currentTile)
@@ -47,28 +47,28 @@ void TileObject::CreateNodeConnections(const std::vector<TileObject*>& tileObjec
 				position.y == other.y &&
 				position.z + tileSize == other.z)
 			{
-				std::cout << "Creating RIGHT connection with Tile#" << index << std::endl;
+				//std::cout << "Creating RIGHT connection with Tile#" << index << std::endl;
 				GetNode()->AddConnection(DIRECTION::RIGHT, tileObjects[index]->GetNode());
 			}
 			else if (position.x == other.x &&
 				position.y == other.y &&
 				position.z - tileSize == other.z)
 			{
-				std::cout << "Creating LEFT connection with Tile#" << index << std::endl;
+				//std::cout << "Creating LEFT connection with Tile#" << index << std::endl;
 				GetNode()->AddConnection(DIRECTION::LEFT, tileObjects[index]->GetNode());
 			}
 			else if (position.x - tileSize == other.x &&
 				position.y == other.y &&
 				position.z == other.z)
 			{
-				std::cout << "Creating DOWN connection with Tile#" << index << std::endl;
+				//std::cout << "Creating DOWN connection with Tile#" << index << std::endl;
 				GetNode()->AddConnection(DIRECTION::DOWN, tileObjects[index]->GetNode());
 			}
 			else if (position.x + tileSize == other.x &&
 				position.y == other.y &&
 				position.z == other.z)
 			{
-				std::cout << "Creating UP connection with Tile#" << index << std::endl;
+				//std::cout << "Creating UP connection with Tile#" << index << std::endl;
 				GetNode()->AddConnection(DIRECTION::UP, tileObjects[index]->GetNode());
 			}
 		}

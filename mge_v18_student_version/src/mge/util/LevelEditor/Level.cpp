@@ -36,23 +36,23 @@ Level::~Level()
 	delete switchFactory;
 	delete tileFactory;
 
-	std::cout << "Cleaning TileObjects\n";
-	for (int index = 0; index < tileObjects.size(); ++index)
+	std::cout << "\nCleaning TileObjects\n";
+	for (unsigned int index = 0; index < tileObjects.size(); ++index)
 	{
 		tileObjects[index] = nullptr;
 	}
 	tileObjects.clear();
 
-	std::cout << "Cleaning BoxObjects\n";
-	for (int index = 0; index < boxObjects.size(); ++index)
+	std::cout << "\nCleaning BoxObjects\n";
+	for (unsigned int index = 0; index < boxObjects.size(); ++index)
 	{
 		delete boxObjects[index]->getBehaviour();
 		boxObjects[index] = nullptr;
 	}
 	boxObjects.clear();
 
-	std::cout << "Cleaning SwitchObjects\n";
-	for (int index = 0; index < switchObjects.size(); ++index)
+	std::cout << "\nCleaning SwitchObjects\n";
+	for (unsigned int index = 0; index < switchObjects.size(); ++index)
 	{
 		delete switchObjects[index]->getBehaviour();
 		switchObjects[index] = nullptr;
@@ -71,10 +71,9 @@ void Level::CreateLevel(int levelNumber)
 
 	//Open the lua file.
 	std::string filePath = "LuaGameScripts/Level/Level_" + std::to_string(levelNumber) + ".lua";
-
 	lua_State* lua = LuaWrapper::InitializeLuaState(filePath);
+	
 	//Get table from luaFile and put it on the stack at -1
-	std::cout << "Getting GameObjects table from lua" << std::endl;
 	lua_getglobal(lua, "GameObjects");
 
 	//Looping over the entire table
@@ -82,15 +81,14 @@ void Level::CreateLevel(int levelNumber)
 	while (lua_next(lua, -2) != 0)
 	{
 		//uses 'key' (at index -2) and 'value' (at index -1) 
-
 		std::string typeString = LuaWrapper::GetTableString(lua, "Type");
 		glm::vec3 position = LuaWrapper::GetTableVec3(lua, "Position");
 		glm::quat rotation = LuaWrapper::GetTableQuat(lua, "Rotation");
 		glm::vec3 scale = LuaWrapper::GetTableVec3(lua, "Scale");
-		std::cout << "\nType: " << typeString << std::endl;
+		/*std::cout << "\nType: " << typeString << std::endl;
 		printf("Position: (%f, %f, %f)\n", position.x, position.y, position.z);
 		printf("Rotation: (%f, %f, %f, %f)\n", rotation.x, rotation.y, rotation.z, rotation.w);
-		printf("Scale: (%f, %f, %f)\n", scale.x, scale.y, scale.z);
+		printf("Scale: (%f, %f, %f)\n", scale.x, scale.y, scale.z);*/
 
 		GameObject* newGameObject;
 		if ("BOX" == typeString)
@@ -158,14 +156,14 @@ void Level::CreateLevel(int levelNumber)
 
 void Level::CreateNodeConnections()
 {
-	for (int index = 0; index < tileObjects.size(); ++index)
+	for (unsigned int index = 0; index < tileObjects.size(); ++index)
 	{
 		tileObjects[index]->CreateNodeConnections(tileObjects, index);
 		std::cout << "Amount of Connections: " << tileObjects[index]->GetNode()->GetConnectionCount() << std::endl << std::endl;
 	}
 }
 
-void Level::SetMovableBehaviourStartNodes()
+void Level::SetBehaviourStartNodes()
 {
 	MovableBehaviour* playerBehaviour = dynamic_cast<MovableBehaviour*>(player->getBehaviour());
 	Node* startNode = getStartNode();
@@ -175,7 +173,7 @@ void Level::SetMovableBehaviourStartNodes()
 	ExitBehaviour* exitBehaviour = dynamic_cast<ExitBehaviour*>(exitObject->getBehaviour());
 	exitBehaviour->SubscribeToSubjects(switchObjects);
 
-	for (int index = 0; index < boxObjects.size(); ++index)
+	for (unsigned int index = 0; index < boxObjects.size(); ++index)
 	{
 		Node* boxNode = getNodeAtPosition(boxObjects[index]->getLocalPosition());
 		boxNode->SetNodeType(NODETYPE::BOX);
@@ -185,35 +183,27 @@ void Level::SetMovableBehaviourStartNodes()
 		boxBehaviour->SetCurrentNode(boxNode);
 		boxObjects[index]->setLocalPosition(boxNode->GetPosition());
 	}
-	
 }
-
 
 Node * Level::getStartNode()
 {
-	for (int index = 0; index < tileObjects.size(); ++index)
+	for (unsigned int index = 0; index < tileObjects.size(); ++index)
 	{
 		if (tileObjects[index]->GetNode()->GetNodeType() == NODETYPE::START)
-		{
-			std::cout << "Found START node\n";
 			return tileObjects[index]->GetNode();
-		}
 	}
 	return nullptr;
 }
 
 Node * Level::getNodeAtPosition(const glm::vec3 & position)
 {
-	for (int index = 0; index < tileObjects.size(); ++index)
+	for (unsigned int index = 0; index < tileObjects.size(); ++index)
 	{
 		glm::vec3 nodePosition = tileObjects[index]->getLocalPosition();
 		if (position.x == nodePosition.x &&
 			position.y == nodePosition.y &&
 			position.z == nodePosition.z)
-		{
-			std::cout << "Found NODE at " << position << std::endl;
 			return tileObjects[index]->GetNode();
-		}
 	}
 	return nullptr;
 }

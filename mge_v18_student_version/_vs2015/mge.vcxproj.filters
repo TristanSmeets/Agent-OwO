@@ -254,6 +254,9 @@
     <ClInclude Include="..\src\mge\gameplay\StepTracker.hpp">
       <Filter>MGE Source files\mge\gameplay</Filter>
     </ClInclude>
+    <ClInclude Include="..\src\mge\util\LevelEditor\ObjectCreator.hpp">
+      <Filter>MGE Source files\mge\util\LevelEditor</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\main.cpp">
@@ -432,6 +435,9 @@
     </ClCompile>
     <ClCompile Include="..\src\mge\gameplay\StepTracker.cpp">
       <Filter>MGE Source files\mge\gameplay</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\mge\util\LevelEditor\ObjectCreator.cpp">
+      <Filter>MGE Source files\mge\util\LevelEditor</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

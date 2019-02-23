@@ -31,7 +31,7 @@ void GameScene::_initializeScene()
 	std::cout << "Creating the Level\n";
 	level = new Level(_world);
 	level->CreateLevel(LuaWrapper::GetNumber<int>(config, "LevelToLoad"));
-	level->SetMovableBehaviourStartNodes();
+	level->SetBehaviourStartNodes();
 }
 
 void GameScene::_render()

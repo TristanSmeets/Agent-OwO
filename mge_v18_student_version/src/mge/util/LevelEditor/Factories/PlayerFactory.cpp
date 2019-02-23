@@ -10,7 +10,7 @@ PlayerFactory::PlayerFactory(lua_State* config) : AbstractFactory()
 	std::string playerFile = LuaWrapper::GetString(config, "Player");
 	lua_State* luaPlayer = LuaWrapper::InitializeLuaState(playerFile);
 
-	std::cout << "Loading Player Mesh\n";
+	std::cout << "\nLoading Player Mesh\n";
 	mesh = getMesh(luaPlayer);
 	std::cout << "Loading Player TextureMaterial\n";
 	material = getTextureMaterial(luaPlayer);

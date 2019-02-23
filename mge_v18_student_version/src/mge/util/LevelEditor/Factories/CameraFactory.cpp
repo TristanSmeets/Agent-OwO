@@ -6,13 +6,12 @@ CameraFactory::CameraFactory() : AbstractFactory()
 {
 	material = nullptr;
 	mesh = nullptr;
-	behaviour = new NullBehaviour();
+	behaviour = nullptr;
 }
 
 CameraFactory::~CameraFactory()
 {
 	std::cout << "GC running on:CameraFactory\n";
-	delete behaviour;
 }
 
 GameObject* CameraFactory::CreateGameObject(const std::string & name)

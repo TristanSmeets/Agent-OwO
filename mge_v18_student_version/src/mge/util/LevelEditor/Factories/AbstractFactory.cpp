@@ -8,6 +8,9 @@ AbstractFactory::AbstractFactory()
 
 AbstractFactory::~AbstractFactory()
 {
+	material = nullptr;
+	behaviour = nullptr;
+	mesh = nullptr;
 }
 
 void AbstractFactory::addMesh(GameObject * gameObject)

@@ -1,6 +1,4 @@
 #include "mge/scenes/GameScene.hpp"
-#include "mge/core/Camera.hpp"
-#include "mge/behaviours/KeysBehaviour.hpp"
 #include <iostream>
 
 GameScene::GameScene() : AbstractGame(), config(LuaWrapper::InitializeLuaState("LuaGameScripts\\config.lua"))
@@ -31,7 +29,6 @@ void GameScene::_initializeScene()
 	std::cout << "Creating the Level\n";
 	level = new Level(_world);
 	level->CreateLevel(LuaWrapper::GetNumber<int>(config, "LevelToLoad"));
-	level->SetMovableBehaviourStartNodes();
 }
 
 void GameScene::_render()

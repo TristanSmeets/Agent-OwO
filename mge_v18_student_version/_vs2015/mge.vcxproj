@@ -228,6 +228,7 @@
     <ClInclude Include="..\src\mge\util\LevelEditor\Factories\SwitchFactory.hpp" />
     <ClInclude Include="..\src\mge\util\LevelEditor\Factories\TileFactory.hpp" />
     <ClInclude Include="..\src\mge\util\LevelEditor\Level.hpp" />
+    <ClInclude Include="..\src\mge\util\LevelEditor\ObjectCreator.hpp" />
     <ClInclude Include="..\src\mge\util\LuaScripting\DisplayGrid.h" />
     <ClInclude Include="..\src\mge\util\LuaScripting\LuaWrapper.hpp" />
     <ClInclude Include="..\src\mge\util\LuaScripting\RectangleShapeWrapper.hpp" />
@@ -289,6 +290,7 @@
     <ClCompile Include="..\src\mge\util\LevelEditor\Factories\SwitchFactory.cpp" />
     <ClCompile Include="..\src\mge\util\LevelEditor\Factories\TileFactory.cpp" />
     <ClCompile Include="..\src\mge\util\LevelEditor\Level.cpp" />
+    <ClCompile Include="..\src\mge\util\LevelEditor\ObjectCreator.cpp" />
     <ClCompile Include="..\src\mge\util\LuaScripting\DisplayGrid.cpp" />
     <ClCompile Include="..\src\mge\util\LuaScripting\LuaWrapper.cpp" />
     <ClCompile Include="..\src\mge\util\LuaScripting\RectangleShapeWrapper.cpp" />

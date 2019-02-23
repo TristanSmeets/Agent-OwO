@@ -7,13 +7,13 @@
 
 MovableBehaviour::MovableBehaviour() : AbstractBehaviour()
 {
-	std::cout << "Creating MovableBehavior\n";
+	//std::cout << "Creating MovableBehavior\n";
 	inputHandler = new PlayerInput(this);
 }
 
 MovableBehaviour::MovableBehaviour(MOVABLE_TYPE movable) : AbstractBehaviour(), movableType(movable)
 {
-	std::cout << "Creating MovableBehaviour\n";
+	//std::cout << "Creating MovableBehaviour\n";
 	switch (movable)
 	{
 	case MOVABLE_TYPE::BOX_OBJECT:
@@ -27,7 +27,7 @@ MovableBehaviour::MovableBehaviour(MOVABLE_TYPE movable) : AbstractBehaviour(), 
 
 MovableBehaviour::~MovableBehaviour()
 {
-	std::cout << "GC running on:MovableBehaviour\n";
+	std::cout << "\nGC running on:MovableBehaviour\n";
 	AbstractBehaviour::~AbstractBehaviour();
 	currentNode = nullptr;
 	delete inputHandler;

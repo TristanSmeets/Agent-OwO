@@ -13,8 +13,11 @@ public:
 	virtual ~TileObject();
 	Node* GetNode();
 	void SetNodePosition(const glm::vec3& position);
-	void CreateNodeConnections(const std::vector<TileObject*>& tileObjects, int currentTile);
+	static void CreateNodeConnections(const std::vector<TileObject*>& tileObjects);
+	static Node* GetNodeAtPosition(const std::vector<TileObject*>& tileObjects, const glm::vec3& position);
+	static Node* GetNodeOfType(const std::vector<TileObject*>& tileObjects, const NODETYPE nodeType);
 
 protected:
 	Node* node;
+	bool hasNeighbouringTile(const DIRECTION& direction, const glm::vec3& other, float tileSize);
 };

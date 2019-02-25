@@ -65,8 +65,8 @@ newGameObject8.Type = 'TILE'
 table.insert(GameObjects, newGameObject8)
 
 local newGameObject9 = GameObject:new()
-newGameObject9.Position = { x = -10.29049, y = 8.05, z = -1.290165 }
-newGameObject9.Rotation = { x = 0.3261273, y = 0.3956723, z = -0.1527379, w = 0.8448406 }
+newGameObject9.Position = { x = -11.3, y = 7.3, z = -1.33 }
+newGameObject9.Rotation = { x = 0.2499042, y = 0.4524352, z = -0.1337168, w = 0.8455591 }
 newGameObject9.Scale = { x = 1, y = 1, z = 1 }
 newGameObject9.Type = 'CAMERA'
 table.insert(GameObjects, newGameObject9)

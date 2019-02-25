@@ -7,6 +7,7 @@ CameraFactory::CameraFactory() : AbstractFactory()
 	material = nullptr;
 	mesh = nullptr;
 	behaviour = nullptr;
+
 }
 
 CameraFactory::~CameraFactory()
@@ -17,8 +18,8 @@ CameraFactory::~CameraFactory()
 GameObject* CameraFactory::CreateGameObject(const std::string & name)
 {
 	std::cout << "Creating " << name << std::endl;
-	return new Camera(name);//,
-		//glm::vec3(0,0,0),
-		//glm::ortho(0.0f,1280.0f,0.0f,720.0f,0.1f,100.0f));
+	return new Camera(name,
+		glm::vec3(0, 0, 0),
+		glm::ortho(-7.5f, 7.5f, -3.0f, 4.0f, 0.1f, 100.0f));
 }
 

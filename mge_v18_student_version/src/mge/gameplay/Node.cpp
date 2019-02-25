@@ -117,3 +117,9 @@ void Node::SetIsOpen(bool value)
 	isOpen = value;
 }
 
+void Node::ResetNode()
+{
+	ResetNodeType();
+	ClearCurrentGameObject();
+}
+

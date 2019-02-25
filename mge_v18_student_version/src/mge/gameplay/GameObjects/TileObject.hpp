@@ -3,6 +3,7 @@
 #include "mge/core/GameObject.hpp"
 #include "mge/gameplay/Node.hpp"
 #include "mge/util/LuaScripting/LuaWrapper.hpp"
+#include <vector>
 
 class Node;
 
@@ -15,7 +16,8 @@ public:
 	void SetNodePosition(const glm::vec3& position);
 	static void CreateNodeConnections(const std::vector<TileObject*>& tileObjects);
 	static Node* GetNodeAtPosition(const std::vector<TileObject*>& tileObjects, const glm::vec3& position);
-	static Node* GetNodeOfType(const std::vector<TileObject*>& tileObjects, const NODETYPE nodeType);
+	static std::vector<Node*> GetNodesOfType(const std::vector<TileObject*>& tileObjects, const NODETYPE nodeType);
+	static void ResetNodes(const std::vector<TileObject*>& tileObjects);
 
 protected:
 	Node* node;

@@ -46,6 +46,7 @@ public:
 	void ClearCurrentGameObject();
 	GameObject* GetCurrentGameObject();
 	void SetIsOpen(bool value);
+	void ResetNode();
 
 private:
 	glm::vec3 position;

@@ -1,10 +1,11 @@
 #include "Level.hpp"
 
 
-Level::Level(World * world) :
+Level::Level(World * world) : Observer<GeneralEvent>(),
 	world(world), config(LuaWrapper::InitializeLuaState("LuaGameScripts\\config.lua"))
 {
 	objectCreator = new ObjectCreator(config, world);
+	EventQueue::AddObserver(this);
 }
 
 Level::~Level()
@@ -48,4 +49,18 @@ void Level::CreateLevel(int levelNumber)
 
 	TileObject::CreateNodeConnections(objectCreator->GetTileObjects());
 	objectCreator->ConfigureBehaviourStartNodes();
+}
+
+void Level::Resetlevel()
+{
+	TileObject::ResetNodes(objectCreator->GetTileObjects());
+	objectCreator->ResetMovableObjects();
+}
+
+void Level::OnNotify(const GeneralEvent & eventInfo)
+{
+	if (eventInfo.ResetLevel)
+	{
+		Resetlevel();
+	}
 }

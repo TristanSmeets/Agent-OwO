@@ -11,6 +11,7 @@ public:
 	void OnNotify(const GeneralEvent& info);
 
 private:
+	int totalSteps;
 	int stepsLeft;
 	bool isUnlimited;
 };

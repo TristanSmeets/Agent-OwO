@@ -36,5 +36,14 @@ Command * PlayerInput::HandleInput()
 	//RIGHT
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))
 		return moveRight;
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::R) &&
+		buttonPressed == false)
+	{
+		GeneralEvent info;
+		info.ResetLevel = true;
+		EventQueue::QueueEvent(info);
+		buttonPressed = true;
+	}
+	buttonPressed = sf::Keyboard::isKeyPressed(sf::Keyboard::R);
 	return nullptr;
 }

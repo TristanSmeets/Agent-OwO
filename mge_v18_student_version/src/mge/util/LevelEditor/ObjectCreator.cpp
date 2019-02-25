@@ -108,12 +108,19 @@ void ObjectCreator::CreateGameObject(const std::string & objectType, const glm::
 
 void ObjectCreator::ConfigureBehaviourStartNodes()
 {
-	Node* startNode = TileObject::GetNodeOfType(GetTileObjects(), NODETYPE::START);
-	dynamic_cast<MovableBehaviour*>(playerObject->getBehaviour())->SetCurrentNode(startNode);
-	playerObject->setLocalPosition(startNode->GetPosition());
-
+	configurePlayer();
 	dynamic_cast<ExitBehaviour*>(exitObject->getBehaviour())->SubscribeToSubjects(GetSwitchObjects());
+	configureBoxes();
+}
 
+void ObjectCreator::ResetMovableObjects()
+{
+	configurePlayer();
+	resetBoxes();
+}
+
+void ObjectCreator::configureBoxes()
+{
 	std::vector<GameObject*> boxObjects = GetBoxObjects();
 	for (unsigned int index = 0; index < boxObjects.size(); ++index)
 	{
@@ -127,6 +134,30 @@ void ObjectCreator::ConfigureBehaviourStartNodes()
 
 		dynamic_cast<MovableBehaviour*>(currentBox->getBehaviour())->SetCurrentNode(boxNode);
 		currentBox->setLocalPosition(boxNode->GetPosition());
+	}
+	boxStartingNodes = TileObject::GetNodesOfType(GetTileObjects(), NODETYPE::BOX);
+}
+
+void ObjectCreator::configurePlayer()
+{
+	std::vector<Node*> playerNodes = TileObject::GetNodesOfType(GetTileObjects(), NODETYPE::START);
+	Node* startNode = playerNodes[0];
+	dynamic_cast<MovableBehaviour*>(playerObject->getBehaviour())->SetCurrentNode(startNode);
+	playerObject->setLocalPosition(startNode->GetPosition());
+}
+
+void ObjectCreator::resetBoxes()
+{
+	std::vector<GameObject*> boxObjects = GetBoxObjects();
+
+	for (unsigned int current = 0; current < boxObjects.size(); ++current)
+	{
+		Node* boxNode = boxStartingNodes[current];
+		GameObject* boxObject = boxObjects[current];
+		dynamic_cast<MovableBehaviour*>(boxObject->getBehaviour())->SetCurrentNode(boxNode);
+		boxNode->SetNodeType(NODETYPE::BOX);
+		boxNode->SetCurrentGameObject(boxObject);
+		boxObject->setLocalPosition(boxNode->GetPosition());
 	}
 }
 

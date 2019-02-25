@@ -8,4 +8,5 @@ struct SwitchEvent
 struct GeneralEvent
 {
 	int stepsTaken = 0;
+	bool ResetLevel = false;
 };

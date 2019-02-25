@@ -15,4 +15,5 @@ private:
 	Command* moveDown;
 	Command* moveLeft;
 	Command* moveRight;
+	bool buttonPressed;
 };

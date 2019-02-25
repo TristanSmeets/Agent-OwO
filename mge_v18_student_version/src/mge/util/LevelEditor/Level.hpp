@@ -15,12 +15,15 @@
 	Calls on a factory to create the gameobjects.
 	Places the gameobjects it gets from the factory in the right position
 */
-class Level
+class Level : Observer<GeneralEvent>
 {
 public:
 	Level(World* world);
 	~Level();
 	void CreateLevel(int levelNumber);
+	void Resetlevel();
+	void OnNotify(const GeneralEvent& eventInfo);
+
 private:
 	World* world;
 	lua_State* config;

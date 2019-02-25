@@ -73,14 +73,24 @@ Node * TileObject::GetNodeAtPosition(const std::vector<TileObject*>& tileObjects
 	return nullptr;
 }
 
-Node * TileObject::GetNodeOfType(const std::vector<TileObject*>& tileObjects, const NODETYPE nodeType)
+std::vector<Node*> TileObject::GetNodesOfType(const std::vector<TileObject*>& tileObjects, const NODETYPE nodeType)
 {
+	std::vector<Node*> nodes;
+
 	for (unsigned int index = 0; index < tileObjects.size(); ++index)
 	{
 		if (tileObjects[index]->GetNode()->GetNodeType() == nodeType)
-			return tileObjects[index]->GetNode();
+			nodes.push_back(tileObjects[index]->GetNode());
 	}
-	return nullptr;
+	return nodes;
+}
+
+void TileObject::ResetNodes(const std::vector<TileObject*>& tileObjects)
+{
+	for (unsigned int index = 0; index < tileObjects.size(); ++index)
+	{
+		tileObjects[index]->GetNode()->ResetNode();
+	}
 }
 
 bool TileObject::hasNeighbouringTile(const DIRECTION & direction, const glm::vec3& other, float tileSize)

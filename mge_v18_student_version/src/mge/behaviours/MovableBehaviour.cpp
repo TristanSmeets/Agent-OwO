@@ -61,8 +61,8 @@ void MovableBehaviour::update(float pStep)
 
 void MovableBehaviour::Move()
 {
-	_owner->setLocalPosition(destinationNode->GetPosition());
 	currentNode = destinationNode;
+	_owner->setLocalPosition(currentNode->GetPosition());
 }
 
 MOVABLE_TYPE MovableBehaviour::GetMovableType()

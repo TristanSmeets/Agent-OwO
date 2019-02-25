@@ -45,6 +45,7 @@ void MoveCommand::moveObject(Node * current, DIRECTION direction)
 void MoveCommand::nodeBoxCheck(Node * current, DIRECTION direction)
 {
 	Node* destination = current->GetConnectionAt(direction);
+
 	if (destination->GetNodeType() == NODETYPE::BOX)
 	{
 		GameObject* box = destination->GetCurrentGameObject();
@@ -52,12 +53,17 @@ void MoveCommand::nodeBoxCheck(Node * current, DIRECTION direction)
 		BoxInput* boxInput = dynamic_cast<BoxInput*>(movable->GetInputHandler());
 		boxInput->PushBox(direction);
 
-		//Figure out how to fix this part
-		/*movableObject.SetDestination(destination);
-		movableObject.Move();*/
+		if (destination->HasConnection(direction))
+		{
+			Node * directionNode = destination->GetConnectionAt(direction);
+			if (directionNode->GetIsWalkable())
+			{
+				movableObject.SetDestination(destination);
+				movableObject.Move();
+				EventQueue::QueueEvent((*createMovedEvent()));
+			}
+		}
 
-
-		//EventQueue::QueueEvent((*createMovedEvent()));
 	}
 }
 

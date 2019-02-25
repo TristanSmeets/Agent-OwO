@@ -7,7 +7,13 @@ CameraFactory::CameraFactory() : AbstractFactory()
 	material = nullptr;
 	mesh = nullptr;
 	behaviour = nullptr;
+}
 
+CameraFactory::CameraFactory(lua_State* config) : AbstractFactory(), config(config)
+{
+	material = nullptr;
+	mesh = nullptr;
+	behaviour = nullptr;
 }
 
 CameraFactory::~CameraFactory()
@@ -17,9 +23,11 @@ CameraFactory::~CameraFactory()
 
 GameObject* CameraFactory::CreateGameObject(const std::string & name)
 {
+	float orthoVertical = LuaWrapper::GetNumber<float>(config, "OrthoVertical");
+	float orthoHorziontal = LuaWrapper::GetNumber<float>(config, "OrthoHorizontal");
 	std::cout << "Creating " << name << std::endl;
 	return new Camera(name,
 		glm::vec3(0, 0, 0),
-		glm::ortho(-7.5f, 7.5f, -3.0f, 4.0f, 0.1f, 100.0f));
+		glm::ortho(-orthoHorziontal, orthoHorziontal, -orthoVertical, orthoVertical, 0.1f, 100.0f));
 }
 

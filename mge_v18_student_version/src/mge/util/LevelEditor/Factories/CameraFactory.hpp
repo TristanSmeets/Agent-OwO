@@ -6,7 +6,6 @@ class CameraFactory :
 	public AbstractFactory
 {
 public:
-	CameraFactory();
 	CameraFactory(lua_State* config);
 	virtual ~CameraFactory();
 	GameObject* CreateGameObject(const std::string& name);

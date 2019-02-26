@@ -2,13 +2,6 @@
 #include "mge/core/Camera.hpp"
 #include <iostream>
 
-CameraFactory::CameraFactory() : AbstractFactory()
-{
-	material = nullptr;
-	mesh = nullptr;
-	behaviour = nullptr;
-}
-
 CameraFactory::CameraFactory(lua_State* config) : AbstractFactory(), config(config)
 {
 	material = nullptr;
@@ -19,6 +12,7 @@ CameraFactory::CameraFactory(lua_State* config) : AbstractFactory(), config(conf
 CameraFactory::~CameraFactory()
 {
 	std::cout << "GC running on:CameraFactory\n";
+	config = nullptr;
 }
 
 GameObject* CameraFactory::CreateGameObject(const std::string & name)

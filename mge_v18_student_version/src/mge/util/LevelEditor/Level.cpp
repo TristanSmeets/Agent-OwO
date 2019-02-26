@@ -59,6 +59,7 @@ void Level::Resetlevel()
 
 void Level::UnloadLevel()
 {
+	glm::vec3 offScreenPosition = glm::vec3(10, 10, 10);
 	std::vector<GameObject*> boxObjects = objectCreator->GetBoxObjects();
 	std::vector<TileObject*> tiles = objectCreator->GetTileObjects();
 
@@ -66,14 +67,19 @@ void Level::UnloadLevel()
 	for (unsigned int index = 0; index < boxObjects.size(); ++index)
 	{
 		GameObject* current = boxObjects[index];
-		current->setLocalPosition(glm::vec3(10, 10, 10));
+		current->setLocalPosition(offScreenPosition);
 	}
 
+	std::cout << "Moving Tiles Offscreen and removing connections.\n";
 	for (unsigned int index = 0; index < tiles.size(); ++index)
 	{
 		TileObject* current = tiles[index];
-		current->setLocalPosition(glm::vec3(10, 10, 10));
+		current->GetNode()->ClearConnections();
+		std::cout << "Amount of connections left: " << current->GetNode()->GetConnectionCount() << std::endl;
+		current->setLocalPosition(offScreenPosition);
 	}
+	//Moving player
+	objectCreator->GetPlayer()->setLocalPosition(offScreenPosition);
 }
 
 void Level::OnNotify(const GeneralEvent & eventInfo)

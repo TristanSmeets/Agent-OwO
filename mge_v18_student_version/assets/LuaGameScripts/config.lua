@@ -25,4 +25,4 @@ Start = "LuaGameScripts/Start.lua"
 Switch = "LuaGameScripts/Switch.lua"
 Tile = "LuaGameScripts/Tile.lua"
 
-LevelToLoad = 6
+LevelToLoad = 3

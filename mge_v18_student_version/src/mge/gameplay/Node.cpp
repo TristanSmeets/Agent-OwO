@@ -92,6 +92,11 @@ bool Node::HasConnection(DIRECTION direction)
 	return connections.find(direction) != connections.end();
 }
 
+void Node::ClearConnections()
+{
+	connections.clear();
+}
+
 void Node::ResetNodeType()
 {
 	SetNodeType(startType);

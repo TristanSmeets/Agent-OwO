@@ -41,6 +41,7 @@ public:
 	int GetConnectionCount();
 	Node* GetConnectionAt(DIRECTION direction);
 	bool HasConnection(DIRECTION direction);
+	void ClearConnections();
 	void ResetNodeType();
 	void SetCurrentGameObject(GameObject* gameObject);
 	void ClearCurrentGameObject();

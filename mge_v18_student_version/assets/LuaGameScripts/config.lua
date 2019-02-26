@@ -3,6 +3,10 @@ AspectRatio = 16/9
 ForceAspectRatio = true
 ScreenWidth = 1280
 
+OrthoVertical = 4.5
+OrthoHorizontal = OrthoVertical * AspectRatio 
+
+
 --Screen Height
 if(ForceAspectRatio) then
     ScreenHeight = math.floor( ScreenWidth / AspectRatio )

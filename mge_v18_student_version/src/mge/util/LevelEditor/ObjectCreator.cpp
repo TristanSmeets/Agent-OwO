@@ -7,7 +7,7 @@
 ObjectCreator::ObjectCreator(lua_State* config, World * world) : config(config), world(world)
 {
 	boxFactory = new BoxFactory(config);
-	cameraFactory = new CameraFactory();
+	cameraFactory = new CameraFactory(config);
 	exitFactory = new ExitFactory(config);
 	playerFactory = new PlayerFactory(config);
 	startFactory = new StartFactory(config);

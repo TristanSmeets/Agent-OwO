@@ -36,7 +36,7 @@ ObjectCreator::~ObjectCreator()
 	std::cout << "\nCleaning BoxObjects\n";
 	for (unsigned int index = 0; index < boxObjects.size(); ++index)
 	{
-		delete boxObjects[index]->getBehaviour();
+		//delete boxObjects[index]->getBehaviour();
 		boxObjects[index] = nullptr;
 	}
 	boxObjects.clear();
@@ -44,7 +44,7 @@ ObjectCreator::~ObjectCreator()
 	std::cout << "\nCleaning SwitchObjects\n";
 	for (unsigned int index = 0; index < switchObjects.size(); ++index)
 	{
-		delete switchObjects[index]->getBehaviour();
+		//delete switchObjects[index]->getBehaviour();
 		switchObjects[index] = nullptr;
 	}
 	switchObjects.clear();

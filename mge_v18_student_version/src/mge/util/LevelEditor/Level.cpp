@@ -2,7 +2,7 @@
 
 
 Level::Level(World * world) : Observer<GeneralEvent>(),
-	world(world), config(LuaWrapper::InitializeLuaState("LuaGameScripts\\config.lua"))
+world(world), config(LuaWrapper::InitializeLuaState("LuaGameScripts\\config.lua"))
 {
 	objectCreator = new ObjectCreator(config, world);
 	EventQueue::AddObserver(this);
@@ -23,7 +23,7 @@ void Level::CreateLevel(int levelNumber)
 	//Open the lua file.
 	std::string filePath = "LuaGameScripts/Level/Level_" + std::to_string(levelNumber) + ".lua";
 	lua_State* lua = LuaWrapper::InitializeLuaState(filePath);
-	
+
 	//Get table from luaFile and put it on the stack at -1
 	lua_getglobal(lua, "GameObjects");
 
@@ -66,20 +66,21 @@ void Level::UnloadLevel()
 	std::cout << "Moving boxes offscreen.\n";
 	for (unsigned int index = 0; index < boxObjects.size(); ++index)
 	{
-		GameObject* current = boxObjects[index];
-		current->setLocalPosition(offScreenPosition);
+		delete boxObjects[index]->getBehaviour();
+		world->remove(boxObjects[index]);
+		delete boxObjects[index];
 	}
+	boxObjects.clear();
 
 	std::cout << "Moving Tiles Offscreen and removing connections.\n";
 	for (unsigned int index = 0; index < tiles.size(); ++index)
 	{
-		TileObject* current = tiles[index];
-		current->GetNode()->ClearConnections();
-		std::cout << "Amount of connections left: " << current->GetNode()->GetConnectionCount() << std::endl;
-		current->setLocalPosition(offScreenPosition);
+		world->remove(tiles[index]);
+		delete tiles[index];
 	}
-	//Moving player
-	objectCreator->GetPlayer()->setLocalPosition(offScreenPosition);
+
+	world->remove(objectCreator->GetPlayer());
+	delete objectCreator->GetPlayer();
 }
 
 void Level::OnNotify(const GeneralEvent & eventInfo)

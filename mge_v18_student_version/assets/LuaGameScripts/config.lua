@@ -15,7 +15,7 @@ else
 end
 
 --Window Title
-Title = "Pjauna Gryba uwu"
+Title = "Agent 0w0"
 
 --Cpp project lua file paths
 Box = "LuaGameScripts/Box.lua"

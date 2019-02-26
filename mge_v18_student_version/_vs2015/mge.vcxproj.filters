@@ -534,9 +534,6 @@
     <CopyFileToFolders Include="..\assets\LuaGameScripts\Switch.lua">
       <Filter>LuaScripts</Filter>
     </CopyFileToFolders>
-    <CopyFileToFolders Include="..\assets\LuaGameScripts\TestLevel.lua">
-      <Filter>LuaScripts</Filter>
-    </CopyFileToFolders>
     <CopyFileToFolders Include="..\assets\mge\models\Box.obj">
       <Filter>Models</Filter>
     </CopyFileToFolders>

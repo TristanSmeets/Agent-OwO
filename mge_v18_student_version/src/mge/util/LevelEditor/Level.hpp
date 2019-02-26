@@ -22,6 +22,7 @@ public:
 	~Level();
 	void CreateLevel(int levelNumber);
 	void Resetlevel();
+	void UnloadLevel();
 	void OnNotify(const GeneralEvent& eventInfo);
 
 private:

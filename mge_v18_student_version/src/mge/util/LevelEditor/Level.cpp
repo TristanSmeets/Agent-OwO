@@ -57,10 +57,29 @@ void Level::Resetlevel()
 	objectCreator->ResetMovableObjects();
 }
 
+void Level::UnloadLevel()
+{
+	std::vector<GameObject*> boxObjects = objectCreator->GetBoxObjects();
+	std::vector<TileObject*> tiles = objectCreator->GetTileObjects();
+
+	std::cout << "Moving boxes offscreen.\n";
+	for (unsigned int index = 0; index < boxObjects.size(); ++index)
+	{
+		GameObject* current = boxObjects[index];
+		current->setLocalPosition(glm::vec3(10, 10, 10));
+	}
+
+	for (unsigned int index = 0; index < tiles.size(); ++index)
+	{
+		TileObject* current = tiles[index];
+		current->setLocalPosition(glm::vec3(10, 10, 10));
+	}
+}
+
 void Level::OnNotify(const GeneralEvent & eventInfo)
 {
-	if (eventInfo.ResetLevel)
-	{
+	if (eventInfo.resetLevel)
 		Resetlevel();
-	}
+	if (eventInfo.nextLevel != 0)
+		UnloadLevel();
 }

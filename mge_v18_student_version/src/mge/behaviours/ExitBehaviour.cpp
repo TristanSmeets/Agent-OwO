@@ -56,6 +56,9 @@ void ExitBehaviour::checkNode()
 	if (previousType != exitNode->GetNodeType())
 	{
 		std::cout << "EXIT reached!\n";
+		GeneralEvent info = GeneralEvent();
+		info.nextLevel = 1;
+		EventQueue::QueueEvent(info);
 		previousType = exitNode->GetNodeType();
 	}
 }

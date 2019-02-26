@@ -19,7 +19,7 @@ StepTracker::~StepTracker()
 
 void StepTracker::OnNotify(const GeneralEvent & info)
 {
-	if (info.ResetLevel)
+	if (info.resetLevel)
 		stepsLeft = totalSteps;
 
 	if (!isUnlimited)

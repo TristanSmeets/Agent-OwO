@@ -5,6 +5,7 @@
 #include "mge/gameplay/Node.hpp"
 #include "mge/util/LuaScripting/LuaWrapper.hpp"
 #include "mge/util/EventQueue/EventStructs.hpp"
+#include "mge/util/EventQueue/EventQueue.hpp"
 
 class ExitBehaviour : public AbstractBehaviour, public Observer<SwitchEvent>
 {

@@ -4,6 +4,9 @@
 #include "mge/util/LevelEditor/Level.hpp"
 #include "mge/util/LuaScripting/LuaWrapper.hpp"
 #include "mge/behaviours/EventQueueBehaviour.hpp"
+#include "mge/gameplay/ButtonManager.hpp"
+#include "mge/util/LevelEditor/Factories/CameraFactory.hpp"
+#include "mge/core/Camera.hpp"
 
 class GameScene : public AbstractGame
 {

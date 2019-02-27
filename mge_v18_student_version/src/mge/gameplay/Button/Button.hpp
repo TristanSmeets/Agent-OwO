@@ -10,8 +10,9 @@ public:
 	void SetPosition(glm::vec2 position);
 	glm::vec2 GetPosition();
 	glm::vec2 GetSize();
-	Command* GetButtonAction();
 	void SetCommand(Command* command);
+	Command* GetButtonAction();
+	sf::Sprite* GetSprite();
 
 private:
 	sf::Sprite* buttonImage;

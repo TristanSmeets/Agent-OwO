@@ -5,6 +5,8 @@ Button::Button(const std::string & texturePath)
 	std::cout << "Creating buttonTexture.\n";
 	buttonTexture.loadFromFile(texturePath);
 	buttonImage = new sf::Sprite(buttonTexture);
+	sf::Vector2u buttonSize = buttonImage->getTexture()->getSize();
+	buttonImage->setOrigin(buttonSize.x * 0.5f, buttonSize.y * 0.5f);
 }
 
 Button::~Button()
@@ -35,6 +37,11 @@ glm::vec2 Button::GetSize()
 Command * Button::GetButtonAction()
 {
 	return action;
+}
+
+sf::Sprite* Button::GetSprite()
+{
+	return buttonImage;
 }
 
 void Button::SetCommand(Command * command)

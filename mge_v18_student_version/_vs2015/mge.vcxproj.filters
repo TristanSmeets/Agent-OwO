@@ -62,6 +62,9 @@
     <Filter Include="MGE Source files\mge\util\EventQueue">
       <UniqueIdentifier>{9cb55cb0-c3c8-4343-bb1a-67545f9c2e03}</UniqueIdentifier>
     </Filter>
+    <Filter Include="MGE Source files\mge\gameplay\Button">
+      <UniqueIdentifier>{4c92c722-d155-4310-8ae3-aaf577c29bda}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\src\glm.hpp">
@@ -257,6 +260,15 @@
     <ClInclude Include="..\src\mge\util\LevelEditor\ObjectCreator.hpp">
       <Filter>MGE Source files\mge\util\LevelEditor</Filter>
     </ClInclude>
+    <ClInclude Include="..\src\mge\gameplay\ButtonManager.hpp">
+      <Filter>MGE Source files\mge\gameplay</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\mge\gameplay\Button\Button.hpp">
+      <Filter>MGE Source files\mge\gameplay\Button</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\mge\gameplay\Input\MouseInput.hpp">
+      <Filter>MGE Source files\mge\gameplay\Input</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\main.cpp">
@@ -438,6 +450,15 @@
     </ClCompile>
     <ClCompile Include="..\src\mge\util\LevelEditor\ObjectCreator.cpp">
       <Filter>MGE Source files\mge\util\LevelEditor</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\mge\gameplay\ButtonManager.cpp">
+      <Filter>MGE Source files\mge\gameplay</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\mge\gameplay\Button\Button.cpp">
+      <Filter>MGE Source files\mge\gameplay\Button</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\mge\gameplay\Input\MouseInput.cpp">
+      <Filter>MGE Source files\mge\gameplay\Input</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

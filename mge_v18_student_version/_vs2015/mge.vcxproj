@@ -191,6 +191,8 @@
     <ClInclude Include="..\src\mge\core\Subject.hpp" />
     <ClInclude Include="..\src\mge\core\Texture.hpp" />
     <ClInclude Include="..\src\mge\core\World.hpp" />
+    <ClInclude Include="..\src\mge\gameplay\ButtonManager.hpp" />
+    <ClInclude Include="..\src\mge\gameplay\Button\Button.hpp" />
     <ClInclude Include="..\src\mge\gameplay\Command\Command.hpp" />
     <ClInclude Include="..\src\mge\gameplay\Command\DownCommand.hpp" />
     <ClInclude Include="..\src\mge\gameplay\Command\LeftCommand.hpp" />
@@ -200,6 +202,7 @@
     <ClInclude Include="..\src\mge\gameplay\GameObjects\TileObject.hpp" />
     <ClInclude Include="..\src\mge\gameplay\Input\BoxInput.hpp" />
     <ClInclude Include="..\src\mge\gameplay\Input\InputHandler.hpp" />
+    <ClInclude Include="..\src\mge\gameplay\Input\MouseInput.hpp" />
     <ClInclude Include="..\src\mge\gameplay\Input\PlayerInput.hpp" />
     <ClInclude Include="..\src\mge\gameplay\Node.hpp" />
     <ClInclude Include="..\src\mge\gameplay\StepTracker.hpp" />
@@ -254,6 +257,8 @@
     <ClCompile Include="..\src\mge\core\ShaderProgram.cpp" />
     <ClCompile Include="..\src\mge\core\Texture.cpp" />
     <ClCompile Include="..\src\mge\core\World.cpp" />
+    <ClCompile Include="..\src\mge\gameplay\ButtonManager.cpp" />
+    <ClCompile Include="..\src\mge\gameplay\Button\Button.cpp" />
     <ClCompile Include="..\src\mge\gameplay\Command\Command.cpp" />
     <ClCompile Include="..\src\mge\gameplay\Command\DownCommand.cpp" />
     <ClCompile Include="..\src\mge\gameplay\Command\LeftCommand.cpp" />
@@ -263,6 +268,7 @@
     <ClCompile Include="..\src\mge\gameplay\GameObjects\TileObject.cpp" />
     <ClCompile Include="..\src\mge\gameplay\Input\BoxInput.cpp" />
     <ClCompile Include="..\src\mge\gameplay\Input\InputHandler.cpp" />
+    <ClCompile Include="..\src\mge\gameplay\Input\MouseInput.cpp" />
     <ClCompile Include="..\src\mge\gameplay\Input\PlayerInput.cpp" />
     <ClCompile Include="..\src\mge\gameplay\Node.cpp" />
     <ClCompile Include="..\src\mge\gameplay\StepTracker.cpp" />

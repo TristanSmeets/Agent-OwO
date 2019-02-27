@@ -15,7 +15,7 @@ else
 end
 
 --Window Title
-Title = "Agent 0w0"
+Title = "MAKE FURRY GAMES GREAT AGAIN! UWU"
 
 --Cpp project lua file paths
 Box = "LuaGameScripts/Box.lua"
@@ -25,4 +25,4 @@ Start = "LuaGameScripts/Start.lua"
 Switch = "LuaGameScripts/Switch.lua"
 Tile = "LuaGameScripts/Tile.lua"
 
-LevelToLoad = 3
+LevelToLoad = 1

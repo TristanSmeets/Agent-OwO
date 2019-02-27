@@ -42,6 +42,7 @@ private:
 	TileFactory* tileFactory;
 	GameObject* playerObject;
 	GameObject* exitObject;
+	GameObject* cameraObject = nullptr;
 	std::vector<TileObject*> tileObjects;
 	std::vector<GameObject*> boxObjects;
 	std::vector<GameObject*> switchObjects;

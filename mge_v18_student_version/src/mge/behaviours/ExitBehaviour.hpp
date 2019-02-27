@@ -17,6 +17,7 @@ public:
 	void SubscribeToSubjects(std::vector<GameObject*> switchObjects);
 	void SetPreviousType(NODETYPE nodeType);
 	void SetExitNode(Node* node);
+	void UnsubscribeFromSubjects();
 
 private:
 	void checkNode();

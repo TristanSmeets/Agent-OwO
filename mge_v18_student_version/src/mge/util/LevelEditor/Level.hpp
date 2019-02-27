@@ -28,8 +28,10 @@ public:
 private:
 	World* world;
 	lua_State* config;
+	lua_State* luaLevel;
 	StepTracker* stepTracker;
 	ObjectCreator* objectCreator;
+	int Number;
 };
 
 #endif // !LEVEL_HPP

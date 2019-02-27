@@ -9,5 +9,5 @@ struct GeneralEvent
 {
 	int stepsTaken = 0;
 	bool resetLevel = false;
-	int nextLevel = 0;
+	bool nextLevel = false;
 };

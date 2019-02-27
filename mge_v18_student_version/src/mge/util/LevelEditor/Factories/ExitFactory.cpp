@@ -7,8 +7,9 @@ ExitFactory::ExitFactory() : AbstractFactory()
 {
 }
 
-ExitFactory::ExitFactory(lua_State* config) : AbstractFactory()
+ExitFactory::ExitFactory(lua_State* config) : AbstractFactory(), Observer<GeneralEvent>()
 {
+	EventQueue::AddObserver(this);
 	std::string exitFile = LuaWrapper::GetString(config, "Exit");
 	luaExit = LuaWrapper::InitializeLuaState(exitFile);
 
@@ -17,16 +18,7 @@ ExitFactory::ExitFactory(lua_State* config) : AbstractFactory()
 	std::cout << "Loading Exit TextureMaterial\n";
 	material = getTextureMaterial(luaExit);
 
-	unsigned int levelNumber = LuaWrapper::GetNumber<int>(config, "LevelToLoad");
-
-	lua_State* levelInfo = LuaWrapper::InitializeLuaState("LuaGameScripts/Level/Level_Info.lua");
-
-	lua_getglobal(levelInfo, "Switches");
-	int switches = LuaWrapper::GetTableNumber(levelInfo, "Level_" + std::to_string(levelNumber));
-	//std::cout << "Amount of Switches: " << switches << std::endl;
-	behaviour = new ExitBehaviour(switches);
-
-	LuaWrapper::CloseLuaState(levelInfo);
+	luaLevelInfo = LuaWrapper::InitializeLuaState("LuaGameScripts/Level/Level_Info.lua");
 }
 
 ExitFactory::~ExitFactory()
@@ -34,8 +26,10 @@ ExitFactory::~ExitFactory()
 	std::cout << "GC running on:ExitFactory\n";
 	mesh = nullptr;
 	delete material;
-	delete behaviour;
+	behaviour = nullptr;
 	LuaWrapper::CloseLuaState(luaExit);
+	LuaWrapper::CloseLuaState(luaLevelInfo);
+	EventQueue::RemoveObserver(this);
 }
 
 GameObject* ExitFactory::CreateGameObject(const std::string & name)
@@ -44,6 +38,11 @@ GameObject* ExitFactory::CreateGameObject(const std::string & name)
 	TileObject* newExit = new TileObject(luaExit, name);
 	newExit->GetNode()->SetNodeType(NODETYPE::EXIT);
 	newExit->GetNode()->SetStartType(NODETYPE::EXIT);
+	
+	lua_getglobal(luaLevelInfo, "Switches");
+	switches = LuaWrapper::GetTableNumber(luaLevelInfo, "Level_" + std::to_string(levelNumber));
+	
+	behaviour = new ExitBehaviour(switches);
 	ExitBehaviour* exitBehaviour = dynamic_cast<ExitBehaviour*>(behaviour);
 	exitBehaviour->SetExitNode(newExit->GetNode());
 	exitBehaviour->SetPreviousType(NODETYPE::EXIT);
@@ -51,4 +50,14 @@ GameObject* ExitFactory::CreateGameObject(const std::string & name)
 	addMaterial(newExit);
 	addBehaviour(newExit);
 	return newExit;
+}
+
+void ExitFactory::OnNotify(const GeneralEvent & eventInfo)
+{
+	if (eventInfo.nextLevel)
+	{
+		levelNumber++;
+		if (levelNumber > 6)
+			levelNumber = 1;
+	}
 }

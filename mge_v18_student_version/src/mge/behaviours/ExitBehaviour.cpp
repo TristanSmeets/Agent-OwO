@@ -4,6 +4,7 @@
 ExitBehaviour::ExitBehaviour(unsigned int switches) : 
 	AbstractBehaviour(), Observer<SwitchEvent>(), amountOfSwitches(switches)
 {
+	std::cout << "Creating new ExitBehaviour.\n";
 }
 
 ExitBehaviour::~ExitBehaviour()
@@ -11,13 +12,7 @@ ExitBehaviour::~ExitBehaviour()
 	std::cout << "GC running on:ExitBehaviour\n";
 	
 	//Unsubcribing from subjects
-	for (unsigned int index = 0; index < subjects.size(); ++index)
-	{
-		Subject<SwitchEvent>* subject = dynamic_cast<Subject<SwitchEvent>*>(subjects[index]->getBehaviour());
-		subject->RemoveObserver(this);
-		subjects[index] = nullptr;
-	}
-	subjects.clear();
+	UnsubscribeFromSubjects();
 }
 
 void ExitBehaviour::update(float pStep)
@@ -33,8 +28,11 @@ void ExitBehaviour::OnNotify(const SwitchEvent & info)
 
 void ExitBehaviour::SubscribeToSubjects(std::vector<GameObject*> switchObjects)
 {
+	subjects = switchObjects;
+	std::cout << "ExitBehaviour subscribing to " << subjects.size() << " switches.\n";
 	for (unsigned int index = 0; index < switchObjects.size(); ++index)
 	{
+		std::cout << "Subscribing to " << index << " switch.\n";
 		Subject<SwitchEvent>* subject = dynamic_cast<Subject<SwitchEvent>*>(switchObjects[index]->getBehaviour());
 		subject->AddObserver(this);
 	}
@@ -53,9 +51,25 @@ void ExitBehaviour::SetExitNode(Node* node)
 
 void ExitBehaviour::checkNode()
 {
-	if (previousType != exitNode->GetNodeType())
+	if (previousType != exitNode->GetNodeType() &&
+		exitNode->GetNodeType() == NODETYPE::GENERIC)
 	{
 		std::cout << "EXIT reached!\n";
+		GeneralEvent info = GeneralEvent();
+		info.nextLevel = true;
+		EventQueue::QueueEvent(info);
 		previousType = exitNode->GetNodeType();
 	}
+}
+
+void ExitBehaviour::UnsubscribeFromSubjects()
+{
+	for (unsigned int index = 0; index < subjects.size(); ++index)
+	{
+		std::cout << "Unsubcribe ExitBehaviour from Switch\n";
+		Subject<SwitchEvent>* subject = dynamic_cast<Subject<SwitchEvent>*>(subjects[index]->getBehaviour());
+		subject->RemoveObserver(this);
+		subjects[index] = nullptr;
+	}
+	subjects.clear();
 }

@@ -40,7 +40,7 @@ Command * PlayerInput::HandleInput()
 		buttonPressed == false)
 	{
 		GeneralEvent info;
-		info.ResetLevel = true;
+		info.resetLevel = true;
 		EventQueue::QueueEvent(info);
 		buttonPressed = true;
 	}

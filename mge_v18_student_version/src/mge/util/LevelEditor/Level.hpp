@@ -22,13 +22,16 @@ public:
 	~Level();
 	void CreateLevel(int levelNumber);
 	void Resetlevel();
+	void UnloadLevel();
 	void OnNotify(const GeneralEvent& eventInfo);
 
 private:
 	World* world;
 	lua_State* config;
+	lua_State* luaLevel;
 	StepTracker* stepTracker;
 	ObjectCreator* objectCreator;
+	int Number;
 };
 
 #endif // !LEVEL_HPP

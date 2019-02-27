@@ -36,7 +36,7 @@ ObjectCreator::~ObjectCreator()
 	std::cout << "\nCleaning BoxObjects\n";
 	for (unsigned int index = 0; index < boxObjects.size(); ++index)
 	{
-		delete boxObjects[index]->getBehaviour();
+		//delete boxObjects[index]->getBehaviour();
 		boxObjects[index] = nullptr;
 	}
 	boxObjects.clear();
@@ -44,13 +44,14 @@ ObjectCreator::~ObjectCreator()
 	std::cout << "\nCleaning SwitchObjects\n";
 	for (unsigned int index = 0; index < switchObjects.size(); ++index)
 	{
-		delete switchObjects[index]->getBehaviour();
+		//delete switchObjects[index]->getBehaviour();
 		switchObjects[index] = nullptr;
 	}
 	switchObjects.clear();
 
 	playerObject = nullptr;
 	exitObject = nullptr;
+	cameraObject = nullptr;
 }
 
 void ObjectCreator::CreateGameObject(const std::string & objectType, const glm::vec3 & position, const glm::quat & rotation, const glm::vec3 & scale)
@@ -62,7 +63,15 @@ void ObjectCreator::CreateGameObject(const std::string & objectType, const glm::
 		boxObjects.push_back(newGameObject);
 	}
 	if ("CAMERA" == objectType)
-		newGameObject = cameraFactory->CreateGameObject(objectType);
+	{
+		if (cameraObject == nullptr)
+		{
+			newGameObject = cameraFactory->CreateGameObject(objectType);
+			cameraObject = newGameObject;
+		}
+		else
+			newGameObject = cameraObject;
+	}
 	if ("EXIT" == objectType)
 	{
 		newGameObject = exitFactory->CreateGameObject(objectType);
@@ -78,13 +87,14 @@ void ObjectCreator::CreateGameObject(const std::string & objectType, const glm::
 	{
 		newGameObject = switchFactory->CreateGameObject(objectType);
 		addToTileObjectsandSetNode(newGameObject, position);
+		std::cout << "\nVector size: " << switchObjects.size() << "\nAdding new Switch to vector.\n";
 		switchObjects.push_back(newGameObject);
+		std::cout << "Vector size: " << switchObjects.size() << std::endl;
 	}
 	if ("START" == objectType)
 	{
 		newGameObject = startFactory->CreateGameObject(objectType);
 		addToTileObjectsandSetNode(newGameObject, position);
-
 	}
 	if ("TILE" == objectType)
 	{

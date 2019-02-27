@@ -9,8 +9,8 @@ SwitchBehaviour::SwitchBehaviour(Node& node) : AbstractBehaviour(), Subject(), s
 SwitchBehaviour::~SwitchBehaviour()
 {
 	std::cout << "GC running on:SwitchBehaviour\n";
-	AbstractBehaviour::~AbstractBehaviour();
-	Subject::~Subject();
+	//AbstractBehaviour::~AbstractBehaviour();
+	//Subject::~Subject();
 }
 
 void SwitchBehaviour::SetSwitchNode(Node& node)

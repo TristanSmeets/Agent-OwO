@@ -370,10 +370,6 @@
       <FileType>Document</FileType>
       <DestinationFolders Condition="'$(Configuration)|$(Platform)'=='Debug Static|Win32'">$(OutDir)\LuaGameScripts</DestinationFolders>
     </CopyFileToFolders>
-    <CopyFileToFolders Include="..\assets\LuaGameScripts\TestLevel.lua">
-      <FileType>Document</FileType>
-      <DestinationFolders Condition="'$(Configuration)|$(Platform)'=='Debug Static|Win32'">$(OutDir)\LuaGameScripts</DestinationFolders>
-    </CopyFileToFolders>
     <CopyFileToFolders Include="..\assets\LuaGameScripts\Start.lua">
       <FileType>Document</FileType>
       <DestinationFolders Condition="'$(Configuration)|$(Platform)'=='Debug Static|Win32'">$(OutDir)\LuaGameScripts</DestinationFolders>

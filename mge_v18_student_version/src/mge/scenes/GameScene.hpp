@@ -4,13 +4,18 @@
 #include "mge/util/LevelEditor/Level.hpp"
 #include "mge/util/LuaScripting/LuaWrapper.hpp"
 #include "mge/behaviours/EventQueueBehaviour.hpp"
+#include "mge/gameplay/ButtonManager.hpp"
+#include "mge/util/LevelEditor/Factories/CameraFactory.hpp"
+#include "mge/core/Camera.hpp"
+#include "mge/User Interface/MainMenu.hpp"
 
-class GameScene : public AbstractGame
+class GameScene : public AbstractGame, public Observer<GeneralEvent>
 {
 public:
 	GameScene();
 	~GameScene();
 	void initialize();
+	void OnNotify(const GeneralEvent& info);
 
 protected:
 	void _initializeScene();
@@ -20,4 +25,5 @@ private:
 	Level* level;
 	lua_State* config;
 	EventQueueBehaviour* eventQueueBehaviour;
+	MainMenu* mainMenu;
 };

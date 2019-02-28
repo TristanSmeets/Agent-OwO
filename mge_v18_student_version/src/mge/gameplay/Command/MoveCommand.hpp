@@ -16,6 +16,8 @@ public:
 protected:
 	void moveObject(Node* current, DIRECTION direction);
 	void nodeBoxCheck(Node* current, DIRECTION direction);
+	bool checkHasNeighbour(Node* node, DIRECTION direction);
+	bool checkIsWalkable(Node* node);
 	GeneralEvent* createMovedEvent();
 	MovableBehaviour& movableObject;
 };

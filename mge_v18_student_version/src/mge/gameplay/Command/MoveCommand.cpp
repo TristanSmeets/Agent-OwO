@@ -73,3 +73,14 @@ GeneralEvent* MoveCommand::createMovedEvent()
 	info->stepsTaken = 1;
 	return info;
 }
+
+bool MoveCommand::checkHasNeighbour(Node * node, DIRECTION direction)
+{
+	return node->HasConnection(direction);
+}
+
+bool MoveCommand::checkIsWalkable(Node * node)
+{
+	return node->GetIsWalkable();
+}
+

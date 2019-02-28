@@ -1,10 +1,10 @@
 #include "Level.hpp"
 #include "mge/behaviours/ExitBehaviour.hpp"
 
-Level::Level(World * world) : Observer<GeneralEvent>(),
+Level::Level(World * world, Camera* camera) : Observer<GeneralEvent>(),
 world(world), config(LuaWrapper::InitializeLuaState("LuaGameScripts\\config.lua"))
 {
-	objectCreator = new ObjectCreator(config, world);
+	objectCreator = new ObjectCreator(config, world, camera);
 	EventQueue::AddObserver(this);
 }
 
@@ -114,7 +114,6 @@ void Level::OnNotify(const GeneralEvent & eventInfo)
 
 		if (Number > 6)
 			Number = 1;
-
 		CreateLevel(Number);
 	}
 }

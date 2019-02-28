@@ -4,7 +4,8 @@
 #include "mge/core/Camera.hpp"
 #include "mge/behaviours/KeysBehaviour.hpp"
 
-ObjectCreator::ObjectCreator(lua_State* config, World * world) : config(config), world(world)
+ObjectCreator::ObjectCreator(lua_State* config, World * world, Camera* camera) :
+	config(config), world(world), cameraObject(camera)
 {
 	boxFactory = new BoxFactory(config);
 	cameraFactory = new CameraFactory(config);

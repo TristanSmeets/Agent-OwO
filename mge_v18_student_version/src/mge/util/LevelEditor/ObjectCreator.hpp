@@ -14,7 +14,7 @@
 class ObjectCreator
 {
 public:
-	ObjectCreator(lua_State* config, World* world);
+	ObjectCreator(lua_State* config, World* world, Camera* camera);
 	~ObjectCreator();
 	void CreateGameObject(const std::string& objectType, const glm::vec3& position, const glm::quat& rotation, const glm::vec3& scale);
 	void ConfigureBehaviourStartNodes();

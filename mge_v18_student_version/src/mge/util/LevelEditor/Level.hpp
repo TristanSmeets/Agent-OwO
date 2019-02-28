@@ -18,7 +18,7 @@
 class Level : Observer<GeneralEvent>
 {
 public:
-	Level(World* world);
+	Level(World* world, Camera* camera);
 	~Level();
 	void CreateLevel(int levelNumber);
 	void Resetlevel();

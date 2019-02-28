@@ -10,4 +10,5 @@ struct GeneralEvent
 	int stepsTaken = 0;
 	bool resetLevel = false;
 	bool nextLevel = false;
+	bool startGame = false;
 };

@@ -48,8 +48,7 @@ void GameScene::_initializeScene()
 	EventQueue::AddObserver(this);
 
 	lua_State* config = LuaWrapper::InitializeLuaState("LuaGameScripts\\config.lua");
-	
-	std::cout << "Creating Camera\n";
+
 	Camera* camera = dynamic_cast<Camera*>(CameraFactory(config).CreateGameObject("Camera"));
 	_world->add(camera);
 	_world->setMainCamera(camera);
@@ -65,12 +64,15 @@ void GameScene::_initializeScene()
 void GameScene::_render()
 {
 	AbstractGame::_render();
+
 	if (ButtonManager::GetAmountOfButtons() > 0)
 	{
 		for (unsigned int index = 0; index < ButtonManager::GetAmountOfButtons(); ++index)
 		{
 			Button* current = ButtonManager::GetButton(index);
+			_window->pushGLStates();
 			_window->draw(*current->GetSprite());
+			_window->popGLStates();
 		}
 	}
 }

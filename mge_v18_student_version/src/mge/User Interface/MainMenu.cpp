@@ -22,5 +22,6 @@ MainMenu::~MainMenu()
 	world->remove(mouse);
 	delete mouse;
 	ButtonManager::RemoveButton(startButton);
+	std::cout << "Amount of Buttons: " << ButtonManager::GetAmountOfButtons() << std::endl;
 }
 

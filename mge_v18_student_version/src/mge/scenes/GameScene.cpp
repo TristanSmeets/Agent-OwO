@@ -10,6 +10,18 @@ GameScene::~GameScene()
 	std::cout << "GC running on:GameScene\n";
 	delete level;
 	delete eventQueueBehaviour;
+
+	std::cout << "Cleaning up Buttons.\n";
+	if (ButtonManager::GetAmountOfButtons() > 0)
+	{
+		for (unsigned int index = 0; index < ButtonManager::GetAmountOfButtons(); ++index)
+		{
+			Button* current = ButtonManager::GetButton(index);
+			ButtonManager::RemoveButton(current);
+			delete current;
+		}
+	}
+	delete mainMenu;
 }
 
 void GameScene::initialize()
@@ -25,13 +37,17 @@ void GameScene::_initializeScene()
 	_world->add(eventQueue);
 
 	lua_State* config = LuaWrapper::InitializeLuaState("LuaGameScripts\\config.lua");
+	
 	std::cout << "Creating Camera\n";
 	Camera* camera = dynamic_cast<Camera*>(CameraFactory(config).CreateGameObject("Camera"));
 	_world->add(camera);
 	_world->setMainCamera(camera);
 
+	std::cout << "Creating MainMenu.\n";
+	mainMenu = new MainMenu(_world, _window);
+
 	std::cout << "Creating the Level\n";
-	level = new Level(_world,camera);
+	level = new Level(_world, camera);
 	//level->CreateLevel(LuaWrapper::GetNumber<int>(config, "LevelToLoad"));
 }
 

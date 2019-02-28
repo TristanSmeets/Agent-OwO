@@ -65,6 +65,9 @@
     <Filter Include="MGE Source files\mge\gameplay\Button">
       <UniqueIdentifier>{4c92c722-d155-4310-8ae3-aaf577c29bda}</UniqueIdentifier>
     </Filter>
+    <Filter Include="MGE Source files\mge\UI">
+      <UniqueIdentifier>{12bdbe3e-6e29-43cf-afc9-d70df04f3c9f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\src\glm.hpp">
@@ -269,6 +272,15 @@
     <ClInclude Include="..\src\mge\gameplay\Input\MouseInput.hpp">
       <Filter>MGE Source files\mge\gameplay\Input</Filter>
     </ClInclude>
+    <ClInclude Include="..\src\mge\behaviours\MouseBehaviour.hpp">
+      <Filter>MGE Source files\mge\behaviours</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\mge\gameplay\Command\StartCommand.hpp">
+      <Filter>MGE Source files\mge\gameplay\Command</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\mge\User Interface\MainMenu.hpp">
+      <Filter>MGE Source files\mge\UI</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\main.cpp">
@@ -459,6 +471,15 @@
     </ClCompile>
     <ClCompile Include="..\src\mge\gameplay\Input\MouseInput.cpp">
       <Filter>MGE Source files\mge\gameplay\Input</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\mge\behaviours\MouseBehaviour.cpp">
+      <Filter>MGE Source files\mge\behaviours</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\mge\gameplay\Command\StartCommand.cpp">
+      <Filter>MGE Source files\mge\gameplay\Command</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\mge\User Interface\MainMenu.cpp">
+      <Filter>MGE Source files\mge\UI</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

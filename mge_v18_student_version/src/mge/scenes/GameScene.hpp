@@ -7,6 +7,7 @@
 #include "mge/gameplay/ButtonManager.hpp"
 #include "mge/util/LevelEditor/Factories/CameraFactory.hpp"
 #include "mge/core/Camera.hpp"
+#include "mge/User Interface/MainMenu.hpp"
 
 class GameScene : public AbstractGame
 {
@@ -23,4 +24,5 @@ private:
 	Level* level;
 	lua_State* config;
 	EventQueueBehaviour* eventQueueBehaviour;
+	MainMenu* mainMenu;
 };

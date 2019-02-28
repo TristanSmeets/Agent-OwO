@@ -1,5 +1,10 @@
 #include "MouseInput.hpp"
 
+MouseInput::MouseInput()
+{
+	std::cout << "Creating MouseInput.\n";
+}
+
 MouseInput::MouseInput(sf::Window* window) : InputHandler(), window(window)
 {
 	std::cout << "Creating MouseInput.\n";
@@ -12,17 +17,19 @@ MouseInput::~MouseInput()
 
 Command * MouseInput::HandleInput()
 {
-	if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
+	if (sf::Mouse::isButtonPressed(sf::Mouse::Left) && mousePressed == false)
 	{
-		for (unsigned int index = 0; index <ButtonManager::GetAmountOfButtons(); ++index)
+		for (unsigned int index = 0; index < ButtonManager::GetAmountOfButtons(); ++index)
 		{
 			Button* current = ButtonManager::GetButton(index);
 			if (isColliding(current))
 			{
-				std::cout << "Colliding with button\n.";
+				return current->GetButtonAction();
 			}
 		}
+		mousePressed = true;
 	}
+	mousePressed = sf::Mouse::isButtonPressed(sf::Mouse::Left);
 	return nullptr;
 }
 
@@ -33,7 +40,7 @@ bool MouseInput::isColliding(Button * button)
 	sf::Vector2i mousePosition = sf::Mouse::getPosition(*window);
 
 	return (mousePosition.y < buttonPosition.y + buttonSize.y &&	//Top
-		mousePosition.y > buttonPosition.y - buttonSize.y &&	//Bottom
-		mousePosition.x > buttonPosition.x - buttonSize.x &&	//Left
-		mousePosition.x < buttonPosition.x + buttonSize.x);	//Right
+		mousePosition.y > buttonPosition.y - buttonSize.y &&		//Bottom
+		mousePosition.x > buttonPosition.x - buttonSize.x &&		//Left
+		mousePosition.x < buttonPosition.x + buttonSize.x);			//Right
 }

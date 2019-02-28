@@ -9,7 +9,4 @@ public:
 	Command();
 	virtual ~Command();
 	virtual void Execute() = 0;
-protected:
-	bool checkHasNeighbour(Node* node, DIRECTION direction);
-	bool checkIsWalkable(Node* node);
 };

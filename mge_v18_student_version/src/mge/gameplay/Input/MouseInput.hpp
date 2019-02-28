@@ -6,6 +6,8 @@
 
 class MouseInput : public InputHandler
 {
+public:
+	MouseInput();
 	MouseInput(sf::Window* window);
 	~MouseInput();
 	Command* HandleInput();
@@ -13,4 +15,5 @@ class MouseInput : public InputHandler
 private:
 	bool isColliding(Button* button);
 	sf::Window* window;
+	bool mousePressed;
 };

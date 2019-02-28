@@ -114,7 +114,6 @@ void Level::OnNotify(const GeneralEvent & eventInfo)
 
 		if (Number > 6)
 			Number = 1;
-
 		CreateLevel(Number);
 	}
 }

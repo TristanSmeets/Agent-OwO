@@ -21,12 +21,21 @@ GameScene::~GameScene()
 			delete current;
 		}
 	}
-	delete mainMenu;
+	//if(mainMenu != nullptr) delete mainMenu;
 }
 
 void GameScene::initialize()
 {
 	AbstractGame::initialize();
+}
+
+void GameScene::OnNotify(const GeneralEvent & info)
+{
+	if (info.startGame)
+	{
+		delete mainMenu;
+		level->CreateLevel(1);
+	}
 }
 
 void GameScene::_initializeScene()
@@ -35,6 +44,8 @@ void GameScene::_initializeScene()
 	eventQueueBehaviour = new EventQueueBehaviour();
 	eventQueue->setBehaviour(eventQueueBehaviour);
 	_world->add(eventQueue);
+
+	EventQueue::AddObserver(this);
 
 	lua_State* config = LuaWrapper::InitializeLuaState("LuaGameScripts\\config.lua");
 	
@@ -48,7 +59,7 @@ void GameScene::_initializeScene()
 
 	std::cout << "Creating the Level\n";
 	level = new Level(_world, camera);
-	//level->CreateLevel(LuaWrapper::GetNumber<int>(config, "LevelToLoad"));
+	//level->CreateLevel(1);
 }
 
 void GameScene::_render()

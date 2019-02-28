@@ -16,7 +16,7 @@ MainMenu::MainMenu(World* world, sf::Window* window) : world(world)
 
 MainMenu::~MainMenu()
 {
-	std::cout << "GC running on:MouseBehaviour.\n";
+	std::cout << "GC running on:MainMenu.\n";
 	delete mouseBehaviour;
 	
 	world->remove(mouse);

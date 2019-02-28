@@ -10,7 +10,7 @@ MainMenu::MainMenu(World* world, sf::Window* window) : world(world)
 	
 	//Exit Button
 	exitButton = new Button("mge\\UI\\Exit_Button.png");
-	//exitButton->SetCommand();
+	exitButton->SetCommand(new ExitCommand(window));
 	exitButton->SetPosition(glm::vec2(300, 400));
 	ButtonManager::AddButton(exitButton);
 

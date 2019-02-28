@@ -266,6 +266,7 @@
     <ClCompile Include="..\src\mge\gameplay\Button\Button.cpp" />
     <ClCompile Include="..\src\mge\gameplay\Command\Command.cpp" />
     <ClCompile Include="..\src\mge\gameplay\Command\DownCommand.cpp" />
+    <ClCompile Include="..\src\mge\gameplay\Command\ExitCommand.cpp" />
     <ClCompile Include="..\src\mge\gameplay\Command\LeftCommand.cpp" />
     <ClCompile Include="..\src\mge\gameplay\Command\MoveCommand.cpp" />
     <ClCompile Include="..\src\mge\gameplay\Command\RightCommand.cpp" />

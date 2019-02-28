@@ -484,6 +484,9 @@
     <ClCompile Include="..\src\mge\User Interface\MainMenu.cpp">
       <Filter>MGE Source files\mge\UI</Filter>
     </ClCompile>
+    <ClCompile Include="..\src\mge\gameplay\Command\ExitCommand.cpp">
+      <Filter>MGE Source files\mge\gameplay\Command</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram.cd" />

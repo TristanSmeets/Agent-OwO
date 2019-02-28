@@ -3,6 +3,7 @@
 #include "mge/gameplay/Button/Button.hpp"
 #include "mge/gameplay/ButtonManager.hpp"
 #include "mge/gameplay/Command/StartCommand.hpp"
+#include "mge/gameplay/Command/ExitCommand.hpp"
 #include "mge/behaviours/MouseBehaviour.hpp"
 #include "mge/core/World.hpp"
 

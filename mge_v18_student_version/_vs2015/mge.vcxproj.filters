@@ -281,6 +281,9 @@
     <ClInclude Include="..\src\mge\User Interface\MainMenu.hpp">
       <Filter>MGE Source files\mge\UI</Filter>
     </ClInclude>
+    <ClInclude Include="..\src\mge\gameplay\Command\ExitCommand.hpp">
+      <Filter>MGE Source files\mge\gameplay\Command</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\main.cpp">

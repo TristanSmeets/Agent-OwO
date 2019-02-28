@@ -17,4 +17,5 @@ private:
 	Button* startButton;
 	GameObject* mouse;
 	MouseBehaviour* mouseBehaviour;
+	Button* exitButton;
 };

@@ -39,7 +39,7 @@ void AbstractGame::_initializeWindow() {
 	std::string& windowTitle = LuaWrapper::GetString(config, "Title");
 
 
-	_window = new sf::RenderWindow( sf::VideoMode(ScreenWidth, ScreenHeight), windowTitle, sf::Style::Default, sf::ContextSettings(24,8,0,3,3));
+	_window = new sf::RenderWindow( sf::VideoMode(ScreenWidth, ScreenHeight), windowTitle, sf::Style::Default, sf::ContextSettings(24,8,16,3,3));
 	LuaWrapper::CloseLuaState(config);
 	//_window->setVerticalSyncEnabled(true);
     std::cout << "Window initialized." << std::endl << std::endl;

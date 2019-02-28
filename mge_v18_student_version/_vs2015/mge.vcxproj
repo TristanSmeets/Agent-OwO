@@ -196,6 +196,7 @@
     <ClInclude Include="..\src\mge\gameplay\Button\Button.hpp" />
     <ClInclude Include="..\src\mge\gameplay\Command\Command.hpp" />
     <ClInclude Include="..\src\mge\gameplay\Command\DownCommand.hpp" />
+    <ClInclude Include="..\src\mge\gameplay\Command\ExitCommand.hpp" />
     <ClInclude Include="..\src\mge\gameplay\Command\LeftCommand.hpp" />
     <ClInclude Include="..\src\mge\gameplay\Command\MoveCommand.hpp" />
     <ClInclude Include="..\src\mge\gameplay\Command\RightCommand.hpp" />

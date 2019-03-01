@@ -21,6 +21,8 @@ GameScene::~GameScene()
 			delete current;
 		}
 	}
+	backgroundMesh = nullptr;
+	delete backgroundTexture;
 	//if(mainMenu != nullptr) delete mainMenu;
 }
 
@@ -53,12 +55,20 @@ void GameScene::_initializeScene()
 	_world->add(camera);
 	_world->setMainCamera(camera);
 
-	std::cout << "Creating MainMenu.\n";
-	mainMenu = new MainMenu(_world, _window);
+	//std::cout << "Creating MainMenu.\n";
+	//mainMenu = new MainMenu(_world, _window);
+
+	GameObject* background = new GameObject("BACKGROUND", glm::vec3(-2,0,4));
+	backgroundMesh = Mesh::load(config::MGE_MODEL_PATH + "Level_2_BG.obj");
+	backgroundTexture = new TextureMaterial(Texture::load(config::MGE_TEXTURE_PATH + "Level_2_BG.png"));
+	background->setMesh(backgroundMesh);
+	background->setMaterial(backgroundTexture);
+	_world->add(background);
+
 
 	std::cout << "Creating the Level\n";
 	level = new Level(_world, camera);
-	//level->CreateLevel(1);
+	level->CreateLevel(2);
 }
 
 void GameScene::_render()

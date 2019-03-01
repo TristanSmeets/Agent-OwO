@@ -8,6 +8,7 @@
 #include "mge/util/LevelEditor/Factories/CameraFactory.hpp"
 #include "mge/core/Camera.hpp"
 #include "mge/User Interface/MainMenu.hpp"
+#include "mge/config.hpp"
 
 class GameScene : public AbstractGame, public Observer<GeneralEvent>
 {
@@ -26,4 +27,6 @@ private:
 	lua_State* config;
 	EventQueueBehaviour* eventQueueBehaviour;
 	MainMenu* mainMenu;
+	TextureMaterial* backgroundTexture;
+	Mesh* backgroundMesh;
 };

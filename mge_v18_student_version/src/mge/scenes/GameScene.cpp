@@ -42,7 +42,10 @@ void GameScene::OnNotify(const GeneralEvent & info)
 	if (info.nextLevel)
 	{
 		if (hud != nullptr)
+		{
 			delete hud;
+			hud = nullptr;
+		}
 		levelNumber++;
 		level->UnloadLevel();
 

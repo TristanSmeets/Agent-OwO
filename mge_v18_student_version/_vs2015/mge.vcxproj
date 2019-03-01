@@ -222,6 +222,7 @@
     <ClInclude Include="..\src\mge\scenes\MGEDemo.hpp" />
     <ClInclude Include="..\src\mge\scenes\TerrainScene.hpp" />
     <ClInclude Include="..\src\mge\scenes\TristanScene.h" />
+    <ClInclude Include="..\src\mge\User Interface\HUD.hpp" />
     <ClInclude Include="..\src\mge\User Interface\MainMenu.hpp" />
     <ClInclude Include="..\src\mge\util\DebugHud.hpp" />
     <ClInclude Include="..\src\mge\util\EventQueue\EventQueue.hpp" />

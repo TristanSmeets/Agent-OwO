@@ -1,7 +1,7 @@
 #pragma once
 #include "SFML/Graphics.hpp"
 #include "mge/core/Observer.hpp"
-#include "mge/util/EventQueue/EventStructs.hpp"
+#include "mge/util/EventQueue/EventQueue.hpp"
 #include "mge/util/LuaScripting/LuaWrapper.hpp"
 
 class UIStepCounter : public Observer<GeneralEvent>

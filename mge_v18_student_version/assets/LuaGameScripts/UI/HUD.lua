@@ -1,10 +1,9 @@
 --Stepcounter
---Text
 Font = "mge/UI/Futura_ICG.ttf"			--Path to the font
 FontSize = 16							--Size of the font
 TextPosition = {x = 200, y = 1500}
 --Icon
-StepIcon = "mge/UI/FootSteps.png"       --Path to the image
+IconPath = "Hello" --"mge/UI/FootSteps.png"       --Path to the image
 IconPosition = {x = 100, y = 1500 }		--Where Icon is supposed to be placed.
 
 

@@ -52,9 +52,6 @@ void ExitBehaviour::SetPreviousType(NODETYPE nodeType)
 void ExitBehaviour::SetExitNode(Node* node)
 {
 	exitNode = node;
-	std::cout << "Activated Switches: " << activatedSwitches << std::endl;
-	std::cout << "Amount of Switches: " << amountOfSwitches << std::endl;
-	std::cout << "Exit is Open: " << (activatedSwitches == amountOfSwitches) << std::endl;
 	exitNode->SetIsOpen(activatedSwitches == amountOfSwitches);
 }
 

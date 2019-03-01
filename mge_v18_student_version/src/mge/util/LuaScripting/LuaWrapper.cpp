@@ -58,7 +58,7 @@ double LuaWrapper::GetTableNumber(lua_State * luaState, const std::string& key)
 		value = lua_tonumber(luaState, -1);
 	else
 		throw std::invalid_argument("variable isn't a number");
-	
+
 	lua_pop(luaState, 1);
 
 	return value;
@@ -129,8 +129,7 @@ glm::quat LuaWrapper::GetTableQuat(lua_State * luaState, const std::string & key
 
 glm::vec2 LuaWrapper::GetVec2(lua_State * luaState, const std::string & variable)
 {
-	lua_pushstring(luaState, variable.c_str());
-	lua_gettable(luaState, -2);
+	lua_getglobal(luaState, variable.c_str());
 
 	glm::vec2 vector2;
 

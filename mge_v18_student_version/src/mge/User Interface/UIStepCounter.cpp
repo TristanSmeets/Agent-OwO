@@ -13,30 +13,31 @@ UIStepCounter::UIStepCounter(lua_State* luaHUD, int levelNumber) : Observer<Gene
 
 	//Creating Icon
 	iconImage = sf::Sprite();
-	//std::cout << "Trying to get IconPath.\n";
-	//std::string iconPath = LuaWrapper::GetString(luaHUD, "IconPath");
-
-	//std::cout << "IconPath: " << iconPath << std::endl;
-	iconTexture.loadFromFile("mge/UI/Footsteps.png");
+	std::cout << "Trying to get IconPath.\n";
+	std::string iconPath = LuaWrapper::GetString(luaHUD, "IconPath");
+	std::cout << "IconPath: " << iconPath << std::endl;
+	iconTexture.loadFromFile(iconPath);
 	iconImage.setTexture(iconTexture);
-	//glm::vec2 iconPosition = LuaWrapper::GetVec2(luaHUD, "IconPosition");
-	//iconImage.setPosition(iconPosition.x, iconPosition.y);
-	iconImage.setPosition(200, 500);
+
+	std::cout << "Trying to get Position.\n";
+	
+	glm::vec2 iconPosition = LuaWrapper::GetVec2(luaHUD, "IconPosition");
+	iconImage.setPosition(iconPosition.x, iconPosition.y);
 	sf::Vector2u iconSize = iconImage.getTexture()->getSize();
 	iconImage.setOrigin(iconSize.x * 0.5f, iconSize.y * 0.5f);
 
 	//Creating font
-	std::string fontPath = "mge/UI/Futura_ICG.ttf";//LuaWrapper::GetString(luaHUD, "Font");
+	std::cout << "Trying to get FondPath.\n";
+	std::string fontPath = LuaWrapper::GetString(luaHUD, "Font");
 	font.loadFromFile(fontPath);
 	
 
 	//Creating Text
 	stepText = sf::Text();
 	stepText.setFont(font);
-	stepText.setCharacterSize(16);//LuaWrapper::GetNumber<int>(luaHUD, "FontSize"));
-	//glm::vec2 textPosition = LuaWrapper::GetVec2(luaHUD, "TextPosition");
-	//stepText.setPosition(textPosition.x, textPosition.y);
-	stepText.setPosition(200, 600);
+	stepText.setCharacterSize(LuaWrapper::GetNumber<int>(luaHUD, "FontSize"));
+	glm::vec2 textPosition = LuaWrapper::GetVec2(luaHUD, "TextPosition");
+	stepText.setPosition(textPosition.x, textPosition.y);
 	updateStepCounter(stepsLeft);
 }
 

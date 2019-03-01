@@ -34,20 +34,22 @@ void GameScene::OnNotify(const GeneralEvent & info)
 	if (info.startGame)
 	{
 		delete mainMenu;
-		hud = new HUD(levelNumber);
+		//hud = new HUD(levelNumber);
 		level->CreateLevel(levelNumber);
 	}
 	if (info.resetLevel)
 		level->Resetlevel();
 	if (info.nextLevel)
 	{
+		if (hud != nullptr)
+			delete hud;
 		levelNumber++;
 		level->UnloadLevel();
-		delete hud;
 
 		if (levelNumber > 6)
 			levelNumber = 1;
-		hud = new HUD(levelNumber);
+		if (levelNumber > 2)
+			hud = new HUD(levelNumber);
 		level->CreateLevel(levelNumber);
 	}
 }

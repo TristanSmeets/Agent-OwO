@@ -127,6 +127,26 @@ glm::quat LuaWrapper::GetTableQuat(lua_State * luaState, const std::string & key
 	return rotation;
 }
 
+glm::vec2 LuaWrapper::GetVec2(lua_State * luaState, const std::string & variable)
+{
+	lua_pushstring(luaState, variable.c_str());
+	lua_gettable(luaState, -2);
+
+	glm::vec2 vector2;
+
+	if (lua_istable(luaState, -1))
+	{
+		vector2 = glm::vec2(
+			LuaWrapper::GetTableNumber(luaState, "x"),
+			LuaWrapper::GetTableNumber(luaState, "y"));
+	}
+	else
+		throw std::invalid_argument("Not a table.");
+	lua_pop(luaState, 1);
+
+	return vector2;
+}
+
 void LuaWrapper::CloseLuaState(lua_State * luaState)
 {
 	//std::cout << "Closing lua_State at " << luaState << std::endl;

@@ -1,11 +1,10 @@
 #include "Level.hpp"
 #include "mge/behaviours/ExitBehaviour.hpp"
 
-Level::Level(World * world, Camera* camera) : Observer<GeneralEvent>(),
+Level::Level(World * world, Camera* camera) :
 world(world), config(LuaWrapper::InitializeLuaState("LuaGameScripts\\config.lua"))
 {
 	objectCreator = new ObjectCreator(config, world, camera);
-	EventQueue::AddObserver(this);
 }
 
 Level::~Level()
@@ -20,7 +19,6 @@ Level::~Level()
 
 void Level::CreateLevel(int levelNumber)
 {
-	Number = levelNumber;
 	stepTracker = new StepTracker(levelNumber);
 
 	//Open the lua file.
@@ -50,7 +48,6 @@ void Level::CreateLevel(int levelNumber)
 	}
 	lua_pop(luaLevel, 1);
 
-	std::cout << "TileObjects size: " << objectCreator->GetTileObjects().size() << std::endl;
 	TileObject::CreateNodeConnections(objectCreator->GetTileObjects());
 	objectCreator->ConfigureBehaviourStartNodes();
 }
@@ -101,19 +98,4 @@ void Level::UnloadLevel()
 	delete objectCreator->GetPlayer();
 	delete stepTracker;
 	LuaWrapper::CloseLuaState(luaLevel);
-}
-
-void Level::OnNotify(const GeneralEvent & eventInfo)
-{
-	if (eventInfo.resetLevel)
-		Resetlevel();
-	if (eventInfo.nextLevel)
-	{
-		UnloadLevel();
-		Number++;
-
-		if (Number > 6)
-			Number = 1;
-		CreateLevel(Number);
-	}
 }

@@ -23,16 +23,22 @@ void ExitBehaviour::update(float pStep)
 void ExitBehaviour::OnNotify(const SwitchEvent & info)
 {
 	activatedSwitches += info.activateSwitch;
+
+	/*std::cout << "Amount of Switches: " << amountOfSwitches << std::endl;
+	std::cout << "Activated switches: " << activatedSwitches << std::endl;*/
+
 	exitNode->SetIsOpen(amountOfSwitches == activatedSwitches);
 }
 
 void ExitBehaviour::SubscribeToSubjects(std::vector<GameObject*> switchObjects)
 {
 	subjects = switchObjects;
-	std::cout << "ExitBehaviour subscribing to " << subjects.size() << " switches.\n";
+	amountOfSwitches = switchObjects.size();
+	activatedSwitches = 0;
+	exitNode->SetIsOpen(amountOfSwitches == activatedSwitches);
+
 	for (unsigned int index = 0; index < switchObjects.size(); ++index)
 	{
-		std::cout << "Subscribing to " << index << " switch.\n";
 		Subject<SwitchEvent>* subject = dynamic_cast<Subject<SwitchEvent>*>(switchObjects[index]->getBehaviour());
 		subject->AddObserver(this);
 	}

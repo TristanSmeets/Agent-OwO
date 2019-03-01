@@ -69,6 +69,8 @@ public:
 	static glm::vec3 GetTableVec3(lua_State* luaState, const std::string& key);
 	static glm::vec4 GetTableVec4(lua_State* luaState, const std::string& key);
 	static glm::quat GetTableQuat(lua_State* luaState, const std::string& key);
+	static glm::vec2 GetVec2(lua_State* luaState, const std::string& variable);
+
 	//Freeing Lua
 	//Closes a lua_State
 	static void CloseLuaState(lua_State* luaState);

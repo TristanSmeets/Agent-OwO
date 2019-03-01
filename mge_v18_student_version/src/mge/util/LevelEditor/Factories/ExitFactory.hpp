@@ -5,14 +5,13 @@
 #include "mge/util/EventQueue/EventQueue.hpp"
 
 class ExitFactory :
-	public AbstractFactory, public Observer<GeneralEvent>
+	public AbstractFactory
 {
 public:
 	ExitFactory();
 	ExitFactory(lua_State* config);
 	~ExitFactory();
 	GameObject* CreateGameObject(const std::string& name);
-	void OnNotify(const GeneralEvent& eventInfo);
 
 private:
 	lua_State* luaExit;

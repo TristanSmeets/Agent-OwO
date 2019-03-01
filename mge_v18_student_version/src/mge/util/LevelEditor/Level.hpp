@@ -15,7 +15,7 @@
 	Calls on a factory to create the gameobjects.
 	Places the gameobjects it gets from the factory in the right position
 */
-class Level : Observer<GeneralEvent>
+class Level
 {
 public:
 	Level(World* world, Camera* camera);
@@ -23,7 +23,6 @@ public:
 	void CreateLevel(int levelNumber);
 	void Resetlevel();
 	void UnloadLevel();
-	void OnNotify(const GeneralEvent& eventInfo);
 
 private:
 	World* world;
@@ -31,7 +30,6 @@ private:
 	lua_State* luaLevel;
 	StepTracker* stepTracker;
 	ObjectCreator* objectCreator;
-	int Number;
 };
 
 #endif // !LEVEL_HPP

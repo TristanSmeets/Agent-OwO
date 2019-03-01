@@ -34,7 +34,26 @@ void GameScene::OnNotify(const GeneralEvent & info)
 	if (info.startGame)
 	{
 		delete mainMenu;
-		level->CreateLevel(1);
+		//hud = new HUD(levelNumber);
+		level->CreateLevel(levelNumber);
+	}
+	if (info.resetLevel)
+		level->Resetlevel();
+	if (info.nextLevel)
+	{
+		if (hud != nullptr)
+		{
+			delete hud;
+			hud = nullptr;
+		}
+		levelNumber++;
+		level->UnloadLevel();
+
+		if (levelNumber > 6)
+			levelNumber = 1;
+		if (levelNumber > 2)
+			hud = new HUD(levelNumber);
+		level->CreateLevel(levelNumber);
 	}
 }
 
@@ -58,22 +77,26 @@ void GameScene::_initializeScene()
 
 	std::cout << "Creating the Level\n";
 	level = new Level(_world, camera);
-	//level->CreateLevel(1);
+	/*std::cout << "HUD: " << hud << std::endl;
+	std::cout << "HUD == nullptr: " << (hud == nullptr) << std::endl;*/
 }
 
 void GameScene::_render()
 {
 	AbstractGame::_render();
 
+	_window->pushGLStates();
 	if (ButtonManager::GetAmountOfButtons() > 0)
 	{
 		for (unsigned int index = 0; index < ButtonManager::GetAmountOfButtons(); ++index)
 		{
 			Button* current = ButtonManager::GetButton(index);
-			_window->pushGLStates();
 			_window->draw(*current->GetSprite());
-			_window->popGLStates();
 		}
 	}
+	if (hud != nullptr)
+	{
+		hud->Draw(_window);
+	}
+	_window->popGLStates();
 }
-

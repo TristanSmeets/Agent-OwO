@@ -27,14 +27,14 @@ ObjectCreator::~ObjectCreator()
 	delete switchFactory;
 	delete tileFactory;
 
-	std::cout << "\nCleaning TileObjects\n";
+	std::cout << "Cleaning TileObjects\n";
 	for (unsigned int index = 0; index < tileObjects.size(); ++index)
 	{
 		tileObjects[index] = nullptr;
 	}
 	tileObjects.clear();
 
-	std::cout << "\nCleaning BoxObjects\n";
+	std::cout << "Cleaning BoxObjects\n";
 	for (unsigned int index = 0; index < boxObjects.size(); ++index)
 	{
 		//delete boxObjects[index]->getBehaviour();
@@ -42,7 +42,7 @@ ObjectCreator::~ObjectCreator()
 	}
 	boxObjects.clear();
 
-	std::cout << "\nCleaning SwitchObjects\n";
+	std::cout << "Cleaning SwitchObjects\n";
 	for (unsigned int index = 0; index < switchObjects.size(); ++index)
 	{
 		//delete switchObjects[index]->getBehaviour();
@@ -88,9 +88,7 @@ void ObjectCreator::CreateGameObject(const std::string & objectType, const glm::
 	{
 		newGameObject = switchFactory->CreateGameObject(objectType);
 		addToTileObjectsandSetNode(newGameObject, position);
-		std::cout << "\nVector size: " << switchObjects.size() << "\nAdding new Switch to vector.\n";
 		switchObjects.push_back(newGameObject);
-		std::cout << "Vector size: " << switchObjects.size() << std::endl;
 	}
 	if ("START" == objectType)
 	{

@@ -7,9 +7,8 @@ ExitFactory::ExitFactory() : AbstractFactory()
 {
 }
 
-ExitFactory::ExitFactory(lua_State* config) : AbstractFactory(), Observer<GeneralEvent>()
+ExitFactory::ExitFactory(lua_State* config) : AbstractFactory()
 {
-	EventQueue::AddObserver(this);
 	std::string exitFile = LuaWrapper::GetString(config, "Exit");
 	luaExit = LuaWrapper::InitializeLuaState(exitFile);
 
@@ -17,7 +16,6 @@ ExitFactory::ExitFactory(lua_State* config) : AbstractFactory(), Observer<Genera
 	mesh = getMesh(luaExit);
 	std::cout << "Loading Exit TextureMaterial\n";
 	material = getTextureMaterial(luaExit);
-
 	luaLevelInfo = LuaWrapper::InitializeLuaState("LuaGameScripts/Level/Level_Info.lua");
 }
 
@@ -29,7 +27,6 @@ ExitFactory::~ExitFactory()
 	behaviour = nullptr;
 	LuaWrapper::CloseLuaState(luaExit);
 	LuaWrapper::CloseLuaState(luaLevelInfo);
-	EventQueue::RemoveObserver(this);
 }
 
 GameObject* ExitFactory::CreateGameObject(const std::string & name)
@@ -41,7 +38,7 @@ GameObject* ExitFactory::CreateGameObject(const std::string & name)
 	
 	lua_getglobal(luaLevelInfo, "Switches");
 	switches = LuaWrapper::GetTableNumber(luaLevelInfo, "Level_" + std::to_string(levelNumber));
-	
+	std::cout << "ExitFactory: Amount of Switches: " << switches << std::endl;
 	behaviour = new ExitBehaviour(switches);
 	ExitBehaviour* exitBehaviour = dynamic_cast<ExitBehaviour*>(behaviour);
 	exitBehaviour->SetExitNode(newExit->GetNode());
@@ -50,14 +47,4 @@ GameObject* ExitFactory::CreateGameObject(const std::string & name)
 	addMaterial(newExit);
 	addBehaviour(newExit);
 	return newExit;
-}
-
-void ExitFactory::OnNotify(const GeneralEvent & eventInfo)
-{
-	if (eventInfo.nextLevel)
-	{
-		levelNumber++;
-		if (levelNumber > 6)
-			levelNumber = 1;
-	}
 }

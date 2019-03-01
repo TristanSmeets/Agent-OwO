@@ -68,6 +68,9 @@
     <Filter Include="MGE Source files\mge\UI">
       <UniqueIdentifier>{12bdbe3e-6e29-43cf-afc9-d70df04f3c9f}</UniqueIdentifier>
     </Filter>
+    <Filter Include="LuaScripts\UI">
+      <UniqueIdentifier>{686ac6fb-b083-4358-a590-89e296f9a48f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\src\glm.hpp">
@@ -287,6 +290,9 @@
     <ClInclude Include="..\src\mge\User Interface\HUD.hpp">
       <Filter>MGE Source files\mge\UI</Filter>
     </ClInclude>
+    <ClInclude Include="..\src\mge\User Interface\UIStepCounter.hpp">
+      <Filter>MGE Source files\mge\UI</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\main.cpp">
@@ -490,6 +496,12 @@
     <ClCompile Include="..\src\mge\gameplay\Command\ExitCommand.cpp">
       <Filter>MGE Source files\mge\gameplay\Command</Filter>
     </ClCompile>
+    <ClCompile Include="..\src\mge\User Interface\HUD.cpp">
+      <Filter>MGE Source files\mge\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\mge\User Interface\UIStepCounter.cpp">
+      <Filter>MGE Source files\mge\UI</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram.cd" />
@@ -635,6 +647,9 @@
     </CopyFileToFolders>
     <CopyFileToFolders Include="..\assets\LuaGameScripts\Level\Level_Info.lua">
       <Filter>LuaScripts\Levels</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="..\assets\LuaGameScripts\UI\HUD.lua">
+      <Filter>LuaScripts\UI</Filter>
     </CopyFileToFolders>
   </ItemGroup>
 </Project>

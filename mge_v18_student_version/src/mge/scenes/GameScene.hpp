@@ -26,4 +26,5 @@ private:
 	lua_State* config;
 	EventQueueBehaviour* eventQueueBehaviour;
 	MainMenu* mainMenu;
+	int levelNumber = 1;
 };

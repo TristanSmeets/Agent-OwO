@@ -24,8 +24,8 @@ void ExitBehaviour::OnNotify(const SwitchEvent & info)
 {
 	activatedSwitches += info.activateSwitch;
 
-	std::cout << "Amount of Switches: " << amountOfSwitches << std::endl;
-	std::cout << "Activated switches: " << activatedSwitches << std::endl;
+	/*std::cout << "Amount of Switches: " << amountOfSwitches << std::endl;
+	std::cout << "Activated switches: " << activatedSwitches << std::endl;*/
 
 	exitNode->SetIsOpen(amountOfSwitches == activatedSwitches);
 }
@@ -34,10 +34,11 @@ void ExitBehaviour::SubscribeToSubjects(std::vector<GameObject*> switchObjects)
 {
 	subjects = switchObjects;
 	amountOfSwitches = switchObjects.size();
-	std::cout << "ExitBehaviour subscribing to " << subjects.size() << " switches.\n";
+	activatedSwitches = 0;
+	exitNode->SetIsOpen(amountOfSwitches == activatedSwitches);
+
 	for (unsigned int index = 0; index < switchObjects.size(); ++index)
 	{
-		std::cout << "Subscribing to " << index << " switch.\n";
 		Subject<SwitchEvent>* subject = dynamic_cast<Subject<SwitchEvent>*>(switchObjects[index]->getBehaviour());
 		subject->AddObserver(this);
 	}
@@ -51,6 +52,9 @@ void ExitBehaviour::SetPreviousType(NODETYPE nodeType)
 void ExitBehaviour::SetExitNode(Node* node)
 {
 	exitNode = node;
+	std::cout << "Activated Switches: " << activatedSwitches << std::endl;
+	std::cout << "Amount of Switches: " << amountOfSwitches << std::endl;
+	std::cout << "Exit is Open: " << (activatedSwitches == amountOfSwitches) << std::endl;
 	exitNode->SetIsOpen(activatedSwitches == amountOfSwitches);
 }
 

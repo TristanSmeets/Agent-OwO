@@ -8,7 +8,7 @@
 #include "mge/util/LevelEditor/Factories/CameraFactory.hpp"
 #include "mge/core/Camera.hpp"
 #include "mge/User Interface/MainMenu.hpp"
-#include "mge/config.hpp"
+#include "mge/User Interface/HUD.hpp"
 
 class GameScene : public AbstractGame, public Observer<GeneralEvent>
 {
@@ -25,8 +25,10 @@ protected:
 private:
 	Level* level;
 	lua_State* config;
+	HUD* hud = nullptr;
 	EventQueueBehaviour* eventQueueBehaviour;
 	MainMenu* mainMenu;
-	TextureMaterial* backgroundTexture;
-	Mesh* backgroundMesh;
+	Camera* camera;
+
+	int levelNumber = 1;
 };

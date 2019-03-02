@@ -58,7 +58,7 @@ double LuaWrapper::GetTableNumber(lua_State * luaState, const std::string& key)
 		value = lua_tonumber(luaState, -1);
 	else
 		throw std::invalid_argument("variable isn't a number");
-	
+
 	lua_pop(luaState, 1);
 
 	return value;
@@ -125,6 +125,25 @@ glm::quat LuaWrapper::GetTableQuat(lua_State * luaState, const std::string & key
 		throw std::invalid_argument("Not a table.");
 	lua_pop(luaState, 1);
 	return rotation;
+}
+
+glm::vec2 LuaWrapper::GetVec2(lua_State * luaState, const std::string & variable)
+{
+	lua_getglobal(luaState, variable.c_str());
+
+	glm::vec2 vector2;
+
+	if (lua_istable(luaState, -1))
+	{
+		vector2 = glm::vec2(
+			LuaWrapper::GetTableNumber(luaState, "x"),
+			LuaWrapper::GetTableNumber(luaState, "y"));
+	}
+	else
+		throw std::invalid_argument("Not a table.");
+	lua_pop(luaState, 1);
+
+	return vector2;
 }
 
 void LuaWrapper::CloseLuaState(lua_State * luaState)

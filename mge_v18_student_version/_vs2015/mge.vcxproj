@@ -222,7 +222,9 @@
     <ClInclude Include="..\src\mge\scenes\MGEDemo.hpp" />
     <ClInclude Include="..\src\mge\scenes\TerrainScene.hpp" />
     <ClInclude Include="..\src\mge\scenes\TristanScene.h" />
+    <ClInclude Include="..\src\mge\User Interface\HUD.hpp" />
     <ClInclude Include="..\src\mge\User Interface\MainMenu.hpp" />
+    <ClInclude Include="..\src\mge\User Interface\UIStepCounter.hpp" />
     <ClInclude Include="..\src\mge\util\DebugHud.hpp" />
     <ClInclude Include="..\src\mge\util\EventQueue\EventQueue.hpp" />
     <ClInclude Include="..\src\mge\util\EventQueue\EventStructs.hpp" />
@@ -292,7 +294,9 @@
     <ClCompile Include="..\src\mge\scenes\MGEDemo.cpp" />
     <ClCompile Include="..\src\mge\scenes\TerrainScene.cpp" />
     <ClCompile Include="..\src\mge\scenes\TristanScene.cpp" />
+    <ClCompile Include="..\src\mge\User Interface\HUD.cpp" />
     <ClCompile Include="..\src\mge\User Interface\MainMenu.cpp" />
+    <ClCompile Include="..\src\mge\User Interface\UIStepCounter.cpp" />
     <ClCompile Include="..\src\mge\util\DebugHud.cpp" />
     <ClCompile Include="..\src\mge\util\EventQueue\EventQueue.cpp" />
     <ClCompile Include="..\src\mge\util\LevelEditor\Factories\AbstractFactory.cpp" />
@@ -415,6 +419,10 @@
     <CopyFileToFolders Include="..\assets\LuaGameScripts\Level\Level_Info.lua">
       <FileType>Document</FileType>
       <DestinationFolders Condition="'$(Configuration)|$(Platform)'=='Debug Static|Win32'">$(OutDir)\LuaGameScripts\Level</DestinationFolders>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="..\assets\LuaGameScripts\UI\HUD.lua">
+      <FileType>Document</FileType>
+      <DestinationFolders Condition="'$(Configuration)|$(Platform)'=='Debug Static|Win32'">$(OutDir)\LuaGameScripts\UI</DestinationFolders>
     </CopyFileToFolders>
     <None Include="ClassDiagram.cd" />
   </ItemGroup>

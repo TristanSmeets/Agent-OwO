@@ -10,6 +10,7 @@ GameScene::~GameScene()
 	std::cout << "GC running on:GameScene\n";
 	delete level;
 	delete eventQueueBehaviour;
+	camera = nullptr;
 
 	std::cout << "Cleaning up Buttons.\n";
 	if (ButtonManager::GetAmountOfButtons() > 0)
@@ -21,9 +22,7 @@ GameScene::~GameScene()
 			delete current;
 		}
 	}
-	backgroundMesh = nullptr;
-	delete backgroundTexture;
-	//if(mainMenu != nullptr) delete mainMenu;
+	mainMenu = nullptr;
 }
 
 void GameScene::initialize()
@@ -36,7 +35,27 @@ void GameScene::OnNotify(const GeneralEvent & info)
 	if (info.startGame)
 	{
 		delete mainMenu;
-		level->CreateLevel(1);
+		//hud = new HUD(levelNumber);
+		level = new Level(_world, camera);
+		level->CreateLevel(levelNumber);
+	}
+	if (info.resetLevel)
+		level->Resetlevel();
+	if (info.nextLevel)
+	{
+		if (hud != nullptr)
+		{
+			delete hud;
+			hud = nullptr;
+		}
+		levelNumber++;
+		level->UnloadLevel();
+
+		if (levelNumber > 6)
+			levelNumber = 1;
+		if (levelNumber > 2)
+			hud = new HUD(levelNumber);
+		level->CreateLevel(levelNumber);
 	}
 }
 
@@ -51,39 +70,35 @@ void GameScene::_initializeScene()
 
 	lua_State* config = LuaWrapper::InitializeLuaState("LuaGameScripts\\config.lua");
 
-	Camera* camera = dynamic_cast<Camera*>(CameraFactory(config).CreateGameObject("Camera"));
+	camera = dynamic_cast<Camera*>(CameraFactory(config).CreateGameObject("Camera"));
 	_world->add(camera);
 	_world->setMainCamera(camera);
 
-	//std::cout << "Creating MainMenu.\n";
-	//mainMenu = new MainMenu(_world, _window);
+	std::cout << "Creating MainMenu.\n";
+	mainMenu = new MainMenu(_world, _window);
 
-	GameObject* background = new GameObject("BACKGROUND", glm::vec3(-2,0,4));
-	backgroundMesh = Mesh::load(config::MGE_MODEL_PATH + "Level_2_BG.obj");
-	backgroundTexture = new TextureMaterial(Texture::load(config::MGE_TEXTURE_PATH + "Level_2_BG.png"));
-	background->setMesh(backgroundMesh);
-	background->setMaterial(backgroundTexture);
-	_world->add(background);
-
-
-	std::cout << "Creating the Level\n";
-	level = new Level(_world, camera);
-	level->CreateLevel(2);
+	//std::cout << "Creating the Level\n";
+	//level = new Level(_world, camera);
+	/*std::cout << "HUD: " << hud << std::endl;
+	std::cout << "HUD == nullptr: " << (hud == nullptr) << std::endl;*/
 }
 
 void GameScene::_render()
 {
 	AbstractGame::_render();
 
+	_window->pushGLStates();
 	if (ButtonManager::GetAmountOfButtons() > 0)
 	{
 		for (unsigned int index = 0; index < ButtonManager::GetAmountOfButtons(); ++index)
 		{
 			Button* current = ButtonManager::GetButton(index);
-			_window->pushGLStates();
 			_window->draw(*current->GetSprite());
-			_window->popGLStates();
 		}
 	}
+	if (hud != nullptr)
+	{
+		hud->Draw(_window);
+	}
+	_window->popGLStates();
 }
-

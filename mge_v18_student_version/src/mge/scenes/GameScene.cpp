@@ -10,6 +10,7 @@ GameScene::~GameScene()
 	std::cout << "GC running on:GameScene\n";
 	delete level;
 	delete eventQueueBehaviour;
+	camera = nullptr;
 
 	std::cout << "Cleaning up Buttons.\n";
 	if (ButtonManager::GetAmountOfButtons() > 0)
@@ -21,7 +22,7 @@ GameScene::~GameScene()
 			delete current;
 		}
 	}
-	//if(mainMenu != nullptr) delete mainMenu;
+	mainMenu = nullptr;
 }
 
 void GameScene::initialize()
@@ -35,6 +36,7 @@ void GameScene::OnNotify(const GeneralEvent & info)
 	{
 		delete mainMenu;
 		//hud = new HUD(levelNumber);
+		level = new Level(_world, camera);
 		level->CreateLevel(levelNumber);
 	}
 	if (info.resetLevel)
@@ -68,15 +70,15 @@ void GameScene::_initializeScene()
 
 	lua_State* config = LuaWrapper::InitializeLuaState("LuaGameScripts\\config.lua");
 
-	Camera* camera = dynamic_cast<Camera*>(CameraFactory(config).CreateGameObject("Camera"));
+	camera = dynamic_cast<Camera*>(CameraFactory(config).CreateGameObject("Camera"));
 	_world->add(camera);
 	_world->setMainCamera(camera);
 
 	std::cout << "Creating MainMenu.\n";
 	mainMenu = new MainMenu(_world, _window);
 
-	std::cout << "Creating the Level\n";
-	level = new Level(_world, camera);
+	//std::cout << "Creating the Level\n";
+	//level = new Level(_world, camera);
 	/*std::cout << "HUD: " << hud << std::endl;
 	std::cout << "HUD == nullptr: " << (hud == nullptr) << std::endl;*/
 }

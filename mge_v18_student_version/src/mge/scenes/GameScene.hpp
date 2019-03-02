@@ -28,5 +28,7 @@ private:
 	HUD* hud = nullptr;
 	EventQueueBehaviour* eventQueueBehaviour;
 	MainMenu* mainMenu;
+	Camera* camera;
+
 	int levelNumber = 1;
 };

@@ -24,7 +24,7 @@ protected:
 	void _render();
 
 private:
-	Level* level;
+	Level* level = nullptr;
 	lua_State* config;
 	HUD* hud = nullptr;
 	EventQueueBehaviour* eventQueueBehaviour;

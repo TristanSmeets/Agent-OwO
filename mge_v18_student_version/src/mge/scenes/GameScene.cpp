@@ -8,7 +8,7 @@ GameScene::GameScene() : AbstractGame(), config(LuaWrapper::InitializeLuaState("
 GameScene::~GameScene()
 {
 	std::cout << "GC running on:GameScene\n";
-	delete level;
+	if(level != nullptr) delete level;
 	delete eventQueueBehaviour;
 	camera = nullptr;
 
@@ -59,7 +59,6 @@ void GameScene::OnNotify(const GeneralEvent & info)
 			levelNumber = 1;
 		if (levelNumber > 2)
 			hud = new HUD(levelNumber);
-		std::cout << "Creating background prop.\n";
 		propCreator->CreateBGProp(levelNumber);
 		level->CreateLevel(levelNumber);
 	}
@@ -74,7 +73,7 @@ void GameScene::_initializeScene()
 
 	EventQueue::AddObserver(this);
 
-	lua_State* config = LuaWrapper::InitializeLuaState("LuaGameScripts\\config.lua");
+	lua_State* config = LuaWrapper::InitializeLuaState("LuaGameScripts/config.lua");
 
 	camera = dynamic_cast<Camera*>(CameraFactory(config).CreateGameObject("Camera"));
 	_world->add(camera);

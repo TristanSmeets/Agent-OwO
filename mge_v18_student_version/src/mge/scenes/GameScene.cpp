@@ -23,11 +23,14 @@ GameScene::~GameScene()
 		}
 	}
 	mainMenu = nullptr;
+	delete propCreator;
 }
 
 void GameScene::initialize()
 {
 	AbstractGame::initialize();
+	propCreator = new PropCreator(_world);
+	propCreator->LoadProps();
 }
 
 void GameScene::OnNotify(const GeneralEvent & info)
@@ -37,6 +40,7 @@ void GameScene::OnNotify(const GeneralEvent & info)
 		delete mainMenu;
 		//hud = new HUD(levelNumber);
 		level = new Level(_world, camera);
+		propCreator->CreateBGProp(levelNumber);
 		level->CreateLevel(levelNumber);
 	}
 	if (info.resetLevel)
@@ -50,11 +54,12 @@ void GameScene::OnNotify(const GeneralEvent & info)
 		}
 		levelNumber++;
 		level->UnloadLevel();
-
+		propCreator->RemoveBGProp();
 		if (levelNumber > 6)
 			levelNumber = 1;
 		if (levelNumber > 2)
 			hud = new HUD(levelNumber);
+		propCreator->CreateBGProp(levelNumber);
 		level->CreateLevel(levelNumber);
 	}
 }

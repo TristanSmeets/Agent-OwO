@@ -9,6 +9,7 @@
 #include "mge/core/Camera.hpp"
 #include "mge/User Interface/MainMenu.hpp"
 #include "mge/User Interface/HUD.hpp"
+#include "mge/util/LevelEditor/PropCreator.hpp"
 
 class GameScene : public AbstractGame, public Observer<GeneralEvent>
 {
@@ -29,6 +30,7 @@ private:
 	EventQueueBehaviour* eventQueueBehaviour;
 	MainMenu* mainMenu;
 	Camera* camera;
+	PropCreator* propCreator;
 
 	int levelNumber = 1;
 };

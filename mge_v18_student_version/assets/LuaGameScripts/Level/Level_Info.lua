@@ -1,5 +1,7 @@
 --Lua File with specific info for each level.
 
+Levels = 6
+
 --Table with the amount of steps per level.
 AmountOfSteps = {
     Level_1 = -1,
@@ -28,7 +30,6 @@ BackgroundMesh = {
     Level_5 = "mge/models/Level_2_BG.obj",
     Level_6 = "mge/models/Level_2_BG.obj"
 }
-BGMeshSize = 6
 
 BackgroundTexture = {
     Level_1 = "mge/textures/Level_2_BG.png",
@@ -38,4 +39,3 @@ BackgroundTexture = {
     Level_5 = "mge/textures/Level_2_BG.png",
     Level_6 = "mge/textures/Level_2_BG.png",
 }
-BGTextureSize = 6

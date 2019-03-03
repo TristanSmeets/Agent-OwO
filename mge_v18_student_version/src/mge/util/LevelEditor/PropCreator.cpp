@@ -36,9 +36,12 @@ void PropCreator::LoadProps()
 
 void PropCreator::CreateBGProp(int level)
 {
+	std::cout << "Creating BG Prop#" << level << std::endl;
 	backgroundObject = new GameObject("BACKGROUNDPROP");
-	backgroundObject->setMesh(backgroundMeshes[level]);
-	backgroundObject->setMaterial(backgroundMaterials[level]);
+	std::cout << "Mesh: " << backgroundMeshes[level - 1] << std::endl;
+	backgroundObject->setMesh(backgroundMeshes[level - 1]);
+	std::cout << "Material: " << backgroundMaterials[level -1] << std::endl;
+	backgroundObject->setMaterial(backgroundMaterials[level - 1]);
 	world->add(backgroundObject);
 }
 
@@ -52,12 +55,12 @@ void PropCreator::RemoveBGProp()
 
 void PropCreator::loadMeshes()
 {
-	unsigned int tableSize = LuaWrapper::GetNumber<int>(luaLevelInfo, "BGMeshSize");
-	std::cout << "Mesh Size: " << tableSize << std::endl;
+	unsigned int levels = LuaWrapper::GetNumber<int>(luaLevelInfo, "Levels");
+	std::cout << "Mesh Size: " << levels << std::endl;
 
 	lua_getglobal(luaLevelInfo, "BackgroundMesh");
 
-	for (unsigned int index = 0; index < tableSize; ++index)
+	for (unsigned int index = 0; index < levels; ++index)
 	{
 		std::string current = "Level_" + std::to_string(index + 1);
 		std::string meshPath = LuaWrapper::GetTableString(luaLevelInfo, current);
@@ -69,7 +72,7 @@ void PropCreator::loadMeshes()
 
 void PropCreator::loadMaterials()
 {
-	unsigned int tableSize = LuaWrapper::GetNumber<int>(luaLevelInfo, "BGTextureSize");
+	unsigned int tableSize = LuaWrapper::GetNumber<int>(luaLevelInfo, "Levels");
 	std::cout << "Texture Size: " << tableSize << std::endl;
 
 	lua_getglobal(luaLevelInfo, "BackgroundTexture");

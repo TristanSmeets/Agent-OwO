@@ -59,6 +59,7 @@ void GameScene::OnNotify(const GeneralEvent & info)
 			levelNumber = 1;
 		if (levelNumber > 2)
 			hud = new HUD(levelNumber);
+		std::cout << "Creating background prop.\n";
 		propCreator->CreateBGProp(levelNumber);
 		level->CreateLevel(levelNumber);
 	}

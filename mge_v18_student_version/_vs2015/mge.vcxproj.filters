@@ -308,6 +308,9 @@
     <ClInclude Include="..\src\mge\util\LevelEditor\PropCreator.hpp">
       <Filter>MGE Source files\mge\util\LevelEditor</Filter>
     </ClInclude>
+    <ClInclude Include="..\src\mge\User Interface\Dialogue.hpp">
+      <Filter>MGE Source files\mge\UI</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\main.cpp">
@@ -520,6 +523,9 @@
     <ClCompile Include="..\src\mge\util\LevelEditor\PropCreator.cpp">
       <Filter>MGE Source files\mge\util\LevelEditor</Filter>
     </ClCompile>
+    <ClCompile Include="..\src\mge\User Interface\Dialogue.cpp">
+      <Filter>MGE Source files\mge\UI</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram.cd" />
@@ -659,6 +665,9 @@
     </CopyFileToFolders>
     <CopyFileToFolders Include="..\assets\mge\models\Player.obj">
       <Filter>Models\Gameplay</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="..\assets\LuaGameScripts\UI\Dialogue.lua">
+      <Filter>LuaScripts\UI</Filter>
     </CopyFileToFolders>
   </ItemGroup>
 </Project>

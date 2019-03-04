@@ -9,11 +9,11 @@ Level1_Start = {
 }
 Level1_StartSize = #Level1_Start
 
-Level1_End = {
+Level1_Exit = {
     "mge/UI/Dialogue/hamster1.png",
     "mge/UI/Dialogue/hamster2.png"
 }
-Level1_EndSize = #Level1_End
+Level1_ExitSize = #Level1_Exit
 
 --Level 2
 Level2_Start = {
@@ -22,11 +22,11 @@ Level2_Start = {
 }
 Level2_StartSize = #Level2_Start
 
-Level2_End = {
+Level2_Exit = {
     "mge/UI/Dialogue/hamster2.png",
     "mge/UI/Dialogue/cat2.png"
 }
-Level2_EndSize = #Level2_End
+Level2_ExitSize = #Level2_Exit
 
 --Level 3
 Level3_Start = {
@@ -34,10 +34,10 @@ Level3_Start = {
 }
 Level3_StartSize = #Level3_Start
 
-Level3_End = {
+Level3_Exit = {
     "mge/UI/Dialogue/cat1.png",
 }
-Level3_EndSize = #Level3_End
+Level3_ExitSize = #Level3_Exit
 
 --Level 4
 Level4_Start = {
@@ -45,10 +45,10 @@ Level4_Start = {
 }
 Level4_StartSize = #Level4_Start
 
-Level4_End = {
+Level4_Exit = {
     "mge/UI/Dialogue/cat1.png",
 }
-Level4_EndSize = #Level4_End
+Level4_ExitSize = #Level4_Exit
 
 --Level 5
 Level5_Start = {
@@ -56,10 +56,10 @@ Level5_Start = {
 }
 Level5_StartSize = #Level5_Start
 
-Level5_End = {
+Level5_Exit = {
     "mge/UI/Dialogue/hamster2.png",
 }
-Level5_EndSize = #Level5_End
+Level5_ExitSize = #Level5_Exit
 
 --Level 6
 Level6_Start = {
@@ -67,7 +67,7 @@ Level6_Start = {
 }
 Level6_StartSize = #Level6_Start
 
-Level6_End = {
+Level6_Exit = {
     "mge/UI/Dialogue/hamster2.png",
 }
-Level6_EndSize = #Level6_End
+Level6_ExitSize = #Level6_Exit

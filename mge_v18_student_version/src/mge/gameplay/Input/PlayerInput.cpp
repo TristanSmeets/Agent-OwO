@@ -45,5 +45,14 @@ Command * PlayerInput::HandleInput()
 		buttonPressed = true;
 	}
 	buttonPressed = sf::Keyboard::isKeyPressed(sf::Keyboard::R);
+
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space) && buttonPressed)
+	{
+		GeneralEvent info;
+		info.nextDialogue = true;
+		EventQueue::QueueEvent(info);
+		buttonPressed = true;
+	}
+
 	return nullptr;
 }

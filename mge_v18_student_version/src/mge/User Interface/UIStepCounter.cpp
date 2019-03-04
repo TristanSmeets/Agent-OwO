@@ -44,6 +44,7 @@ UIStepCounter::UIStepCounter(lua_State* luaHUD, int levelNumber) : Observer<Gene
 UIStepCounter::~UIStepCounter()
 {
 	std::cout << "GC running on:UIStepCounter.\n";
+	EventQueue::RemoveObserver(this);
 }
 
 void UIStepCounter::OnNotify(const GeneralEvent & info)

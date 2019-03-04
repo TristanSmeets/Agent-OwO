@@ -3,12 +3,14 @@
 
 GameScene::GameScene() : AbstractGame(), config(LuaWrapper::InitializeLuaState("LuaGameScripts\\config.lua"))
 {
+	lua_State * luaLevelInfo = LuaWrapper::InitializeLuaState("LuaGameScripts/Level/Level_Info.lua");
+	amountOfLevels = LuaWrapper::GetNumber<int>(luaLevelInfo, "Levels");
 }
 
 GameScene::~GameScene()
 {
 	std::cout << "GC running on:GameScene\n";
-	if(level != nullptr) delete level;
+	if (level != nullptr) delete level;
 	delete eventQueueBehaviour;
 	camera = nullptr;
 
@@ -38,7 +40,7 @@ void GameScene::OnNotify(const GeneralEvent & info)
 	if (info.startGame)
 	{
 		delete mainMenu;
-		//hud = new HUD(levelNumber);
+		hud = new HUD(levelNumber);
 		level = new Level(_world, camera);
 		propCreator->CreateBGProp(levelNumber);
 		level->CreateLevel(levelNumber);
@@ -55,10 +57,9 @@ void GameScene::OnNotify(const GeneralEvent & info)
 		levelNumber++;
 		level->UnloadLevel();
 		propCreator->RemoveBGProp();
-		if (levelNumber > 6)
+		if (levelNumber > amountOfLevels)
 			levelNumber = 1;
-		if (levelNumber > 2)
-			hud = new HUD(levelNumber);
+		hud = new HUD(levelNumber);
 		propCreator->CreateBGProp(levelNumber);
 		level->CreateLevel(levelNumber);
 	}

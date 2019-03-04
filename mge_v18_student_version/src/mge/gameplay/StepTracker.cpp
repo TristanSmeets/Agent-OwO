@@ -25,13 +25,10 @@ void StepTracker::OnNotify(const GeneralEvent & info)
 	if (!isUnlimited)
 	{
 		stepsLeft -= info.stepsTaken;
-		std::cout << "Steps Left: " << stepsLeft << std::endl;
 
 		if (!isUnlimited && stepsLeft <= 0)
 		{
 			std::cout << "You're out of steps!\n";
 		}
 	}
-	else
-		std::cout << "Unlimited steps.\n";
 }

@@ -16,23 +16,13 @@ Dialogue::Dialogue() : Observer<GeneralEvent>()
 Dialogue::~Dialogue()
 {
 	std::cout << "GC running on:Dialogue.\n";
-
-	unloadDialogues();
+	EventQueue::RemoveObserver(this);
 	startDialogue.clear();
 	endDialogue.clear();
 }
 
 void Dialogue::OnNotify(const GeneralEvent & info)
 {
-	if (info.nextLevel)
-	{
-		unloadDialogues();
-		levelNumber++;
-		if (levelNumber > amountOfLevels)
-			levelNumber = 1;
-		loadStartDialogue(levelNumber);
-		loadEndDialogue(levelNumber);
-	}
 	if (info.nextDialogue)
 	{
 		currentImage++;
@@ -66,18 +56,22 @@ void Dialogue::loadStartDialogue(int level)
 	lua_getglobal(luaDialogue, luaVariable.c_str());
 
 	lua_pushnil(luaDialogue);
-	
+
 	while (lua_next(luaDialogue, -2) != 0)
 	{
 		if (lua_isstring(luaDialogue, -1))
 		{
 			std::string currentPath = lua_tostring(luaDialogue, -1);
 			std::cout << "Current path: " << currentPath << std::endl;
+
+			sf::Image currentImage = sf::Image();
+			currentImage.loadFromFile(currentPath);
+			startDialogue.push_back(currentImage);
 		}
 		lua_pop(luaDialogue, 1);
 	}
-
 	lua_pop(luaDialogue, 1);
+	std::cout << "Start Dialogue size: " << startDialogue.size() << std::endl;
 }
 
 void Dialogue::loadEndDialogue(int level)
@@ -96,17 +90,27 @@ void Dialogue::loadEndDialogue(int level)
 		{
 			std::string currentPath = lua_tostring(luaDialogue, -1);
 			std::cout << "Current path: " << currentPath << std::endl;
+			sf::Image currentImage = sf::Image();
+			currentImage.loadFromFile(currentPath);
+			endDialogue.push_back(currentImage);
 		}
 		lua_pop(luaDialogue, 1);
 	}
 	lua_pop(luaDialogue, 1);
+	std::cout << "End Dialogue size: " << endDialogue.size() << std::endl;
 }
 
 void Dialogue::setCurrentImage(int imageIndex)
 {
+	sf::Texture texture;
+	switch (dialogueType)
+	{
+	case DIALOGUE::START_DIALOGUE:
+		texture.loadFromImage(startDialogue[imageIndex]);
+		break;
+	case DIALOGUE::END_DIALOGUE:
+		texture.loadFromImage(endDialogue[imageIndex]);
+		break;
+	}
+	currentDialogue.setTexture(texture);
 }
-
-void Dialogue::unloadDialogues()
-{
-}
-

@@ -15,19 +15,19 @@ public:
 	~Dialogue();
 	void OnNotify(const GeneralEvent& info);
 	void LoadDialogues(int level);
+	void Draw(sf::RenderWindow* window);
 
 private:
 	void loadStartDialogue(int level);
 	void loadEndDialogue(int level);
 	void setCurrentImage(int imageIndex);
-	void unloadDialogues();
 
 	lua_State* luaDialogue;
 	int levelNumber = 0;
 	int amountOfLevels = 0;
 	int currentImage = 0;
 	DIALOGUE dialogueType;
-	std::vector<sf::Texture> startDialogue;
-	std::vector<sf::Texture> endDialogue;
+	std::vector<sf::Image> startDialogue;
+	std::vector<sf::Image> endDialogue;
 	sf::Sprite currentDialogue;
 };

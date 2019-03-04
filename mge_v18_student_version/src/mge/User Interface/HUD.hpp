@@ -14,6 +14,7 @@ public:
 	void Draw(sf::RenderWindow* window);
 
 private:
+	int levelNumber;
 	UIStepCounter* stepCounter = nullptr;
 	Dialogue* dialogue = nullptr;
 	lua_State* luaHUD;

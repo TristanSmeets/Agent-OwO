@@ -33,4 +33,5 @@ private:
 	PropCreator* propCreator;
 
 	int levelNumber = 1;
+	int amountOfLevels = 0;
 };

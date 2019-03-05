@@ -222,6 +222,7 @@
     <ClInclude Include="..\src\mge\scenes\MGEDemo.hpp" />
     <ClInclude Include="..\src\mge\scenes\TerrainScene.hpp" />
     <ClInclude Include="..\src\mge\scenes\TristanScene.h" />
+    <ClInclude Include="..\src\mge\User Interface\Dialogue.hpp" />
     <ClInclude Include="..\src\mge\User Interface\HUD.hpp" />
     <ClInclude Include="..\src\mge\User Interface\MainMenu.hpp" />
     <ClInclude Include="..\src\mge\User Interface\UIStepCounter.hpp" />
@@ -295,6 +296,7 @@
     <ClCompile Include="..\src\mge\scenes\MGEDemo.cpp" />
     <ClCompile Include="..\src\mge\scenes\TerrainScene.cpp" />
     <ClCompile Include="..\src\mge\scenes\TristanScene.cpp" />
+    <ClCompile Include="..\src\mge\User Interface\Dialogue.cpp" />
     <ClCompile Include="..\src\mge\User Interface\HUD.cpp" />
     <ClCompile Include="..\src\mge\User Interface\MainMenu.cpp" />
     <ClCompile Include="..\src\mge\User Interface\UIStepCounter.cpp" />
@@ -423,6 +425,10 @@
       <DestinationFolders Condition="'$(Configuration)|$(Platform)'=='Debug Static|Win32'">$(OutDir)\LuaGameScripts\Level</DestinationFolders>
     </CopyFileToFolders>
     <CopyFileToFolders Include="..\assets\LuaGameScripts\UI\HUD.lua">
+      <FileType>Document</FileType>
+      <DestinationFolders Condition="'$(Configuration)|$(Platform)'=='Debug Static|Win32'">$(OutDir)\LuaGameScripts\UI</DestinationFolders>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="..\assets\LuaGameScripts\UI\Dialogue.lua">
       <FileType>Document</FileType>
       <DestinationFolders Condition="'$(Configuration)|$(Platform)'=='Debug Static|Win32'">$(OutDir)\LuaGameScripts\UI</DestinationFolders>
     </CopyFileToFolders>

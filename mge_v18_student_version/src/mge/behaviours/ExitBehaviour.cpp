@@ -62,7 +62,7 @@ void ExitBehaviour::checkNode()
 	{
 		std::cout << "EXIT reached!\n";
 		GeneralEvent info = GeneralEvent();
-		info.nextLevel = true;
+		info.showEndDialogue = true;
 		EventQueue::QueueEvent(info);
 		previousType = exitNode->GetNodeType();
 	}

@@ -11,4 +11,8 @@ struct GeneralEvent
 	bool resetLevel = false;
 	bool nextLevel = false;
 	bool startGame = false;
+	bool showStartDialogue = false;
+	bool showEndDialogue = false;
+	bool nextDialogue = false;
+	bool isDialogueCompleted = false;
 };

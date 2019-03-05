@@ -3,12 +3,14 @@
 
 GameScene::GameScene() : AbstractGame(), config(LuaWrapper::InitializeLuaState("LuaGameScripts\\config.lua"))
 {
+	lua_State * luaLevelInfo = LuaWrapper::InitializeLuaState("LuaGameScripts/Level/Level_Info.lua");
+	amountOfLevels = LuaWrapper::GetNumber<int>(luaLevelInfo, "Levels");
 }
 
 GameScene::~GameScene()
 {
 	std::cout << "GC running on:GameScene\n";
-	if(level != nullptr) delete level;
+	if (level != nullptr) delete level;
 	delete eventQueueBehaviour;
 	camera = nullptr;
 
@@ -38,7 +40,8 @@ void GameScene::OnNotify(const GeneralEvent & info)
 	if (info.startGame)
 	{
 		delete mainMenu;
-		//hud = new HUD(levelNumber);
+		mainMenu = nullptr;
+		hud = new HUD(levelNumber);
 		level = new Level(_world, camera);
 		propCreator->CreateBGProp(levelNumber);
 		level->CreateLevel(levelNumber);
@@ -55,10 +58,9 @@ void GameScene::OnNotify(const GeneralEvent & info)
 		levelNumber++;
 		level->UnloadLevel();
 		propCreator->RemoveBGProp();
-		if (levelNumber > 6)
+		if (levelNumber > amountOfLevels)
 			levelNumber = 1;
-		if (levelNumber > 2)
-			hud = new HUD(levelNumber);
+		hud = new HUD(levelNumber);
 		propCreator->CreateBGProp(levelNumber);
 		level->CreateLevel(levelNumber);
 	}
@@ -93,14 +95,12 @@ void GameScene::_render()
 	AbstractGame::_render();
 
 	_window->pushGLStates();
-	if (ButtonManager::GetAmountOfButtons() > 0)
+	
+	if (mainMenu != nullptr)
 	{
-		for (unsigned int index = 0; index < ButtonManager::GetAmountOfButtons(); ++index)
-		{
-			Button* current = ButtonManager::GetButton(index);
-			_window->draw(*current->GetSprite());
-		}
+		mainMenu->Draw(_window);
 	}
+
 	if (hud != nullptr)
 	{
 		hud->Draw(_window);

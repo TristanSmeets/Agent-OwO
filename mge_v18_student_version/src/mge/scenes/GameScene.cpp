@@ -40,6 +40,7 @@ void GameScene::OnNotify(const GeneralEvent & info)
 	if (info.startGame)
 	{
 		delete mainMenu;
+		mainMenu = nullptr;
 		hud = new HUD(levelNumber);
 		level = new Level(_world, camera);
 		propCreator->CreateBGProp(levelNumber);
@@ -94,14 +95,12 @@ void GameScene::_render()
 	AbstractGame::_render();
 
 	_window->pushGLStates();
-	if (ButtonManager::GetAmountOfButtons() > 0)
+	
+	if (mainMenu != nullptr)
 	{
-		for (unsigned int index = 0; index < ButtonManager::GetAmountOfButtons(); ++index)
-		{
-			Button* current = ButtonManager::GetButton(index);
-			_window->draw(*current->GetSprite());
-		}
+		mainMenu->Draw(_window);
 	}
+
 	if (hud != nullptr)
 	{
 		hud->Draw(_window);

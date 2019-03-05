@@ -24,6 +24,7 @@ Command * MouseInput::HandleInput()
 			Button* current = ButtonManager::GetButton(index);
 			if (isColliding(current))
 			{
+				//std::cout << "Colliding with button.\n";
 				return current->GetButtonAction();
 			}
 		}
@@ -36,11 +37,19 @@ Command * MouseInput::HandleInput()
 bool MouseInput::isColliding(Button * button)
 {
 	glm::vec2 buttonPosition = button->GetPosition();
-	glm::vec2 buttonSize = glm::vec2(button->GetSize().x * 0.5f, button->GetSize().y * 0.5f);
+	//glm::vec2 buttonSize = glm::vec2(button->GetSize().x * 0.5f, button->GetSize().y * 0.5f);
+	glm::vec2 buttonSize = glm::vec2(button->GetSize().x, button->GetSize().y);
 	sf::Vector2i mousePosition = sf::Mouse::getPosition(*window);
 
+	return (mousePosition.y < buttonPosition.y + buttonSize.y &&
+		mousePosition.y > buttonPosition.y &&
+		mousePosition.x > buttonPosition.x &&
+		mousePosition.x < buttonPosition.x + buttonSize.x);
+
+	/*
 	return (mousePosition.y < buttonPosition.y + buttonSize.y &&	//Top
 		mousePosition.y > buttonPosition.y - buttonSize.y &&		//Bottom
 		mousePosition.x > buttonPosition.x - buttonSize.x &&		//Left
 		mousePosition.x < buttonPosition.x + buttonSize.x);			//Right
+		*/
 }

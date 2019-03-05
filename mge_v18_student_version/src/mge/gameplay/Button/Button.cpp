@@ -6,7 +6,7 @@ Button::Button(const std::string & texturePath)
 	buttonTexture.loadFromFile(texturePath);
 	buttonImage = new sf::Sprite(buttonTexture);
 	sf::Vector2u buttonSize = buttonImage->getTexture()->getSize();
-	buttonImage->setOrigin(buttonSize.x * 0.5f, buttonSize.y * 0.5f);
+	//buttonImage->setOrigin(buttonSize.x * 0.5f, buttonSize.y * 0.5f);
 }
 
 Button::~Button()

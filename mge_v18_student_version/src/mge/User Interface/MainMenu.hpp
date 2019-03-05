@@ -12,6 +12,7 @@ class MainMenu
 public:
 	MainMenu(World* world, sf::Window* window);
 	~MainMenu();
+	void Draw(sf::RenderWindow* window);
 
 private:
 	World* world;
@@ -19,4 +20,6 @@ private:
 	GameObject* mouse;
 	MouseBehaviour* mouseBehaviour;
 	Button* exitButton;
+	sf::Texture* backgroundTexture;
+	sf::Sprite BackgroundImage;
 };

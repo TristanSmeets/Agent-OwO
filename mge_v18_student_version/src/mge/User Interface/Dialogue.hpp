@@ -26,6 +26,7 @@ private:
 	int levelNumber = 0;
 	int amountOfLevels = 0;
 	int currentImage = 0;
+	bool showingDialogue = false;
 	sf::Texture* currentTexture;
 	DIALOGUE dialogueType = DIALOGUE::START_DIALOGUE;
 	std::vector<sf::Image> startDialogue;

@@ -31,17 +31,12 @@ void Dialogue::OnNotify(const GeneralEvent & info)
 		currentImage++;
 		setCurrentImage(currentImage);
 	}
-	if (info.showStartDialogue)
-	{
-		currentImage = 0;
-		dialogueType = DIALOGUE::START_DIALOGUE;
-		setCurrentImage(currentImage);
-	}
 	if (info.showEndDialogue)
 	{
 		currentImage = 0;
 		dialogueType = DIALOGUE::END_DIALOGUE;
 		setCurrentImage(currentImage);
+		showingDialogue = true;
 	}
 }
 
@@ -49,13 +44,15 @@ void Dialogue::LoadDialogues(int level)
 {
 	loadStartDialogue(level);
 	loadEndDialogue(level);
-	setCurrentImage(0);
-	currentDialogue.setPosition(1000, 700);
+	setCurrentImage(currentImage);
+	currentDialogue.setPosition(0, 100);
+	showingDialogue = true;
 }
 
 void Dialogue::Draw(sf::RenderWindow * window)
 {
-	window->draw(currentDialogue);
+	if (showingDialogue)
+		window->draw(currentDialogue);
 }
 
 void Dialogue::loadStartDialogue(int level)
@@ -116,17 +113,35 @@ void Dialogue::loadEndDialogue(int level)
 
 void Dialogue::setCurrentImage(int imageIndex)
 {
+	std::cout << "ImageIndex > StartDialogue Size: " << (imageIndex + 1 > startDialogue.size()) << std::endl;
+	
 	switch (dialogueType)
 	{
 	case DIALOGUE::START_DIALOGUE:
-		currentTexture->loadFromImage(startDialogue[imageIndex]);
+		if (imageIndex + 1 > startDialogue.size())
+		{
+			GeneralEvent info = GeneralEvent();
+			info.isDialogueCompleted = true;
+			EventQueue::QueueEvent(info);
+			showingDialogue = false;
+		}
+		else
+			currentTexture->loadFromImage(startDialogue[imageIndex]);
 		break;
 	case DIALOGUE::END_DIALOGUE:
-		currentTexture->loadFromImage(endDialogue[imageIndex]);
+		if (imageIndex + 1 > endDialogue.size())
+		{
+			GeneralEvent info = GeneralEvent();
+			info.nextLevel = true;
+			EventQueue::QueueEvent(info);
+			showingDialogue = false;
+		}
+		else
+			currentTexture->loadFromImage(endDialogue[imageIndex]);
 		break;
 	}
 	currentDialogue.setTexture(*currentTexture);
-	
-	sf::Vector2u textureSize = currentTexture->getSize();
-	currentDialogue.setOrigin(textureSize.x * .5f, textureSize.y * .5f);
+
+	/*sf::Vector2u textureSize = currentTexture->getSize();
+	currentDialogue.setOrigin(textureSize.x * .5f, textureSize.y * .5f);*/
 }

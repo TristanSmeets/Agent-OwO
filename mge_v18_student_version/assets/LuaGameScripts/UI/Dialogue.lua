@@ -11,8 +11,8 @@ Level1_Exit = {
 
 --Level 2
 Level2_Start = {
-    "mge/UI/Dialogue/cat1.png",
-    "mge/UI/Dialogue/cat2.png"
+    "mge/UI/Dialogue/cat2.png",
+    "mge/UI/Dialogue/cat1.png"
 }
 
 Level2_Exit = {

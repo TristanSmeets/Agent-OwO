@@ -16,4 +16,5 @@ private:
 	Command* moveLeft;
 	Command* moveRight;
 	bool buttonPressed;
+	bool spacePressed;
 };

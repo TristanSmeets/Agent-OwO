@@ -46,13 +46,14 @@ Command * PlayerInput::HandleInput()
 	}
 	buttonPressed = sf::Keyboard::isKeyPressed(sf::Keyboard::R);
 
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space) && buttonPressed)
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space) && spacePressed == false)
 	{
 		GeneralEvent info;
 		info.nextDialogue = true;
 		EventQueue::QueueEvent(info);
 		buttonPressed = true;
 	}
+	spacePressed = sf::Keyboard::isKeyPressed(sf::Keyboard::Space);
 
 	return nullptr;
 }

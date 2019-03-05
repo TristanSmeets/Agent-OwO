@@ -19,6 +19,7 @@ HUD::~HUD()
 
 void HUD::Draw(sf::RenderWindow* window)
 {
-	if (levelNumber >= 2)
+	if (levelNumber > 2)
 		stepCounter->Draw(window);
+	dialogue->Draw(window);
 }

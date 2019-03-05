@@ -11,6 +11,7 @@ Dialogue::Dialogue() : Observer<GeneralEvent>()
 
 	LuaWrapper::CloseLuaState(luaLevelInfo);
 	EventQueue::AddObserver(this);
+	currentTexture = new sf::Texture();
 }
 
 Dialogue::~Dialogue()
@@ -19,12 +20,14 @@ Dialogue::~Dialogue()
 	EventQueue::RemoveObserver(this);
 	startDialogue.clear();
 	endDialogue.clear();
+	delete currentTexture;
 }
 
 void Dialogue::OnNotify(const GeneralEvent & info)
 {
 	if (info.nextDialogue)
 	{
+		std::cout << "Loading next image.\n";
 		currentImage++;
 		setCurrentImage(currentImage);
 	}
@@ -46,6 +49,13 @@ void Dialogue::LoadDialogues(int level)
 {
 	loadStartDialogue(level);
 	loadEndDialogue(level);
+	setCurrentImage(0);
+	currentDialogue.setPosition(1000, 700);
+}
+
+void Dialogue::Draw(sf::RenderWindow * window)
+{
+	window->draw(currentDialogue);
 }
 
 void Dialogue::loadStartDialogue(int level)
@@ -65,6 +75,8 @@ void Dialogue::loadStartDialogue(int level)
 			std::cout << "Current path: " << currentPath << std::endl;
 
 			sf::Image currentImage = sf::Image();
+			if (currentImage.loadFromFile(currentPath))
+				std::cout << "Loaded image.\n";
 			currentImage.loadFromFile(currentPath);
 			startDialogue.push_back(currentImage);
 		}
@@ -91,6 +103,8 @@ void Dialogue::loadEndDialogue(int level)
 			std::string currentPath = lua_tostring(luaDialogue, -1);
 			std::cout << "Current path: " << currentPath << std::endl;
 			sf::Image currentImage = sf::Image();
+			if (currentImage.loadFromFile(currentPath))
+				std::cout << "Loaded image.\n";
 			currentImage.loadFromFile(currentPath);
 			endDialogue.push_back(currentImage);
 		}
@@ -102,15 +116,17 @@ void Dialogue::loadEndDialogue(int level)
 
 void Dialogue::setCurrentImage(int imageIndex)
 {
-	sf::Texture texture;
 	switch (dialogueType)
 	{
 	case DIALOGUE::START_DIALOGUE:
-		texture.loadFromImage(startDialogue[imageIndex]);
+		currentTexture->loadFromImage(startDialogue[imageIndex]);
 		break;
 	case DIALOGUE::END_DIALOGUE:
-		texture.loadFromImage(endDialogue[imageIndex]);
+		currentTexture->loadFromImage(endDialogue[imageIndex]);
 		break;
 	}
-	currentDialogue.setTexture(texture);
+	currentDialogue.setTexture(*currentTexture);
+	
+	sf::Vector2u textureSize = currentTexture->getSize();
+	currentDialogue.setOrigin(textureSize.x * .5f, textureSize.y * .5f);
 }

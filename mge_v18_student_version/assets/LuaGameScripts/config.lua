@@ -1,7 +1,7 @@
 --Window properties
 AspectRatio = 16/9
 ForceAspectRatio = true
-ScreenWidth = 1280
+ScreenWidth = 1920
 
 OrthoVertical = 4.5
 OrthoHorizontal = OrthoVertical * AspectRatio 

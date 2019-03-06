@@ -199,6 +199,7 @@
     <ClInclude Include="..\src\mge\gameplay\Command\ExitCommand.hpp" />
     <ClInclude Include="..\src\mge\gameplay\Command\LeftCommand.hpp" />
     <ClInclude Include="..\src\mge\gameplay\Command\MoveCommand.hpp" />
+    <ClInclude Include="..\src\mge\gameplay\Command\QuitCommand.hpp" />
     <ClInclude Include="..\src\mge\gameplay\Command\RetryCommand.hpp" />
     <ClInclude Include="..\src\mge\gameplay\Command\RightCommand.hpp" />
     <ClInclude Include="..\src\mge\gameplay\Command\StartCommand.hpp" />
@@ -275,6 +276,7 @@
     <ClCompile Include="..\src\mge\gameplay\Command\ExitCommand.cpp" />
     <ClCompile Include="..\src\mge\gameplay\Command\LeftCommand.cpp" />
     <ClCompile Include="..\src\mge\gameplay\Command\MoveCommand.cpp" />
+    <ClCompile Include="..\src\mge\gameplay\Command\QuitCommand.cpp" />
     <ClCompile Include="..\src\mge\gameplay\Command\RetryCommand.cpp" />
     <ClCompile Include="..\src\mge\gameplay\Command\RightCommand.cpp" />
     <ClCompile Include="..\src\mge\gameplay\Command\StartCommand.cpp" />

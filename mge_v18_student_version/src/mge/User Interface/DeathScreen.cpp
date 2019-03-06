@@ -10,7 +10,7 @@ DeathScreen::DeathScreen(World* world, sf::Window* window) : world(world)
 
 	//Quit Button
 	quitButton = new Button("mge\\UI\\Quit_Button.png");
-	quitButton->SetCommand(new ExitCommand(window));
+	quitButton->SetCommand(new QuitCommand());
 	quitButton->SetPosition(glm::vec2(400, 400));
 	ButtonManager::AddButton(quitButton);
 

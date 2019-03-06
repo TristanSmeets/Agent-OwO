@@ -24,7 +24,11 @@ GameScene::~GameScene()
 			delete current;
 		}
 	}
-	mainMenu = nullptr;
+	if (mainMenu != nullptr)
+	{
+		delete mainMenu;
+		mainMenu = nullptr;
+	}
 	delete propCreator;
 }
 
@@ -73,6 +77,22 @@ void GameScene::OnNotify(const GeneralEvent & info)
 	}
 	if (info.showGameOver)
 		deathScreen = new DeathScreen(_world, _window);
+	if (info.showMainMenu)
+	{
+		levelNumber = 1;
+		if (deathScreen != nullptr)
+		{
+			delete deathScreen;
+			deathScreen = nullptr;
+		}
+		propCreator->RemoveBGProp();
+		delete level;
+
+		delete hud;
+		hud = nullptr;
+
+		mainMenu = new MainMenu(_world, _window);
+	}
 }
 
 void GameScene::_initializeScene()

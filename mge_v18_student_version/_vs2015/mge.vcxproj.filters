@@ -317,6 +317,9 @@
     <ClInclude Include="..\src\mge\gameplay\Command\RetryCommand.hpp">
       <Filter>MGE Source files\mge\gameplay\Command</Filter>
     </ClInclude>
+    <ClInclude Include="..\src\mge\gameplay\Command\QuitCommand.hpp">
+      <Filter>MGE Source files\mge\gameplay\Command</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\main.cpp">
@@ -536,6 +539,9 @@
       <Filter>MGE Source files\mge\UI</Filter>
     </ClCompile>
     <ClCompile Include="..\src\mge\gameplay\Command\RetryCommand.cpp">
+      <Filter>MGE Source files\mge\gameplay\Command</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\mge\gameplay\Command\QuitCommand.cpp">
       <Filter>MGE Source files\mge\gameplay\Command</Filter>
     </ClCompile>
   </ItemGroup>

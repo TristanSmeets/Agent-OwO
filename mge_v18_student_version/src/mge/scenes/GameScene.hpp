@@ -26,11 +26,11 @@ protected:
 
 private:
 	Level* level = nullptr;
-	lua_State* config;
 	HUD* hud = nullptr;
-	EventQueueBehaviour* eventQueueBehaviour;
-	MainMenu* mainMenu;
+	MainMenu* mainMenu = nullptr;
 	DeathScreen* deathScreen = nullptr;
+	lua_State* config;
+	EventQueueBehaviour* eventQueueBehaviour;
 	Camera* camera;
 	PropCreator* propCreator;
 

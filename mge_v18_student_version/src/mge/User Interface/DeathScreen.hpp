@@ -1,7 +1,7 @@
 #pragma once
 #include "mge/gameplay/Button/Button.hpp"
 #include "mge/behaviours/MouseBehaviour.hpp"
-#include "mge/gameplay/Command/ExitCommand.hpp"
+#include "mge/gameplay/Command/QuitCommand.hpp"
 #include "mge/behaviours/MouseBehaviour.hpp"
 #include "mge/gameplay/Command/RetryCommand.hpp"
 

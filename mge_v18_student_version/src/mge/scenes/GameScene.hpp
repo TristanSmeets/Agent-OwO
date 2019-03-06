@@ -10,6 +10,7 @@
 #include "mge/User Interface/MainMenu.hpp"
 #include "mge/User Interface/HUD.hpp"
 #include "mge/util/LevelEditor/PropCreator.hpp"
+#include "mge/User Interface/DeathScreen.hpp"
 
 class GameScene : public AbstractGame, public Observer<GeneralEvent>
 {
@@ -25,10 +26,11 @@ protected:
 
 private:
 	Level* level = nullptr;
-	lua_State* config;
 	HUD* hud = nullptr;
+	MainMenu* mainMenu = nullptr;
+	DeathScreen* deathScreen = nullptr;
+	lua_State* config;
 	EventQueueBehaviour* eventQueueBehaviour;
-	MainMenu* mainMenu;
 	Camera* camera;
 	PropCreator* propCreator;
 

@@ -12,7 +12,9 @@ struct GeneralEvent
 	bool nextLevel = false;
 	bool startGame = false;
 	bool showStartDialogue = false;
+	bool showGameOver = false;
 	bool showEndDialogue = false;
 	bool nextDialogue = false;
 	bool isDialogueCompleted = false;
+	bool showMainMenu = false;
 };

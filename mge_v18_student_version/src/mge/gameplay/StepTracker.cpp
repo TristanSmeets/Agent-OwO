@@ -20,7 +20,10 @@ StepTracker::~StepTracker()
 void StepTracker::OnNotify(const GeneralEvent & info)
 {
 	if (info.resetLevel)
+	{
 		stepsLeft = totalSteps;
+		sendEvent = false;
+	}
 
 	if (!isUnlimited)
 	{
@@ -28,7 +31,14 @@ void StepTracker::OnNotify(const GeneralEvent & info)
 
 		if (!isUnlimited && stepsLeft <= 0)
 		{
-			std::cout << "You're out of steps!\n";
+			if (sendEvent == false)
+			{
+				std::cout << "You're out of steps!\n";
+				GeneralEvent info = GeneralEvent();
+				info.showGameOver = true;
+				EventQueue::QueueEvent(info);
+				sendEvent = true;
+			}
 		}
 	}
 }

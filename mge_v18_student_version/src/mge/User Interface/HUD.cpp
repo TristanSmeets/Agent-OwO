@@ -30,8 +30,8 @@ void HUD::Draw(sf::RenderWindow* window)
 
 void HUD::OnNotify(const GeneralEvent& info)
 {
-	if (info.isDialogueCompleted)
+	if (info.isDialogueCompleted || info.resetLevel)
 		showingDialogue = false;
-	if (info.showEndDialogue)
+	if (info.showEndDialogue || info.showGameOver)
 		showingDialogue = true;
 }

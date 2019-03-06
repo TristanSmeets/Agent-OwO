@@ -199,6 +199,7 @@
     <ClInclude Include="..\src\mge\gameplay\Command\ExitCommand.hpp" />
     <ClInclude Include="..\src\mge\gameplay\Command\LeftCommand.hpp" />
     <ClInclude Include="..\src\mge\gameplay\Command\MoveCommand.hpp" />
+    <ClInclude Include="..\src\mge\gameplay\Command\RetryCommand.hpp" />
     <ClInclude Include="..\src\mge\gameplay\Command\RightCommand.hpp" />
     <ClInclude Include="..\src\mge\gameplay\Command\StartCommand.hpp" />
     <ClInclude Include="..\src\mge\gameplay\Command\UpCommand.hpp" />
@@ -222,6 +223,7 @@
     <ClInclude Include="..\src\mge\scenes\MGEDemo.hpp" />
     <ClInclude Include="..\src\mge\scenes\TerrainScene.hpp" />
     <ClInclude Include="..\src\mge\scenes\TristanScene.h" />
+    <ClInclude Include="..\src\mge\User Interface\DeathScreen.hpp" />
     <ClInclude Include="..\src\mge\User Interface\Dialogue.hpp" />
     <ClInclude Include="..\src\mge\User Interface\HUD.hpp" />
     <ClInclude Include="..\src\mge\User Interface\MainMenu.hpp" />
@@ -273,6 +275,7 @@
     <ClCompile Include="..\src\mge\gameplay\Command\ExitCommand.cpp" />
     <ClCompile Include="..\src\mge\gameplay\Command\LeftCommand.cpp" />
     <ClCompile Include="..\src\mge\gameplay\Command\MoveCommand.cpp" />
+    <ClCompile Include="..\src\mge\gameplay\Command\RetryCommand.cpp" />
     <ClCompile Include="..\src\mge\gameplay\Command\RightCommand.cpp" />
     <ClCompile Include="..\src\mge\gameplay\Command\StartCommand.cpp" />
     <ClCompile Include="..\src\mge\gameplay\Command\UpCommand.cpp" />
@@ -296,6 +299,7 @@
     <ClCompile Include="..\src\mge\scenes\MGEDemo.cpp" />
     <ClCompile Include="..\src\mge\scenes\TerrainScene.cpp" />
     <ClCompile Include="..\src\mge\scenes\TristanScene.cpp" />
+    <ClCompile Include="..\src\mge\User Interface\DeathScreen.cpp" />
     <ClCompile Include="..\src\mge\User Interface\Dialogue.cpp" />
     <ClCompile Include="..\src\mge\User Interface\HUD.cpp" />
     <ClCompile Include="..\src\mge\User Interface\MainMenu.cpp" />

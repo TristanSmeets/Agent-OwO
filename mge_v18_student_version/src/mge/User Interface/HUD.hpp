@@ -19,5 +19,6 @@ private:
 	bool showingDialogue = true;
 	UIStepCounter* stepCounter = nullptr;
 	Dialogue* dialogue = nullptr;
+
 	lua_State* luaHUD;
 };

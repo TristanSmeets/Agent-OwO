@@ -311,6 +311,12 @@
     <ClInclude Include="..\src\mge\User Interface\Dialogue.hpp">
       <Filter>MGE Source files\mge\UI</Filter>
     </ClInclude>
+    <ClInclude Include="..\src\mge\User Interface\DeathScreen.hpp">
+      <Filter>MGE Source files\mge\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\mge\gameplay\Command\RetryCommand.hpp">
+      <Filter>MGE Source files\mge\gameplay\Command</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\main.cpp">
@@ -525,6 +531,12 @@
     </ClCompile>
     <ClCompile Include="..\src\mge\User Interface\Dialogue.cpp">
       <Filter>MGE Source files\mge\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\mge\User Interface\DeathScreen.cpp">
+      <Filter>MGE Source files\mge\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\mge\gameplay\Command\RetryCommand.cpp">
+      <Filter>MGE Source files\mge\gameplay\Command</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

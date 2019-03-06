@@ -65,8 +65,8 @@ Command * PlayerInput::HandleInput()
 
 void PlayerInput::OnNotify(const GeneralEvent & info)
 {
-	if (info.isDialogueCompleted)
+	if (info.isDialogueCompleted || info.resetLevel)
 		canMove = true;
-	if (info.showEndDialogue)
+	if (info.showEndDialogue || info.showGameOver)
 		canMove = false;
 }

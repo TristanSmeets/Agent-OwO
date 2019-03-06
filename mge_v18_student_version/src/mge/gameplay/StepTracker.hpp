@@ -14,4 +14,5 @@ private:
 	int totalSteps;
 	int stepsLeft;
 	bool isUnlimited;
+	bool sendEvent = false;
 };

@@ -47,7 +47,14 @@ void GameScene::OnNotify(const GeneralEvent & info)
 		level->CreateLevel(levelNumber);
 	}
 	if (info.resetLevel)
+	{
 		level->Resetlevel();
+		if (deathScreen != nullptr)
+		{
+			delete deathScreen;
+			deathScreen = nullptr;
+		}
+	}
 	if (info.nextLevel)
 	{
 		if (hud != nullptr)
@@ -64,6 +71,8 @@ void GameScene::OnNotify(const GeneralEvent & info)
 		propCreator->CreateBGProp(levelNumber);
 		level->CreateLevel(levelNumber);
 	}
+	if (info.showGameOver)
+		deathScreen = new DeathScreen(_world, _window);
 }
 
 void GameScene::_initializeScene()
@@ -83,7 +92,6 @@ void GameScene::_initializeScene()
 
 	std::cout << "Creating MainMenu.\n";
 	mainMenu = new MainMenu(_world, _window);
-
 	//std::cout << "Creating the Level\n";
 	//level = new Level(_world, camera);
 	/*std::cout << "HUD: " << hud << std::endl;
@@ -105,5 +113,8 @@ void GameScene::_render()
 	{
 		hud->Draw(_window);
 	}
+
+	if (deathScreen != nullptr)
+		deathScreen->Draw(_window);
 	_window->popGLStates();
 }

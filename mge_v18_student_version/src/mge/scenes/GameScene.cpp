@@ -70,10 +70,20 @@ void GameScene::OnNotify(const GeneralEvent & info)
 		level->UnloadLevel();
 		propCreator->RemoveBGProp();
 		if (levelNumber > amountOfLevels)
+		{
 			levelNumber = 1;
-		hud = new HUD(levelNumber);
-		propCreator->CreateBGProp(levelNumber);
-		level->CreateLevel(levelNumber);
+			delete hud;
+			hud = nullptr;
+			delete level;
+			level = nullptr;
+			mainMenu = new MainMenu(_world, _window);
+		}
+		else
+		{
+			hud = new HUD(levelNumber);
+			propCreator->CreateBGProp(levelNumber);
+			level->CreateLevel(levelNumber);
+		}
 	}
 	if (info.showGameOver)
 		deathScreen = new DeathScreen(_world, _window);
@@ -87,6 +97,7 @@ void GameScene::OnNotify(const GeneralEvent & info)
 		}
 		propCreator->RemoveBGProp();
 		delete level;
+		level = nullptr;
 
 		delete hud;
 		hud = nullptr;

@@ -31,7 +31,6 @@ void Dialogue::OnNotify(const GeneralEvent & info)
 {
 	if (info.nextDialogue)
 	{
-		std::cout << "Loading next image.\n";
 		currentImage++;
 		setCurrentImage(currentImage);
 	}
@@ -131,8 +130,6 @@ void Dialogue::loadEndDialogue(int level)
 
 void Dialogue::setCurrentImage(int imageIndex)
 {
-	std::cout << "ImageIndex > StartDialogue Size: " << (imageIndex + 1 > startDialogue.size()) << std::endl;
-
 	switch (dialogueType)
 	{
 	case DIALOGUE::START_DIALOGUE:

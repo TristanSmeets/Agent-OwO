@@ -15,10 +15,15 @@ public:
 	void OnNotify(const GeneralEvent& info);
 
 private:
+	void initialize();
+
 	int levelNumber;
 	bool showingDialogue = true;
 	UIStepCounter* stepCounter = nullptr;
 	Dialogue* dialogue = nullptr;
+
+	sf::Texture* iconTexture;
+	sf::Sprite iconSprite;
 
 	lua_State* luaHUD;
 };

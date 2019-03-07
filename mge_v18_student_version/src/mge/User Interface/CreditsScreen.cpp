@@ -41,8 +41,6 @@ void CreditsScreen::initialize()
 {
 	lua_State* luaCredits = LuaWrapper::InitializeLuaState("LuaGameScripts\\UI\\Credits.lua");
 
-	std::cout << "luaCredits: " << luaCredits << std::endl;
-
 	lua_getglobal(luaCredits, "Buttons");
 
 	lua_pushnil(luaCredits);

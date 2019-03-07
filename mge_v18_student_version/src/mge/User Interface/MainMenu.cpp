@@ -27,7 +27,6 @@ MainMenu::~MainMenu()
 	delete creditsButton;
 	delete exitButton;
 	delete backgroundTexture;
-	//std::cout << "Amount of Buttons: " << ButtonManager::GetAmountOfButtons() << std::endl;
 }
 
 void MainMenu::Draw(sf::RenderWindow* window)

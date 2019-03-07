@@ -8,6 +8,7 @@ Dialogue::Dialogue() : Observer<GeneralEvent>()
 	amountOfLevels = LuaWrapper::GetNumber<int>(luaLevelInfo, "Levels");
 
 	luaDialogue = LuaWrapper::InitializeLuaState("LuaGameScripts/UI/Dialogue.lua");
+	luaDialogueLocation = LuaWrapper::InitializeLuaState("LuaGameScripts/UI/DialogueLocation.lua");
 
 	LuaWrapper::CloseLuaState(luaLevelInfo);
 	EventQueue::AddObserver(this);
@@ -20,6 +21,9 @@ Dialogue::~Dialogue()
 	EventQueue::RemoveObserver(this);
 	startDialogue.clear();
 	endDialogue.clear();
+
+
+	LuaWrapper::CloseLuaState(luaDialogue);
 	delete currentTexture;
 }
 
@@ -45,7 +49,21 @@ void Dialogue::LoadDialogues(int level)
 	loadStartDialogue(level);
 	loadEndDialogue(level);
 	setCurrentImage(currentImage);
-	currentDialogue.setPosition(0, 100);
+
+	lua_getglobal(luaDialogueLocation, "Buttons");
+
+	lua_pushnil(luaDialogueLocation);
+
+	glm::vec3 position;
+
+	while (lua_next(luaDialogueLocation, -2) != 0)
+	{
+		position = LuaWrapper::GetTableVec3(luaDialogueLocation, "Position");
+		lua_pop(luaDialogueLocation, 1);
+	}
+	lua_pop(luaDialogueLocation, 1);
+
+	currentDialogue.setPosition(position.x, position.y);
 	showingDialogue = true;
 }
 
@@ -114,7 +132,7 @@ void Dialogue::loadEndDialogue(int level)
 void Dialogue::setCurrentImage(int imageIndex)
 {
 	std::cout << "ImageIndex > StartDialogue Size: " << (imageIndex + 1 > startDialogue.size()) << std::endl;
-	
+
 	switch (dialogueType)
 	{
 	case DIALOGUE::START_DIALOGUE:
@@ -142,6 +160,6 @@ void Dialogue::setCurrentImage(int imageIndex)
 	}
 	currentDialogue.setTexture(*currentTexture);
 
-	/*sf::Vector2u textureSize = currentTexture->getSize();
-	currentDialogue.setOrigin(textureSize.x * .5f, textureSize.y * .5f);*/
+	sf::Vector2u textureSize = currentTexture->getSize();
+	currentDialogue.setOrigin(textureSize.x * .5f, textureSize.y * .5f);
 }

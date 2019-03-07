@@ -20,5 +20,6 @@ private:
 	Command* moveRight;
 	bool buttonPressed;
 	bool spacePressed;
+	bool escPressed;
 	bool canMove = false;
 };

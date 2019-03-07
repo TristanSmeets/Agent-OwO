@@ -23,6 +23,7 @@ private:
 	void setCurrentImage(int imageIndex);
 
 	lua_State* luaDialogue;
+	lua_State* luaDialogueLocation;
 	int levelNumber = 0;
 	int amountOfLevels = 0;
 	int currentImage = 0;

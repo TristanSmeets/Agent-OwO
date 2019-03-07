@@ -195,6 +195,7 @@
     <ClInclude Include="..\src\mge\gameplay\ButtonManager.hpp" />
     <ClInclude Include="..\src\mge\gameplay\Button\Button.hpp" />
     <ClInclude Include="..\src\mge\gameplay\Command\Command.hpp" />
+    <ClInclude Include="..\src\mge\gameplay\Command\ContinueCommand.hpp" />
     <ClInclude Include="..\src\mge\gameplay\Command\DownCommand.hpp" />
     <ClInclude Include="..\src\mge\gameplay\Command\ExitCommand.hpp" />
     <ClInclude Include="..\src\mge\gameplay\Command\LeftCommand.hpp" />
@@ -228,6 +229,7 @@
     <ClInclude Include="..\src\mge\User Interface\Dialogue.hpp" />
     <ClInclude Include="..\src\mge\User Interface\HUD.hpp" />
     <ClInclude Include="..\src\mge\User Interface\MainMenu.hpp" />
+    <ClInclude Include="..\src\mge\User Interface\PauseScreen.hpp" />
     <ClInclude Include="..\src\mge\User Interface\UIStepCounter.hpp" />
     <ClInclude Include="..\src\mge\util\DebugHud.hpp" />
     <ClInclude Include="..\src\mge\util\EventQueue\EventQueue.hpp" />
@@ -272,6 +274,7 @@
     <ClCompile Include="..\src\mge\gameplay\ButtonManager.cpp" />
     <ClCompile Include="..\src\mge\gameplay\Button\Button.cpp" />
     <ClCompile Include="..\src\mge\gameplay\Command\Command.cpp" />
+    <ClCompile Include="..\src\mge\gameplay\Command\ContinueCommand.cpp" />
     <ClCompile Include="..\src\mge\gameplay\Command\DownCommand.cpp" />
     <ClCompile Include="..\src\mge\gameplay\Command\ExitCommand.cpp" />
     <ClCompile Include="..\src\mge\gameplay\Command\LeftCommand.cpp" />
@@ -305,6 +308,7 @@
     <ClCompile Include="..\src\mge\User Interface\Dialogue.cpp" />
     <ClCompile Include="..\src\mge\User Interface\HUD.cpp" />
     <ClCompile Include="..\src\mge\User Interface\MainMenu.cpp" />
+    <ClCompile Include="..\src\mge\User Interface\PauseScreen.cpp" />
     <ClCompile Include="..\src\mge\User Interface\UIStepCounter.cpp" />
     <ClCompile Include="..\src\mge\util\DebugHud.cpp" />
     <ClCompile Include="..\src\mge\util\EventQueue\EventQueue.cpp" />
@@ -438,6 +442,18 @@
       <FileType>Document</FileType>
       <DestinationFolders Condition="'$(Configuration)|$(Platform)'=='Debug Static|Win32'">$(OutDir)\LuaGameScripts\UI</DestinationFolders>
     </CopyFileToFolders>
+    <CopyFileToFolders Include="..\assets\LuaGameScripts\UI\DialogueLocation.lua">
+      <FileType>Document</FileType>
+      <DestinationFolders Condition="'$(Configuration)|$(Platform)'=='Debug Static|Win32'">$(OutDir)\LuaGameScripts\UI</DestinationFolders>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="..\assets\LuaGameScripts\UI\MainMenu.lua">
+      <FileType>Document</FileType>
+      <DestinationFolders Condition="'$(Configuration)|$(Platform)'=='Debug Static|Win32'">$(OutDir)\LuaGameScripts\UI</DestinationFolders>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="..\assets\LuaGameScripts\UIObject.lua">
+      <FileType>Document</FileType>
+      <DestinationFolders Condition="'$(Configuration)|$(Platform)'=='Debug Static|Win32'">$(OutDir)\LuaGameScripts</DestinationFolders>
+    </CopyFileToFolders>
     <None Include="ClassDiagram.cd" />
   </ItemGroup>
   <ItemGroup>
@@ -510,6 +526,17 @@
     <CopyFileToFolders Include="..\assets\mge\models\Player.obj">
       <FileType>Document</FileType>
       <DestinationFolders Condition="'$(Configuration)|$(Platform)'=='Debug Static|Win32'">$(OutDir)mge/models</DestinationFolders>
+    </CopyFileToFolders>
+  </ItemGroup>
+  <ItemGroup>
+    <CopyFileToFolders Include="..\assets\mge\UI\MainMenu_background.png">
+      <DestinationFolders Condition="'$(Configuration)|$(Platform)'=='Debug Static|Win32'">$(OutDir)/mge/UI</DestinationFolders>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="..\assets\mge\UI\MainMenu_exit_button.png">
+      <DestinationFolders Condition="'$(Configuration)|$(Platform)'=='Debug Static|Win32'">$(OutDir)/mge/UI</DestinationFolders>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="..\assets\mge\UI\MainMenu_start_button.png">
+      <DestinationFolders Condition="'$(Configuration)|$(Platform)'=='Debug Static|Win32'">$(OutDir)/mge/UI</DestinationFolders>
     </CopyFileToFolders>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

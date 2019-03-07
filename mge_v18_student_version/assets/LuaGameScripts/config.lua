@@ -1,7 +1,7 @@
 --Window properties
 AspectRatio = 16/9
 ForceAspectRatio = true
-ScreenWidth = 1280
+ScreenWidth = 1920
 
 OrthoVertical = 4.5
 OrthoHorizontal = OrthoVertical * AspectRatio 
@@ -15,7 +15,7 @@ else
 end
 
 --Window Title
-Title = "MAKE FURRY GAMES GREAT AGAIN! UWU"
+Title = "Agent 0w0"
 
 --Cpp project lua file paths
 Box = "LuaGameScripts/Box.lua"
@@ -24,5 +24,3 @@ Player = "LuaGameScripts/Player.lua"
 Start = "LuaGameScripts/Start.lua"
 Switch = "LuaGameScripts/Switch.lua"
 Tile = "LuaGameScripts/Tile.lua"
-
-LevelToLoad = 1

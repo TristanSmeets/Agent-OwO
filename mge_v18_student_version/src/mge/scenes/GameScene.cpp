@@ -14,22 +14,32 @@ GameScene::~GameScene()
 	delete eventQueueBehaviour;
 	camera = nullptr;
 
-	/*std::cout << "Cleaning up Buttons.\n";
-	if (ButtonManager::GetAmountOfButtons() > 0)
-	{
-		for (unsigned int index = 0; index < ButtonManager::GetAmountOfButtons(); ++index)
-		{
-			Button* current = ButtonManager::GetButton(index);
-			ButtonManager::RemoveButton(current);
-			delete current;
-		}
-	}*/
 	if (mainMenu != nullptr)
 	{
 		delete mainMenu;
 		mainMenu = nullptr;
 	}
 	delete propCreator;
+	
+	if (deathScreen != nullptr)
+	{
+		delete deathScreen;
+		deathScreen = nullptr;
+	}
+
+	if (pauseScreen != nullptr)
+	{
+		delete pauseScreen;
+		pauseScreen = nullptr;
+	}
+
+	if (creditsScreen != nullptr)
+	{
+		delete creditsScreen;
+		creditsScreen = nullptr;
+	}
+	LuaWrapper::CloseLuaState(config);
+	eventQueueBehaviour = nullptr;
 }
 
 void GameScene::initialize()
@@ -95,17 +105,27 @@ void GameScene::OnNotify(const GeneralEvent & info)
 			delete deathScreen;
 			deathScreen = nullptr;
 		}
-		propCreator->RemoveBGProp();
-		delete level;
-		level = nullptr;
+		
+		if (level != nullptr)
+		{
+			propCreator->RemoveBGProp();
+			delete level;
+			level = nullptr;
 
-		delete hud;
-		hud = nullptr;
+			delete hud;
+			hud = nullptr;
+		}
 
 		if (pauseScreen != nullptr)
 		{
 			delete pauseScreen;
 			pauseScreen = nullptr;
+		}
+
+		if (creditsScreen != nullptr)
+		{
+			delete creditsScreen;
+			creditsScreen = nullptr;
 		}
 
 		mainMenu = new MainMenu(_world, _window);
@@ -116,6 +136,12 @@ void GameScene::OnNotify(const GeneralEvent & info)
 	{
 		delete pauseScreen;
 		pauseScreen = nullptr;
+	}
+	if (info.showCreditsScreen)
+	{
+		delete mainMenu;
+		mainMenu = nullptr;
+		creditsScreen = new CreditsScreen(_world, _window);
 	}
 }
 
@@ -163,6 +189,9 @@ void GameScene::_render()
 
 	if (pauseScreen != nullptr)
 		pauseScreen->Draw(_window);
+
+	if (creditsScreen != nullptr)
+		creditsScreen->Draw(_window);
 
 	_window->popGLStates();
 }

@@ -34,7 +34,7 @@ newUI2.ImagePath = 'mge/UI/'
 table.insert(Buttons, newUI2)
 
 local newUI3 = UIObject:new()
-newUI3.Position = { x = 352.1, y = 600, z = 0 }
+newUI3.Position = { x = 500, y = 585, z = 0 }
 newUI3.Rotation = { x = 0, y = 0, z = 0, w = 1 }
 newUI3.Scale = { x = 1, y = 1, z = 1 }
 newUI3.Height = 26

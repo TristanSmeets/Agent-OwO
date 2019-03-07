@@ -21,8 +21,10 @@ MainMenu::~MainMenu()
 	world->remove(mouse);
 	delete mouse;
 	ButtonManager::RemoveButton(startButton);
+	ButtonManager::RemoveButton(creditsButton);
 	ButtonManager::RemoveButton(exitButton);
 	delete startButton;
+	delete creditsButton;
 	delete exitButton;
 	delete backgroundTexture;
 	//std::cout << "Amount of Buttons: " << ButtonManager::GetAmountOfButtons() << std::endl;
@@ -59,6 +61,7 @@ void MainMenu::initialize(sf::RenderWindow* window)
 	{
 		glm::vec3 position = LuaWrapper::GetTableVec3(luaMainMenu, "Position");
 		std::string UIType = LuaWrapper::GetTableString(luaMainMenu, "Type");
+		std::string imagePath = LuaWrapper::GetTableString(luaMainMenu, "ImagePath");
 
 		if (UIType == "BUTTON")
 		{
@@ -66,16 +69,22 @@ void MainMenu::initialize(sf::RenderWindow* window)
 
 			if (ButtonType == "START")
 			{
-				std::string imagePath = LuaWrapper::GetTableString(luaMainMenu, "ImagePath");
 				startButton = new Button(imagePath);
 				startButton->SetCommand(new StartCommand());
 				startButton->SetPosition(glm::vec2(position.x, position.y));
 				ButtonManager::AddButton(startButton);
 			}
 
+			if (ButtonType == "CREDIT")
+			{
+				creditsButton = new Button(imagePath);
+				creditsButton->SetCommand(new CreditsCommand());
+				creditsButton->SetPosition(glm::vec2(position.x, position.y));
+				ButtonManager::AddButton(creditsButton);
+			}
+
 			if (ButtonType == "EXIT")
 			{
-				std::string imagePath = LuaWrapper::GetTableString(luaMainMenu, "ImagePath");
 				exitButton = new Button(imagePath);
 				exitButton->SetCommand(new ExitCommand(window));
 				exitButton->SetPosition(glm::vec2(position.x, position.y));

@@ -326,6 +326,12 @@
     <ClInclude Include="..\src\mge\gameplay\Command\ContinueCommand.hpp">
       <Filter>MGE Source files\mge\gameplay\Command</Filter>
     </ClInclude>
+    <ClInclude Include="..\src\mge\gameplay\Command\CreditsCommand.hpp">
+      <Filter>MGE Source files\mge\gameplay\Command</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\mge\User Interface\CreditsScreen.hpp">
+      <Filter>MGE Source files\mge\UI</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\main.cpp">
@@ -555,6 +561,12 @@
     </ClCompile>
     <ClCompile Include="..\src\mge\gameplay\Command\ContinueCommand.cpp">
       <Filter>MGE Source files\mge\gameplay\Command</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\mge\gameplay\Command\CreditsCommand.cpp">
+      <Filter>MGE Source files\mge\gameplay\Command</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\mge\User Interface\CreditsScreen.cpp">
+      <Filter>MGE Source files\mge\UI</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

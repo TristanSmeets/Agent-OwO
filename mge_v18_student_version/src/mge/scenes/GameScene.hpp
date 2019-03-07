@@ -12,6 +12,7 @@
 #include "mge/util/LevelEditor/PropCreator.hpp"
 #include "mge/User Interface/DeathScreen.hpp"
 #include "mge/User Interface/PauseScreen.hpp"
+#include "mge/User Interface/CreditsScreen.hpp"
 
 class GameScene : public AbstractGame, public Observer<GeneralEvent>
 {
@@ -31,6 +32,7 @@ private:
 	MainMenu* mainMenu = nullptr;
 	DeathScreen* deathScreen = nullptr;
 	PauseScreen* pauseScreen = nullptr;
+	CreditsScreen* creditsScreen = nullptr;
 	lua_State* config;
 	EventQueueBehaviour* eventQueueBehaviour;
 	Camera* camera;

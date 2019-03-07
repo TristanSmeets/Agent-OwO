@@ -2,22 +2,7 @@
 
 DeathScreen::DeathScreen(World* world, sf::Window* window) : world(world)
 {
-	//Retry Button
-	retryButton = new Button("mge\\UI\\Retry_Button.png");
-	retryButton->SetCommand(new RetryCommand());
-	retryButton->SetPosition(glm::vec2(400, 200));
-	ButtonManager::AddButton(retryButton);
-
-	//Quit Button
-	quitButton = new Button("mge\\UI\\Quit_Button.png");
-	quitButton->SetCommand(new QuitCommand());
-	quitButton->SetPosition(glm::vec2(400, 400));
-	ButtonManager::AddButton(quitButton);
-
-	//Background filter
-	backgroundTexture = new sf::Texture();
-	backgroundTexture->loadFromFile("mge\\UI\\black_filter.png");
-	backgroundImage.setTexture(*backgroundTexture);
+	initialize();
 
 	//Mouse setup
 	mouse = new GameObject("MOUSE");
@@ -50,4 +35,56 @@ void DeathScreen::Draw(sf::RenderWindow * window)
 			window->draw(*current->GetSprite());
 		}
 	}
+}
+
+void DeathScreen::initialize()
+{
+	lua_State* luaResolution = LuaWrapper::InitializeLuaState("LuaGameScripts/UI/ResolutionScreen.lua");
+
+	lua_getglobal(luaResolution, "Buttons");
+
+	lua_pushnil(luaResolution);
+
+	while (lua_next(luaResolution, -2) != 0)
+	{
+		glm::vec3 position = LuaWrapper::GetTableVec3(luaResolution, "Position");
+		std::string UIType = LuaWrapper::GetTableString(luaResolution, "Type");
+		std::string imagePath = LuaWrapper::GetTableString(luaResolution, "ImagePath");
+
+		if (UIType == "BUTTON")
+		{
+			std::string ButtonType = LuaWrapper::GetTableString(luaResolution, "ButtonType");
+
+			if (ButtonType == "CONTINUE")
+			{
+				retryButton = new Button(imagePath);
+				retryButton->SetCommand(new RetryCommand());
+				retryButton->SetPosition(glm::vec2(position.x, position.y));
+				ButtonManager::AddButton(retryButton);
+			}
+
+			if (ButtonType == "EXIT")
+			{
+				quitButton = new Button(imagePath);
+				quitButton->SetCommand(new QuitCommand());
+				quitButton->SetPosition(glm::vec2(position.x, position.y));
+				ButtonManager::AddButton(quitButton);
+			}
+		}
+
+		if (UIType == "BACKGROUND")
+		{
+			backgroundTexture = new sf::Texture();
+			backgroundTexture->loadFromFile(imagePath);
+			backgroundImage.setTexture(*backgroundTexture);
+			backgroundImage.setPosition(sf::Vector2f(position.x, position.y));
+			sf::Vector2u bgSize = backgroundTexture->getSize();
+			backgroundImage.setOrigin(bgSize.x * .5f, bgSize.y * 0.5f);
+		}
+
+		lua_pop(luaResolution, 1);
+	}
+	lua_pop(luaResolution, 1);
+
+	LuaWrapper::CloseLuaState(luaResolution);
 }

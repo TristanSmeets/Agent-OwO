@@ -87,4 +87,6 @@ void PauseScreen::initialize()
 		lua_pop(luaPauseScreen, 1);
 	}
 	lua_pop(luaPauseScreen, 1);
+
+	LuaWrapper::CloseLuaState(luaPauseScreen);
 }

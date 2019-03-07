@@ -8,6 +8,7 @@ HUD::HUD(int levelNumber) : levelNumber(levelNumber), Observer<GeneralEvent>()
 	stepCounter = new UIStepCounter(luaHUD, levelNumber);
 	dialogue = new Dialogue();
 	dialogue->LoadDialogues(levelNumber);
+
 }
 
 HUD::~HUD()

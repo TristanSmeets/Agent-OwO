@@ -6,11 +6,12 @@
 #include "mge/gameplay/Command/ExitCommand.hpp"
 #include "mge/behaviours/MouseBehaviour.hpp"
 #include "mge/core/World.hpp"
+#include "mge/util/LuaScripting/LuaWrapper.hpp"
 
 class MainMenu
 {
 public:
-	MainMenu(World* world, sf::Window* window);
+	MainMenu(World* world, sf::RenderWindow* window);
 	~MainMenu();
 	void Draw(sf::RenderWindow* window);
 
@@ -22,4 +23,6 @@ private:
 	Button* exitButton;
 	sf::Texture* backgroundTexture;
 	sf::Sprite BackgroundImage;
+
+	void initialize(sf::RenderWindow* window);
 };

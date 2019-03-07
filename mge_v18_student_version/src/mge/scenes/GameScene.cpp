@@ -14,7 +14,7 @@ GameScene::~GameScene()
 	delete eventQueueBehaviour;
 	camera = nullptr;
 
-	std::cout << "Cleaning up Buttons.\n";
+	/*std::cout << "Cleaning up Buttons.\n";
 	if (ButtonManager::GetAmountOfButtons() > 0)
 	{
 		for (unsigned int index = 0; index < ButtonManager::GetAmountOfButtons(); ++index)
@@ -23,7 +23,7 @@ GameScene::~GameScene()
 			ButtonManager::RemoveButton(current);
 			delete current;
 		}
-	}
+	}*/
 	if (mainMenu != nullptr)
 	{
 		delete mainMenu;
@@ -102,7 +102,20 @@ void GameScene::OnNotify(const GeneralEvent & info)
 		delete hud;
 		hud = nullptr;
 
+		if (pauseScreen != nullptr)
+		{
+			delete pauseScreen;
+			pauseScreen = nullptr;
+		}
+
 		mainMenu = new MainMenu(_world, _window);
+	}
+	if (info.showPauseScreen)
+		pauseScreen = new PauseScreen(_world, _window);
+	if (info.closePauseScreen)
+	{
+		delete pauseScreen;
+		pauseScreen = nullptr;
 	}
 }
 
@@ -134,7 +147,7 @@ void GameScene::_render()
 	AbstractGame::_render();
 
 	_window->pushGLStates();
-	
+
 	if (mainMenu != nullptr)
 	{
 		mainMenu->Draw(_window);
@@ -147,5 +160,9 @@ void GameScene::_render()
 
 	if (deathScreen != nullptr)
 		deathScreen->Draw(_window);
+
+	if (pauseScreen != nullptr)
+		pauseScreen->Draw(_window);
+
 	_window->popGLStates();
 }

@@ -60,13 +60,21 @@ Command * PlayerInput::HandleInput()
 	}
 	spacePressed = sf::Keyboard::isKeyPressed(sf::Keyboard::Space);
 
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape) && escPressed == false)
+	{
+		GeneralEvent info;
+		info.showPauseScreen = true;
+		EventQueue::QueueEvent(info);
+		escPressed = true;
+	}
+	escPressed = sf::Keyboard::isKeyPressed(sf::Keyboard::Escape);
 	return nullptr;
 }
 
 void PlayerInput::OnNotify(const GeneralEvent & info)
 {
-	if (info.isDialogueCompleted || info.resetLevel)
+	if (info.isDialogueCompleted || info.resetLevel|| info.closePauseScreen)
 		canMove = true;
-	if (info.showEndDialogue || info.showGameOver)
+	if (info.showEndDialogue || info.showGameOver || info.showPauseScreen)
 		canMove = false;
 }

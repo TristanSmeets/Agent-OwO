@@ -320,6 +320,12 @@
     <ClInclude Include="..\src\mge\gameplay\Command\QuitCommand.hpp">
       <Filter>MGE Source files\mge\gameplay\Command</Filter>
     </ClInclude>
+    <ClInclude Include="..\src\mge\User Interface\PauseScreen.hpp">
+      <Filter>MGE Source files\mge\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\mge\gameplay\Command\ContinueCommand.hpp">
+      <Filter>MGE Source files\mge\gameplay\Command</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\main.cpp">
@@ -544,6 +550,12 @@
     <ClCompile Include="..\src\mge\gameplay\Command\QuitCommand.cpp">
       <Filter>MGE Source files\mge\gameplay\Command</Filter>
     </ClCompile>
+    <ClCompile Include="..\src\mge\User Interface\PauseScreen.cpp">
+      <Filter>MGE Source files\mge\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\mge\gameplay\Command\ContinueCommand.cpp">
+      <Filter>MGE Source files\mge\gameplay\Command</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram.cd" />
@@ -686,6 +698,24 @@
     </CopyFileToFolders>
     <CopyFileToFolders Include="..\assets\LuaGameScripts\UI\Dialogue.lua">
       <Filter>LuaScripts\UI</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="..\assets\LuaGameScripts\UI\MainMenu.lua">
+      <Filter>LuaScripts\UI</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="..\assets\LuaGameScripts\UI\DialogueLocation.lua">
+      <Filter>LuaScripts\UI</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="..\assets\mge\UI\MainMenu_background.png">
+      <Filter>Textures\UI</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="..\assets\mge\UI\MainMenu_exit_button.png">
+      <Filter>Textures\UI</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="..\assets\mge\UI\MainMenu_start_button.png">
+      <Filter>Textures\UI</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="..\assets\LuaGameScripts\UIObject.lua">
+      <Filter>LuaScripts</Filter>
     </CopyFileToFolders>
   </ItemGroup>
 </Project>

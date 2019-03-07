@@ -17,4 +17,6 @@ struct GeneralEvent
 	bool nextDialogue = false;
 	bool isDialogueCompleted = false;
 	bool showMainMenu = false;
+	bool showPauseScreen = false;
+	bool closePauseScreen = false;
 };

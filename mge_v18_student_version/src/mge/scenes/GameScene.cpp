@@ -148,7 +148,7 @@ void GameScene::OnNotify(const GeneralEvent & info)
 void GameScene::_initializeScene()
 {
 	GameObject* eventQueue = new GameObject("EventQueue");
-	eventQueueBehaviour = new EventQueueBehaviour();
+	eventQueueBehaviour = new QueueBehaviour();
 	eventQueue->setBehaviour(eventQueueBehaviour);
 	_world->add(eventQueue);
 

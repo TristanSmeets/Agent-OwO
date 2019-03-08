@@ -3,7 +3,7 @@
 #include "mge/core/AbstractGame.hpp"
 #include "mge/util/LevelEditor/Level.hpp"
 #include "mge/util/LuaScripting/LuaWrapper.hpp"
-#include "mge/behaviours/EventQueueBehaviour.hpp"
+#include "mge/behaviours/QueueBehaviour.hpp"
 #include "mge/gameplay/ButtonManager.hpp"
 #include "mge/util/LevelEditor/Factories/CameraFactory.hpp"
 #include "mge/core/Camera.hpp"
@@ -34,7 +34,7 @@ private:
 	PauseScreen* pauseScreen = nullptr;
 	CreditsScreen* creditsScreen = nullptr;
 	lua_State* config;
-	EventQueueBehaviour* eventQueueBehaviour;
+	QueueBehaviour* eventQueueBehaviour;
 	Camera* camera;
 	PropCreator* propCreator;
 

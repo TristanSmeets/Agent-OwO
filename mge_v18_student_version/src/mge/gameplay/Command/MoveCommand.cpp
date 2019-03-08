@@ -65,7 +65,6 @@ void MoveCommand::nodeBoxCheck(Node * current, DIRECTION direction)
 				EventQueue::QueueEvent((*createMovedEvent()));
 			}
 		}
-
 	}
 }
 

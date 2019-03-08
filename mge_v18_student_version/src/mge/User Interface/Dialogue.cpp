@@ -2,8 +2,6 @@
 
 Dialogue::Dialogue() : Observer<GeneralEvent>()
 {
-	std::cout << "Creating Dialogue.\n";
-
 	lua_State* luaLevelInfo = LuaWrapper::InitializeLuaState("LuaGameScripts/Level/Level_Info.lua");
 	amountOfLevels = LuaWrapper::GetNumber<int>(luaLevelInfo, "Levels");
 

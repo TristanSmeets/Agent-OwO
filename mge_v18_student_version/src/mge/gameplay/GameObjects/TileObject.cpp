@@ -40,7 +40,6 @@ void TileObject::CreateNodeConnections(const std::vector<TileObject*>& tileObjec
 		TileObject* currentTile = tileObjects[current];
 		glm::vec3 position = currentTile->getLocalPosition();
 		float tileSize = currentTile->GetNode()->GetSize();
-		//std::cout << "Creating connections for TileType " << currentTile->GetNode()->GetNodeType() << " Node in TileObject#" << current << std::endl;
 		for (int index = 0; index < tileObjects.size(); index++)
 		{
 			if (index != current)
@@ -56,7 +55,6 @@ void TileObject::CreateNodeConnections(const std::vector<TileObject*>& tileObjec
 					currentTile->GetNode()->AddConnection(DIRECTION::UP, tileObjects[index]->GetNode());
 			}
 		}
-		//std::cout << "Amount of Connections: " << currentTile->GetNode()->GetConnectionCount() << std::endl << std::endl;
 	}
 }
 

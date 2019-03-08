@@ -2,7 +2,6 @@
 
 StartCommand::StartCommand() : Command()
 {
-	std::cout << "Creating StartCommand.\n";
 }
 
 StartCommand::~StartCommand()
@@ -12,7 +11,6 @@ StartCommand::~StartCommand()
 
 void StartCommand::Execute()
 {
-	std::cout << "Queueing startevent.\n";
 	GeneralEvent info = GeneralEvent();
 	info.startGame = true;
 	EventQueue::QueueEvent(info);

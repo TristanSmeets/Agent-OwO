@@ -7,13 +7,11 @@
 
 MovableBehaviour::MovableBehaviour() : AbstractBehaviour()
 {
-	//std::cout << "Creating MovableBehavior\n";
 	inputHandler = new PlayerInput(this);
 }
 
 MovableBehaviour::MovableBehaviour(MOVABLE_TYPE movable) : AbstractBehaviour(), movableType(movable)
 {
-	//std::cout << "Creating MovableBehaviour\n";
 	switch (movable)
 	{
 	case MOVABLE_TYPE::BOX_OBJECT:

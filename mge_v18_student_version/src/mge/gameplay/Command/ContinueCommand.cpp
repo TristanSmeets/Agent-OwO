@@ -2,7 +2,6 @@
 
 ContinueCommand::ContinueCommand() : Command()
 {
-	std::cout << "Creating ContinueCommand.\n";
 }
 
 ContinueCommand::~ContinueCommand()

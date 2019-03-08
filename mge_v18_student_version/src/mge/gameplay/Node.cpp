@@ -4,7 +4,6 @@
 Node::Node(const glm::vec3& position, float size, NODETYPE tileType) : 
 	position(position), tileSize(size), tileType(tileType), startType(tileType)
 {
-	//std::cout << "Creating NODE." << std::endl;
 }
 
 Node::~Node()
@@ -26,7 +25,6 @@ glm::vec3 Node::GetPosition()
 
 void Node::SetPosition(const glm::vec3 & newPosition)
 {
-	//std::cout << "Setting NODE to " << newPosition << std::endl;
 	position = newPosition;
 }
 

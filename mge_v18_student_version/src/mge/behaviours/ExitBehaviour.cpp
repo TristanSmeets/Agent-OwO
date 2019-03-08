@@ -4,7 +4,6 @@
 ExitBehaviour::ExitBehaviour(unsigned int switches) : 
 	AbstractBehaviour(), Observer<SwitchEvent>(), amountOfSwitches(switches)
 {
-	std::cout << "Creating new ExitBehaviour.\n";
 }
 
 ExitBehaviour::~ExitBehaviour()
@@ -23,10 +22,6 @@ void ExitBehaviour::update(float pStep)
 void ExitBehaviour::OnNotify(const SwitchEvent & info)
 {
 	activatedSwitches += info.activateSwitch;
-
-	/*std::cout << "Amount of Switches: " << amountOfSwitches << std::endl;
-	std::cout << "Activated switches: " << activatedSwitches << std::endl;*/
-
 	exitNode->SetIsOpen(amountOfSwitches == activatedSwitches);
 }
 
@@ -60,7 +55,6 @@ void ExitBehaviour::checkNode()
 	if (previousType != exitNode->GetNodeType() &&
 		exitNode->GetNodeType() == NODETYPE::GENERIC)
 	{
-		std::cout << "EXIT reached!\n";
 		GeneralEvent info = GeneralEvent();
 		info.showEndDialogue = true;
 		EventQueue::QueueEvent(info);
@@ -72,7 +66,6 @@ void ExitBehaviour::UnsubscribeFromSubjects()
 {
 	for (unsigned int index = 0; index < subjects.size(); ++index)
 	{
-		std::cout << "Unsubcribe ExitBehaviour from Switch\n";
 		Subject<SwitchEvent>* subject = dynamic_cast<Subject<SwitchEvent>*>(subjects[index]->getBehaviour());
 		subject->RemoveObserver(this);
 		subjects[index] = nullptr;

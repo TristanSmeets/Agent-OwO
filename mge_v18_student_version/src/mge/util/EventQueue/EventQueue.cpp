@@ -6,13 +6,11 @@ GeneralEvent EventQueue::pending[maxQueueSize];
 
 void EventQueue::AddObserver(Observer<GeneralEvent> * observer)
 {
-	std::cout << "Adding Observer to EventQueue.\n";
 	observers.push_back(observer);
 }
 
 void EventQueue::RemoveObserver(Observer<GeneralEvent> * observer)
 {
-	std::cout << "Removing Observer From EventQueue.\n";
 	observers.erase(std::remove(observers.begin(), observers.end(), observer), observers.end());
 }
 

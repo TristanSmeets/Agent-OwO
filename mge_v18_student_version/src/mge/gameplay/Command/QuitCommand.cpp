@@ -2,7 +2,6 @@
 
 QuitCommand::QuitCommand() : Command()
 {
-	std::cout << "Creating QuitCommand.\n";
 }
 
 QuitCommand::~QuitCommand()

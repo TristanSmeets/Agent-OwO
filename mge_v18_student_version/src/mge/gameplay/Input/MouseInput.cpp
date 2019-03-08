@@ -2,12 +2,10 @@
 
 MouseInput::MouseInput()
 {
-	std::cout << "Creating MouseInput.\n";
 }
 
 MouseInput::MouseInput(sf::Window* window) : InputHandler(), window(window)
 {
-	std::cout << "Creating MouseInput.\n";
 }
 
 MouseInput::~MouseInput()
@@ -24,7 +22,6 @@ Command * MouseInput::HandleInput()
 			Button* current = ButtonManager::GetButton(index);
 			if (isColliding(current))
 			{
-				//std::cout << "Colliding with button.\n";
 				return current->GetButtonAction();
 			}
 		}

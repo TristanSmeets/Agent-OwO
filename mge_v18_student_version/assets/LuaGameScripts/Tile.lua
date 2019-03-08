@@ -5,7 +5,8 @@ Texture = "mge/textures/GenTile.png" --Add path to the texture.
 
 Textures = {
 	"mge/textures/GenTile-Darker.png",
-	"mge/textures/GenTile-Gradient.png"
+	"mge/textures/GenTile-Gradient.png",
+	"mge/textures/GenTile.png"
 }
 
 TileSize = 1

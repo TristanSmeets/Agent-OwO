@@ -2,7 +2,6 @@
 
 ExitCommand::ExitCommand(sf::Window* window) : Command(), window(window)
 {
-	std::cout << "Creating ExitCommand.\n";
 }
 
 ExitCommand::~ExitCommand()
@@ -12,6 +11,5 @@ ExitCommand::~ExitCommand()
 
 void ExitCommand::Execute()
 {
-	std::cout << "Closing Game.\n";
 	window->close();
 }

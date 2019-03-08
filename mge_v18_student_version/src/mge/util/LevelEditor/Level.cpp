@@ -37,10 +37,6 @@ void Level::CreateLevel(int levelNumber)
 		glm::vec3 position = LuaWrapper::GetTableVec3(luaLevel, "Position");
 		glm::quat rotation = LuaWrapper::GetTableQuat(luaLevel, "Rotation");
 		glm::vec3 scale = LuaWrapper::GetTableVec3(luaLevel, "Scale");
-		/*std::cout << "\nType: " << typeString << std::endl;
-		printf("Position: (%f, %f, %f)\n", position.x, position.y, position.z);
-		printf("Rotation: (%f, %f, %f, %f)\n", rotation.x, rotation.y, rotation.z, rotation.w);
-		printf("Scale: (%f, %f, %f)\n", scale.x, scale.y, scale.z);*/
 
 		objectCreator->CreateGameObject(typeString, position, rotation, scale);
 		//Removes 'value'. keeps 'key' for next iteration
@@ -66,8 +62,6 @@ void Level::UnloadLevel()
 
 	GameObject* exit = objectCreator->GetExit();
 	delete dynamic_cast<ExitBehaviour*>(exit->getBehaviour());
-
-	std::cout << "Cleaning SwitchBehaviours\n";
 	std::vector<GameObject*>& switches = objectCreator->GetSwitchObjects();
 	for (unsigned int index = 0; index < switches.size(); ++index)
 	{
@@ -75,8 +69,6 @@ void Level::UnloadLevel()
 		switches[index] = nullptr;
 	}
 	switches.clear();
-
-	std::cout << "Removing boxes.\n";
 	for (unsigned int index = 0; index < boxObjects.size(); ++index)
 	{
 		delete boxObjects[index]->getBehaviour();
@@ -85,11 +77,9 @@ void Level::UnloadLevel()
 	}
 	boxObjects.clear();
 
-	std::cout << "Removing Tiles and removing connections.\n";
 	for (unsigned int index = 0; index < tiles.size(); ++index)
 	{
 		world->remove(tiles[index]);
-		//delete tiles[index]->getBehaviour();
 		delete tiles[index];
 	}
 	tiles.clear();

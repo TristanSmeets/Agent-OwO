@@ -2,7 +2,6 @@
 
 StepTracker::StepTracker(int level) : Observer<GeneralEvent>()
 {
-	std::cout << "Creating StepTracker.\n";
 	lua_State* levelInfo = LuaWrapper::InitializeLuaState("LuaGameScripts/Level/Level_info.lua");
 	lua_getglobal(levelInfo, "AmountOfSteps");
 	totalSteps = LuaWrapper::GetTableNumber(levelInfo, "Level_" + std::to_string(level));
@@ -33,7 +32,6 @@ void StepTracker::OnNotify(const GeneralEvent & info)
 		{
 			if (sendEvent == false)
 			{
-				std::cout << "You're out of steps!\n";
 				GeneralEvent info = GeneralEvent();
 				info.showGameOver = true;
 				EventQueue::QueueEvent(info);

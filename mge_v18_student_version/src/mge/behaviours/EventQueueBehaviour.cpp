@@ -2,7 +2,6 @@
 
 EventQueueBehaviour::EventQueueBehaviour() : AbstractBehaviour()
 {
-	std::cout << "Creating EventQueueBehaviour.\n";
 }
 
 EventQueueBehaviour::~EventQueueBehaviour()

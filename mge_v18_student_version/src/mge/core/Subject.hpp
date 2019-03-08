@@ -21,13 +21,11 @@ public:
 	
 	void AddObserver(Observer<T>* observer)
 	{
-		std::cout << "Adding Subcriber\n";
 		observers.push_back(observer);
 	}
 
 	void RemoveObserver(Observer<T>* observer)
 	{
-		std::cout << "Removing Subscriber\n";
 		observers.erase(std::remove(observers.begin(), observers.end(), observer), observers.end());
 	}
 

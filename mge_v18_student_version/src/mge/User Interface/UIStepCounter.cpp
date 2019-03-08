@@ -2,24 +2,18 @@
 
 UIStepCounter::UIStepCounter(lua_State* luaHUD, int levelNumber) : Observer<GeneralEvent>()
 {
-	std::cout << "Creating UI StepCounter.\n";
 	EventQueue::AddObserver(this);
 	//Getting amount of steps
 	lua_State* luaLevelInfo = LuaWrapper::InitializeLuaState("LuaGameScripts/Level/Level_Info.lua");
 	lua_getglobal(luaLevelInfo, "AmountOfSteps");
-	std::cout << "Getting totalSteps.\n";
 	totalSteps = LuaWrapper::GetTableNumber(luaLevelInfo, "Level_" + std::to_string(levelNumber));
 	stepsLeft = totalSteps;
 
 	//Creating Icon
 	iconImage = sf::Sprite();
-	std::cout << "Trying to get IconPath.\n";
 	std::string iconPath = LuaWrapper::GetString(luaHUD, "IconPath");
-	std::cout << "IconPath: " << iconPath << std::endl;
 	iconTexture.loadFromFile(iconPath);
 	iconImage.setTexture(iconTexture);
-
-	std::cout << "Trying to get Position.\n";
 	
 	glm::vec2 iconPosition = LuaWrapper::GetVec2(luaHUD, "IconPosition");
 	iconImage.setPosition(iconPosition.x, iconPosition.y);
@@ -27,7 +21,6 @@ UIStepCounter::UIStepCounter(lua_State* luaHUD, int levelNumber) : Observer<Gene
 	iconImage.setOrigin(iconSize.x * 0.5f, iconSize.y * 0.5f);
 
 	//Creating font
-	std::cout << "Trying to get FondPath.\n";
 	std::string fontPath = LuaWrapper::GetString(luaHUD, "Font");
 	font.loadFromFile(fontPath);
 	

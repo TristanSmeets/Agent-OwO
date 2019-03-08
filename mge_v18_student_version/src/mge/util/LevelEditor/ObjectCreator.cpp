@@ -26,26 +26,20 @@ ObjectCreator::~ObjectCreator()
 	delete startFactory;
 	delete switchFactory;
 	delete tileFactory;
-
-	std::cout << "Cleaning TileObjects\n";
 	for (unsigned int index = 0; index < tileObjects.size(); ++index)
 	{
 		tileObjects[index] = nullptr;
 	}
 	tileObjects.clear();
 
-	std::cout << "Cleaning BoxObjects\n";
 	for (unsigned int index = 0; index < boxObjects.size(); ++index)
 	{
-		//delete boxObjects[index]->getBehaviour();
 		boxObjects[index] = nullptr;
 	}
 	boxObjects.clear();
 
-	std::cout << "Cleaning SwitchObjects\n";
 	for (unsigned int index = 0; index < switchObjects.size(); ++index)
 	{
-		//delete switchObjects[index]->getBehaviour();
 		switchObjects[index] = nullptr;
 	}
 	switchObjects.clear();

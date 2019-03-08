@@ -2,7 +2,6 @@
 
 MouseBehaviour::MouseBehaviour(sf::Window* window) : AbstractBehaviour()
 {
-	std::cout << "Creating MouseBehaviour.\n";
 	mouseInput = MouseInput(window);
 }
 
@@ -17,7 +16,6 @@ void MouseBehaviour::update(float pStep)
 
 	if (command && buttonPressed == false)
 	{
-		std::cout << "Button pressed: " << buttonPressed << std::endl;
 		command->Execute();
 	}
 	buttonPressed = command != nullptr;

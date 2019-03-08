@@ -2,7 +2,6 @@
 
 SwitchBehaviour::SwitchBehaviour(Node& node) : AbstractBehaviour(), Subject(), switchNode(node)
 {
-	std::cout << "Creating SwitchBehaviour\n";
 	previousType = node.GetNodeType();
 }
 

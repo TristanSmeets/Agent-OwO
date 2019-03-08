@@ -2,7 +2,6 @@
 
 RetryCommand::RetryCommand() : Command()
 {
-	std::cout << "Creating RetryCommand.\n";
 }
 
 RetryCommand::~RetryCommand()

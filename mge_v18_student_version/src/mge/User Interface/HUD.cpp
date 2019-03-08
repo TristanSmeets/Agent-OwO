@@ -2,7 +2,6 @@
 
 HUD::HUD(int levelNumber) : levelNumber(levelNumber), Observer<GeneralEvent>()
 {
-	std::cout << "Creating HUD.\n";
 	EventQueue::AddObserver(this);
 	luaHUD = LuaWrapper::InitializeLuaState("LuaGameScripts/UI/HUD.lua");
 	stepCounter = new UIStepCounter(luaHUD, levelNumber);

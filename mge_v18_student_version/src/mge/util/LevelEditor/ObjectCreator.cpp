@@ -128,6 +128,11 @@ void ObjectCreator::ResetMovableObjects()
 	resetBoxes();
 }
 
+void ObjectCreator::SetRandomSeed(int seed)
+{
+	tileFactory->SetRandomSeed(seed);
+}
+
 void ObjectCreator::configureBoxes()
 {
 	std::vector<GameObject*> boxObjects = GetBoxObjects();

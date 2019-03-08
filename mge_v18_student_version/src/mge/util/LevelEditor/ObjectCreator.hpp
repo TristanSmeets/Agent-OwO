@@ -19,6 +19,7 @@ public:
 	void CreateGameObject(const std::string& objectType, const glm::vec3& position, const glm::quat& rotation, const glm::vec3& scale);
 	void ConfigureBehaviourStartNodes();
 	void ResetMovableObjects();
+	void SetRandomSeed(int seed);
 
 	std::vector<TileObject*>& GetTileObjects();
 	std::vector<GameObject*>& GetBoxObjects();

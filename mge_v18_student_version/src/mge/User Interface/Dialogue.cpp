@@ -74,7 +74,6 @@ void Dialogue::Draw(sf::RenderWindow * window)
 
 void Dialogue::loadStartDialogue(int level)
 {
-	std::cout << "Loading Start Dialogue.\n";
 	std::string luaVariable = "Level" + std::to_string(level) + "_Start";
 
 	lua_getglobal(luaDialogue, luaVariable.c_str());
@@ -86,23 +85,17 @@ void Dialogue::loadStartDialogue(int level)
 		if (lua_isstring(luaDialogue, -1))
 		{
 			std::string currentPath = lua_tostring(luaDialogue, -1);
-			std::cout << "Current path: " << currentPath << std::endl;
-
 			sf::Image currentImage = sf::Image();
-			if (currentImage.loadFromFile(currentPath))
-				std::cout << "Loaded image.\n";
 			currentImage.loadFromFile(currentPath);
 			startDialogue.push_back(currentImage);
 		}
 		lua_pop(luaDialogue, 1);
 	}
 	lua_pop(luaDialogue, 1);
-	std::cout << "Start Dialogue size: " << startDialogue.size() << std::endl;
 }
 
 void Dialogue::loadEndDialogue(int level)
 {
-	std::cout << "Loading End Dialogue.\n";
 
 	std::string luaVariable = "Level" + std::to_string(level) + "_Exit";
 
@@ -115,17 +108,13 @@ void Dialogue::loadEndDialogue(int level)
 		if (lua_isstring(luaDialogue, -1))
 		{
 			std::string currentPath = lua_tostring(luaDialogue, -1);
-			std::cout << "Current path: " << currentPath << std::endl;
 			sf::Image currentImage = sf::Image();
-			if (currentImage.loadFromFile(currentPath))
-				std::cout << "Loaded image.\n";
 			currentImage.loadFromFile(currentPath);
 			endDialogue.push_back(currentImage);
 		}
 		lua_pop(luaDialogue, 1);
 	}
 	lua_pop(luaDialogue, 1);
-	std::cout << "End Dialogue size: " << endDialogue.size() << std::endl;
 }
 
 void Dialogue::setCurrentImage(int imageIndex)

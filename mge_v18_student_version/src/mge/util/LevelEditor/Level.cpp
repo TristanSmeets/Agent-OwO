@@ -20,7 +20,7 @@ Level::~Level()
 void Level::CreateLevel(int levelNumber)
 {
 	stepTracker = new StepTracker(levelNumber);
-
+	objectCreator->SetRandomSeed(levelNumber);
 	//Open the lua file.
 	std::string filePath = "LuaGameScripts/Level/Level_" + std::to_string(levelNumber) + ".lua";
 	luaLevel = LuaWrapper::InitializeLuaState(filePath);

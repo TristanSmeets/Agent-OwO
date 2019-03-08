@@ -19,6 +19,7 @@ public:
 	void SetCurrentNode(Node* node);
 	virtual void update(float pStep);
 	void Move();
+	void RotateOwner(DIRECTION direction);
 	MOVABLE_TYPE GetMovableType();
 	InputHandler* GetInputHandler();
 

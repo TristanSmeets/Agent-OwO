@@ -63,6 +63,29 @@ void MovableBehaviour::Move()
 	_owner->setLocalPosition(currentNode->GetPosition());
 }
 
+void MovableBehaviour::RotateOwner(DIRECTION direction)
+{
+	glm::mat4 rotationMatrix;
+
+	switch (direction)
+	{
+	case DIRECTION::UP:
+		rotationMatrix = glm::toMat4(glm::quat(.70711f, 0, -.70711f, 0));
+		break;
+	case DIRECTION::LEFT:
+		rotationMatrix = glm::toMat4(glm::quat(1, 0, 0, 0));
+		break;
+	case DIRECTION::RIGHT:
+		rotationMatrix = glm::toMat4(glm::quat(0, 0, 1, 0));
+		break;
+	case DIRECTION::DOWN:
+		rotationMatrix = glm::toMat4(glm::quat(.70711f, 0, .70711f, 0));
+		break;
+	}
+	glm::mat4 newTransform = glm::translate(currentNode->GetPosition()) * rotationMatrix;
+	_owner->setTransform(newTransform);
+}
+
 MOVABLE_TYPE MovableBehaviour::GetMovableType()
 {
 	return movableType;

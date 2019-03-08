@@ -39,6 +39,7 @@ void MoveCommand::moveObject(Node * current, DIRECTION direction)
 		current->ClearCurrentGameObject();
 		movableObject.SetDestination(destination);
 		movableObject.Move();
+		movableObject.RotateOwner(direction);
 	}
 }
 
@@ -60,6 +61,7 @@ void MoveCommand::nodeBoxCheck(Node * current, DIRECTION direction)
 			{
 				movableObject.SetDestination(destination);
 				movableObject.Move();
+				movableObject.RotateOwner(direction);
 				EventQueue::QueueEvent((*createMovedEvent()));
 			}
 		}

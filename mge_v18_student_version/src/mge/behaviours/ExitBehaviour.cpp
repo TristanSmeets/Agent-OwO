@@ -59,6 +59,7 @@ void ExitBehaviour::checkNode()
 		float pitch = LuaWrapper::GetNumber<float>(luaAudio, "ExitPitch");
 		AudioLocator::GetAudio()->GetSoundEffect(SFX_EXIT).SetPitch(pitch);
 		AudioLocator::GetAudio()->PlaySoundEffect(SFX_EXIT);
+		LuaWrapper::CloseLuaState(luaAudio);
 		GeneralEvent info = GeneralEvent();
 		info.showEndDialogue = true;
 		EventQueue::QueueEvent(info);

@@ -431,3 +431,4 @@ ASALocalRun/
 # End of https://www.gitignore.io/api/lua,c++,windows,visualstudio
 mge_v18_student_version/_vs2015/debug_static_build/
 mge_v18_student_version/_vs2015/debug_static_exe/
+mge_v18_student_version/assets/mge/Audio/Ambience.wav

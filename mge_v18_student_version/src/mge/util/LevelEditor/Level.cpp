@@ -46,6 +46,19 @@ void Level::CreateLevel(int levelNumber)
 
 	TileObject::CreateNodeConnections(objectCreator->GetTileObjects());
 	objectCreator->ConfigureBehaviourStartNodes();
+
+	if (AudioLocator::GetAudio()->GetMusicType() != MusicType::INGAME)
+	{
+		lua_State* luaAudio = LuaWrapper::InitializeLuaState("LuaGameScripts/Audio.lua");
+		std::string filePath = LuaWrapper::GetString(luaAudio, "InGameBG");
+		float pitch = LuaWrapper::GetNumber<float>(luaAudio, "InGamePitch");
+		float volume = LuaWrapper::GetNumber<float>(luaAudio, "InGameVolume");
+		AudioLocator::GetAudio()->StopMusic();
+		AudioLocator::GetAudio()->SetMusicPitch(pitch);
+		AudioLocator::GetAudio()->SetMusicVolume(volume);
+		AudioLocator::GetAudio()->SetMusicType(MusicType::INGAME);
+		AudioLocator::GetAudio()->PlayMusic(filePath);
+	}
 }
 
 void Level::Resetlevel()

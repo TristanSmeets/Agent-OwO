@@ -5,6 +5,7 @@
 #include "mge/core/World.hpp"
 #include "mge/util/LevelEditor/ObjectCreator.hpp"
 #include "mge/gameplay/StepTracker.hpp"
+#include "mge/Audio/AudioLocator.hpp"
 #include "glm.hpp"
 #include <glm/gtx/quaternion.hpp>
 #include <vector>

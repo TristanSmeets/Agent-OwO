@@ -38,3 +38,8 @@ DialoguePitch = 1
 MainMenuBG = "mge/Audio/BattleBG.wav"
 MainMenuVolume = 50
 MainMenuPitch = 1
+
+--InGame Background music
+InGameBG = "mge/Audio/Ambience.wav"
+InGameVolume = 50
+InGamePitch = 1

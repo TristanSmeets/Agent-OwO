@@ -83,6 +83,9 @@
     <Filter Include="Textures\UI">
       <UniqueIdentifier>{4d54f553-4a68-4eba-b302-d81d2b87f9fe}</UniqueIdentifier>
     </Filter>
+    <Filter Include="MGE Source files\mge\Audio">
+      <UniqueIdentifier>{751bc222-8c9b-4445-b2a6-2ed9830d975e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\src\glm.hpp">
@@ -266,9 +269,6 @@
     <ClInclude Include="..\src\mge\util\EventQueue\EventQueue.hpp">
       <Filter>MGE Source files\mge\util\EventQueue</Filter>
     </ClInclude>
-    <ClInclude Include="..\src\mge\behaviours\EventQueueBehaviour.hpp">
-      <Filter>MGE Source files\mge\behaviours</Filter>
-    </ClInclude>
     <ClInclude Include="..\src\mge\util\EventQueue\EventStructs.hpp">
       <Filter>MGE Source files\mge\util\EventQueue</Filter>
     </ClInclude>
@@ -331,6 +331,24 @@
     </ClInclude>
     <ClInclude Include="..\src\mge\User Interface\CreditsScreen.hpp">
       <Filter>MGE Source files\mge\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\mge\Audio\SoundEffect.hpp">
+      <Filter>MGE Source files\mge\Audio</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\mge\Audio\AudioManager.hpp">
+      <Filter>MGE Source files\mge\Audio</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\mge\behaviours\QueueBehaviour.hpp">
+      <Filter>MGE Source files\mge\behaviours</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\mge\Audio\AudioBank.hpp">
+      <Filter>MGE Source files\mge\Audio</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\mge\Audio\IAudio.hpp">
+      <Filter>MGE Source files\mge\Audio</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\mge\Audio\AudioLocator.hpp">
+      <Filter>MGE Source files\mge\Audio</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -505,9 +523,6 @@
     <ClCompile Include="..\src\mge\util\EventQueue\EventQueue.cpp">
       <Filter>MGE Source files\mge\util\EventQueue</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\mge\behaviours\EventQueueBehaviour.cpp">
-      <Filter>MGE Source files\mge\behaviours</Filter>
-    </ClCompile>
     <ClCompile Include="..\src\mge\gameplay\StepTracker.cpp">
       <Filter>MGE Source files\mge\gameplay</Filter>
     </ClCompile>
@@ -567,6 +582,21 @@
     </ClCompile>
     <ClCompile Include="..\src\mge\User Interface\CreditsScreen.cpp">
       <Filter>MGE Source files\mge\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\mge\Audio\SoundEffect.cpp">
+      <Filter>MGE Source files\mge\Audio</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\mge\Audio\AudioManager.cpp">
+      <Filter>MGE Source files\mge\Audio</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\mge\behaviours\QueueBehaviour.cpp">
+      <Filter>MGE Source files\mge\behaviours</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\mge\Audio\AudioBank.cpp">
+      <Filter>MGE Source files\mge\Audio</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\mge\Audio\AudioLocator.cpp">
+      <Filter>MGE Source files\mge\Audio</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -727,6 +757,9 @@
       <Filter>Textures\UI</Filter>
     </CopyFileToFolders>
     <CopyFileToFolders Include="..\assets\LuaGameScripts\UIObject.lua">
+      <Filter>LuaScripts</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="..\assets\LuaGameScripts\Audio.lua">
       <Filter>LuaScripts</Filter>
     </CopyFileToFolders>
   </ItemGroup>

@@ -40,10 +40,15 @@ GameScene::~GameScene()
 	}
 	LuaWrapper::CloseLuaState(config);
 	eventQueueBehaviour = nullptr;
+	audioManager->StopMusic();
+	delete audioManager;
 }
 
 void GameScene::initialize()
 {
+	audioManager = new AudioManager();
+	AudioLocator::Provide(audioManager);
+
 	AbstractGame::initialize();
 	propCreator = new PropCreator(_world);
 	propCreator->LoadProps();
@@ -148,7 +153,7 @@ void GameScene::OnNotify(const GeneralEvent & info)
 void GameScene::_initializeScene()
 {
 	GameObject* eventQueue = new GameObject("EventQueue");
-	eventQueueBehaviour = new EventQueueBehaviour();
+	eventQueueBehaviour = new QueueBehaviour();
 	eventQueue->setBehaviour(eventQueueBehaviour);
 	_world->add(eventQueue);
 
@@ -162,10 +167,6 @@ void GameScene::_initializeScene()
 
 	std::cout << "Creating MainMenu.\n";
 	mainMenu = new MainMenu(_world, _window);
-	//std::cout << "Creating the Level\n";
-	//level = new Level(_world, camera);
-	/*std::cout << "HUD: " << hud << std::endl;
-	std::cout << "HUD == nullptr: " << (hud == nullptr) << std::endl;*/
 }
 
 void GameScene::_render()

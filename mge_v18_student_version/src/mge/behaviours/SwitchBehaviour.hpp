@@ -4,6 +4,8 @@
 #include "mge/core/Subject.hpp"
 #include "mge/gameplay/Node.hpp"
 #include "mge/util/EventQueue/EventStructs.hpp"
+#include "mge/Audio/AudioLocator.hpp"
+#include "mge/util/LuaScripting/LuaWrapper.hpp"
 
 class SwitchBehaviour : public AbstractBehaviour, public Subject<SwitchEvent>
 {
@@ -17,4 +19,5 @@ private:
 	void checkNode();
 	Node& switchNode;
 	NODETYPE previousType;
+	lua_State* luaAudio;
 };

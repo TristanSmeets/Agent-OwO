@@ -15,22 +15,22 @@ HeartBeatVolume = 100
 HeartBeatPitch = 1
 
 --Switch
-SwitchSFX = ""
+SwitchSFX = "mge/Audio/cougar4.wav"
 SwitchVolume = 100
 SwitchPitch = 1
 
 --Level Failure
-FailureSFX = ""
+FailureSFX = "mge/Audio/hyvena.wav"
 FailureVolume = 100
 FailurePitch = 1
 
 --Exit
-ExitSFX = ""
+ExitSFX = "mge/Audio/wolf5.wav"
 ExitVolume = 100
 ExitPitch = 1
 
 --DIALOGUE
-DialogueSFX = ""
+DialogueSFX = "mge/Audio/pup1.wav"
 DialogueVolume = 100
 DialoguePitch = 1
 

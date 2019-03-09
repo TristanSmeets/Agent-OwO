@@ -2,6 +2,7 @@
 
 #include "mge/util/EventQueue/EventQueue.hpp"
 #include "mge/util/LuaScripting/LuaWrapper.hpp"
+#include "mge/Audio/AudioLocator.hpp"
 
 class StepTracker : Observer<GeneralEvent>
 {

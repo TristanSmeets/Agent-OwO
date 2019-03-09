@@ -48,10 +48,10 @@ void GameScene::initialize()
 {
 	audioManager = new AudioManager();
 	AudioLocator::Provide(audioManager);
-
 	AbstractGame::initialize();
 	propCreator = new PropCreator(_world);
 	propCreator->LoadProps();
+	level = new Level(_world, camera);
 }
 
 void GameScene::OnNotify(const GeneralEvent & info)
@@ -61,7 +61,6 @@ void GameScene::OnNotify(const GeneralEvent & info)
 		delete mainMenu;
 		mainMenu = nullptr;
 		hud = new HUD(levelNumber);
-		level = new Level(_world, camera);
 		propCreator->CreateBGProp(levelNumber);
 		level->CreateLevel(levelNumber);
 	}

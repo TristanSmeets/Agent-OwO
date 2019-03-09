@@ -5,6 +5,7 @@
 #include "mge/util/LuaScripting/LuaWrapper.hpp"
 #include "SFML/Graphics.hpp"
 #include <vector>
+#include "mge/Audio/AudioLocator.hpp"
 
 enum DIALOGUE{ START_DIALOGUE, END_DIALOGUE };
 

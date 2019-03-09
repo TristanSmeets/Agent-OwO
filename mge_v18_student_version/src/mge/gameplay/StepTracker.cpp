@@ -32,6 +32,12 @@ void StepTracker::OnNotify(const GeneralEvent & info)
 		{
 			if (sendEvent == false)
 			{
+				lua_State* luaAudio = LuaWrapper::InitializeLuaState("LuaGameScripts/Audio.lua");
+				float pitch = LuaWrapper::GetNumber<float>(luaAudio, "FailurePitch");
+				AudioLocator::GetAudio()->GetSoundEffect(SFX_FAILURE).SetPitch(pitch);
+				AudioLocator::GetAudio()->PlaySoundEffect(SFX_FAILURE);
+				LuaWrapper::CloseLuaState(luaAudio);
+
 				GeneralEvent info = GeneralEvent();
 				info.showGameOver = true;
 				EventQueue::QueueEvent(info);

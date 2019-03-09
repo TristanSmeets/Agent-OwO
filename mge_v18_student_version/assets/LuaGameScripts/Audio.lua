@@ -20,7 +20,7 @@ SwitchVolume = 100
 SwitchPitch = 1
 
 --Level Failure
-FailureSFX = "mge/Audio/hyvena.wav"
+FailureSFX = "mge/Audio/hyena.wav"
 FailureVolume = 100
 FailurePitch = 1
 

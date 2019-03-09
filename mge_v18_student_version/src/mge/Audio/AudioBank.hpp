@@ -17,8 +17,8 @@ private:
 	SoundEffect buttonSFX;
 	SoundEffect pushSFX;
 	SoundEffect heartbeatSFX;
-	SoundEffect& switchSFX;
-	SoundEffect& failureSFX;
-	SoundEffect& exitSFX;
-	SoundEffect& dialogueSFX;
+	SoundEffect switchSFX;
+	SoundEffect failureSFX;
+	SoundEffect exitSFX;
+	SoundEffect dialogueSFX;
 };

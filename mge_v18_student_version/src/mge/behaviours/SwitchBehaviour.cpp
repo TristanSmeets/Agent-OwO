@@ -3,13 +3,13 @@
 SwitchBehaviour::SwitchBehaviour(Node& node) : AbstractBehaviour(), Subject(), switchNode(node)
 {
 	previousType = node.GetNodeType();
+	luaAudio = LuaWrapper::InitializeLuaState("LuaGameScripts/Audio.lua");
 }
 
 SwitchBehaviour::~SwitchBehaviour()
 {
 	std::cout << "GC running on:SwitchBehaviour\n";
-	//AbstractBehaviour::~AbstractBehaviour();
-	//Subject::~Subject();
+	LuaWrapper::CloseLuaState(luaAudio);
 }
 
 void SwitchBehaviour::SetSwitchNode(Node& node)
@@ -41,6 +41,8 @@ void SwitchBehaviour::checkNode()
 			info.activateSwitch = 0;
 			break;
 		}
+		AudioLocator::GetAudio()->GetSoundEffect(SFX_SWITCH).SetPitch(LuaWrapper::GetNumber<float>(luaAudio, "SwitchPitch"));
+		AudioLocator::GetAudio()->PlaySoundEffect(SFX_SWITCH);
 		notify(info);
 		previousType = switchNode.GetNodeType();
 	}

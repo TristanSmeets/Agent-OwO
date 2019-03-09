@@ -169,6 +169,7 @@
   <ItemGroup>
     <ClInclude Include="..\src\glm.hpp" />
     <ClInclude Include="..\src\main.h" />
+    <ClInclude Include="..\src\mge\Audio\AudioBank.hpp" />
     <ClInclude Include="..\src\mge\Audio\AudioManager.hpp" />
     <ClInclude Include="..\src\mge\Audio\SoundEffect.hpp" />
     <ClInclude Include="..\src\mge\behaviours\AbstractBehaviour.hpp" />
@@ -255,6 +256,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\main.cpp" />
+    <ClCompile Include="..\src\mge\Audio\AudioBank.cpp" />
     <ClCompile Include="..\src\mge\Audio\AudioManager.cpp" />
     <ClCompile Include="..\src\mge\Audio\SoundEffect.cpp" />
     <ClCompile Include="..\src\mge\behaviours\AbstractBehaviour.cpp" />
@@ -461,6 +463,10 @@
     <CopyFileToFolders Include="..\assets\LuaGameScripts\UIObject.lua">
       <FileType>Document</FileType>
       <DestinationFolders Condition="'$(Configuration)|$(Platform)'=='Debug Static|Win32'">$(OutDir)\LuaGameScripts</DestinationFolders>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="..\assets\LuaGameScripts\Audio.lua">
+      <FileType>Document</FileType>
+      <DestinationFolders Condition="'$(Configuration)|$(Platform)'=='Debug Static|Win32'">$(OutDir)/LuaGameScripts</DestinationFolders>
     </CopyFileToFolders>
     <None Include="ClassDiagram.cd" />
   </ItemGroup>

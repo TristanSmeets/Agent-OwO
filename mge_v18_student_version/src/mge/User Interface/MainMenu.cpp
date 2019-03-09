@@ -44,6 +44,20 @@ void MainMenu::Draw(sf::RenderWindow* window)
 
 void MainMenu::initialize(sf::RenderWindow* window)
 {
+
+	lua_State* luaAudio = LuaWrapper::InitializeLuaState("LuaGameScripts/Audio.lua");
+	bgMusic.openFromFile(LuaWrapper::GetString(luaAudio, "MainMenuBG"));
+	bgMusic.setVolume(LuaWrapper::GetNumber<float>(luaAudio, "MainMenuVolume"));
+	bgMusic.setPitch(LuaWrapper::GetNumber<float>(luaAudio, "MainMenuPitch"));
+
+	bgMusic.setLoop(true);
+	bgMusic.play();
+
+	/*AudioManager::PlayMusic(LuaWrapper::GetString(luaAudio, "BGMainMenu"));
+	AudioManager::SetMusicVolume(LuaWrapper::GetNumber<float>(luaAudio, "BGVolume"));
+	AudioManager::SetMusicPitch(LuaWrapper::GetNumber<float>(luaAudio, "BGPitch"));
+*/
+
 	//Mouse setup
 	mouse = new GameObject("Mouse");
 	mouseBehaviour = new MouseBehaviour(window);
@@ -90,7 +104,7 @@ void MainMenu::initialize(sf::RenderWindow* window)
 				ButtonManager::AddButton(exitButton);
 			}
 		}
-			lua_pop(luaMainMenu, 1);
+		lua_pop(luaMainMenu, 1);
 	}
 	lua_pop(luaMainMenu, 1);
 }

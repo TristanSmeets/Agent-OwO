@@ -8,6 +8,7 @@
 #include "mge/behaviours/MouseBehaviour.hpp"
 #include "mge/core/World.hpp"
 #include "mge/util/LuaScripting/LuaWrapper.hpp"
+#include "mge/Audio/AudioManager.hpp"
 
 class MainMenu
 {
@@ -25,6 +26,7 @@ private:
 	MouseBehaviour* mouseBehaviour;
 	sf::Texture* backgroundTexture;
 	sf::Sprite BackgroundImage;
+	sf::Music bgMusic;
 
 	void initialize(sf::RenderWindow* window);
 };

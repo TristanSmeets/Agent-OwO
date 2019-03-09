@@ -5,6 +5,8 @@ GameScene::GameScene() : AbstractGame(), config(LuaWrapper::InitializeLuaState("
 {
 	lua_State * luaLevelInfo = LuaWrapper::InitializeLuaState("LuaGameScripts/Level/Level_Info.lua");
 	amountOfLevels = LuaWrapper::GetNumber<int>(luaLevelInfo, "Levels");
+
+	
 }
 
 GameScene::~GameScene()
@@ -162,10 +164,6 @@ void GameScene::_initializeScene()
 
 	std::cout << "Creating MainMenu.\n";
 	mainMenu = new MainMenu(_world, _window);
-	//std::cout << "Creating the Level\n";
-	//level = new Level(_world, camera);
-	/*std::cout << "HUD: " << hud << std::endl;
-	std::cout << "HUD == nullptr: " << (hud == nullptr) << std::endl;*/
 }
 
 void GameScene::_render()

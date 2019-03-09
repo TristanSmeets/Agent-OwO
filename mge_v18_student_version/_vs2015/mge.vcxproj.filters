@@ -341,6 +341,9 @@
     <ClInclude Include="..\src\mge\behaviours\QueueBehaviour.hpp">
       <Filter>MGE Source files\mge\behaviours</Filter>
     </ClInclude>
+    <ClInclude Include="..\src\mge\Audio\AudioBank.hpp">
+      <Filter>MGE Source files\mge\Audio</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\main.cpp">
@@ -583,6 +586,9 @@
     <ClCompile Include="..\src\mge\behaviours\QueueBehaviour.cpp">
       <Filter>MGE Source files\mge\behaviours</Filter>
     </ClCompile>
+    <ClCompile Include="..\src\mge\Audio\AudioBank.cpp">
+      <Filter>MGE Source files\mge\Audio</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram.cd" />
@@ -742,6 +748,9 @@
       <Filter>Textures\UI</Filter>
     </CopyFileToFolders>
     <CopyFileToFolders Include="..\assets\LuaGameScripts\UIObject.lua">
+      <Filter>LuaScripts</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="..\assets\LuaGameScripts\Audio.lua">
       <Filter>LuaScripts</Filter>
     </CopyFileToFolders>
   </ItemGroup>

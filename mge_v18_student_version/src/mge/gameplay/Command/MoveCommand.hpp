@@ -4,6 +4,8 @@
 #include "mge/core/GameObject.hpp"
 #include "mge/gameplay/Input/BoxInput.hpp"
 #include "mge/util/EventQueue/EventQueue.hpp"
+#include "mge/Audio/AudioLocator.hpp"
+#include "mge/util/LuaScripting/LuaWrapper.hpp"
 
 class MoveCommand : public Command
 {
@@ -20,4 +22,5 @@ protected:
 	bool checkIsWalkable(Node* node);
 	GeneralEvent* createMovedEvent();
 	MovableBehaviour& movableObject;
+	lua_State* luaAudio;
 };

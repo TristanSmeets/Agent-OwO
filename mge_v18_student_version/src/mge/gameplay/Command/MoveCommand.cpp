@@ -2,6 +2,8 @@
 
 MoveCommand::MoveCommand(MovableBehaviour & movable) : Command(), movableObject(movable)
 {
+	srand(time(NULL));
+	luaAudio = LuaWrapper::InitializeLuaState("LuaGameScripts/Audio.lua");
 }
 
 MoveCommand::~MoveCommand()
@@ -31,6 +33,9 @@ void MoveCommand::moveObject(Node * current, DIRECTION direction)
 			break;
 		case MOVABLE_TYPE::BOX_OBJECT:
 			destination->SetNodeType(NODETYPE::BOX);
+			float pitch = LuaWrapper::GetNumber<float>(luaAudio, "PushPitch");
+			AudioLocator::GetAudio()->GetSoundEffect(SFX_PUSHBOX).SetPitch(pitch);
+			AudioLocator::GetAudio()->PlaySoundEffect(SFX_PUSHBOX);
 			break;
 		}
 

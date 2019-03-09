@@ -38,6 +38,8 @@ void Dialogue::OnNotify(const GeneralEvent & info)
 		dialogueType = DIALOGUE::END_DIALOGUE;
 		setCurrentImage(currentImage);
 		showingDialogue = true;
+
+
 	}
 }
 
@@ -120,6 +122,14 @@ void Dialogue::setCurrentImage(int imageIndex)
 	switch (dialogueType)
 	{
 	case DIALOGUE::START_DIALOGUE:
+		if (imageIndex != startDialogue.size() && imageIndex == 0)
+		{
+			lua_State* luaAudio = LuaWrapper::InitializeLuaState("LuaGameScripts/Audio.lua");
+			float pitch = LuaWrapper::GetNumber<float>(luaAudio, "DialoguePitch");
+			AudioLocator::GetAudio()->GetSoundEffect(SFX_DIALOGUE).SetPitch(pitch);
+			AudioLocator::GetAudio()->PlaySoundEffect(SFX_DIALOGUE);
+			LuaWrapper::CloseLuaState(luaAudio);
+		}
 		if (imageIndex + 1 > startDialogue.size())
 		{
 			GeneralEvent info = GeneralEvent();
@@ -131,6 +141,15 @@ void Dialogue::setCurrentImage(int imageIndex)
 			currentTexture->loadFromImage(startDialogue[imageIndex]);
 		break;
 	case DIALOGUE::END_DIALOGUE:
+		if (imageIndex != endDialogue.size() && imageIndex == 0)
+		{
+			lua_State* luaAudio = LuaWrapper::InitializeLuaState("LuaGameScripts/Audio.lua");
+			float pitch = LuaWrapper::GetNumber<float>(luaAudio, "DialoguePitch");
+			AudioLocator::GetAudio()->GetSoundEffect(SFX_DIALOGUE).SetPitch(pitch);
+			AudioLocator::GetAudio()->PlaySoundEffect(SFX_DIALOGUE);
+			LuaWrapper::CloseLuaState(luaAudio);
+		}
+
 		if (imageIndex + 1 > endDialogue.size())
 		{
 			GeneralEvent info = GeneralEvent();

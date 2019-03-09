@@ -11,9 +11,6 @@
     <Filter Include="MGE Source files\mge\behaviours">
       <UniqueIdentifier>{62606aaf-8ae3-4195-9a83-22a2c9d20af1}</UniqueIdentifier>
     </Filter>
-    <Filter Include="MGE Source files\mge\core">
-      <UniqueIdentifier>{4394d90a-ffa0-485d-98ea-1e91842edda6}</UniqueIdentifier>
-    </Filter>
     <Filter Include="MGE Source files\mge\materials">
       <UniqueIdentifier>{88a48024-4c44-40c0-a658-f27957d6b003}</UniqueIdentifier>
     </Filter>
@@ -86,6 +83,9 @@
     <Filter Include="MGE Source files\mge\Audio">
       <UniqueIdentifier>{751bc222-8c9b-4445-b2a6-2ed9830d975e}</UniqueIdentifier>
     </Filter>
+    <Filter Include="MGE Source files\mge\behaviours\core">
+      <UniqueIdentifier>{4394d90a-ffa0-485d-98ea-1e91842edda6}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\src\glm.hpp">
@@ -95,13 +95,13 @@
       <Filter>MGE Source files\mge\behaviours</Filter>
     </ClInclude>
     <ClInclude Include="..\src\mge\core\AbstractGame.hpp">
-      <Filter>MGE Source files\mge\core</Filter>
+      <Filter>MGE Source files\mge\behaviours\core</Filter>
     </ClInclude>
     <ClInclude Include="..\src\mge\materials\AbstractMaterial.hpp">
       <Filter>MGE Source files\mge\materials</Filter>
     </ClInclude>
     <ClInclude Include="..\src\mge\core\Camera.hpp">
-      <Filter>MGE Source files\mge\core</Filter>
+      <Filter>MGE Source files\mge\behaviours\core</Filter>
     </ClInclude>
     <ClInclude Include="..\src\mge\materials\ColorMaterial.hpp">
       <Filter>MGE Source files\mge\materials</Filter>
@@ -110,25 +110,25 @@
       <Filter>MGE Source files\mge\util</Filter>
     </ClInclude>
     <ClInclude Include="..\src\mge\core\GameObject.hpp">
-      <Filter>MGE Source files\mge\core</Filter>
+      <Filter>MGE Source files\mge\behaviours\core</Filter>
     </ClInclude>
     <ClInclude Include="..\src\mge\behaviours\KeysBehaviour.hpp">
       <Filter>MGE Source files\mge\behaviours</Filter>
     </ClInclude>
     <ClInclude Include="..\src\mge\core\Mesh.hpp">
-      <Filter>MGE Source files\mge\core</Filter>
+      <Filter>MGE Source files\mge\behaviours\core</Filter>
     </ClInclude>
     <ClInclude Include="..\src\mge\core\Renderer.hpp">
-      <Filter>MGE Source files\mge\core</Filter>
+      <Filter>MGE Source files\mge\behaviours\core</Filter>
     </ClInclude>
     <ClInclude Include="..\src\mge\core\ShaderProgram.hpp">
-      <Filter>MGE Source files\mge\core</Filter>
+      <Filter>MGE Source files\mge\behaviours\core</Filter>
     </ClInclude>
     <ClInclude Include="..\src\mge\core\Texture.hpp">
-      <Filter>MGE Source files\mge\core</Filter>
+      <Filter>MGE Source files\mge\behaviours\core</Filter>
     </ClInclude>
     <ClInclude Include="..\src\mge\core\World.hpp">
-      <Filter>MGE Source files\mge\core</Filter>
+      <Filter>MGE Source files\mge\behaviours\core</Filter>
     </ClInclude>
     <ClInclude Include="..\src\mge\behaviours\RotatingBehaviour.hpp">
       <Filter>MGE Source files\mge\behaviours</Filter>
@@ -140,7 +140,7 @@
       <Filter>MGE Source files\mge</Filter>
     </ClInclude>
     <ClInclude Include="..\src\mge\core\Light.hpp">
-      <Filter>MGE Source files\mge\core</Filter>
+      <Filter>MGE Source files\mge\behaviours\core</Filter>
     </ClInclude>
     <ClInclude Include="..\src\main.h" />
     <ClInclude Include="..\src\mge\behaviours\CameraOrbitBehaviour.hpp">
@@ -255,10 +255,10 @@
       <Filter>MGE Source files\mge\gameplay\Command</Filter>
     </ClInclude>
     <ClInclude Include="..\src\mge\core\Observer.hpp">
-      <Filter>MGE Source files\mge\core</Filter>
+      <Filter>MGE Source files\mge\behaviours\core</Filter>
     </ClInclude>
     <ClInclude Include="..\src\mge\core\Subject.hpp">
-      <Filter>MGE Source files\mge\core</Filter>
+      <Filter>MGE Source files\mge\behaviours\core</Filter>
     </ClInclude>
     <ClInclude Include="..\src\mge\behaviours\SwitchBehaviour.hpp">
       <Filter>MGE Source files\mge\behaviours</Filter>
@@ -362,13 +362,13 @@
       <Filter>MGE Source files\mge\behaviours</Filter>
     </ClCompile>
     <ClCompile Include="..\src\mge\core\AbstractGame.cpp">
-      <Filter>MGE Source files\mge\core</Filter>
+      <Filter>MGE Source files\mge\behaviours\core</Filter>
     </ClCompile>
     <ClCompile Include="..\src\mge\materials\AbstractMaterial.cpp">
       <Filter>MGE Source files\mge\materials</Filter>
     </ClCompile>
     <ClCompile Include="..\src\mge\core\Camera.cpp">
-      <Filter>MGE Source files\mge\core</Filter>
+      <Filter>MGE Source files\mge\behaviours\core</Filter>
     </ClCompile>
     <ClCompile Include="..\src\mge\materials\ColorMaterial.cpp">
       <Filter>MGE Source files\mge\materials</Filter>
@@ -377,25 +377,25 @@
       <Filter>MGE Source files\mge\util</Filter>
     </ClCompile>
     <ClCompile Include="..\src\mge\core\GameObject.cpp">
-      <Filter>MGE Source files\mge\core</Filter>
+      <Filter>MGE Source files\mge\behaviours\core</Filter>
     </ClCompile>
     <ClCompile Include="..\src\mge\behaviours\KeysBehaviour.cpp">
       <Filter>MGE Source files\mge\behaviours</Filter>
     </ClCompile>
     <ClCompile Include="..\src\mge\core\Mesh.cpp">
-      <Filter>MGE Source files\mge\core</Filter>
+      <Filter>MGE Source files\mge\behaviours\core</Filter>
     </ClCompile>
     <ClCompile Include="..\src\mge\core\Renderer.cpp">
-      <Filter>MGE Source files\mge\core</Filter>
+      <Filter>MGE Source files\mge\behaviours\core</Filter>
     </ClCompile>
     <ClCompile Include="..\src\mge\core\ShaderProgram.cpp">
-      <Filter>MGE Source files\mge\core</Filter>
+      <Filter>MGE Source files\mge\behaviours\core</Filter>
     </ClCompile>
     <ClCompile Include="..\src\mge\core\Texture.cpp">
-      <Filter>MGE Source files\mge\core</Filter>
+      <Filter>MGE Source files\mge\behaviours\core</Filter>
     </ClCompile>
     <ClCompile Include="..\src\mge\core\World.cpp">
-      <Filter>MGE Source files\mge\core</Filter>
+      <Filter>MGE Source files\mge\behaviours\core</Filter>
     </ClCompile>
     <ClCompile Include="..\src\mge\behaviours\RotatingBehaviour.cpp">
       <Filter>MGE Source files\mge\behaviours</Filter>
@@ -404,7 +404,7 @@
       <Filter>MGE Source files\mge\materials</Filter>
     </ClCompile>
     <ClCompile Include="..\src\mge\core\Light.cpp">
-      <Filter>MGE Source files\mge\core</Filter>
+      <Filter>MGE Source files\mge\behaviours\core</Filter>
     </ClCompile>
     <ClCompile Include="..\src\mge\behaviours\CameraOrbitBehaviour.cpp">
       <Filter>MGE Source files\mge\behaviours</Filter>

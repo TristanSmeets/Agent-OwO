@@ -4,6 +4,8 @@
 #include "mge/core/GameObject.hpp"
 #include "mge/gameplay/Input/BoxInput.hpp"
 #include "mge/util/EventQueue/EventQueue.hpp"
+#include "mge/Audio/AudioLocator.hpp"
+#include <cstdlib>
 
 class MoveCommand : public Command
 {

@@ -2,6 +2,7 @@
 
 MoveCommand::MoveCommand(MovableBehaviour & movable) : Command(), movableObject(movable)
 {
+	srand(time(NULL));
 }
 
 MoveCommand::~MoveCommand()
@@ -31,6 +32,10 @@ void MoveCommand::moveObject(Node * current, DIRECTION direction)
 			break;
 		case MOVABLE_TYPE::BOX_OBJECT:
 			destination->SetNodeType(NODETYPE::BOX);
+
+			float pitch = .9f + (rand() % 3 / 10.0f);
+			AudioLocator::GetAudio()->GetSoundEffect(SFX_PUSHBOX).SetPitch(pitch);
+			AudioLocator::GetAudio()->PlaySoundEffect(SFX_PUSHBOX);
 			break;
 		}
 

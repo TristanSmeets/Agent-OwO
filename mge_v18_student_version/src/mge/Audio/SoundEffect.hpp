@@ -1,8 +1,7 @@
 #pragma once
 #include "SFML/Audio.hpp"
 #include <iostream>
-
-enum SFX {SFX_PUSHBOX, SFX_SWITCH, SFX_FAILURE, SFX_EXIT, SFX_HEARTBEAT, SFX_DIALOGUE, SFX_BUTTON};
+#include "mge/Audio/AudioEnums.hpp"
 
 class SoundEffect
 {

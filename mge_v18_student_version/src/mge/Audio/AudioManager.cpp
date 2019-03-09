@@ -23,6 +23,16 @@ void AudioManager::StopMusic()
 	bgMusic->stop();
 }
 
+void AudioManager::SetMusicType(MusicType musicType)
+{
+	this->musicType = musicType;
+}
+
+MusicType AudioManager::GetMusicType()
+{
+	return musicType;
+}
+
 void AudioManager::SetMusicVolume(float volume)
 {
 	bgMusic->setVolume(volume);

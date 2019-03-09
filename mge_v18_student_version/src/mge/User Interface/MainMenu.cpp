@@ -46,10 +46,13 @@ void MainMenu::initialize(sf::RenderWindow* window)
 {
 
 	lua_State* luaAudio = LuaWrapper::InitializeLuaState("LuaGameScripts/Audio.lua");
-	AudioLocator::GetAudio()->PlayMusic(LuaWrapper::GetString(luaAudio, "MainMenuBG"));
-	AudioLocator::GetAudio()->SetMusicVolume(LuaWrapper::GetNumber<float>(luaAudio, "MainMenuVolume"));
-	AudioLocator::GetAudio()->SetMusicPitch(LuaWrapper::GetNumber<float>(luaAudio, "MainMenuPitch"));
-
+	if (AudioLocator::GetAudio()->GetMusicType() != MusicType::MAINMENU)
+	{
+		AudioLocator::GetAudio()->PlayMusic(LuaWrapper::GetString(luaAudio, "MainMenuBG"));
+		AudioLocator::GetAudio()->SetMusicVolume(LuaWrapper::GetNumber<float>(luaAudio, "MainMenuVolume"));
+		AudioLocator::GetAudio()->SetMusicPitch(LuaWrapper::GetNumber<float>(luaAudio, "MainMenuPitch"));
+		AudioLocator::GetAudio()->SetMusicType(MusicType::MAINMENU);
+	}
 	LuaWrapper::CloseLuaState(luaAudio);
 
 	//Mouse setup

@@ -170,6 +170,7 @@
     <ClInclude Include="..\src\glm.hpp" />
     <ClInclude Include="..\src\main.h" />
     <ClInclude Include="..\src\mge\Audio\AudioBank.hpp" />
+    <ClInclude Include="..\src\mge\Audio\AudioEnums.hpp" />
     <ClInclude Include="..\src\mge\Audio\AudioLocator.hpp" />
     <ClInclude Include="..\src\mge\Audio\AudioManager.hpp" />
     <ClInclude Include="..\src\mge\Audio\IAudio.hpp" />

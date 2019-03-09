@@ -350,6 +350,9 @@
     <ClInclude Include="..\src\mge\Audio\AudioLocator.hpp">
       <Filter>MGE Source files\mge\Audio</Filter>
     </ClInclude>
+    <ClInclude Include="..\src\mge\Audio\AudioEnums.hpp">
+      <Filter>MGE Source files\mge\Audio</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\main.cpp">

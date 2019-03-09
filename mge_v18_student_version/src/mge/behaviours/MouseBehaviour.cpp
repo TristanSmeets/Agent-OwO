@@ -16,6 +16,7 @@ void MouseBehaviour::update(float pStep)
 
 	if (command && buttonPressed == false)
 	{
+		AudioLocator::GetAudio()->PlaySoundEffect(SFX_BUTTON);
 		command->Execute();
 	}
 	buttonPressed = command != nullptr;

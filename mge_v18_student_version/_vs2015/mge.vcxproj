@@ -170,7 +170,9 @@
     <ClInclude Include="..\src\glm.hpp" />
     <ClInclude Include="..\src\main.h" />
     <ClInclude Include="..\src\mge\Audio\AudioBank.hpp" />
+    <ClInclude Include="..\src\mge\Audio\AudioLocator.hpp" />
     <ClInclude Include="..\src\mge\Audio\AudioManager.hpp" />
+    <ClInclude Include="..\src\mge\Audio\IAudio.hpp" />
     <ClInclude Include="..\src\mge\Audio\SoundEffect.hpp" />
     <ClInclude Include="..\src\mge\behaviours\AbstractBehaviour.hpp" />
     <ClInclude Include="..\src\mge\behaviours\CameraOrbitBehaviour.hpp" />
@@ -257,6 +259,7 @@
   <ItemGroup>
     <ClCompile Include="..\src\main.cpp" />
     <ClCompile Include="..\src\mge\Audio\AudioBank.cpp" />
+    <ClCompile Include="..\src\mge\Audio\AudioLocator.cpp" />
     <ClCompile Include="..\src\mge\Audio\AudioManager.cpp" />
     <ClCompile Include="..\src\mge\Audio\SoundEffect.cpp" />
     <ClCompile Include="..\src\mge\behaviours\AbstractBehaviour.cpp" />

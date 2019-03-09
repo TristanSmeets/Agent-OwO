@@ -8,7 +8,7 @@
 #include "mge/behaviours/MouseBehaviour.hpp"
 #include "mge/core/World.hpp"
 #include "mge/util/LuaScripting/LuaWrapper.hpp"
-#include "mge/Audio/AudioManager.hpp"
+#include "mge/Audio/AudioLocator.hpp"
 
 class MainMenu
 {

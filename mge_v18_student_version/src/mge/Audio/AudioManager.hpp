@@ -1,16 +1,23 @@
 #pragma once
-#include "mge/Audio/SoundEffect.hpp"
+#include "mge/Audio/IAudio.hpp"
+#include "mge/Audio/AudioBank.hpp"
 #include <assert.h>
 #include <algorithm>
 #include <map>
 
-class AudioManager
+class AudioManager : public IAudio
 {
 public:
-	static void PlaySoundEffect(SFX sfx);
-	static void SetSoundEffect(SFX sfx, SoundEffect& soundEffect);
-	static SoundEffect& GetSoundEffect(SFX sfx);
+	AudioManager();
+	~AudioManager();
+	void PlayMusic(const std::string& filePath);
+	void StopMusic();
+	void SetMusicVolume(float volume);
+	void SetMusicPitch(float pitch);
+	void PlaySoundEffect(SFX sfx);
+	SoundEffect& GetSoundEffect(SFX sfx);
 
 private:
-	static std::map<SFX, SoundEffect&> soundEffects;
+	AudioBank audioBank;
+	sf::Music* bgMusic;
 };

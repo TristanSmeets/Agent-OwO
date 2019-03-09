@@ -46,17 +46,11 @@ void MainMenu::initialize(sf::RenderWindow* window)
 {
 
 	lua_State* luaAudio = LuaWrapper::InitializeLuaState("LuaGameScripts/Audio.lua");
-	bgMusic.openFromFile(LuaWrapper::GetString(luaAudio, "MainMenuBG"));
-	bgMusic.setVolume(LuaWrapper::GetNumber<float>(luaAudio, "MainMenuVolume"));
-	bgMusic.setPitch(LuaWrapper::GetNumber<float>(luaAudio, "MainMenuPitch"));
+	AudioLocator::GetAudio()->PlayMusic(LuaWrapper::GetString(luaAudio, "MainMenuBG"));
+	AudioLocator::GetAudio()->SetMusicVolume(LuaWrapper::GetNumber<float>(luaAudio, "MainMenuVolume"));
+	AudioLocator::GetAudio()->SetMusicPitch(LuaWrapper::GetNumber<float>(luaAudio, "MainMenuPitch"));
 
-	bgMusic.setLoop(true);
-	bgMusic.play();
-
-	/*AudioManager::PlayMusic(LuaWrapper::GetString(luaAudio, "BGMainMenu"));
-	AudioManager::SetMusicVolume(LuaWrapper::GetNumber<float>(luaAudio, "BGVolume"));
-	AudioManager::SetMusicPitch(LuaWrapper::GetNumber<float>(luaAudio, "BGPitch"));
-*/
+	LuaWrapper::CloseLuaState(luaAudio);
 
 	//Mouse setup
 	mouse = new GameObject("Mouse");

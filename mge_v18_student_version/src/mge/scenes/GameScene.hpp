@@ -13,6 +13,9 @@
 #include "mge/User Interface/DeathScreen.hpp"
 #include "mge/User Interface/PauseScreen.hpp"
 #include "mge/User Interface/CreditsScreen.hpp"
+#include "mge/Audio/AudioBank.hpp"
+#include "mge/Audio/AudioManager.hpp"
+#include "mge/Audio/AudioLocator.hpp"
 
 class GameScene : public AbstractGame, public Observer<GeneralEvent>
 {
@@ -27,6 +30,7 @@ protected:
 	void _render();
 
 private:
+	AudioManager* audioManager;
 	Level* level = nullptr;
 	HUD* hud = nullptr;
 	MainMenu* mainMenu = nullptr;

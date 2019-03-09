@@ -344,6 +344,12 @@
     <ClInclude Include="..\src\mge\Audio\AudioBank.hpp">
       <Filter>MGE Source files\mge\Audio</Filter>
     </ClInclude>
+    <ClInclude Include="..\src\mge\Audio\IAudio.hpp">
+      <Filter>MGE Source files\mge\Audio</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\mge\Audio\AudioLocator.hpp">
+      <Filter>MGE Source files\mge\Audio</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\main.cpp">
@@ -587,6 +593,9 @@
       <Filter>MGE Source files\mge\behaviours</Filter>
     </ClCompile>
     <ClCompile Include="..\src\mge\Audio\AudioBank.cpp">
+      <Filter>MGE Source files\mge\Audio</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\mge\Audio\AudioLocator.cpp">
       <Filter>MGE Source files\mge\Audio</Filter>
     </ClCompile>
   </ItemGroup>

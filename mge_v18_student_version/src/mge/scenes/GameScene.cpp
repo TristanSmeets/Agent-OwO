@@ -5,8 +5,6 @@ GameScene::GameScene() : AbstractGame(), config(LuaWrapper::InitializeLuaState("
 {
 	lua_State * luaLevelInfo = LuaWrapper::InitializeLuaState("LuaGameScripts/Level/Level_Info.lua");
 	amountOfLevels = LuaWrapper::GetNumber<int>(luaLevelInfo, "Levels");
-
-	
 }
 
 GameScene::~GameScene()
@@ -42,10 +40,15 @@ GameScene::~GameScene()
 	}
 	LuaWrapper::CloseLuaState(config);
 	eventQueueBehaviour = nullptr;
+	audioManager->StopMusic();
+	delete audioManager;
 }
 
 void GameScene::initialize()
 {
+	audioManager = new AudioManager();
+	AudioLocator::Provide(audioManager);
+
 	AbstractGame::initialize();
 	propCreator = new PropCreator(_world);
 	propCreator->LoadProps();

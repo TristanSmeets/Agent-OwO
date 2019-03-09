@@ -36,5 +36,5 @@ DialoguePitch = 1
 
 --Background music
 MainMenuBG = "mge/Audio/BattleBG.wav"
-MainMenuVolume = 100
+MainMenuVolume = 50
 MainMenuPitch = 1

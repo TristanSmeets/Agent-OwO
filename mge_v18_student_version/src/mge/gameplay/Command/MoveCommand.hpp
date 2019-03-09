@@ -22,5 +22,4 @@ protected:
 	bool checkIsWalkable(Node* node);
 	GeneralEvent* createMovedEvent();
 	MovableBehaviour& movableObject;
-	lua_State* luaAudio;
 };

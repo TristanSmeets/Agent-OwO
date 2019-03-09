@@ -55,6 +55,10 @@ void ExitBehaviour::checkNode()
 	if (previousType != exitNode->GetNodeType() &&
 		exitNode->GetNodeType() == NODETYPE::GENERIC)
 	{
+		lua_State* luaAudio = LuaWrapper::InitializeLuaState("LuaGameScripts/Audio.lua");
+		float pitch = LuaWrapper::GetNumber<float>(luaAudio, "ExitPitch");
+		AudioLocator::GetAudio()->GetSoundEffect(SFX_EXIT).SetPitch(pitch);
+		AudioLocator::GetAudio()->PlaySoundEffect(SFX_EXIT);
 		GeneralEvent info = GeneralEvent();
 		info.showEndDialogue = true;
 		EventQueue::QueueEvent(info);

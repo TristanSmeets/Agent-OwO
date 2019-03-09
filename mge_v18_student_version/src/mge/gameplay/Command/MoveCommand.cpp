@@ -2,13 +2,12 @@
 
 MoveCommand::MoveCommand(MovableBehaviour & movable) : Command(), movableObject(movable)
 {
-	srand(time(NULL));
-	luaAudio = LuaWrapper::InitializeLuaState("LuaGameScripts/Audio.lua");
 }
 
 MoveCommand::~MoveCommand()
 {
 	std::cout << "GC running on:MoveCommand\n";
+	//LuaWrapper::CloseLuaState(luaAudio);
 }
 
 void MoveCommand::Execute()
@@ -32,9 +31,11 @@ void MoveCommand::moveObject(Node * current, DIRECTION direction)
 			break;
 		case MOVABLE_TYPE::BOX_OBJECT:
 			destination->SetNodeType(NODETYPE::BOX);
+			lua_State* luaAudio = LuaWrapper::InitializeLuaState("LuaGameScripts/Audio.lua");
 			float pitch = LuaWrapper::GetNumber<float>(luaAudio, "PushPitch");
 			AudioLocator::GetAudio()->GetSoundEffect(SFX_PUSHBOX).SetPitch(pitch);
 			AudioLocator::GetAudio()->PlaySoundEffect(SFX_PUSHBOX);
+			LuaWrapper::CloseLuaState(luaAudio);
 			break;
 		}
 

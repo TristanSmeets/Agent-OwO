@@ -2,15 +2,7 @@
 
 MainMenu::MainMenu(World* world, sf::RenderWindow* window) : world(world)
 {
-
 	initialize(window);
-
-	backgroundTexture = new sf::Texture();
-	backgroundTexture->loadFromFile("mge\\UI\\MainMenu_background.png");
-	BackgroundImage.setTexture(*backgroundTexture);
-	BackgroundImage.setPosition(sf::Vector2f(960, 540));
-	sf::Vector2u bgSize = backgroundTexture->getSize();
-	BackgroundImage.setOrigin(bgSize.x * 0.5f, bgSize.y * 0.5f);
 }
 
 MainMenu::~MainMenu()
@@ -33,7 +25,7 @@ MainMenu::~MainMenu()
 
 void MainMenu::Draw(sf::RenderWindow* window)
 {
-	window->draw(BackgroundImage);
+	window->draw(backgroundImage);
 	if (ButtonManager::GetAmountOfButtons() > 0)
 	{
 		for (unsigned int index = 0; index < ButtonManager::GetAmountOfButtons(); ++index)
@@ -73,6 +65,16 @@ void MainMenu::initialize(sf::RenderWindow* window)
 		glm::vec3 position = LuaWrapper::GetTableVec3(luaMainMenu, "Position");
 		std::string UIType = LuaWrapper::GetTableString(luaMainMenu, "Type");
 		std::string imagePath = LuaWrapper::GetTableString(luaMainMenu, "ImagePath");
+
+		if (UIType == "BACKGROUND")
+		{
+			backgroundTexture = new sf::Texture();
+			backgroundTexture->loadFromFile(imagePath);
+			backgroundImage.setTexture(*backgroundTexture);
+			backgroundImage.setPosition(sf::Vector2f(position.x, position.y));
+			sf::Vector2u bgSize = backgroundTexture->getSize();
+			backgroundImage.setOrigin(bgSize.x * .5f, bgSize.y * .5f);
+		}
 
 		if (UIType == "BUTTON")
 		{

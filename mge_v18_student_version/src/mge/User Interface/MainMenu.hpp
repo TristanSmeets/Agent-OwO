@@ -27,7 +27,7 @@ private:
 	GameObject* mouse;
 	MouseBehaviour* mouseBehaviour;
 	sf::Texture* backgroundTexture;
-	sf::Sprite BackgroundImage;
+	sf::Sprite backgroundImage;
 	sf::Music bgMusic;
 
 	void initialize(sf::RenderWindow* window);

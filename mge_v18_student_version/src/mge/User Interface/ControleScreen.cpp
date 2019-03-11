@@ -51,7 +51,6 @@ void ControleScreen::initialize()
 		if (UIType == "BUTTON")
 		{
 			std::string ButtonType = LuaWrapper::GetTableString(luaControls, "ButtonType");
-			std::cout << "Creating return button.\n";
 			if (ButtonType == "RETURN")
 			{
 				backButton = new Button(imagePath);
@@ -63,7 +62,6 @@ void ControleScreen::initialize()
 
 		if (UIType == "BACKGROUND")
 		{
-			std::cout << "Creating background.\n";
 			backgroundTexture = new sf::Texture();
 			backgroundTexture->loadFromFile(imagePath);
 			backgroundImage.setTexture(*backgroundTexture);

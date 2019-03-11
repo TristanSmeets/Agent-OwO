@@ -63,6 +63,7 @@ void GameScene::OnNotify(const GeneralEvent & info)
 		hud = new HUD(levelNumber);
 		propCreator->CreateBGProp(levelNumber);
 		level->CreateLevel(levelNumber);
+		loadedLevel = true;
 	}
 	if (info.resetLevel)
 	{
@@ -134,7 +135,11 @@ void GameScene::OnNotify(const GeneralEvent & info)
 			delete controleScreen;
 			controleScreen = nullptr;
 		}
-
+		if (loadedLevel)
+		{
+			level->UnloadLevel();
+			loadedLevel = false;
+		}
 		mainMenu = new MainMenu(_world, _window);
 	}
 	if (info.showPauseScreen)

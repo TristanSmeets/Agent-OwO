@@ -51,7 +51,7 @@ Command * PlayerInput::HandleInput()
 	}
 	buttonPressed = sf::Keyboard::isKeyPressed(sf::Keyboard::R);
 
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space) && spacePressed == false)
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space) && spacePressed == false && showingPause == false)
 	{
 		GeneralEvent info;
 		info.nextDialogue = true;
@@ -60,7 +60,7 @@ Command * PlayerInput::HandleInput()
 	}
 	spacePressed = sf::Keyboard::isKeyPressed(sf::Keyboard::Space);
 
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape) && escPressed == false)
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape) && escPressed == false && showingPause == false)
 	{
 		GeneralEvent info;
 		info.showPauseScreen = true;
@@ -77,4 +77,14 @@ void PlayerInput::OnNotify(const GeneralEvent & info)
 		canMove = true;
 	if (info.showEndDialogue || info.showGameOver || info.showPauseScreen)
 		canMove = false;
+	if (info.showPauseScreen)
+		showingPause = true;
+	if (info.closePauseScreen)
+		showingPause = false;
+	if (info.showGameOver)
+		showingPause = true;
+	if (info.resetLevel)
+		showingPause = false;
+	if (info.showMainMenu)
+		showingPause = false;
 }

@@ -43,6 +43,7 @@ private:
 	QueueBehaviour* eventQueueBehaviour;
 	Camera* camera;
 	PropCreator* propCreator;
+	bool loadedLevel = false;
 
 	int levelNumber = 1;
 	int amountOfLevels = 0;

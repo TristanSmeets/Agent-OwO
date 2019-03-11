@@ -20,7 +20,7 @@ GameScene::~GameScene()
 		mainMenu = nullptr;
 	}
 	delete propCreator;
-	
+
 	if (deathScreen != nullptr)
 	{
 		delete deathScreen;
@@ -109,13 +109,10 @@ void GameScene::OnNotify(const GeneralEvent & info)
 			delete deathScreen;
 			deathScreen = nullptr;
 		}
-		
-		if (level != nullptr)
+
+		if (hud != nullptr)
 		{
 			propCreator->RemoveBGProp();
-			delete level;
-			level = nullptr;
-
 			delete hud;
 			hud = nullptr;
 		}

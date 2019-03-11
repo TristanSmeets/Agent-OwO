@@ -22,4 +22,5 @@ private:
 	bool spacePressed;
 	bool escPressed;
 	bool canMove = false;
+	bool showingPause = false;
 };

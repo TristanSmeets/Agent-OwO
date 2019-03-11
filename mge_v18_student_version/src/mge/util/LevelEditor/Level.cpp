@@ -21,6 +21,12 @@ void Level::CreateLevel(int levelNumber)
 {
 	stepTracker = new StepTracker(levelNumber);
 	objectCreator->SetRandomSeed(levelNumber);
+
+	heartbeatSFX = new GameObject("HEARTBEATSFX");
+	heartbeatBehaviour = new HeartbeatBehaviour(levelNumber);
+	heartbeatSFX->setBehaviour(heartbeatBehaviour);
+	world->add(heartbeatSFX);
+
 	//Open the lua file.
 	std::string filePath = "LuaGameScripts/Level/Level_" + std::to_string(levelNumber) + ".lua";
 	luaLevel = LuaWrapper::InitializeLuaState(filePath);
@@ -96,6 +102,14 @@ void Level::UnloadLevel()
 		delete tiles[index];
 	}
 	tiles.clear();
+
+	if (heartbeatBehaviour != nullptr)
+	{
+		delete heartbeatBehaviour;
+		world->remove(heartbeatSFX);
+		delete heartbeatSFX;
+		heartbeatSFX = nullptr;
+	}
 
 	world->remove(objectCreator->GetPlayer());
 	delete objectCreator->GetPlayer();

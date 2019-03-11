@@ -66,6 +66,7 @@ void UIStepCounter::initialize()
 			stepText.setFont(font);
 			stepText.setCharacterSize(fontSize);
 			stepText.setPosition(sf::Vector2f(position.x, position.y));
+			stepText.setColor(sf::Color(127, 252, 255));
 			updateStepCounter(stepsLeft);
 		}
 		lua_pop(luaHUD, 1);

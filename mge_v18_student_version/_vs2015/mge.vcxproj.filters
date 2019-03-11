@@ -359,6 +359,12 @@
     <ClInclude Include="..\src\mge\gameplay\Command\ControlsCommand.hpp">
       <Filter>MGE Source files\mge\gameplay\Command</Filter>
     </ClInclude>
+    <ClInclude Include="..\src\mge\util\Tweener.hpp">
+      <Filter>MGE Source files\mge\util</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\mge\behaviours\HeartbeatBehaviour.hpp">
+      <Filter>MGE Source files\mge\behaviours</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\main.cpp">
@@ -612,6 +618,12 @@
     </ClCompile>
     <ClCompile Include="..\src\mge\gameplay\Command\ControlsCommand.cpp">
       <Filter>MGE Source files\mge\gameplay\Command</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\mge\util\Tweener.cpp">
+      <Filter>MGE Source files\mge\util</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\mge\behaviours\HeartbeatBehaviour.cpp">
+      <Filter>MGE Source files\mge\behaviours</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

@@ -8,6 +8,7 @@ StepTracker::StepTracker(int level) : Observer<GeneralEvent>()
 	stepsLeft = totalSteps;
 	isUnlimited = stepsLeft == -1;
 	EventQueue::AddObserver(this);
+	LuaWrapper::CloseLuaState(levelInfo);
 }
 
 StepTracker::~StepTracker()

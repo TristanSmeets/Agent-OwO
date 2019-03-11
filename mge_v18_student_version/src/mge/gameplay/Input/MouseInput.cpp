@@ -22,6 +22,7 @@ Command * MouseInput::HandleInput()
 			Button* current = ButtonManager::GetButton(index);
 			if (isColliding(current))
 			{
+				std::cout << "Is Colliding with a button.\n";
 				return current->GetButtonAction();
 			}
 		}

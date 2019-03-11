@@ -13,6 +13,7 @@
 #include "mge/User Interface/DeathScreen.hpp"
 #include "mge/User Interface/PauseScreen.hpp"
 #include "mge/User Interface/CreditsScreen.hpp"
+#include "mge/User Interface/ControleScreen.hpp"
 #include "mge/Audio/AudioBank.hpp"
 #include "mge/Audio/AudioManager.hpp"
 #include "mge/Audio/AudioLocator.hpp"
@@ -37,6 +38,7 @@ private:
 	DeathScreen* deathScreen = nullptr;
 	PauseScreen* pauseScreen = nullptr;
 	CreditsScreen* creditsScreen = nullptr;
+	ControleScreen* controleScreen = nullptr;
 	lua_State* config;
 	QueueBehaviour* eventQueueBehaviour;
 	Camera* camera;

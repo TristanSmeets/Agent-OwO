@@ -20,7 +20,7 @@ GameScene::~GameScene()
 		mainMenu = nullptr;
 	}
 	delete propCreator;
-	
+
 	if (deathScreen != nullptr)
 	{
 		delete deathScreen;
@@ -109,13 +109,10 @@ void GameScene::OnNotify(const GeneralEvent & info)
 			delete deathScreen;
 			deathScreen = nullptr;
 		}
-		
-		if (level != nullptr)
+
+		if (hud != nullptr)
 		{
 			propCreator->RemoveBGProp();
-			delete level;
-			level = nullptr;
-
 			delete hud;
 			hud = nullptr;
 		}
@@ -130,6 +127,12 @@ void GameScene::OnNotify(const GeneralEvent & info)
 		{
 			delete creditsScreen;
 			creditsScreen = nullptr;
+		}
+
+		if (controleScreen != nullptr)
+		{
+			delete controleScreen;
+			controleScreen = nullptr;
 		}
 
 		mainMenu = new MainMenu(_world, _window);
@@ -147,6 +150,13 @@ void GameScene::OnNotify(const GeneralEvent & info)
 		mainMenu = nullptr;
 		creditsScreen = new CreditsScreen(_world, _window);
 	}
+	if (info.showControlScreen)
+	{
+		delete mainMenu;
+		mainMenu = nullptr;
+		controleScreen = new ControleScreen(_world, _window);
+	}
+
 }
 
 void GameScene::_initializeScene()
@@ -192,6 +202,9 @@ void GameScene::_render()
 
 	if (creditsScreen != nullptr)
 		creditsScreen->Draw(_window);
+
+	if (controleScreen != nullptr)
+		controleScreen->Draw(_window);
 
 	_window->popGLStates();
 }

@@ -2,15 +2,7 @@
 
 MainMenu::MainMenu(World* world, sf::RenderWindow* window) : world(world)
 {
-
 	initialize(window);
-
-	backgroundTexture = new sf::Texture();
-	backgroundTexture->loadFromFile("mge\\UI\\MainMenu_background.png");
-	BackgroundImage.setTexture(*backgroundTexture);
-	BackgroundImage.setPosition(sf::Vector2f(960, 540));
-	sf::Vector2u bgSize = backgroundTexture->getSize();
-	BackgroundImage.setOrigin(bgSize.x * 0.5f, bgSize.y * 0.5f);
 }
 
 MainMenu::~MainMenu()
@@ -23,15 +15,17 @@ MainMenu::~MainMenu()
 	ButtonManager::RemoveButton(startButton);
 	ButtonManager::RemoveButton(creditsButton);
 	ButtonManager::RemoveButton(exitButton);
+	ButtonManager::RemoveButton(controlsButton);
 	delete startButton;
 	delete creditsButton;
 	delete exitButton;
+	delete controlsButton;
 	delete backgroundTexture;
 }
 
 void MainMenu::Draw(sf::RenderWindow* window)
 {
-	window->draw(BackgroundImage);
+	window->draw(backgroundImage);
 	if (ButtonManager::GetAmountOfButtons() > 0)
 	{
 		for (unsigned int index = 0; index < ButtonManager::GetAmountOfButtons(); ++index)
@@ -44,7 +38,6 @@ void MainMenu::Draw(sf::RenderWindow* window)
 
 void MainMenu::initialize(sf::RenderWindow* window)
 {
-
 	lua_State* luaAudio = LuaWrapper::InitializeLuaState("LuaGameScripts/Audio.lua");
 	if (AudioLocator::GetAudio()->GetMusicType() != MusicType::MAINMENU)
 	{
@@ -73,6 +66,16 @@ void MainMenu::initialize(sf::RenderWindow* window)
 		std::string UIType = LuaWrapper::GetTableString(luaMainMenu, "Type");
 		std::string imagePath = LuaWrapper::GetTableString(luaMainMenu, "ImagePath");
 
+		if (UIType == "BACKGROUND")
+		{
+			backgroundTexture = new sf::Texture();
+			backgroundTexture->loadFromFile(imagePath);
+			backgroundImage.setTexture(*backgroundTexture);
+			backgroundImage.setPosition(sf::Vector2f(position.x, position.y));
+			sf::Vector2u bgSize = backgroundTexture->getSize();
+			backgroundImage.setOrigin(bgSize.x * .5f, bgSize.y * .5f);
+		}
+
 		if (UIType == "BUTTON")
 		{
 			std::string ButtonType = LuaWrapper::GetTableString(luaMainMenu, "ButtonType");
@@ -83,6 +86,14 @@ void MainMenu::initialize(sf::RenderWindow* window)
 				startButton->SetCommand(new StartCommand());
 				startButton->SetPosition(glm::vec2(position.x, position.y));
 				ButtonManager::AddButton(startButton);
+			}
+
+			if (ButtonType == "CONTROLS")
+			{
+				controlsButton = new Button(imagePath);
+				controlsButton->SetCommand(new ControlsCommand());
+				controlsButton->SetPosition(glm::vec2(position.x, position.y));
+				ButtonManager::AddButton(controlsButton);
 			}
 
 			if (ButtonType == "CREDIT")

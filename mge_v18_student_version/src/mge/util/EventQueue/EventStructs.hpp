@@ -20,4 +20,5 @@ struct GeneralEvent
 	bool showPauseScreen = false;
 	bool closePauseScreen = false;
 	bool showCreditsScreen = false;
+	bool showControlScreen = false;
 };

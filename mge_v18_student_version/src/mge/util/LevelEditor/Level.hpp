@@ -6,6 +6,7 @@
 #include "mge/util/LevelEditor/ObjectCreator.hpp"
 #include "mge/gameplay/StepTracker.hpp"
 #include "mge/Audio/AudioLocator.hpp"
+#include "mge/behaviours/HeartbeatBehaviour.hpp"
 #include "glm.hpp"
 #include <glm/gtx/quaternion.hpp>
 #include <vector>
@@ -31,6 +32,8 @@ private:
 	lua_State* luaLevel;
 	StepTracker* stepTracker;
 	ObjectCreator* objectCreator;
+	GameObject* heartbeatSFX = nullptr;
+	HeartbeatBehaviour* heartbeatBehaviour;
 };
 
 #endif // !LEVEL_HPP

@@ -177,6 +177,7 @@
     <ClInclude Include="..\src\mge\Audio\SoundEffect.hpp" />
     <ClInclude Include="..\src\mge\behaviours\AbstractBehaviour.hpp" />
     <ClInclude Include="..\src\mge\behaviours\CameraOrbitBehaviour.hpp" />
+    <ClInclude Include="..\src\mge\behaviours\HeartbeatBehaviour.hpp" />
     <ClInclude Include="..\src\mge\behaviours\QueueBehaviour.hpp" />
     <ClInclude Include="..\src\mge\behaviours\ExitBehaviour.hpp" />
     <ClInclude Include="..\src\mge\behaviours\KeysBehaviour.hpp" />
@@ -258,6 +259,7 @@
     <ClInclude Include="..\src\mge\util\LuaScripting\DisplayGrid.h" />
     <ClInclude Include="..\src\mge\util\LuaScripting\LuaWrapper.hpp" />
     <ClInclude Include="..\src\mge\util\LuaScripting\RectangleShapeWrapper.hpp" />
+    <ClInclude Include="..\src\mge\util\Tweener.hpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\main.cpp" />
@@ -267,6 +269,7 @@
     <ClCompile Include="..\src\mge\Audio\SoundEffect.cpp" />
     <ClCompile Include="..\src\mge\behaviours\AbstractBehaviour.cpp" />
     <ClCompile Include="..\src\mge\behaviours\CameraOrbitBehaviour.cpp" />
+    <ClCompile Include="..\src\mge\behaviours\HeartbeatBehaviour.cpp" />
     <ClCompile Include="..\src\mge\behaviours\QueueBehaviour.cpp" />
     <ClCompile Include="..\src\mge\behaviours\ExitBehaviour.cpp" />
     <ClCompile Include="..\src\mge\behaviours\KeysBehaviour.cpp" />
@@ -344,6 +347,7 @@
     <ClCompile Include="..\src\mge\util\LuaScripting\DisplayGrid.cpp" />
     <ClCompile Include="..\src\mge\util\LuaScripting\LuaWrapper.cpp" />
     <ClCompile Include="..\src\mge\util\LuaScripting\RectangleShapeWrapper.cpp" />
+    <ClCompile Include="..\src\mge\util\Tweener.cpp" />
   </ItemGroup>
   <ItemGroup>
     <CopyFileToFolders Include="..\assets\LuaGameScripts\config.lua">

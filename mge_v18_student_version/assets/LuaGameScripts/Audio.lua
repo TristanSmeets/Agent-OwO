@@ -13,6 +13,8 @@ PushPitch = 1
 HeartBeatSFX = "mge/Audio/Breath+Mask.wav"
 HeartBeatVolume = 100
 HeartBeatPitch = 1
+HeartBeatMaxTime = 4.0								--Maximum time between heartbeats in seconds
+HeartBeatMinTime = 1.0								--Minumum time between heartbeats in seconds
 
 --Switch
 SwitchSFX = "mge/Audio/cougar4.wav"

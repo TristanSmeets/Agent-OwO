@@ -23,9 +23,11 @@ MainMenu::~MainMenu()
 	ButtonManager::RemoveButton(startButton);
 	ButtonManager::RemoveButton(creditsButton);
 	ButtonManager::RemoveButton(exitButton);
+	ButtonManager::RemoveButton(controlsButton);
 	delete startButton;
 	delete creditsButton;
 	delete exitButton;
+	delete controlsButton;
 	delete backgroundTexture;
 }
 
@@ -44,7 +46,6 @@ void MainMenu::Draw(sf::RenderWindow* window)
 
 void MainMenu::initialize(sf::RenderWindow* window)
 {
-
 	lua_State* luaAudio = LuaWrapper::InitializeLuaState("LuaGameScripts/Audio.lua");
 	if (AudioLocator::GetAudio()->GetMusicType() != MusicType::MAINMENU)
 	{
@@ -83,6 +84,14 @@ void MainMenu::initialize(sf::RenderWindow* window)
 				startButton->SetCommand(new StartCommand());
 				startButton->SetPosition(glm::vec2(position.x, position.y));
 				ButtonManager::AddButton(startButton);
+			}
+
+			if (ButtonType == "CONTROLS")
+			{
+				controlsButton = new Button(imagePath);
+				controlsButton->SetCommand(new ControlsCommand());
+				controlsButton->SetPosition(glm::vec2(position.x, position.y));
+				ButtonManager::AddButton(controlsButton);
 			}
 
 			if (ButtonType == "CREDIT")

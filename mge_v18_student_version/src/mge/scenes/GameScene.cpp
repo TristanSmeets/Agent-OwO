@@ -129,6 +129,12 @@ void GameScene::OnNotify(const GeneralEvent & info)
 			creditsScreen = nullptr;
 		}
 
+		if (controleScreen != nullptr)
+		{
+			delete controleScreen;
+			controleScreen = nullptr;
+		}
+
 		mainMenu = new MainMenu(_world, _window);
 	}
 	if (info.showPauseScreen)
@@ -144,6 +150,13 @@ void GameScene::OnNotify(const GeneralEvent & info)
 		mainMenu = nullptr;
 		creditsScreen = new CreditsScreen(_world, _window);
 	}
+	if (info.showControlScreen)
+	{
+		delete mainMenu;
+		mainMenu = nullptr;
+		controleScreen = new ControleScreen(_world, _window);
+	}
+
 }
 
 void GameScene::_initializeScene()
@@ -189,6 +202,9 @@ void GameScene::_render()
 
 	if (creditsScreen != nullptr)
 		creditsScreen->Draw(_window);
+
+	if (controleScreen != nullptr)
+		controleScreen->Draw(_window);
 
 	_window->popGLStates();
 }

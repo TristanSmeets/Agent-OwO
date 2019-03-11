@@ -353,6 +353,12 @@
     <ClInclude Include="..\src\mge\Audio\AudioEnums.hpp">
       <Filter>MGE Source files\mge\Audio</Filter>
     </ClInclude>
+    <ClInclude Include="..\src\mge\User Interface\ControleScreen.hpp">
+      <Filter>MGE Source files\mge\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\mge\gameplay\Command\ControlsCommand.hpp">
+      <Filter>MGE Source files\mge\gameplay\Command</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\main.cpp">
@@ -600,6 +606,12 @@
     </ClCompile>
     <ClCompile Include="..\src\mge\Audio\AudioLocator.cpp">
       <Filter>MGE Source files\mge\Audio</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\mge\User Interface\ControleScreen.cpp">
+      <Filter>MGE Source files\mge\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\mge\gameplay\Command\ControlsCommand.cpp">
+      <Filter>MGE Source files\mge\gameplay\Command</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

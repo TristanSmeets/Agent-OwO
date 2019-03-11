@@ -4,7 +4,7 @@ HUD::HUD(int levelNumber) : levelNumber(levelNumber), Observer<GeneralEvent>()
 {
 	EventQueue::AddObserver(this);
 	luaHUD = LuaWrapper::InitializeLuaState("LuaGameScripts/UI/HUD.lua");
-	stepCounter = new UIStepCounter(luaHUD, levelNumber);
+	stepCounter = new UIStepCounter(levelNumber);
 	dialogue = new Dialogue();
 	dialogue->LoadDialogues(levelNumber);
 	initialize();
@@ -41,21 +41,18 @@ void HUD::OnNotify(const GeneralEvent& info)
 
 void HUD::initialize()
 {
-	lua_State* luaInGame = LuaWrapper::InitializeLuaState("LuaGameScripts/UI/InGame.lua");
+	lua_getglobal(luaHUD, "Buttons");
 
-	lua_getglobal(luaInGame, "Buttons");
+	lua_pushnil(luaHUD);
 
-	lua_pushnil(luaInGame);
-
-	while (lua_next(luaInGame, -2) != 0)
+	while (lua_next(luaHUD, -2) != 0)
 	{
-		glm::vec3 position = LuaWrapper::GetTableVec3(luaInGame, "Position");
-		std::string UIType = LuaWrapper::GetTableString(luaInGame, "Type");
-		std::string imagePath = LuaWrapper::GetTableString(luaInGame, "ImagePath");
+		glm::vec3 position = LuaWrapper::GetTableVec3(luaHUD, "Position");
+		std::string UIType = LuaWrapper::GetTableString(luaHUD, "Type");
 
 		if (UIType == "BACKGROUND")
 		{
-			std::cout << "Creating CharacterIcon.\n";
+			std::string imagePath = LuaWrapper::GetTableString(luaHUD, "ImagePath");
 			iconTexture = new sf::Texture();
 			iconTexture->loadFromFile(imagePath);
 			iconSprite.setTexture(*iconTexture);
@@ -63,9 +60,7 @@ void HUD::initialize()
 			sf::Vector2u iconSize = iconTexture->getSize();
 			iconSprite.setOrigin(iconSize.x * .5f, iconSize.y * .5f);
 		}
-		lua_pop(luaInGame, 1);
+		lua_pop(luaHUD, 1);
 	}
-	lua_pop(luaInGame, 1);
-
-	LuaWrapper::CloseLuaState(luaInGame);
+	lua_pop(luaHUD, 1);
 }

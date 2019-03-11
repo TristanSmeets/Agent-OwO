@@ -7,14 +7,16 @@
 class UIStepCounter : public Observer<GeneralEvent>
 {
 public:
-	UIStepCounter(lua_State* luaHUD, int level);
+	UIStepCounter(int level);
 	~UIStepCounter();
 	void OnNotify(const GeneralEvent& info);
 	void Draw(sf::RenderWindow* window);
 
 private:
+	void initialize();
 	void resetStepCounter();
 	void updateStepCounter(int Number);
+	
 	sf::Font font;
 	sf::Text stepText;
 	sf::Sprite iconImage;

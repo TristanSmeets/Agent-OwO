@@ -1,6 +1,6 @@
 #include "UIStepCounter.hpp"
 
-UIStepCounter::UIStepCounter(lua_State* luaHUD, int levelNumber) : Observer<GeneralEvent>()
+UIStepCounter::UIStepCounter(int levelNumber) : Observer<GeneralEvent>()
 {
 	EventQueue::AddObserver(this);
 	//Getting amount of steps
@@ -8,30 +8,8 @@ UIStepCounter::UIStepCounter(lua_State* luaHUD, int levelNumber) : Observer<Gene
 	lua_getglobal(luaLevelInfo, "AmountOfSteps");
 	totalSteps = LuaWrapper::GetTableNumber(luaLevelInfo, "Level_" + std::to_string(levelNumber));
 	stepsLeft = totalSteps;
-
-	//Creating Icon
-	iconImage = sf::Sprite();
-	std::string iconPath = LuaWrapper::GetString(luaHUD, "IconPath");
-	iconTexture.loadFromFile(iconPath);
-	iconImage.setTexture(iconTexture);
-	
-	glm::vec2 iconPosition = LuaWrapper::GetVec2(luaHUD, "IconPosition");
-	iconImage.setPosition(iconPosition.x, iconPosition.y);
-	sf::Vector2u iconSize = iconImage.getTexture()->getSize();
-	iconImage.setOrigin(iconSize.x * 0.5f, iconSize.y * 0.5f);
-
-	//Creating font
-	std::string fontPath = LuaWrapper::GetString(luaHUD, "Font");
-	font.loadFromFile(fontPath);
-	
-
-	//Creating Text
-	stepText = sf::Text();
-	stepText.setFont(font);
-	stepText.setCharacterSize(LuaWrapper::GetNumber<int>(luaHUD, "FontSize"));
-	glm::vec2 textPosition = LuaWrapper::GetVec2(luaHUD, "TextPosition");
-	stepText.setPosition(textPosition.x, textPosition.y);
-	updateStepCounter(stepsLeft);
+	initialize();
+	LuaWrapper::CloseLuaState(luaLevelInfo);
 }
 
 UIStepCounter::~UIStepCounter()
@@ -55,6 +33,46 @@ void UIStepCounter::Draw(sf::RenderWindow * window)
 {
 	window->draw(stepText);
 	window->draw(iconImage);
+}
+
+void UIStepCounter::initialize()
+{
+	lua_State* luaHUD = LuaWrapper::InitializeLuaState("LuaGameScripts\\UI\\HUD.lua");
+	lua_getglobal(luaHUD, "Buttons");
+
+	lua_pushnil(luaHUD);
+
+	while (lua_next(luaHUD, -2) != 0)
+	{
+		glm::vec3 position = LuaWrapper::GetTableVec3(luaHUD, "Position");
+		std::string UIType = LuaWrapper::GetTableString(luaHUD, "Type");
+
+		if (UIType == "IMAGE")
+		{
+			std::string imagePath = LuaWrapper::GetTableString(luaHUD, "ImagePath");
+			iconTexture.loadFromFile(imagePath);
+			iconImage.setTexture(iconTexture);
+			iconImage.setPosition(sf::Vector2f(position.x, position.y));
+			sf::Vector2u imageSize = iconTexture.getSize();
+			iconImage.setOrigin(imageSize.x * .5f, imageSize.y * .5f);
+		}
+
+		if (UIType == "TEXT")
+		{
+			std::cout << "Creating text.\n";
+			std::string fontPath = LuaWrapper::GetTableString(luaHUD, "FontPath");
+			int fontSize = LuaWrapper::GetTableNumber(luaHUD, "FontSize");
+			font.loadFromFile(fontPath);
+			stepText.setFont(font);
+			stepText.setCharacterSize(fontSize);
+			stepText.setPosition(sf::Vector2f(position.x, position.y));
+			updateStepCounter(stepsLeft);
+		}
+		lua_pop(luaHUD, 1);
+	}
+	lua_pop(luaHUD, 1);
+
+	LuaWrapper::CloseLuaState(luaHUD);
 }
 
 void UIStepCounter::resetStepCounter()

@@ -29,7 +29,7 @@ void StepTracker::OnNotify(const GeneralEvent & info)
 	{
 		stepsLeft -= info.stepsTaken;
 
-		if (!isUnlimited && stepsLeft <= 0)
+		if (!isUnlimited && stepsLeft < 0)
 		{
 			if (sendEvent == false)
 			{

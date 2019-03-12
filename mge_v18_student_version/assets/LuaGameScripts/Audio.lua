@@ -1,4 +1,5 @@
 --Paths to audio files
+math.randomseed(os.clock())
 --Button click
 ButtonSFX = "mge/Audio/guinea_pig_shriek.wav"		--Path to the sound file.
 ButtonVolume = 100                                  --Set a volume between 0 - 100.
@@ -7,7 +8,7 @@ ButtonPitch = 1                                     --Default value = 1
 --Moving a box
 PushSFX = "mge/Audio/baboon2.wav"
 PushVolume = 100
-PushPitch = 1
+PushPitch = 0.8 + (math.random( 0, 4 ) / 10)
 
 --Heartbeat
 HeartBeatSFX = "mge/Audio/Breath+Mask.wav"

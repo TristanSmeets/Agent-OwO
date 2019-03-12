@@ -30,7 +30,7 @@ void HeartbeatBehaviour::update(float pStep)
 	if (isUnlimited == false)
 	{
 		counter += pStep;
-		if (counter >= currentThresshold)
+		if (counter >= currentThresshold && isOver == false)
 		{
 			AudioLocator::GetAudio()->PlaySoundEffect(SFX_HEARTBEAT);
 			counter = 0;
@@ -44,12 +44,18 @@ void HeartbeatBehaviour::OnNotify(const GeneralEvent & info)
 	{
 		stepsLeft = totalSteps;
 		updateCurrentThresshold();
+		isOver = false;
 	}
 	if (!isUnlimited)
 	{
 		stepsLeft -= info.stepsTaken;
 		updateCurrentThresshold();
 	}
+	if (info.showGameOver)
+	{
+		isOver = true;
+	}
+
 }
 
 void HeartbeatBehaviour::updateCurrentThresshold()

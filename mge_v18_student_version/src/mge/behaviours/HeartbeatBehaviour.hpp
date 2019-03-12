@@ -25,4 +25,5 @@ private:
 	int totalSteps;
 	int stepsLeft;
 	bool isUnlimited = false;
+	bool isOver = false;
 };

@@ -74,7 +74,7 @@ void GameScene::OnNotify(const GeneralEvent & info)
 			deathScreen = nullptr;
 		}
 	}
-	if (info.nextLevel)
+	if (info.nextLevel && deathScreen == nullptr)
 	{
 		if (hud != nullptr)
 		{

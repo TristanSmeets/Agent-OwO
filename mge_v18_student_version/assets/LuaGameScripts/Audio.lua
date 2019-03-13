@@ -41,8 +41,8 @@ InGameVolume = 10
 InGamePitch = 1
 
 --Heartbeat
-HeartBeatSFX = "mge/Audio/heartbeat.wav"
+HeartBeatSFX = "mge/Audio/heartbeat3.wav"
 HeartBeatVolume = 100
 HeartBeatPitch = 1
-HeartBeatMaxTime = 4.0                                --Maximum time between heartbeats in seconds
-HeartBeatMinTime = 1.0                                --Minumum time between heartbeats in seconds
+HeartBeatMaxTime = 2.0                                --Maximum time between heartbeats in seconds
+HeartBeatMinTime = 0.3                               --Minumum time between heartbeats in seconds

@@ -23,7 +23,7 @@ Switches = {
 
 --Table with background props
 BackgroundMesh = {
-    Level_1 = "mge/models/Level_2_BG.obj",
+    Level_1 = "mge/models/LVL2.obj",
     Level_2 = "mge/models/Level_2_BG.obj",
     Level_3 = "mge/models/Level_2_BG.obj",
     Level_4 = "mge/models/Level_2_BG.obj",
@@ -38,4 +38,15 @@ BackgroundTexture = {
     Level_4 = "mge/textures/Level_2_BG.png",
     Level_5 = "mge/textures/Level_2_BG.png",
     Level_6 = "mge/textures/Level_2_BG.png",
+}
+
+SkyBoxMesh = "mge/models/BG.obj"
+
+SkyBoxTexture = {
+	Level_1 = "mge/textures/Box.png",
+	Level_2 = "mge/textures/Exit.png",
+	Level_3 = "mge/textures/GenTile-Darker.png",
+	Level_4 = "mge/textures/Player.png",
+	Level_5 = "mge/textures/Start.png",
+	Level_6 = "mge/textures/Level_2_BG.png"
 }

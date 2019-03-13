@@ -27,7 +27,7 @@ HeartbeatBehaviour::~HeartbeatBehaviour()
 
 void HeartbeatBehaviour::update(float pStep)
 {
-	if (isUnlimited == false)
+	if (isUnlimited == false && isPaused == false)
 	{
 		counter += pStep;
 		if (counter >= currentThresshold && isOver == false)
@@ -55,7 +55,10 @@ void HeartbeatBehaviour::OnNotify(const GeneralEvent & info)
 	{
 		isOver = true;
 	}
-
+	if (info.showPauseScreen || info.showEndDialogue)
+		isPaused = true;
+	if (info.closePauseScreen || info.isDialogueCompleted)
+		isPaused = false;
 }
 
 void HeartbeatBehaviour::updateCurrentThresshold()

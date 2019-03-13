@@ -26,4 +26,5 @@ private:
 	int stepsLeft;
 	bool isUnlimited = false;
 	bool isOver = false;
+	bool isPaused = false;
 };

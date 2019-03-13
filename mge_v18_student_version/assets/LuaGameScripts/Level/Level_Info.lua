@@ -24,11 +24,11 @@ Switches = {
 --Table with background props
 BackgroundMesh = {
     Level_1 = "mge/models/LVL2.obj",
-    Level_2 = "mge/models/Level_2_BG.obj",
-    Level_3 = "mge/models/Level_2_BG.obj",
-    Level_4 = "mge/models/Level_2_BG.obj",
-    Level_5 = "mge/models/Level_2_BG.obj",
-    Level_6 = "mge/models/Level_2_BG.obj"
+    Level_2 = "mge/models/LVL2.obj",
+    Level_3 = "mge/models/LVL2.obj",
+    Level_4 = "mge/models/LVL2.obj",
+    Level_5 = "mge/models/LVL2.obj",
+    Level_6 = "mge/models/LVL2.obj"
 }
 
 BackgroundTexture = {

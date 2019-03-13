@@ -20,7 +20,6 @@ Dialogue::~Dialogue()
 	startDialogue.clear();
 	endDialogue.clear();
 
-
 	LuaWrapper::CloseLuaState(luaDialogue);
 	delete currentTexture;
 }
@@ -38,8 +37,6 @@ void Dialogue::OnNotify(const GeneralEvent & info)
 		dialogueType = DIALOGUE::END_DIALOGUE;
 		setCurrentImage(currentImage);
 		showingDialogue = true;
-
-
 	}
 }
 

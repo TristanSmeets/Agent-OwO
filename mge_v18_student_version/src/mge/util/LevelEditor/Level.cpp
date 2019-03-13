@@ -2,25 +2,24 @@
 #include "mge/behaviours/ExitBehaviour.hpp"
 
 Level::Level(World * world, Camera* camera) :
-world(world), config(LuaWrapper::InitializeLuaState("LuaGameScripts\\config.lua"))
+world(world), config(LuaWrapper::InitializeLuaState("LuaGameScripts\\config.lua")),
+objectCreator(ObjectCreator(config, world, camera))
 {
-	objectCreator = new ObjectCreator(config, world, camera);
 }
 
 Level::~Level()
 {
 	std::cout << "GC running on:Level.\n";
 
-	if (objectCreator->GetTileObjects().size() > 0)
+	if (objectCreator.GetTileObjects().size() > 0)
 		UnloadLevel();
-	delete objectCreator;
 	LuaWrapper::CloseLuaState(config);
 }
 
 void Level::CreateLevel(int levelNumber)
 {
 	stepTracker = new StepTracker(levelNumber);
-	objectCreator->SetRandomSeed(levelNumber);
+	objectCreator.SetRandomSeed(levelNumber);
 
 	heartbeatSFX = new GameObject("HEARTBEATSFX");
 	heartbeatBehaviour = new HeartbeatBehaviour(levelNumber);
@@ -44,14 +43,14 @@ void Level::CreateLevel(int levelNumber)
 		glm::quat rotation = LuaWrapper::GetTableQuat(luaLevel, "Rotation");
 		glm::vec3 scale = LuaWrapper::GetTableVec3(luaLevel, "Scale");
 
-		objectCreator->CreateGameObject(typeString, position, rotation, scale);
+		objectCreator.CreateGameObject(typeString, position, rotation, scale);
 		//Removes 'value'. keeps 'key' for next iteration
 		lua_pop(luaLevel, 1);
 	}
 	lua_pop(luaLevel, 1);
 
-	TileObject::CreateNodeConnections(objectCreator->GetTileObjects());
-	objectCreator->ConfigureBehaviourStartNodes();
+	TileObject::CreateNodeConnections(objectCreator.GetTileObjects());
+	objectCreator.ConfigureBehaviourStartNodes();
 
 	if (AudioLocator::GetAudio()->GetMusicType() != MusicType::INGAME)
 	{
@@ -69,19 +68,18 @@ void Level::CreateLevel(int levelNumber)
 
 void Level::Resetlevel()
 {
-	TileObject::ResetNodes(objectCreator->GetTileObjects());
-	objectCreator->ResetMovableObjects();
+	TileObject::ResetNodes(objectCreator.GetTileObjects());
+	objectCreator.ResetMovableObjects();
 }
 
 void Level::UnloadLevel()
 {
-	glm::vec3 offScreenPosition = glm::vec3(10, 10, 10);
-	std::vector<GameObject*>& boxObjects = objectCreator->GetBoxObjects();
-	std::vector<TileObject*>& tiles = objectCreator->GetTileObjects();
+	std::vector<GameObject*>& boxObjects = objectCreator.GetBoxObjects();
+	std::vector<TileObject*>& tiles = objectCreator.GetTileObjects();
 
-	GameObject* exit = objectCreator->GetExit();
+	GameObject* exit = objectCreator.GetExit();
 	delete dynamic_cast<ExitBehaviour*>(exit->getBehaviour());
-	std::vector<GameObject*>& switches = objectCreator->GetSwitchObjects();
+	std::vector<GameObject*>& switches = objectCreator.GetSwitchObjects();
 	for (unsigned int index = 0; index < switches.size(); ++index)
 	{
 		delete switches[index]->getBehaviour();
@@ -111,8 +109,8 @@ void Level::UnloadLevel()
 		heartbeatSFX = nullptr;
 	}
 
-	world->remove(objectCreator->GetPlayer());
-	delete objectCreator->GetPlayer();
+	world->remove(objectCreator.GetPlayer());
+	delete objectCreator.GetPlayer();
 	delete stepTracker;
 	LuaWrapper::CloseLuaState(luaLevel);
 }

@@ -756,9 +756,6 @@
     <CopyFileToFolders Include="..\assets\mge\UI\Footsteps.png">
       <Filter>Textures\UI</Filter>
     </CopyFileToFolders>
-    <CopyFileToFolders Include="..\assets\mge\UI\Futura_ICG.ttf">
-      <Filter>Textures\UI</Filter>
-    </CopyFileToFolders>
     <CopyFileToFolders Include="..\assets\mge\UI\Start_Button.png">
       <Filter>Textures\UI</Filter>
     </CopyFileToFolders>

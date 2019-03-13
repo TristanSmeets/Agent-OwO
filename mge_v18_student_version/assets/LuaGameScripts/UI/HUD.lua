@@ -8,7 +8,7 @@ newUI0.Scale = { x = 1, y = 1, z = 1 }
 newUI0.Height = 51.6
 newUI0.Width = 67.9
 newUI0.Type = 'TEXT'
-newUI0.FontPath = 'mge/UI/Futura_ICG.ttf'
+newUI0.FontPath = 'mge/fonts/Futura_ICG.ttf'
 newUI0.FontSize = 36
 newUI0.Text = '72'
 table.insert(Buttons, newUI0)

@@ -83,14 +83,13 @@ void GameScene::OnNotify(const GeneralEvent & info)
 		}
 		levelNumber++;
 		level->UnloadLevel();
+		loadedLevel = false;
 		propCreator->RemoveBGProp();
 		if (levelNumber > amountOfLevels)
 		{
 			levelNumber = 1;
 			delete hud;
 			hud = nullptr;
-			delete level;
-			level = nullptr;
 			mainMenu = new MainMenu(_world, _window);
 		}
 		else
@@ -98,6 +97,7 @@ void GameScene::OnNotify(const GeneralEvent & info)
 			hud = new HUD(levelNumber);
 			propCreator->CreateBGProp(levelNumber);
 			level->CreateLevel(levelNumber);
+			loadedLevel = true;
 		}
 	}
 	if (info.showGameOver)

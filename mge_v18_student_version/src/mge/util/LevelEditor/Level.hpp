@@ -31,7 +31,7 @@ private:
 	lua_State* config;
 	lua_State* luaLevel;
 	StepTracker* stepTracker;
-	ObjectCreator* objectCreator;
+	ObjectCreator objectCreator;
 	GameObject* heartbeatSFX = nullptr;
 	HeartbeatBehaviour* heartbeatBehaviour;
 };

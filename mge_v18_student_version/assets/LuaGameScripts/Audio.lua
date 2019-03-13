@@ -1,48 +1,48 @@
 --Paths to audio files
-math.randomseed(os.clock())
+math.randomseed(os.time()) 
 --Button click
-ButtonSFX = "mge/Audio/guinea_pig_shriek.wav"		--Path to the sound file.
-ButtonVolume = 100                                  --Set a volume between 0 - 100.
+ButtonSFX = "mge/Audio/ui_click.wav"		--Path to the sound file.
+ButtonVolume = 20                                 --Set a volume between 0 - 100.
 ButtonPitch = 1                                     --Default value = 1
 
 --Moving a box
-PushSFX = "mge/Audio/baboon2.wav"
-PushVolume = 100
+PushSFX = "mge/Audio/box_pushing2.wav"
+PushVolume = 5
 PushPitch = 0.8 + (math.random( 0, 4 ) / 10)
 
---Heartbeat
-HeartBeatSFX = "mge/Audio/Breath+Mask.wav"
-HeartBeatVolume = 100
-HeartBeatPitch = 1
-HeartBeatMaxTime = 4.0								--Maximum time between heartbeats in seconds
-HeartBeatMinTime = 1.0								--Minumum time between heartbeats in seconds
-
 --Switch
-SwitchSFX = "mge/Audio/cougar4.wav"
-SwitchVolume = 100
+SwitchSFX = "mge/Audio/switch_activated.wav"
+SwitchVolume = 50
 SwitchPitch = 1
 
 --Level Failure
-FailureSFX = "mge/Audio/hyena.wav"
-FailureVolume = 100
+FailureSFX = "mge/Audio/squeak.wav"
+FailureVolume = 10
 FailurePitch = 1
 
 --Exit
-ExitSFX = "mge/Audio/wolf5.wav"
-ExitVolume = 100
+ExitSFX = "mge/Audio/exit_activated.wav"
+ExitVolume = 10
 ExitPitch = 1
 
 --DIALOGUE
-DialogueSFX = "mge/Audio/pup1.wav"
-DialogueVolume = 100
+DialogueSFX = "mge/Audio/text_box.wav"
+DialogueVolume = 10
 DialoguePitch = 1
 
 --Background music
-MainMenuBG = "mge/Audio/BattleBG.wav"
-MainMenuVolume = 50
+MainMenuBG = "mge/Audio/BGMusic_4.wav"
+MainMenuVolume = 20
 MainMenuPitch = 1
 
 --InGame Background music
-InGameBG = "mge/Audio/Ambience.wav"
-InGameVolume = 50
+InGameBG = "mge/Audio/BGMusic_5.wav"
+InGameVolume = 10
 InGamePitch = 1
+
+--Heartbeat
+HeartBeatSFX = "mge/Audio/heartbeat3.wav"
+HeartBeatVolume = 100
+HeartBeatPitch = 1
+HeartBeatMaxTime = 2.0                                --Maximum time between heartbeats in seconds
+HeartBeatMinTime = 0.3                               --Minumum time between heartbeats in seconds

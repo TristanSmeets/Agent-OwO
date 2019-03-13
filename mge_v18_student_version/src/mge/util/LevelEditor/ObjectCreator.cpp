@@ -103,6 +103,7 @@ void ObjectCreator::CreateGameObject(const std::string & objectType, const glm::
 
 	if ("CAMERA" == objectType)
 	{
+		//newGameObject->setBehaviour(new KeysBehaviour());
 		newGameObject->rotate(glm::radians(180.0f), glm::vec3(0, 1, 0));
 		world->setMainCamera(dynamic_cast<Camera*>(newGameObject));
 	}

@@ -26,6 +26,12 @@ Dialogue::~Dialogue()
 
 void Dialogue::OnNotify(const GeneralEvent & info)
 {
+	if (info.resetLevel)
+	{
+		dialogueType = DIALOGUE::START_DIALOGUE;
+		showingDialogue = false;
+	}
+
 	if (info.nextDialogue)
 	{
 		currentImage++;
@@ -37,6 +43,11 @@ void Dialogue::OnNotify(const GeneralEvent & info)
 		dialogueType = DIALOGUE::END_DIALOGUE;
 		setCurrentImage(currentImage);
 		showingDialogue = true;
+	}
+	if (info.showGameOver)
+	{
+		currentImage = 0;
+		showingDialogue = false;
 	}
 }
 
@@ -93,7 +104,6 @@ void Dialogue::loadStartDialogue(int level)
 
 void Dialogue::loadEndDialogue(int level)
 {
-
 	std::string luaVariable = "Level" + std::to_string(level) + "_Exit";
 
 	lua_getglobal(luaDialogue, luaVariable.c_str());

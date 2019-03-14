@@ -29,8 +29,8 @@ void EventQueue::DispatchEvents()
 	//Looping over all queued events.
 	for (int index = 0; index < numberPending; ++index)
 	{
-		//Loopinng over all observers.
-		for (int observer = 0; observer < observers.size(); ++observer)
+		//Looping over all observers.
+		for (unsigned int observer = 0; observer < observers.size(); ++observer)
 		{
 			observers[observer]->OnNotify(pending[index]);
 		}

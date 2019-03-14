@@ -40,7 +40,7 @@ void TileObject::CreateNodeConnections(const std::vector<TileObject*>& tileObjec
 		TileObject* currentTile = tileObjects[current];
 		glm::vec3 position = currentTile->getLocalPosition();
 		float tileSize = currentTile->GetNode()->GetSize();
-		for (int index = 0; index < tileObjects.size(); index++)
+		for (unsigned int index = 0; index < tileObjects.size(); index++)
 		{
 			if (index != current)
 			{

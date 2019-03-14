@@ -29,7 +29,7 @@ void CreditsScreen::Draw(sf::RenderWindow * window)
 
 	if (ButtonManager::GetAmountOfButtons() > 0)
 	{
-		for (unsigned int index = 0; index < ButtonManager::GetAmountOfButtons(); ++index)
+		for (int index = 0; index < ButtonManager::GetAmountOfButtons(); ++index)
 		{
 			Button* current = ButtonManager::GetButton(index);
 			window->draw(*current->GetSprite());

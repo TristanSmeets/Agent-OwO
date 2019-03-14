@@ -17,7 +17,7 @@ Command * MouseInput::HandleInput()
 {
 	if (sf::Mouse::isButtonPressed(sf::Mouse::Left) && mousePressed == false)
 	{
-		for (unsigned int index = 0; index < ButtonManager::GetAmountOfButtons(); ++index)
+		for (int index = 0; index < ButtonManager::GetAmountOfButtons(); ++index)
 		{
 			Button* current = ButtonManager::GetButton(index);
 			if (isColliding(current))

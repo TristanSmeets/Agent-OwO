@@ -113,7 +113,6 @@ void GameScene::OnNotify(const GeneralEvent & info)
 
 		if (hud != nullptr)
 		{
-			propCreator->RemoveBGProp();
 			delete hud;
 			hud = nullptr;
 		}
@@ -137,6 +136,7 @@ void GameScene::OnNotify(const GeneralEvent & info)
 		}
 		if (loadedLevel)
 		{
+			propCreator->RemoveBGProp();
 			level->UnloadLevel();
 			loadedLevel = false;
 		}
@@ -194,7 +194,7 @@ void GameScene::_render()
 		mainMenu->Draw(_window);
 	}
 
-	if (hud != nullptr)
+	if (hud != nullptr && deathScreen == nullptr)
 	{
 		hud->Draw(_window);
 	}

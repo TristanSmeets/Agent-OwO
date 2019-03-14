@@ -50,6 +50,11 @@ void ExitBehaviour::SetExitNode(Node* node)
 	exitNode->SetIsOpen(activatedSwitches == amountOfSwitches);
 }
 
+Node & ExitBehaviour::GetExitNode()
+{
+	return *exitNode;
+}
+
 void ExitBehaviour::checkNode()
 {
 	if (previousType != exitNode->GetNodeType() &&

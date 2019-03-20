@@ -28,8 +28,8 @@ void KeysBehaviour::update( float pStep )
 		turnSpeed = +_turnSpeed;
 	}
 	//translate the object in its own local space
-	_owner->translate( glm::vec3(0.0f, 0.0f, moveSpeed*pStep ) );
-
+	//_owner->translate( glm::vec3(0.0f, 0.0f, moveSpeed*pStep ) );
+	_owner->translate(glm::vec3(0.0f, 0.0f, moveSpeed*pStep));
 	//we can also translate directly, basically we take the z axis from the matrix
 	//which is normalized and multiply it by moveSpeed*step, then we add it to the
 	//translation component
@@ -38,7 +38,8 @@ void KeysBehaviour::update( float pStep )
 	//_owner->setTransform(transform);
 
 	//rotate the object in its own local space
-	_owner->rotate( glm::radians(turnSpeed*pStep), glm::vec3(0.0f, 1.0f, 0.0f ) );
+	//_owner->rotate( glm::radians(turnSpeed*pStep), glm::vec3(0.0f, 1.0f, 0.0f ) );
+	_owner->rotate( glm::radians(turnSpeed*pStep), glm::vec3(1.0f, 0.0f, 0.0f ) );
 
 	//NOTE:
 	//The reason the above happens in the local space of the object and not in the world space

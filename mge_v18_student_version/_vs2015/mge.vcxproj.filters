@@ -11,14 +11,80 @@
     <Filter Include="MGE Source files\mge\behaviours">
       <UniqueIdentifier>{62606aaf-8ae3-4195-9a83-22a2c9d20af1}</UniqueIdentifier>
     </Filter>
-    <Filter Include="MGE Source files\mge\core">
-      <UniqueIdentifier>{4394d90a-ffa0-485d-98ea-1e91842edda6}</UniqueIdentifier>
-    </Filter>
     <Filter Include="MGE Source files\mge\materials">
       <UniqueIdentifier>{88a48024-4c44-40c0-a658-f27957d6b003}</UniqueIdentifier>
     </Filter>
     <Filter Include="MGE Source files\mge\util">
       <UniqueIdentifier>{7d824c34-4bb6-43a4-a48a-0d68b7aad6e5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="LuaScripts">
+      <UniqueIdentifier>{8c3ea338-b3da-4523-a9b9-741131bd1630}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Shaders">
+      <UniqueIdentifier>{73a21963-a059-4ee7-a072-8d26a76b3bb6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Textures">
+      <UniqueIdentifier>{d82a0eda-d925-48fd-9d80-82807a531e7d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MGE Source files\mge\scenes">
+      <UniqueIdentifier>{fdff79f7-3288-4d4a-9a21-27e7905cf53a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MGE Source files\mge\util\LuaScripting">
+      <UniqueIdentifier>{77601d15-d1d9-46fb-849f-10d7f1e24530}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MGE Source files\mge\util\LevelEditor">
+      <UniqueIdentifier>{39255c40-2e47-495d-98c6-32074920cc12}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MGE Source files\mge\util\LevelEditor\Factories">
+      <UniqueIdentifier>{730ed11b-73e1-4438-a22f-1d636babeebe}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Models">
+      <UniqueIdentifier>{2e5d919d-5f57-4633-907c-7b5440309a0b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MGE Source files\mge\gameplay">
+      <UniqueIdentifier>{a1aa9017-863b-4a9a-a565-2986f23cfd4e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MGE Source files\mge\gameplay\Command">
+      <UniqueIdentifier>{19f6ca53-a1cf-483f-97fd-46e02ca601aa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MGE Source files\mge\gameplay\GameObjects">
+      <UniqueIdentifier>{1e7d5f18-4191-4153-873b-80f872fd227e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="LuaScripts\Levels">
+      <UniqueIdentifier>{b8de47c0-7ec8-46fa-94ee-da9985931e79}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MGE Source files\mge\gameplay\Input">
+      <UniqueIdentifier>{a4198c19-9e2f-4cac-8fcd-fd6adf093efc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MGE Source files\mge\util\EventQueue">
+      <UniqueIdentifier>{9cb55cb0-c3c8-4343-bb1a-67545f9c2e03}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MGE Source files\mge\gameplay\Button">
+      <UniqueIdentifier>{4c92c722-d155-4310-8ae3-aaf577c29bda}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MGE Source files\mge\UI">
+      <UniqueIdentifier>{12bdbe3e-6e29-43cf-afc9-d70df04f3c9f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="LuaScripts\UI">
+      <UniqueIdentifier>{686ac6fb-b083-4358-a590-89e296f9a48f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Models\Gameplay">
+      <UniqueIdentifier>{90b19fe9-56f8-4751-a855-741a692a7199}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Models\Background">
+      <UniqueIdentifier>{810215f7-fdbf-41f1-b44a-1d357bd70e1b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Textures\Models">
+      <UniqueIdentifier>{0716f103-7e0a-4ef2-8790-9196a4b7bae1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Textures\UI">
+      <UniqueIdentifier>{4d54f553-4a68-4eba-b302-d81d2b87f9fe}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MGE Source files\mge\Audio">
+      <UniqueIdentifier>{751bc222-8c9b-4445-b2a6-2ed9830d975e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MGE Source files\mge\core">
+      <UniqueIdentifier>{4394d90a-ffa0-485d-98ea-1e91842edda6}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -77,11 +143,227 @@
       <Filter>MGE Source files\mge\core</Filter>
     </ClInclude>
     <ClInclude Include="..\src\main.h" />
-    <ClInclude Include="..\src\mge\MGEDemo.hpp">
-      <Filter>MGE Source files</Filter>
+    <ClInclude Include="..\src\mge\behaviours\CameraOrbitBehaviour.hpp">
+      <Filter>MGE Source files\mge\behaviours</Filter>
     </ClInclude>
-    <ClInclude Include="..\src\mge\TristanScene.h">
-      <Filter>MGE Source files\mge</Filter>
+    <ClInclude Include="..\src\mge\materials\WobbleMaterial.hpp">
+      <Filter>MGE Source files\mge\materials</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\mge\materials\LitMaterial.hpp">
+      <Filter>MGE Source files\mge\materials</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\mge\materials\TerrainMaterial.hpp">
+      <Filter>MGE Source files\mge\materials</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\mge\behaviours\LuaBehaviour.hpp">
+      <Filter>MGE Source files\mge\behaviours</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\mge\scenes\BrokenOBJ.hpp">
+      <Filter>MGE Source files\mge\scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\mge\scenes\DesignerScene.hpp">
+      <Filter>MGE Source files\mge\scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\mge\scenes\GameOfLife.h">
+      <Filter>MGE Source files\mge\scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\mge\scenes\MGEDemo.hpp">
+      <Filter>MGE Source files\mge\scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\mge\scenes\TerrainScene.hpp">
+      <Filter>MGE Source files\mge\scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\mge\scenes\TristanScene.h">
+      <Filter>MGE Source files\mge\scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\mge\util\LuaScripting\DisplayGrid.h">
+      <Filter>MGE Source files\mge\util\LuaScripting</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\mge\util\LuaScripting\LuaWrapper.hpp">
+      <Filter>MGE Source files\mge\util\LuaScripting</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\mge\util\LuaScripting\RectangleShapeWrapper.hpp">
+      <Filter>MGE Source files\mge\util\LuaScripting</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\mge\util\LevelEditor\Level.hpp">
+      <Filter>MGE Source files\mge\util\LevelEditor</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\mge\behaviours\NullBehaviour.hpp">
+      <Filter>MGE Source files\mge\behaviours</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\mge\scenes\GameScene.hpp">
+      <Filter>MGE Source files\mge\scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\mge\util\LevelEditor\Factories\CameraFactory.hpp">
+      <Filter>MGE Source files\mge\util\LevelEditor\Factories</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\mge\util\LevelEditor\Factories\SwitchFactory.hpp">
+      <Filter>MGE Source files\mge\util\LevelEditor\Factories</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\mge\util\LevelEditor\Factories\PlayerFactory.hpp">
+      <Filter>MGE Source files\mge\util\LevelEditor\Factories</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\mge\util\LevelEditor\Factories\TileFactory.hpp">
+      <Filter>MGE Source files\mge\util\LevelEditor\Factories</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\mge\util\LevelEditor\Factories\ExitFactory.hpp">
+      <Filter>MGE Source files\mge\util\LevelEditor\Factories</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\mge\util\LevelEditor\Factories\BoxFactory.hpp">
+      <Filter>MGE Source files\mge\util\LevelEditor\Factories</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\mge\util\LevelEditor\Factories\StartFactory.hpp">
+      <Filter>MGE Source files\mge\util\LevelEditor\Factories</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\mge\gameplay\Node.hpp">
+      <Filter>MGE Source files\mge\gameplay</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\mge\behaviours\MovableBehaviour.hpp">
+      <Filter>MGE Source files\mge\behaviours</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\mge\util\LevelEditor\Factories\AbstractFactory.hpp">
+      <Filter>MGE Source files\mge\util\LevelEditor\Factories</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\mge\gameplay\Command\Command.hpp">
+      <Filter>MGE Source files\mge\gameplay\Command</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\mge\gameplay\Command\UpCommand.hpp">
+      <Filter>MGE Source files\mge\gameplay\Command</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\mge\gameplay\Command\DownCommand.hpp">
+      <Filter>MGE Source files\mge\gameplay\Command</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\mge\gameplay\Command\LeftCommand.hpp">
+      <Filter>MGE Source files\mge\gameplay\Command</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\mge\gameplay\Command\RightCommand.hpp">
+      <Filter>MGE Source files\mge\gameplay\Command</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\mge\gameplay\GameObjects\TileObject.hpp">
+      <Filter>MGE Source files\mge\gameplay\GameObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\mge\gameplay\Input\BoxInput.hpp">
+      <Filter>MGE Source files\mge\gameplay\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\mge\gameplay\Input\InputHandler.hpp">
+      <Filter>MGE Source files\mge\gameplay\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\mge\gameplay\Input\PlayerInput.hpp">
+      <Filter>MGE Source files\mge\gameplay\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\mge\gameplay\Command\MoveCommand.hpp">
+      <Filter>MGE Source files\mge\gameplay\Command</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\mge\core\Observer.hpp">
+      <Filter>MGE Source files\mge\core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\mge\core\Subject.hpp">
+      <Filter>MGE Source files\mge\core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\mge\behaviours\SwitchBehaviour.hpp">
+      <Filter>MGE Source files\mge\behaviours</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\mge\behaviours\ExitBehaviour.hpp">
+      <Filter>MGE Source files\mge\behaviours</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\mge\util\EventQueue\EventQueue.hpp">
+      <Filter>MGE Source files\mge\util\EventQueue</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\mge\util\EventQueue\EventStructs.hpp">
+      <Filter>MGE Source files\mge\util\EventQueue</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\mge\gameplay\StepTracker.hpp">
+      <Filter>MGE Source files\mge\gameplay</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\mge\util\LevelEditor\ObjectCreator.hpp">
+      <Filter>MGE Source files\mge\util\LevelEditor</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\mge\gameplay\ButtonManager.hpp">
+      <Filter>MGE Source files\mge\gameplay</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\mge\gameplay\Button\Button.hpp">
+      <Filter>MGE Source files\mge\gameplay\Button</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\mge\gameplay\Input\MouseInput.hpp">
+      <Filter>MGE Source files\mge\gameplay\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\mge\behaviours\MouseBehaviour.hpp">
+      <Filter>MGE Source files\mge\behaviours</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\mge\gameplay\Command\StartCommand.hpp">
+      <Filter>MGE Source files\mge\gameplay\Command</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\mge\User Interface\MainMenu.hpp">
+      <Filter>MGE Source files\mge\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\mge\gameplay\Command\ExitCommand.hpp">
+      <Filter>MGE Source files\mge\gameplay\Command</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\mge\User Interface\HUD.hpp">
+      <Filter>MGE Source files\mge\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\mge\User Interface\UIStepCounter.hpp">
+      <Filter>MGE Source files\mge\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\mge\util\LevelEditor\PropCreator.hpp">
+      <Filter>MGE Source files\mge\util\LevelEditor</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\mge\User Interface\Dialogue.hpp">
+      <Filter>MGE Source files\mge\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\mge\User Interface\DeathScreen.hpp">
+      <Filter>MGE Source files\mge\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\mge\gameplay\Command\RetryCommand.hpp">
+      <Filter>MGE Source files\mge\gameplay\Command</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\mge\gameplay\Command\QuitCommand.hpp">
+      <Filter>MGE Source files\mge\gameplay\Command</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\mge\User Interface\PauseScreen.hpp">
+      <Filter>MGE Source files\mge\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\mge\gameplay\Command\ContinueCommand.hpp">
+      <Filter>MGE Source files\mge\gameplay\Command</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\mge\gameplay\Command\CreditsCommand.hpp">
+      <Filter>MGE Source files\mge\gameplay\Command</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\mge\User Interface\CreditsScreen.hpp">
+      <Filter>MGE Source files\mge\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\mge\Audio\SoundEffect.hpp">
+      <Filter>MGE Source files\mge\Audio</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\mge\Audio\AudioManager.hpp">
+      <Filter>MGE Source files\mge\Audio</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\mge\behaviours\QueueBehaviour.hpp">
+      <Filter>MGE Source files\mge\behaviours</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\mge\Audio\AudioBank.hpp">
+      <Filter>MGE Source files\mge\Audio</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\mge\Audio\IAudio.hpp">
+      <Filter>MGE Source files\mge\Audio</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\mge\Audio\AudioLocator.hpp">
+      <Filter>MGE Source files\mge\Audio</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\mge\Audio\AudioEnums.hpp">
+      <Filter>MGE Source files\mge\Audio</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\mge\User Interface\ControleScreen.hpp">
+      <Filter>MGE Source files\mge\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\mge\gameplay\Command\ControlsCommand.hpp">
+      <Filter>MGE Source files\mge\gameplay\Command</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\mge\util\Tweener.hpp">
+      <Filter>MGE Source files\mge\util</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\mge\behaviours\HeartbeatBehaviour.hpp">
+      <Filter>MGE Source files\mge\behaviours</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -136,14 +418,373 @@
     <ClCompile Include="..\src\mge\core\Light.cpp">
       <Filter>MGE Source files\mge\core</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\mge\MGEDemo.cpp">
-      <Filter>MGE Source files</Filter>
+    <ClCompile Include="..\src\mge\behaviours\CameraOrbitBehaviour.cpp">
+      <Filter>MGE Source files\mge\behaviours</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\mge\TristanScene.cpp">
-      <Filter>MGE Source files\mge</Filter>
+    <ClCompile Include="..\src\mge\materials\WobbleMaterial.cpp">
+      <Filter>MGE Source files\mge\materials</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\mge\materials\LitMaterial.cpp">
+      <Filter>MGE Source files\mge\materials</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\mge\materials\TerrainMaterial.cpp">
+      <Filter>MGE Source files\mge\materials</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\mge\behaviours\LuaBehaviour.cpp">
+      <Filter>MGE Source files\mge\behaviours</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\mge\scenes\BrokenOBJ.cpp">
+      <Filter>MGE Source files\mge\scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\mge\scenes\DesignerScene.cpp">
+      <Filter>MGE Source files\mge\scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\mge\scenes\GameOfLife.cpp">
+      <Filter>MGE Source files\mge\scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\mge\scenes\MGEDemo.cpp">
+      <Filter>MGE Source files\mge\scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\mge\scenes\TerrainScene.cpp">
+      <Filter>MGE Source files\mge\scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\mge\scenes\TristanScene.cpp">
+      <Filter>MGE Source files\mge\scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\mge\util\LuaScripting\DisplayGrid.cpp">
+      <Filter>MGE Source files\mge\util\LuaScripting</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\mge\util\LuaScripting\LuaWrapper.cpp">
+      <Filter>MGE Source files\mge\util\LuaScripting</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\mge\util\LuaScripting\RectangleShapeWrapper.cpp">
+      <Filter>MGE Source files\mge\util\LuaScripting</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\mge\util\LevelEditor\Level.cpp">
+      <Filter>MGE Source files\mge\util\LevelEditor</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\mge\behaviours\NullBehaviour.cpp">
+      <Filter>MGE Source files\mge\behaviours</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\mge\scenes\GameScene.cpp">
+      <Filter>MGE Source files\mge\scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\mge\util\LevelEditor\Factories\CameraFactory.cpp">
+      <Filter>MGE Source files\mge\util\LevelEditor\Factories</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\mge\util\LevelEditor\Factories\SwitchFactory.cpp">
+      <Filter>MGE Source files\mge\util\LevelEditor\Factories</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\mge\util\LevelEditor\Factories\PlayerFactory.cpp">
+      <Filter>MGE Source files\mge\util\LevelEditor\Factories</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\mge\util\LevelEditor\Factories\TileFactory.cpp">
+      <Filter>MGE Source files\mge\util\LevelEditor\Factories</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\mge\util\LevelEditor\Factories\ExitFactory.cpp">
+      <Filter>MGE Source files\mge\util\LevelEditor\Factories</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\mge\util\LevelEditor\Factories\BoxFactory.cpp">
+      <Filter>MGE Source files\mge\util\LevelEditor\Factories</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\mge\util\LevelEditor\Factories\StartFactory.cpp">
+      <Filter>MGE Source files\mge\util\LevelEditor\Factories</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\mge\gameplay\Node.cpp">
+      <Filter>MGE Source files\mge\gameplay</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\mge\util\LevelEditor\Factories\AbstractFactory.cpp">
+      <Filter>MGE Source files\mge\util\LevelEditor\Factories</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\mge\behaviours\MovableBehaviour.cpp">
+      <Filter>MGE Source files\mge\behaviours</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\mge\gameplay\Command\Command.cpp">
+      <Filter>MGE Source files\mge\gameplay\Command</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\mge\gameplay\Command\UpCommand.cpp">
+      <Filter>MGE Source files\mge\gameplay\Command</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\mge\gameplay\Command\DownCommand.cpp">
+      <Filter>MGE Source files\mge\gameplay\Command</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\mge\gameplay\Command\LeftCommand.cpp">
+      <Filter>MGE Source files\mge\gameplay\Command</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\mge\gameplay\Command\RightCommand.cpp">
+      <Filter>MGE Source files\mge\gameplay\Command</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\mge\gameplay\GameObjects\TileObject.cpp">
+      <Filter>MGE Source files\mge\gameplay\GameObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\mge\gameplay\Input\InputHandler.cpp">
+      <Filter>MGE Source files\mge\gameplay\Input</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\mge\gameplay\Input\PlayerInput.cpp">
+      <Filter>MGE Source files\mge\gameplay\Input</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\mge\gameplay\Input\BoxInput.cpp">
+      <Filter>MGE Source files\mge\gameplay\Input</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\mge\gameplay\Command\MoveCommand.cpp">
+      <Filter>MGE Source files\mge\gameplay\Command</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\mge\behaviours\SwitchBehaviour.cpp">
+      <Filter>MGE Source files\mge\behaviours</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\mge\behaviours\ExitBehaviour.cpp">
+      <Filter>MGE Source files\mge\behaviours</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\mge\util\EventQueue\EventQueue.cpp">
+      <Filter>MGE Source files\mge\util\EventQueue</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\mge\gameplay\StepTracker.cpp">
+      <Filter>MGE Source files\mge\gameplay</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\mge\util\LevelEditor\ObjectCreator.cpp">
+      <Filter>MGE Source files\mge\util\LevelEditor</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\mge\gameplay\ButtonManager.cpp">
+      <Filter>MGE Source files\mge\gameplay</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\mge\gameplay\Button\Button.cpp">
+      <Filter>MGE Source files\mge\gameplay\Button</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\mge\gameplay\Input\MouseInput.cpp">
+      <Filter>MGE Source files\mge\gameplay\Input</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\mge\behaviours\MouseBehaviour.cpp">
+      <Filter>MGE Source files\mge\behaviours</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\mge\gameplay\Command\StartCommand.cpp">
+      <Filter>MGE Source files\mge\gameplay\Command</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\mge\User Interface\MainMenu.cpp">
+      <Filter>MGE Source files\mge\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\mge\gameplay\Command\ExitCommand.cpp">
+      <Filter>MGE Source files\mge\gameplay\Command</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\mge\User Interface\HUD.cpp">
+      <Filter>MGE Source files\mge\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\mge\User Interface\UIStepCounter.cpp">
+      <Filter>MGE Source files\mge\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\mge\util\LevelEditor\PropCreator.cpp">
+      <Filter>MGE Source files\mge\util\LevelEditor</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\mge\User Interface\Dialogue.cpp">
+      <Filter>MGE Source files\mge\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\mge\User Interface\DeathScreen.cpp">
+      <Filter>MGE Source files\mge\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\mge\gameplay\Command\RetryCommand.cpp">
+      <Filter>MGE Source files\mge\gameplay\Command</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\mge\gameplay\Command\QuitCommand.cpp">
+      <Filter>MGE Source files\mge\gameplay\Command</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\mge\User Interface\PauseScreen.cpp">
+      <Filter>MGE Source files\mge\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\mge\gameplay\Command\ContinueCommand.cpp">
+      <Filter>MGE Source files\mge\gameplay\Command</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\mge\gameplay\Command\CreditsCommand.cpp">
+      <Filter>MGE Source files\mge\gameplay\Command</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\mge\User Interface\CreditsScreen.cpp">
+      <Filter>MGE Source files\mge\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\mge\Audio\SoundEffect.cpp">
+      <Filter>MGE Source files\mge\Audio</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\mge\Audio\AudioManager.cpp">
+      <Filter>MGE Source files\mge\Audio</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\mge\behaviours\QueueBehaviour.cpp">
+      <Filter>MGE Source files\mge\behaviours</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\mge\Audio\AudioBank.cpp">
+      <Filter>MGE Source files\mge\Audio</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\mge\Audio\AudioLocator.cpp">
+      <Filter>MGE Source files\mge\Audio</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\mge\User Interface\ControleScreen.cpp">
+      <Filter>MGE Source files\mge\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\mge\gameplay\Command\ControlsCommand.cpp">
+      <Filter>MGE Source files\mge\gameplay\Command</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\mge\util\Tweener.cpp">
+      <Filter>MGE Source files\mge\util</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\mge\behaviours\HeartbeatBehaviour.cpp">
+      <Filter>MGE Source files\mge\behaviours</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram.cd" />
+  </ItemGroup>
+  <ItemGroup>
+    <CopyFileToFolders Include="..\assets\LuaGameScripts\config.lua">
+      <Filter>LuaScripts</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="..\assets\LuaGameScripts\ModelViewer.lua">
+      <Filter>LuaScripts</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="..\assets\mge\shaders\color.fs">
+      <Filter>Shaders</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="..\assets\mge\shaders\color.vs">
+      <Filter>Shaders</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="..\assets\mge\shaders\lit.fs">
+      <Filter>Shaders</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="..\assets\mge\shaders\lit.vs">
+      <Filter>Shaders</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="..\assets\mge\shaders\terrain.fs">
+      <Filter>Shaders</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="..\assets\mge\shaders\terrain.vs">
+      <Filter>Shaders</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="..\assets\mge\shaders\texture.fs">
+      <Filter>Shaders</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="..\assets\mge\shaders\texture.vs">
+      <Filter>Shaders</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="..\assets\mge\shaders\wobble.fs">
+      <Filter>Shaders</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="..\assets\mge\shaders\wobble.vs">
+      <Filter>Shaders</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="..\assets\LuaGameScripts\GameObject.lua">
+      <Filter>LuaScripts</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="..\assets\LuaGameScripts\Tile.lua">
+      <Filter>LuaScripts</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="..\assets\LuaGameScripts\Box.lua">
+      <Filter>LuaScripts</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="..\assets\LuaGameScripts\Exit.lua">
+      <Filter>LuaScripts</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="..\assets\LuaGameScripts\Player.lua">
+      <Filter>LuaScripts</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="..\assets\LuaGameScripts\Switch.lua">
+      <Filter>LuaScripts</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="..\assets\LuaGameScripts\Start.lua">
+      <Filter>LuaScripts</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="..\assets\LuaGameScripts\Level\Level_1.lua">
+      <Filter>LuaScripts\Levels</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="..\assets\LuaGameScripts\Level\Level_2.lua">
+      <Filter>LuaScripts\Levels</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="..\assets\LuaGameScripts\Level\Level_3.lua">
+      <Filter>LuaScripts\Levels</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="..\assets\LuaGameScripts\Level\Level_4.lua">
+      <Filter>LuaScripts\Levels</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="..\assets\LuaGameScripts\Level\Level_5.lua">
+      <Filter>LuaScripts\Levels</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="..\assets\LuaGameScripts\Level\Level_6.lua">
+      <Filter>LuaScripts\Levels</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="..\assets\LuaGameScripts\Level\Level_Info.lua">
+      <Filter>LuaScripts\Levels</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="..\assets\LuaGameScripts\UI\HUD.lua">
+      <Filter>LuaScripts\UI</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="..\assets\mge\models\Box.obj">
+      <Filter>Models\Gameplay</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="..\assets\mge\models\Exit.obj">
+      <Filter>Models\Gameplay</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="..\assets\mge\models\GenTile.obj">
+      <Filter>Models\Gameplay</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="..\assets\mge\models\Start.obj">
+      <Filter>Models\Gameplay</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="..\assets\mge\models\Switch.obj">
+      <Filter>Models\Gameplay</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="..\assets\mge\models\Level_2_BG.obj">
+      <Filter>Models\Background</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="..\assets\mge\textures\Box.png">
+      <Filter>Textures\Models</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="..\assets\mge\textures\Exit.png">
+      <Filter>Textures\Models</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="..\assets\mge\textures\GenTile.png">
+      <Filter>Textures\Models</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="..\assets\mge\textures\Level_2_BG.png">
+      <Filter>Textures\Models</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="..\assets\mge\textures\Player.png">
+      <Filter>Textures\Models</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="..\assets\mge\textures\Start.png">
+      <Filter>Textures\Models</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="..\assets\mge\textures\Switch.png">
+      <Filter>Textures\Models</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="..\assets\mge\UI\Exit_Button.png">
+      <Filter>Textures\UI</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="..\assets\mge\UI\Footsteps.png">
+      <Filter>Textures\UI</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="..\assets\mge\UI\Start_Button.png">
+      <Filter>Textures\UI</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="..\assets\mge\models\Player.obj">
+      <Filter>Models\Gameplay</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="..\assets\LuaGameScripts\UI\Dialogue.lua">
+      <Filter>LuaScripts\UI</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="..\assets\LuaGameScripts\UI\MainMenu.lua">
+      <Filter>LuaScripts\UI</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="..\assets\LuaGameScripts\UI\DialogueLocation.lua">
+      <Filter>LuaScripts\UI</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="..\assets\mge\UI\MainMenu_background.png">
+      <Filter>Textures\UI</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="..\assets\mge\UI\MainMenu_exit_button.png">
+      <Filter>Textures\UI</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="..\assets\mge\UI\MainMenu_start_button.png">
+      <Filter>Textures\UI</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="..\assets\LuaGameScripts\UIObject.lua">
+      <Filter>LuaScripts</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="..\assets\LuaGameScripts\Audio.lua">
+      <Filter>LuaScripts</Filter>
+    </CopyFileToFolders>
   </ItemGroup>
 </Project>

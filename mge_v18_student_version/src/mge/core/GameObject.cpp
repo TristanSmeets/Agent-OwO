@@ -12,7 +12,7 @@ GameObject::GameObject(const std::string& pName, const glm::vec3& pPosition )
 GameObject::~GameObject()
 {
     //detach all children
-    std::cout << "GC running on:" << _name << std::endl;
+    std::cout << "GC running on GameObject: " << _name << std::endl;
 
     while (_children.size() > 0) {
         GameObject* child = _children[0];
@@ -20,6 +20,9 @@ GameObject::~GameObject()
         delete child;
     }
 
+	if(_behaviour != nullptr) _behaviour = nullptr;
+	if(_material != nullptr) _material = nullptr;
+	_world = nullptr;
     //do not forget to delete behaviour, material, mesh, collider manually if required!
 }
 
@@ -178,6 +181,19 @@ void GameObject::update(float pStep)
     for (int i = _children.size()-1; i >= 0; --i ) {
         _children[i]->update(pStep);
     }
+}
+
+void GameObject::lateUpdate(float pStep)
+{
+	if (_behaviour)
+	{
+		_behaviour->lateUpdate(pStep);
+	}
+
+	for (int index = _children.size() - 1; index >= 0; --index)
+	{
+		_children[index]->lateUpdate(pStep);
+	}
 }
 
 void GameObject::_setWorldRecursively (World* pWorld) {

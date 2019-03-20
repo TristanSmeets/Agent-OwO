@@ -22,7 +22,7 @@
     <ProjectGuid>{9BF1737F-5BBF-413D-A25B-8DA45BE5CF13}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>mge</RootNamespace>
-    <WindowsTargetPlatformVersion>10.0.17134.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0.17763.0</WindowsTargetPlatformVersion>
     <ProjectName>mge</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -101,12 +101,12 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>../src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>../src;$(ProjectDir)../vs_extended/include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>glew32d.lib;opengl32.lib;sfml-graphics-d.lib;sfml-system-d.lib;sfml-window-d.lib;sfml-audio-d.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>glew32sd.lib;sfml-graphics-s-d.lib;sfml-window-s-d.lib;sfml-audio-s-d.lib;sfml-system-s-d.lib;opengl32.lib;freetype.lib;jpeg.lib;winmm.lib;gdi32.lib;openal32.lib;flac.lib;vorbisenc.lib;vorbisfile.lib;vorbis.lib;ogg.lib;ws2_32.lib;lua.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug Static|Win32'">
@@ -116,12 +116,13 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;SFML_STATIC;GLEW_STATIC;WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>../src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>../src;$(ProjectDir)../vs_extended/include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>glew32sd.lib;sfml-graphics-s-d.lib;sfml-window-s-d.lib;sfml-audio-s-d.lib;sfml-system-s-d.lib;opengl32.lib;freetype.lib;jpeg.lib;winmm.lib;gdi32.lib;openal32.lib;flac.lib;vorbisenc.lib;vorbisfile.lib;vorbis.lib;ogg.lib;ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>glew32sd.lib;sfml-graphics-s-d.lib;sfml-window-s-d.lib;sfml-audio-s-d.lib;sfml-system-s-d.lib;opengl32.lib;freetype.lib;jpeg.lib;winmm.lib;gdi32.lib;openal32.lib;flac.lib;vorbisenc.lib;vorbisfile.lib;vorbis.lib;ogg.lib;ws2_32.lib;lua.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(ProjectDir)../vs_extended/lib</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release Dynamic|Win32'">
@@ -133,14 +134,14 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>../src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>../src;$(ProjectDir)../vs_extended/include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>glew32.lib;opengl32.lib;sfml-graphics.lib;sfml-system.lib;sfml-window.lib;sfml-audio.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>glew32sd.lib;sfml-graphics-s-d.lib;sfml-window-s-d.lib;sfml-audio-s-d.lib;sfml-system-s-d.lib;opengl32.lib;freetype.lib;jpeg.lib;winmm.lib;gdi32.lib;openal32.lib;flac.lib;vorbisenc.lib;vorbisfile.lib;vorbis.lib;ogg.lib;ws2_32.lib;lua.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release Static|Win32'">
@@ -152,14 +153,14 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;SFML_STATIC;GLEW_STATIC;WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>../src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>../src;$(ProjectDir)../vs_extended/include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>glew32s.lib;sfml-graphics-s.lib;sfml-window-s.lib;sfml-audio-s.lib;sfml-system-s.lib;opengl32.lib;freetype.lib;jpeg.lib;winmm.lib;gdi32.lib;openal32.lib;flac.lib;vorbisenc.lib;vorbisfile.lib;vorbis.lib;ogg.lib;ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>glew32sd.lib;sfml-graphics-s-d.lib;sfml-window-s-d.lib;sfml-audio-s-d.lib;sfml-system-s-d.lib;opengl32.lib;freetype.lib;jpeg.lib;winmm.lib;gdi32.lib;openal32.lib;flac.lib;vorbisenc.lib;vorbisfile.lib;vorbis.lib;ogg.lib;ws2_32.lib;lua.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <IgnoreAllDefaultLibraries>
       </IgnoreAllDefaultLibraries>
       <IgnoreSpecificDefaultLibraries>LIBCMT</IgnoreSpecificDefaultLibraries>
@@ -168,31 +169,116 @@
   <ItemGroup>
     <ClInclude Include="..\src\glm.hpp" />
     <ClInclude Include="..\src\main.h" />
+    <ClInclude Include="..\src\mge\Audio\AudioBank.hpp" />
+    <ClInclude Include="..\src\mge\Audio\AudioEnums.hpp" />
+    <ClInclude Include="..\src\mge\Audio\AudioLocator.hpp" />
+    <ClInclude Include="..\src\mge\Audio\AudioManager.hpp" />
+    <ClInclude Include="..\src\mge\Audio\IAudio.hpp" />
+    <ClInclude Include="..\src\mge\Audio\SoundEffect.hpp" />
     <ClInclude Include="..\src\mge\behaviours\AbstractBehaviour.hpp" />
+    <ClInclude Include="..\src\mge\behaviours\CameraOrbitBehaviour.hpp" />
+    <ClInclude Include="..\src\mge\behaviours\HeartbeatBehaviour.hpp" />
+    <ClInclude Include="..\src\mge\behaviours\QueueBehaviour.hpp" />
+    <ClInclude Include="..\src\mge\behaviours\ExitBehaviour.hpp" />
     <ClInclude Include="..\src\mge\behaviours\KeysBehaviour.hpp" />
+    <ClInclude Include="..\src\mge\behaviours\LuaBehaviour.hpp" />
+    <ClInclude Include="..\src\mge\behaviours\MouseBehaviour.hpp" />
+    <ClInclude Include="..\src\mge\behaviours\MovableBehaviour.hpp" />
+    <ClInclude Include="..\src\mge\behaviours\NullBehaviour.hpp" />
     <ClInclude Include="..\src\mge\behaviours\RotatingBehaviour.hpp" />
+    <ClInclude Include="..\src\mge\behaviours\SwitchBehaviour.hpp" />
     <ClInclude Include="..\src\mge\config.hpp" />
     <ClInclude Include="..\src\mge\core\AbstractGame.hpp" />
     <ClInclude Include="..\src\mge\core\Camera.hpp" />
     <ClInclude Include="..\src\mge\core\GameObject.hpp" />
     <ClInclude Include="..\src\mge\core\Light.hpp" />
     <ClInclude Include="..\src\mge\core\Mesh.hpp" />
+    <ClInclude Include="..\src\mge\core\Observer.hpp" />
     <ClInclude Include="..\src\mge\core\Renderer.hpp" />
     <ClInclude Include="..\src\mge\core\ShaderProgram.hpp" />
+    <ClInclude Include="..\src\mge\core\Subject.hpp" />
     <ClInclude Include="..\src\mge\core\Texture.hpp" />
     <ClInclude Include="..\src\mge\core\World.hpp" />
+    <ClInclude Include="..\src\mge\gameplay\ButtonManager.hpp" />
+    <ClInclude Include="..\src\mge\gameplay\Button\Button.hpp" />
+    <ClInclude Include="..\src\mge\gameplay\Command\Command.hpp" />
+    <ClInclude Include="..\src\mge\gameplay\Command\ContinueCommand.hpp" />
+    <ClInclude Include="..\src\mge\gameplay\Command\ControlsCommand.hpp" />
+    <ClInclude Include="..\src\mge\gameplay\Command\CreditsCommand.hpp" />
+    <ClInclude Include="..\src\mge\gameplay\Command\DownCommand.hpp" />
+    <ClInclude Include="..\src\mge\gameplay\Command\ExitCommand.hpp" />
+    <ClInclude Include="..\src\mge\gameplay\Command\LeftCommand.hpp" />
+    <ClInclude Include="..\src\mge\gameplay\Command\MoveCommand.hpp" />
+    <ClInclude Include="..\src\mge\gameplay\Command\QuitCommand.hpp" />
+    <ClInclude Include="..\src\mge\gameplay\Command\RetryCommand.hpp" />
+    <ClInclude Include="..\src\mge\gameplay\Command\RightCommand.hpp" />
+    <ClInclude Include="..\src\mge\gameplay\Command\StartCommand.hpp" />
+    <ClInclude Include="..\src\mge\gameplay\Command\UpCommand.hpp" />
+    <ClInclude Include="..\src\mge\gameplay\GameObjects\TileObject.hpp" />
+    <ClInclude Include="..\src\mge\gameplay\Input\BoxInput.hpp" />
+    <ClInclude Include="..\src\mge\gameplay\Input\InputHandler.hpp" />
+    <ClInclude Include="..\src\mge\gameplay\Input\MouseInput.hpp" />
+    <ClInclude Include="..\src\mge\gameplay\Input\PlayerInput.hpp" />
+    <ClInclude Include="..\src\mge\gameplay\Node.hpp" />
+    <ClInclude Include="..\src\mge\gameplay\StepTracker.hpp" />
     <ClInclude Include="..\src\mge\materials\AbstractMaterial.hpp" />
     <ClInclude Include="..\src\mge\materials\ColorMaterial.hpp" />
+    <ClInclude Include="..\src\mge\materials\LitMaterial.hpp" />
+    <ClInclude Include="..\src\mge\materials\TerrainMaterial.hpp" />
     <ClInclude Include="..\src\mge\materials\TextureMaterial.hpp" />
-    <ClInclude Include="..\src\mge\MGEDemo.hpp" />
-    <ClInclude Include="..\src\mge\TristanScene.h" />
+    <ClInclude Include="..\src\mge\materials\WobbleMaterial.hpp" />
+    <ClInclude Include="..\src\mge\scenes\BrokenOBJ.hpp" />
+    <ClInclude Include="..\src\mge\scenes\DesignerScene.hpp" />
+    <ClInclude Include="..\src\mge\scenes\GameOfLife.h" />
+    <ClInclude Include="..\src\mge\scenes\GameScene.hpp" />
+    <ClInclude Include="..\src\mge\scenes\MGEDemo.hpp" />
+    <ClInclude Include="..\src\mge\scenes\TerrainScene.hpp" />
+    <ClInclude Include="..\src\mge\scenes\TristanScene.h" />
+    <ClInclude Include="..\src\mge\User Interface\ControleScreen.hpp" />
+    <ClInclude Include="..\src\mge\User Interface\CreditsScreen.hpp" />
+    <ClInclude Include="..\src\mge\User Interface\DeathScreen.hpp" />
+    <ClInclude Include="..\src\mge\User Interface\Dialogue.hpp" />
+    <ClInclude Include="..\src\mge\User Interface\HUD.hpp" />
+    <ClInclude Include="..\src\mge\User Interface\MainMenu.hpp" />
+    <ClInclude Include="..\src\mge\User Interface\PauseScreen.hpp" />
+    <ClInclude Include="..\src\mge\User Interface\UIStepCounter.hpp" />
     <ClInclude Include="..\src\mge\util\DebugHud.hpp" />
+    <ClInclude Include="..\src\mge\util\EventQueue\EventQueue.hpp" />
+    <ClInclude Include="..\src\mge\util\EventQueue\EventStructs.hpp" />
+    <ClInclude Include="..\src\mge\util\LevelEditor\Factories\AbstractFactory.hpp" />
+    <ClInclude Include="..\src\mge\util\LevelEditor\Factories\BoxFactory.hpp" />
+    <ClInclude Include="..\src\mge\util\LevelEditor\Factories\CameraFactory.hpp" />
+    <ClInclude Include="..\src\mge\util\LevelEditor\Factories\ExitFactory.hpp" />
+    <ClInclude Include="..\src\mge\util\LevelEditor\Factories\PlayerFactory.hpp" />
+    <ClInclude Include="..\src\mge\util\LevelEditor\Factories\StartFactory.hpp" />
+    <ClInclude Include="..\src\mge\util\LevelEditor\Factories\SwitchFactory.hpp" />
+    <ClInclude Include="..\src\mge\util\LevelEditor\Factories\TileFactory.hpp" />
+    <ClInclude Include="..\src\mge\util\LevelEditor\Level.hpp" />
+    <ClInclude Include="..\src\mge\util\LevelEditor\ObjectCreator.hpp" />
+    <ClInclude Include="..\src\mge\util\LevelEditor\PropCreator.hpp" />
+    <ClInclude Include="..\src\mge\util\LuaScripting\DisplayGrid.h" />
+    <ClInclude Include="..\src\mge\util\LuaScripting\LuaWrapper.hpp" />
+    <ClInclude Include="..\src\mge\util\LuaScripting\RectangleShapeWrapper.hpp" />
+    <ClInclude Include="..\src\mge\util\Tweener.hpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\main.cpp" />
+    <ClCompile Include="..\src\mge\Audio\AudioBank.cpp" />
+    <ClCompile Include="..\src\mge\Audio\AudioLocator.cpp" />
+    <ClCompile Include="..\src\mge\Audio\AudioManager.cpp" />
+    <ClCompile Include="..\src\mge\Audio\SoundEffect.cpp" />
     <ClCompile Include="..\src\mge\behaviours\AbstractBehaviour.cpp" />
+    <ClCompile Include="..\src\mge\behaviours\CameraOrbitBehaviour.cpp" />
+    <ClCompile Include="..\src\mge\behaviours\HeartbeatBehaviour.cpp" />
+    <ClCompile Include="..\src\mge\behaviours\QueueBehaviour.cpp" />
+    <ClCompile Include="..\src\mge\behaviours\ExitBehaviour.cpp" />
     <ClCompile Include="..\src\mge\behaviours\KeysBehaviour.cpp" />
+    <ClCompile Include="..\src\mge\behaviours\LuaBehaviour.cpp" />
+    <ClCompile Include="..\src\mge\behaviours\MouseBehaviour.cpp" />
+    <ClCompile Include="..\src\mge\behaviours\MovableBehaviour.cpp" />
+    <ClCompile Include="..\src\mge\behaviours\NullBehaviour.cpp" />
     <ClCompile Include="..\src\mge\behaviours\RotatingBehaviour.cpp" />
+    <ClCompile Include="..\src\mge\behaviours\SwitchBehaviour.cpp" />
     <ClCompile Include="..\src\mge\core\AbstractGame.cpp" />
     <ClCompile Include="..\src\mge\core\Camera.cpp" />
     <ClCompile Include="..\src\mge\core\GameObject.cpp" />
@@ -202,15 +288,276 @@
     <ClCompile Include="..\src\mge\core\ShaderProgram.cpp" />
     <ClCompile Include="..\src\mge\core\Texture.cpp" />
     <ClCompile Include="..\src\mge\core\World.cpp" />
+    <ClCompile Include="..\src\mge\gameplay\ButtonManager.cpp" />
+    <ClCompile Include="..\src\mge\gameplay\Button\Button.cpp" />
+    <ClCompile Include="..\src\mge\gameplay\Command\Command.cpp" />
+    <ClCompile Include="..\src\mge\gameplay\Command\ContinueCommand.cpp" />
+    <ClCompile Include="..\src\mge\gameplay\Command\ControlsCommand.cpp" />
+    <ClCompile Include="..\src\mge\gameplay\Command\CreditsCommand.cpp" />
+    <ClCompile Include="..\src\mge\gameplay\Command\DownCommand.cpp" />
+    <ClCompile Include="..\src\mge\gameplay\Command\ExitCommand.cpp" />
+    <ClCompile Include="..\src\mge\gameplay\Command\LeftCommand.cpp" />
+    <ClCompile Include="..\src\mge\gameplay\Command\MoveCommand.cpp" />
+    <ClCompile Include="..\src\mge\gameplay\Command\QuitCommand.cpp" />
+    <ClCompile Include="..\src\mge\gameplay\Command\RetryCommand.cpp" />
+    <ClCompile Include="..\src\mge\gameplay\Command\RightCommand.cpp" />
+    <ClCompile Include="..\src\mge\gameplay\Command\StartCommand.cpp" />
+    <ClCompile Include="..\src\mge\gameplay\Command\UpCommand.cpp" />
+    <ClCompile Include="..\src\mge\gameplay\GameObjects\TileObject.cpp" />
+    <ClCompile Include="..\src\mge\gameplay\Input\BoxInput.cpp" />
+    <ClCompile Include="..\src\mge\gameplay\Input\InputHandler.cpp" />
+    <ClCompile Include="..\src\mge\gameplay\Input\MouseInput.cpp" />
+    <ClCompile Include="..\src\mge\gameplay\Input\PlayerInput.cpp" />
+    <ClCompile Include="..\src\mge\gameplay\Node.cpp" />
+    <ClCompile Include="..\src\mge\gameplay\StepTracker.cpp" />
     <ClCompile Include="..\src\mge\materials\AbstractMaterial.cpp" />
     <ClCompile Include="..\src\mge\materials\ColorMaterial.cpp" />
+    <ClCompile Include="..\src\mge\materials\LitMaterial.cpp" />
+    <ClCompile Include="..\src\mge\materials\TerrainMaterial.cpp" />
     <ClCompile Include="..\src\mge\materials\TextureMaterial.cpp" />
-    <ClCompile Include="..\src\mge\MGEDemo.cpp" />
-    <ClCompile Include="..\src\mge\TristanScene.cpp" />
+    <ClCompile Include="..\src\mge\materials\WobbleMaterial.cpp" />
+    <ClCompile Include="..\src\mge\scenes\BrokenOBJ.cpp" />
+    <ClCompile Include="..\src\mge\scenes\DesignerScene.cpp" />
+    <ClCompile Include="..\src\mge\scenes\GameOfLife.cpp" />
+    <ClCompile Include="..\src\mge\scenes\GameScene.cpp" />
+    <ClCompile Include="..\src\mge\scenes\MGEDemo.cpp" />
+    <ClCompile Include="..\src\mge\scenes\TerrainScene.cpp" />
+    <ClCompile Include="..\src\mge\scenes\TristanScene.cpp" />
+    <ClCompile Include="..\src\mge\User Interface\ControleScreen.cpp" />
+    <ClCompile Include="..\src\mge\User Interface\CreditsScreen.cpp" />
+    <ClCompile Include="..\src\mge\User Interface\DeathScreen.cpp" />
+    <ClCompile Include="..\src\mge\User Interface\Dialogue.cpp" />
+    <ClCompile Include="..\src\mge\User Interface\HUD.cpp" />
+    <ClCompile Include="..\src\mge\User Interface\MainMenu.cpp" />
+    <ClCompile Include="..\src\mge\User Interface\PauseScreen.cpp" />
+    <ClCompile Include="..\src\mge\User Interface\UIStepCounter.cpp" />
     <ClCompile Include="..\src\mge\util\DebugHud.cpp" />
+    <ClCompile Include="..\src\mge\util\EventQueue\EventQueue.cpp" />
+    <ClCompile Include="..\src\mge\util\LevelEditor\Factories\AbstractFactory.cpp" />
+    <ClCompile Include="..\src\mge\util\LevelEditor\Factories\BoxFactory.cpp" />
+    <ClCompile Include="..\src\mge\util\LevelEditor\Factories\CameraFactory.cpp" />
+    <ClCompile Include="..\src\mge\util\LevelEditor\Factories\ExitFactory.cpp" />
+    <ClCompile Include="..\src\mge\util\LevelEditor\Factories\PlayerFactory.cpp" />
+    <ClCompile Include="..\src\mge\util\LevelEditor\Factories\StartFactory.cpp" />
+    <ClCompile Include="..\src\mge\util\LevelEditor\Factories\SwitchFactory.cpp" />
+    <ClCompile Include="..\src\mge\util\LevelEditor\Factories\TileFactory.cpp" />
+    <ClCompile Include="..\src\mge\util\LevelEditor\Level.cpp" />
+    <ClCompile Include="..\src\mge\util\LevelEditor\ObjectCreator.cpp" />
+    <ClCompile Include="..\src\mge\util\LevelEditor\PropCreator.cpp" />
+    <ClCompile Include="..\src\mge\util\LuaScripting\DisplayGrid.cpp" />
+    <ClCompile Include="..\src\mge\util\LuaScripting\LuaWrapper.cpp" />
+    <ClCompile Include="..\src\mge\util\LuaScripting\RectangleShapeWrapper.cpp" />
+    <ClCompile Include="..\src\mge\util\Tweener.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <CopyFileToFolders Include="..\assets\LuaGameScripts\config.lua">
+      <FileType>Document</FileType>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug Static|Win32'">false</ExcludedFromBuild>
+      <DestinationFolders Condition="'$(Configuration)|$(Platform)'=='Debug Static|Win32'">$(OutDir)\LuaGameScripts</DestinationFolders>
+      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Debug Static|Win32'">true</DeploymentContent>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="..\assets\LuaGameScripts\ModelViewer.lua">
+      <FileType>Document</FileType>
+      <DestinationFolders Condition="'$(Configuration)|$(Platform)'=='Debug Static|Win32'">$(OutDir)\LuaGameScripts</DestinationFolders>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="..\assets\mge\shaders\color.fs">
+      <FileType>Document</FileType>
+      <DestinationFolders Condition="'$(Configuration)|$(Platform)'=='Debug Static|Win32'">$(OutDir)\mge\shaders</DestinationFolders>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="..\assets\mge\shaders\color.vs">
+      <FileType>Document</FileType>
+      <DestinationFolders Condition="'$(Configuration)|$(Platform)'=='Debug Static|Win32'">$(OutDir)\mge\shaders</DestinationFolders>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="..\assets\mge\shaders\lit.fs">
+      <FileType>Document</FileType>
+      <DestinationFolders Condition="'$(Configuration)|$(Platform)'=='Debug Static|Win32'">$(OutDir)\mge\shaders</DestinationFolders>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="..\assets\mge\shaders\lit.vs">
+      <FileType>Document</FileType>
+      <DestinationFolders Condition="'$(Configuration)|$(Platform)'=='Debug Static|Win32'">$(OutDir)\mge\shaders</DestinationFolders>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="..\assets\mge\shaders\terrain.fs">
+      <FileType>Document</FileType>
+      <DestinationFolders Condition="'$(Configuration)|$(Platform)'=='Debug Static|Win32'">$(OutDir)\mge\shaders</DestinationFolders>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="..\assets\mge\shaders\terrain.vs">
+      <FileType>Document</FileType>
+      <DestinationFolders Condition="'$(Configuration)|$(Platform)'=='Debug Static|Win32'">$(OutDir)\mge\shaders</DestinationFolders>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="..\assets\mge\shaders\texture.fs">
+      <FileType>Document</FileType>
+      <DestinationFolders Condition="'$(Configuration)|$(Platform)'=='Debug Static|Win32'">$(OutDir)\mge\shaders</DestinationFolders>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="..\assets\mge\shaders\texture.vs">
+      <FileType>Document</FileType>
+      <DestinationFolders Condition="'$(Configuration)|$(Platform)'=='Debug Static|Win32'">$(OutDir)\mge\shaders</DestinationFolders>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="..\assets\mge\shaders\wobble.fs">
+      <FileType>Document</FileType>
+      <DestinationFolders Condition="'$(Configuration)|$(Platform)'=='Debug Static|Win32'">$(OutDir)\mge\shaders</DestinationFolders>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="..\assets\mge\shaders\wobble.vs">
+      <FileType>Document</FileType>
+      <DestinationFolders Condition="'$(Configuration)|$(Platform)'=='Debug Static|Win32'">$(OutDir)\mge\shaders</DestinationFolders>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="..\assets\LuaGameScripts\GameObject.lua">
+      <FileType>Document</FileType>
+      <DestinationFolders Condition="'$(Configuration)|$(Platform)'=='Debug Static|Win32'">$(OutDir)\LuaGameScripts</DestinationFolders>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="..\assets\LuaGameScripts\Tile.lua">
+      <FileType>Document</FileType>
+      <DestinationFolders Condition="'$(Configuration)|$(Platform)'=='Debug Static|Win32'">$(OutDir)\LuaGameScripts</DestinationFolders>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="..\assets\LuaGameScripts\Box.lua">
+      <FileType>Document</FileType>
+      <DestinationFolders Condition="'$(Configuration)|$(Platform)'=='Debug Static|Win32'">$(OutDir)\LuaGameScripts</DestinationFolders>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="..\assets\LuaGameScripts\Exit.lua">
+      <FileType>Document</FileType>
+      <DestinationFolders Condition="'$(Configuration)|$(Platform)'=='Debug Static|Win32'">$(OutDir)\LuaGameScripts</DestinationFolders>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="..\assets\LuaGameScripts\Player.lua">
+      <FileType>Document</FileType>
+      <DestinationFolders Condition="'$(Configuration)|$(Platform)'=='Debug Static|Win32'">$(OutDir)\LuaGameScripts</DestinationFolders>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="..\assets\LuaGameScripts\Switch.lua">
+      <FileType>Document</FileType>
+      <DestinationFolders Condition="'$(Configuration)|$(Platform)'=='Debug Static|Win32'">$(OutDir)\LuaGameScripts</DestinationFolders>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="..\assets\LuaGameScripts\Start.lua">
+      <FileType>Document</FileType>
+      <DestinationFolders Condition="'$(Configuration)|$(Platform)'=='Debug Static|Win32'">$(OutDir)\LuaGameScripts</DestinationFolders>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="..\assets\LuaGameScripts\Level\Level_1.lua">
+      <FileType>Document</FileType>
+      <DestinationFolders Condition="'$(Configuration)|$(Platform)'=='Debug Static|Win32'">$(OutDir)\LuaGameScripts\Level</DestinationFolders>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="..\assets\LuaGameScripts\Level\Level_2.lua">
+      <FileType>Document</FileType>
+      <DestinationFolders Condition="'$(Configuration)|$(Platform)'=='Debug Static|Win32'">$(OutDir)\LuaGameScripts\Level</DestinationFolders>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="..\assets\LuaGameScripts\Level\Level_3.lua">
+      <FileType>Document</FileType>
+      <DestinationFolders Condition="'$(Configuration)|$(Platform)'=='Debug Static|Win32'">$(OutDir)\LuaGameScripts\Level</DestinationFolders>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="..\assets\LuaGameScripts\Level\Level_4.lua">
+      <FileType>Document</FileType>
+      <DestinationFolders Condition="'$(Configuration)|$(Platform)'=='Debug Static|Win32'">$(OutDir)\LuaGameScripts\Level</DestinationFolders>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="..\assets\LuaGameScripts\Level\Level_5.lua">
+      <FileType>Document</FileType>
+      <DestinationFolders Condition="'$(Configuration)|$(Platform)'=='Debug Static|Win32'">$(OutDir)\LuaGameScripts\Level</DestinationFolders>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="..\assets\LuaGameScripts\Level\Level_6.lua">
+      <FileType>Document</FileType>
+      <DestinationFolders Condition="'$(Configuration)|$(Platform)'=='Debug Static|Win32'">$(OutDir)\LuaGameScripts\Level</DestinationFolders>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="..\assets\LuaGameScripts\Level\Level_Info.lua">
+      <FileType>Document</FileType>
+      <DestinationFolders Condition="'$(Configuration)|$(Platform)'=='Debug Static|Win32'">$(OutDir)\LuaGameScripts\Level</DestinationFolders>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="..\assets\LuaGameScripts\UI\HUD.lua">
+      <FileType>Document</FileType>
+      <DestinationFolders Condition="'$(Configuration)|$(Platform)'=='Debug Static|Win32'">$(OutDir)\LuaGameScripts\UI</DestinationFolders>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="..\assets\LuaGameScripts\UI\Dialogue.lua">
+      <FileType>Document</FileType>
+      <DestinationFolders Condition="'$(Configuration)|$(Platform)'=='Debug Static|Win32'">$(OutDir)\LuaGameScripts\UI</DestinationFolders>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="..\assets\LuaGameScripts\UI\DialogueLocation.lua">
+      <FileType>Document</FileType>
+      <DestinationFolders Condition="'$(Configuration)|$(Platform)'=='Debug Static|Win32'">$(OutDir)\LuaGameScripts\UI</DestinationFolders>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="..\assets\LuaGameScripts\UI\MainMenu.lua">
+      <FileType>Document</FileType>
+      <DestinationFolders Condition="'$(Configuration)|$(Platform)'=='Debug Static|Win32'">$(OutDir)\LuaGameScripts\UI</DestinationFolders>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="..\assets\LuaGameScripts\UIObject.lua">
+      <FileType>Document</FileType>
+      <DestinationFolders Condition="'$(Configuration)|$(Platform)'=='Debug Static|Win32'">$(OutDir)\LuaGameScripts</DestinationFolders>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="..\assets\LuaGameScripts\Audio.lua">
+      <FileType>Document</FileType>
+      <DestinationFolders Condition="'$(Configuration)|$(Platform)'=='Debug Static|Win32'">$(OutDir)/LuaGameScripts</DestinationFolders>
+    </CopyFileToFolders>
     <None Include="ClassDiagram.cd" />
+  </ItemGroup>
+  <ItemGroup>
+    <CopyFileToFolders Include="..\assets\mge\models\Box.obj">
+      <FileType>Document</FileType>
+      <DestinationFolders Condition="'$(Configuration)|$(Platform)'=='Debug Static|Win32'">$(OutDir)mge\models</DestinationFolders>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="..\assets\mge\models\Exit.obj">
+      <FileType>Document</FileType>
+      <DestinationFolders Condition="'$(Configuration)|$(Platform)'=='Debug Static|Win32'">$(OutDir)mge\models</DestinationFolders>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="..\assets\mge\models\GenTile.obj">
+      <FileType>Document</FileType>
+      <DestinationFolders Condition="'$(Configuration)|$(Platform)'=='Debug Static|Win32'">$(OutDir)mge\models</DestinationFolders>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="..\assets\mge\models\Start.obj">
+      <FileType>Document</FileType>
+      <DestinationFolders Condition="'$(Configuration)|$(Platform)'=='Debug Static|Win32'">$(OutDir)mge\models</DestinationFolders>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="..\assets\mge\models\Switch.obj">
+      <FileType>Document</FileType>
+      <DestinationFolders Condition="'$(Configuration)|$(Platform)'=='Debug Static|Win32'">$(OutDir)mge\models</DestinationFolders>
+    </CopyFileToFolders>
+  </ItemGroup>
+  <ItemGroup>
+    <CopyFileToFolders Include="..\assets\mge\models\Level_2_BG.obj">
+      <FileType>Document</FileType>
+      <DestinationFolders Condition="'$(Configuration)|$(Platform)'=='Debug Static|Win32'">$(OutDir)mge\models</DestinationFolders>
+    </CopyFileToFolders>
+  </ItemGroup>
+  <ItemGroup>
+    <CopyFileToFolders Include="..\assets\mge\textures\Box.png">
+      <DestinationFolders Condition="'$(Configuration)|$(Platform)'=='Debug Static|Win32'">$(OutDir)mge/textures</DestinationFolders>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="..\assets\mge\textures\Exit.png">
+      <DestinationFolders Condition="'$(Configuration)|$(Platform)'=='Debug Static|Win32'">$(OutDir)mge/textures</DestinationFolders>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="..\assets\mge\textures\GenTile.png">
+      <DestinationFolders Condition="'$(Configuration)|$(Platform)'=='Debug Static|Win32'">$(OutDir)mge/textures</DestinationFolders>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="..\assets\mge\textures\Level_2_BG.png">
+      <DestinationFolders Condition="'$(Configuration)|$(Platform)'=='Debug Static|Win32'">$(OutDir)mge/textures</DestinationFolders>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="..\assets\mge\textures\Player.png">
+      <DestinationFolders Condition="'$(Configuration)|$(Platform)'=='Debug Static|Win32'">$(OutDir)mge/textures</DestinationFolders>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="..\assets\mge\textures\Start.png">
+      <DestinationFolders Condition="'$(Configuration)|$(Platform)'=='Debug Static|Win32'">$(OutDir)mge/textures</DestinationFolders>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="..\assets\mge\textures\Switch.png">
+      <DestinationFolders Condition="'$(Configuration)|$(Platform)'=='Debug Static|Win32'">$(OutDir)mge/textures</DestinationFolders>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="..\assets\mge\UI\Exit_Button.png">
+      <DestinationFolders Condition="'$(Configuration)|$(Platform)'=='Debug Static|Win32'">$(OutDir)/mge/UI</DestinationFolders>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="..\assets\mge\UI\Footsteps.png">
+      <DestinationFolders Condition="'$(Configuration)|$(Platform)'=='Debug Static|Win32'">$(OutDir)/mge/UI</DestinationFolders>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="..\assets\mge\UI\Start_Button.png">
+      <DestinationFolders Condition="'$(Configuration)|$(Platform)'=='Debug Static|Win32'">$(OutDir)/mge/UI</DestinationFolders>
+    </CopyFileToFolders>
+  </ItemGroup>
+  <ItemGroup>
+    <CopyFileToFolders Include="..\assets\mge\models\Player.obj">
+      <FileType>Document</FileType>
+      <DestinationFolders Condition="'$(Configuration)|$(Platform)'=='Debug Static|Win32'">$(OutDir)mge/models</DestinationFolders>
+    </CopyFileToFolders>
+  </ItemGroup>
+  <ItemGroup>
+    <CopyFileToFolders Include="..\assets\mge\UI\MainMenu_background.png">
+      <DestinationFolders Condition="'$(Configuration)|$(Platform)'=='Debug Static|Win32'">$(OutDir)/mge/UI</DestinationFolders>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="..\assets\mge\UI\MainMenu_exit_button.png">
+      <DestinationFolders Condition="'$(Configuration)|$(Platform)'=='Debug Static|Win32'">$(OutDir)/mge/UI</DestinationFolders>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="..\assets\mge\UI\MainMenu_start_button.png">
+      <DestinationFolders Condition="'$(Configuration)|$(Platform)'=='Debug Static|Win32'">$(OutDir)/mge/UI</DestinationFolders>
+    </CopyFileToFolders>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

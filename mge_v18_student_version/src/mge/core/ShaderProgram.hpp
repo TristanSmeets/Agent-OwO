@@ -4,6 +4,7 @@
 #include <GL/glew.h>
 #include <vector>
 #include <string>
+#include "mge/core/Texture.hpp"
 
 /**
  * Generic shader program to which you can add separate shaders.
@@ -29,6 +30,7 @@ class ShaderProgram
 		void finalize();
 		//tell opengl this is now the current shader program
 		void use();
+		void setTextureSlot(Texture* texture, GLint uniform, int slotID);
 
         //get access to uniforms within the shader
 		GLuint getUniformLocation (const std::string& pName);

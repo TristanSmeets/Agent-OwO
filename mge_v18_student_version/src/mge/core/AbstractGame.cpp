@@ -3,6 +3,7 @@
 #include "AbstractGame.hpp"
 #include "mge/core/Renderer.hpp"
 #include "mge/core/World.hpp"
+#include "mge/util/LuaScripting/LuaWrapper.hpp"
 
 AbstractGame::AbstractGame():_window(NULL),_renderer(NULL),_world(NULL), _fps(0)
 {
@@ -32,7 +33,15 @@ void AbstractGame::initialize() {
 
 void AbstractGame::_initializeWindow() {
 	std::cout << "Initializing window..." << std::endl;
-	_window = new sf::RenderWindow( sf::VideoMode(800,600), "My Game!", sf::Style::Default, sf::ContextSettings(24,8,0,3,3));
+	lua_State *config = LuaWrapper::InitializeLuaState("LuaGameScripts\\config.lua");
+	int ScreenWidth = LuaWrapper::GetNumber<int>(config, "ScreenWidth");
+	int ScreenHeight = LuaWrapper::GetNumber<int>(config, "ScreenHeight");
+	std::string& windowTitle = LuaWrapper::GetString(config, "Title");
+
+
+	//_window = new sf::RenderWindow( sf::VideoMode(ScreenWidth, ScreenHeight), windowTitle, sf::Style::Default, sf::ContextSettings(24,8,16,3,3));
+	_window = new sf::RenderWindow(sf::VideoMode(ScreenWidth, ScreenHeight), windowTitle, sf::Style::Fullscreen, sf::ContextSettings(24, 8, 16, 3, 3));
+	LuaWrapper::CloseLuaState(config);
 	//_window->setVerticalSyncEnabled(true);
     std::cout << "Window initialized." << std::endl << std::endl;
 }
@@ -118,7 +127,6 @@ void AbstractGame::run()
                 timeSinceLastFPSCalculation -= 1;
                 frameCount = 0;
             }
-
 		}
 
 		//empty the event queue
@@ -128,6 +136,7 @@ void AbstractGame::run()
 
 void AbstractGame::_update(float pStep) {
     _world->update(pStep);
+	_world->lateUpdate(pStep);
 }
 
 void AbstractGame::_render () {
@@ -152,14 +161,15 @@ void AbstractGame::_processEvents()
                 exit = true;
                 break;
             case sf::Event::KeyPressed:
-                if (event.key.code == sf::Keyboard::Escape) {
+                /*if (event.key.code == sf::Keyboard::Escape) {
                     exit = true;
-                }
+                }*/
                 break;
             case sf::Event::Resized:
                 //would be better to move this to the renderer
                 //this version implements nonconstrained match viewport scaling
                 glViewport(0, 0, event.size.width, event.size.height);
+				//TODO add resizing for camera projection
                 break;
 
             default:

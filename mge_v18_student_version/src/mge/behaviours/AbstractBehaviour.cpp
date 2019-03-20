@@ -11,3 +11,7 @@ void AbstractBehaviour::setOwner (GameObject* pOwner) {
     _owner = pOwner;
 }
 
+void AbstractBehaviour::lateUpdate(float pStep)
+{
+}
+

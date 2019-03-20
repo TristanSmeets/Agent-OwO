@@ -15,3 +15,4 @@ glm::mat4& Camera::getProjection() {
     return _projection;
 }
 
+//TODO: Add set projection

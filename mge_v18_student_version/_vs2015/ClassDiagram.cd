@@ -1,123 +1,242 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
   <Class Name="MGEDemo" Collapsed="true">
-    <Position X="0.5" Y="7.75" Width="1.5" />
+    <Position X="0.75" Y="1.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAEEAAAAIAAAAAAAAEAAAAAAAAAAAAEBAAgACAAAAA=</HashCode>
-      <FileName>D:\School\Year_2\2nd_Quartile\3D_Rendering\mge_v18_student_version\src\mge\MGEDemo.hpp</FileName>
+      <FileName>D:\School\Year_2\2nd_Quartile\C_Engine\mge_v18_student_version\src\mge\MGEDemo.hpp</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BrokenOBJ" Collapsed="true">
+    <Position X="3" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEAAAAAAACAAAAAAEAAAAAAAAAAAAAAAAgACAACAA=</HashCode>
+      <FileName>D:\School\Year_2\2nd_Quartile\C_Engine\mge_v18_student_version\src\mge\BrokenOBJ.hpp</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DesignerScene" Collapsed="true">
+    <Position X="5.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEAAAAAAAAAAAAAAEAAAAAAAgAAAAAAAAAACAABAA=</HashCode>
+      <FileName>D:\School\Year_2\2nd_Quartile\C_Engine\mge_v18_student_version\src\mge\DesignerScene.hpp</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameOfLife" Collapsed="true">
+    <Position X="7.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEAAgAAAAQAAAAAAEBAQAAAAAAAAAgAAAgACAAAAQ=</HashCode>
+      <FileName>D:\School\Year_2\2nd_Quartile\C_Engine\mge_v18_student_version\src\mge\GameOfLife.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TerrainScene" Collapsed="true">
+    <Position X="9.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEAAAAAAAAAAAAAEEAAAAAAAAAEAAAAAAAAAAQAAA=</HashCode>
+      <FileName>D:\School\Year_2\2nd_Quartile\C_Engine\mge_v18_student_version\src\mge\TerrainScene.hpp</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TristanScene" Collapsed="true">
+    <Position X="12" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAEAAAAAAAAAAAAAAEAQAAAAAAAAAAAAAAgACAAAAA=</HashCode>
+      <FileName>D:\School\Year_2\2nd_Quartile\C_Engine\mge_v18_student_version\src\mge\TristanScene.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="AbstractBehaviour" Collapsed="true">
-    <Position X="6.75" Y="3.5" Width="1.5" />
+    <Position X="3.75" Y="6.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAgAgAAAAAAAAAAAAAAAAAAAAgAAAAQAAAAgAAAEAAA=</HashCode>
-      <FileName>D:\School\Year_2\2nd_Quartile\3D_Rendering\mge_v18_student_version\src\mge\behaviours\AbstractBehaviour.hpp</FileName>
+      <FileName>D:\School\Year_2\2nd_Quartile\C_Engine\mge_v18_student_version\src\mge\behaviours\AbstractBehaviour.hpp</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CameraOrbitBehaviour" Collapsed="true">
+    <Position X="0.5" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEAAAAABAAAQAAIAgAAAACAEEAAAAIAADAAABEAAA=</HashCode>
+      <FileName>D:\School\Year_2\2nd_Quartile\C_Engine\mge_v18_student_version\src\mge\behaviours\CameraOrbitBehaviour.hpp</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="KeysBehaviour" Collapsed="true">
-    <Position X="5.5" Y="4.75" Width="1.5" />
+    <Position X="2.75" Y="7.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAEAQAAAAAAAAAAAAAAAAEAAAAAAAAQAAAAEAAA=</HashCode>
-      <FileName>D:\School\Year_2\2nd_Quartile\3D_Rendering\mge_v18_student_version\src\mge\behaviours\KeysBehaviour.hpp</FileName>
+      <FileName>D:\School\Year_2\2nd_Quartile\C_Engine\mge_v18_student_version\src\mge\behaviours\KeysBehaviour.hpp</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LuaBehaviour" Collapsed="true">
+    <Position X="5" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAABAAAAAAAAgAAAAAAEAAAAAAAAEAAQ=</HashCode>
+      <FileName>D:\School\Year_2\2nd_Quartile\C_Engine\mge_v18_student_version\src\mge\behaviours\LuaBehaviour.hpp</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="RotatingBehaviour" Collapsed="true">
-    <Position X="7.75" Y="4.75" Width="1.5" />
+    <Position X="7.25" Y="7.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAEEAAA=</HashCode>
-      <FileName>D:\School\Year_2\2nd_Quartile\3D_Rendering\mge_v18_student_version\src\mge\behaviours\RotatingBehaviour.hpp</FileName>
+      <FileName>D:\School\Year_2\2nd_Quartile\C_Engine\mge_v18_student_version\src\mge\behaviours\RotatingBehaviour.hpp</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="AbstractGame" Collapsed="true">
-    <Position X="0.5" Y="6.5" Width="1.5" />
+    <Position X="6.25" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAEEAgBkAggAAAEAAAEAAAAAEAAAQAAAAAEgACAAAGA=</HashCode>
-      <FileName>D:\School\Year_2\2nd_Quartile\3D_Rendering\mge_v18_student_version\src\mge\core\AbstractGame.hpp</FileName>
+      <FileName>D:\School\Year_2\2nd_Quartile\C_Engine\mge_v18_student_version\src\mge\core\AbstractGame.hpp</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Camera" Collapsed="true">
-    <Position X="0.75" Y="1.75" Width="1.5" />
+    <Position X="0.5" Y="10.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAACAAAAAAEAAAAAQAAAAAAAAAAAAAQAAAAgAAAAAAA=</HashCode>
-      <FileName>D:\School\Year_2\2nd_Quartile\3D_Rendering\mge_v18_student_version\src\mge\core\Camera.hpp</FileName>
+      <FileName>D:\School\Year_2\2nd_Quartile\C_Engine\mge_v18_student_version\src\mge\core\Camera.hpp</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="GameObject" Collapsed="true">
-    <Position X="3" Y="0.5" Width="1.5" />
+    <Position X="2.75" Y="9.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>RDASIAAIAAACCGAEARAQAAATgAQAAABADACkAIJGBEA=</HashCode>
-      <FileName>D:\School\Year_2\2nd_Quartile\3D_Rendering\mge_v18_student_version\src\mge\core\GameObject.hpp</FileName>
+      <FileName>D:\School\Year_2\2nd_Quartile\C_Engine\mge_v18_student_version\src\mge\core\GameObject.hpp</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Light" Collapsed="true">
-    <Position X="3" Y="1.75" Width="1.5" />
+    <Position X="5" Y="10.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAACAAAAAAgAAAAAAAAAAAAAAAIAAAAA=</HashCode>
-      <FileName>D:\School\Year_2\2nd_Quartile\3D_Rendering\mge_v18_student_version\src\mge\core\Light.hpp</FileName>
+      <HashCode>AiIAgAAAQAABAQCAAAAAIgQAACAAGBAAAQQQAIFAAAA=</HashCode>
+      <FileName>D:\School\Year_2\2nd_Quartile\C_Engine\mge_v18_student_version\src\mge\core\Light.hpp</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Mesh" Collapsed="true">
-    <Position X="12" Y="0.5" Width="1.5" />
+    <Position X="14.5" Y="1.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>BAAAAgAkAIEAAAAAAAgAAAAAAASQAIgAAQgAAAAAAAA=</HashCode>
-      <FileName>D:\School\Year_2\2nd_Quartile\3D_Rendering\mge_v18_student_version\src\mge\core\Mesh.hpp</FileName>
+      <FileName>D:\School\Year_2\2nd_Quartile\C_Engine\mge_v18_student_version\src\mge\core\Mesh.hpp</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Renderer" Collapsed="true">
-    <Position X="13.75" Y="0.5" Width="1.5" />
+    <Position X="18" Y="1.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAgABggAAAAAAAEAACAAAAAAAAAAAAAAACAAAAQAAA=</HashCode>
-      <FileName>D:\School\Year_2\2nd_Quartile\3D_Rendering\mge_v18_student_version\src\mge\core\Renderer.hpp</FileName>
+      <FileName>D:\School\Year_2\2nd_Quartile\C_Engine\mge_v18_student_version\src\mge\core\Renderer.hpp</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="ShaderProgram" Collapsed="true">
-    <Position X="10.25" Y="1.5" Width="1.5" />
+    <Position X="14.5" Y="2.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAABAAAgAAGgABIABgAAAAgg=</HashCode>
-      <FileName>D:\School\Year_2\2nd_Quartile\3D_Rendering\mge_v18_student_version\src\mge\core\ShaderProgram.hpp</FileName>
+      <HashCode>AIAAAAAAAAAAAAAAAAAAAABAAAgAAGgABIABgAAAAgg=</HashCode>
+      <FileName>D:\School\Year_2\2nd_Quartile\C_Engine\mge_v18_student_version\src\mge\core\ShaderProgram.hpp</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Texture" Collapsed="true">
-    <Position X="12" Y="1.5" Width="1.5" />
+    <Position X="16.25" Y="2.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AgAAAAAAAIAAgAAAAABAAAAAAAACAAAAAAIAAAAAAAA=</HashCode>
-      <FileName>D:\School\Year_2\2nd_Quartile\3D_Rendering\mge_v18_student_version\src\mge\core\Texture.hpp</FileName>
+      <FileName>D:\School\Year_2\2nd_Quartile\C_Engine\mge_v18_student_version\src\mge\core\Texture.hpp</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="World" Collapsed="true">
-    <Position X="5.25" Y="1.75" Width="1.5" />
+  <Class Name="World">
+    <Position X="2.75" Y="10.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAABAAAAQAAAAAAAIgAAAAAAAAAAAhECgAAAA=</HashCode>
-      <FileName>D:\School\Year_2\2nd_Quartile\3D_Rendering\mge_v18_student_version\src\mge\core\World.hpp</FileName>
+      <FileName>D:\School\Year_2\2nd_Quartile\C_Engine\mge_v18_student_version\src\mge\core\World.hpp</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="AbstractMaterial" Collapsed="true">
-    <Position X="1.75" Y="3.5" Width="1.5" />
+    <Position X="5" Y="3.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAEQAAAAAAAAAAAAAAAAAQAAA=</HashCode>
-      <FileName>D:\School\Year_2\2nd_Quartile\3D_Rendering\mge_v18_student_version\src\mge\materials\AbstractMaterial.hpp</FileName>
+      <FileName>D:\School\Year_2\2nd_Quartile\C_Engine\mge_v18_student_version\src\mge\materials\AbstractMaterial.hpp</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="ColorMaterial" Collapsed="true">
-    <Position X="2.75" Y="4.75" Width="1.5" />
+    <Position X="7.25" Y="4.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAGAAIAAIAAAAAAAAAAAAAAAARAAAAAAAQAAA=</HashCode>
-      <FileName>D:\School\Year_2\2nd_Quartile\3D_Rendering\mge_v18_student_version\src\mge\materials\ColorMaterial.hpp</FileName>
+      <FileName>D:\School\Year_2\2nd_Quartile\C_Engine\mge_v18_student_version\src\mge\materials\ColorMaterial.hpp</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LitMaterial" Collapsed="true">
+    <Position X="0.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAgAgAAAAAAAAAAAAAQEBQBQA=</HashCode>
+      <FileName>D:\School\Year_2\2nd_Quartile\C_Engine\mge_v18_student_version\src\mge\materials\LitMaterial.hpp</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TerrainMaterial" Collapsed="true">
+    <Position X="2.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAACAIAAAAAAQAAAAAQgIAAAAEAAACAAACWQEEQAAA=</HashCode>
+      <FileName>D:\School\Year_2\2nd_Quartile\C_Engine\mge_v18_student_version\src\mge\materials\TerrainMaterial.hpp</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="TextureMaterial" Collapsed="true">
-    <Position X="0.5" Y="4.75" Width="1.5" />
+    <Position X="5" Y="4.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AQAAgAAAAAAIAFAAAAAAAIAAAAABAAAQAQAgAQASAAA=</HashCode>
-      <FileName>D:\School\Year_2\2nd_Quartile\3D_Rendering\mge_v18_student_version\src\mge\materials\TextureMaterial.hpp</FileName>
+      <FileName>D:\School\Year_2\2nd_Quartile\C_Engine\mge_v18_student_version\src\mge\materials\TextureMaterial.hpp</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WobbleMaterial" Collapsed="true">
+    <Position X="9.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAAAAAAAAAAAAAAABAQgAwAAAEAAACAAAAgQEAUAAE=</HashCode>
+      <FileName>D:\School\Year_2\2nd_Quartile\C_Engine\mge_v18_student_version\src\mge\materials\WobbleMaterial.hpp</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="DebugHud" Collapsed="true">
-    <Position X="10.25" Y="0.5" Width="1.5" />
+    <Position X="14.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AABBAAAAAgAAAAAAAAIIAAMAAACAAAAgAAAgAAAAAAA=</HashCode>
-      <FileName>D:\School\Year_2\2nd_Quartile\3D_Rendering\mge_v18_student_version\src\mge\util\DebugHud.hpp</FileName>
+      <FileName>D:\School\Year_2\2nd_Quartile\C_Engine\mge_v18_student_version\src\mge\util\DebugHud.hpp</FileName>
     </TypeIdentifier>
   </Class>
+  <Class Name="DisplayGrid" Collapsed="true">
+    <Position X="16.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEABAEAAAAAAgEAAAAAAAAAAAAAAAAIAAAAAAAAAAA=</HashCode>
+      <FileName>D:\School\Year_2\2nd_Quartile\C_Engine\mge_v18_student_version\src\mge\util\DisplayGrid.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RectangleShapeWrapper" Collapsed="true">
+    <Position X="16.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIEAAAAQAACAACAgACAAABAAEgAAgAAAAIAAAAA=</HashCode>
+      <FileName>D:\School\Year_2\2nd_Quartile\C_Engine\mge_v18_student_version\src\mge\util\RectangleShapeWrapper.hpp</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LuaWrapper" Collapsed="true">
+    <Position X="18" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAAAAAAAAAAAAAAAAAABAQAAABAAAAAAAAIAAAAAAA=</HashCode>
+      <FileName>D:\School\Year_2\2nd_Quartile\C_Engine\mge_v18_student_version\src\mge\util\LuaWrapper.hpp</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Struct Name="LightingData" Collapsed="true">
+    <Position X="14.5" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAQAAAgAAAAAAAAAgAAAAAAAAAAAIgAIQAAAEAAAAA=</HashCode>
+      <FileName>D:\School\Year_2\2nd_Quartile\C_Engine\mge_v18_student_version\src\mge\core\Light.hpp</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="Material" Collapsed="true">
+    <Position X="16.25" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAQEAAAAAAAAAAAAAAAAAAAAAAAAAAQAAA=</HashCode>
+      <FileName>D:\School\Year_2\2nd_Quartile\C_Engine\mge_v18_student_version\src\mge\materials\LitMaterial.hpp</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="TerrainTexture" Collapsed="true">
+    <Position X="18" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAgAAAAAEAAAAAAAAAAAAACAAAAAAAhAAAAAEAA=</HashCode>
+      <FileName>D:\School\Year_2\2nd_Quartile\C_Engine\mge_v18_student_version\src\mge\materials\TerrainMaterial.hpp</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Enum Name="LightType" Collapsed="true">
+    <Position X="14.5" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAABAAQAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>D:\School\Year_2\2nd_Quartile\C_Engine\mge_v18_student_version\src\mge\core\Light.hpp</FileName>
+    </TypeIdentifier>
+  </Enum>
   <Font Name="Segoe UI" Size="9" />
 </ClassDiagram>

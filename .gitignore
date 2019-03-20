@@ -432,3 +432,8 @@ ASALocalRun/
 mge_v18_student_version/_vs2015/debug_static_build/
 mge_v18_student_version/_vs2015/debug_static_exe/
 mge_v18_student_version/assets/mge/Audio/Ambience.wav
+mge_v18_student_version/_vs2015/release_dynamic_build/
+mge_v18_student_version/_vs2015/release_static_build/
+mge_v18_student_version/_vs2015/release_static_exe/
+mge_v18_student_version/assets/mge/Audio/BGMusic_5.wav
+mge_v18_student_version/assets/mge/Audio/BGMusic_4.wav

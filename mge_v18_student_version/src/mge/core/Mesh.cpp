@@ -65,8 +65,6 @@ Mesh::~Mesh()
  */
 Mesh* Mesh::load(std::string pFilename)
 {
-    std::cout << "Loading " << pFilename << "...";
-
 	Mesh* mesh = new Mesh();
 
 	std::ifstream file (pFilename, std::ios::in);
@@ -168,7 +166,6 @@ Mesh* Mesh::load(std::string pFilename)
 					}
 				} else {
 				    //If we read a different amount, something is wrong
-					std::cout << "Error reading obj, needing v,vn,vt" << std::endl;
 					delete mesh;
 					return NULL;
 				}
@@ -178,11 +175,8 @@ Mesh* Mesh::load(std::string pFilename)
 
 		file.close();
 		mesh->_buffer();
-
-		std::cout << "Mesh loaded and buffered:" << (mesh->_indices.size()/3.0f) << " triangles." << std::endl;
 		return mesh;
 	} else {
-		std::cout << "Could not read " << pFilename << std::endl;
 		delete mesh;
 		return NULL;
 	}

@@ -23,9 +23,6 @@
     <Filter Include="Shaders">
       <UniqueIdentifier>{73a21963-a059-4ee7-a072-8d26a76b3bb6}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Textures">
-      <UniqueIdentifier>{d82a0eda-d925-48fd-9d80-82807a531e7d}</UniqueIdentifier>
-    </Filter>
     <Filter Include="MGE Source files\mge\scenes">
       <UniqueIdentifier>{fdff79f7-3288-4d4a-9a21-27e7905cf53a}</UniqueIdentifier>
     </Filter>
@@ -37,9 +34,6 @@
     </Filter>
     <Filter Include="MGE Source files\mge\util\LevelEditor\Factories">
       <UniqueIdentifier>{730ed11b-73e1-4438-a22f-1d636babeebe}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Models">
-      <UniqueIdentifier>{2e5d919d-5f57-4633-907c-7b5440309a0b}</UniqueIdentifier>
     </Filter>
     <Filter Include="MGE Source files\mge\gameplay">
       <UniqueIdentifier>{a1aa9017-863b-4a9a-a565-2986f23cfd4e}</UniqueIdentifier>
@@ -67,18 +61,6 @@
     </Filter>
     <Filter Include="LuaScripts\UI">
       <UniqueIdentifier>{686ac6fb-b083-4358-a590-89e296f9a48f}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Models\Gameplay">
-      <UniqueIdentifier>{90b19fe9-56f8-4751-a855-741a692a7199}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Models\Background">
-      <UniqueIdentifier>{810215f7-fdbf-41f1-b44a-1d357bd70e1b}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Textures\Models">
-      <UniqueIdentifier>{0716f103-7e0a-4ef2-8790-9196a4b7bae1}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Textures\UI">
-      <UniqueIdentifier>{4d54f553-4a68-4eba-b302-d81d2b87f9fe}</UniqueIdentifier>
     </Filter>
     <Filter Include="MGE Source files\mge\Audio">
       <UniqueIdentifier>{751bc222-8c9b-4445-b2a6-2ed9830d975e}</UniqueIdentifier>
@@ -636,34 +618,10 @@
     <CopyFileToFolders Include="..\assets\LuaGameScripts\ModelViewer.lua">
       <Filter>LuaScripts</Filter>
     </CopyFileToFolders>
-    <CopyFileToFolders Include="..\assets\mge\shaders\color.fs">
-      <Filter>Shaders</Filter>
-    </CopyFileToFolders>
-    <CopyFileToFolders Include="..\assets\mge\shaders\color.vs">
-      <Filter>Shaders</Filter>
-    </CopyFileToFolders>
-    <CopyFileToFolders Include="..\assets\mge\shaders\lit.fs">
-      <Filter>Shaders</Filter>
-    </CopyFileToFolders>
-    <CopyFileToFolders Include="..\assets\mge\shaders\lit.vs">
-      <Filter>Shaders</Filter>
-    </CopyFileToFolders>
-    <CopyFileToFolders Include="..\assets\mge\shaders\terrain.fs">
-      <Filter>Shaders</Filter>
-    </CopyFileToFolders>
-    <CopyFileToFolders Include="..\assets\mge\shaders\terrain.vs">
-      <Filter>Shaders</Filter>
-    </CopyFileToFolders>
     <CopyFileToFolders Include="..\assets\mge\shaders\texture.fs">
       <Filter>Shaders</Filter>
     </CopyFileToFolders>
     <CopyFileToFolders Include="..\assets\mge\shaders\texture.vs">
-      <Filter>Shaders</Filter>
-    </CopyFileToFolders>
-    <CopyFileToFolders Include="..\assets\mge\shaders\wobble.fs">
-      <Filter>Shaders</Filter>
-    </CopyFileToFolders>
-    <CopyFileToFolders Include="..\assets\mge\shaders\wobble.vs">
       <Filter>Shaders</Filter>
     </CopyFileToFolders>
     <CopyFileToFolders Include="..\assets\LuaGameScripts\GameObject.lua">
@@ -711,57 +669,6 @@
     <CopyFileToFolders Include="..\assets\LuaGameScripts\UI\HUD.lua">
       <Filter>LuaScripts\UI</Filter>
     </CopyFileToFolders>
-    <CopyFileToFolders Include="..\assets\mge\models\Box.obj">
-      <Filter>Models\Gameplay</Filter>
-    </CopyFileToFolders>
-    <CopyFileToFolders Include="..\assets\mge\models\Exit.obj">
-      <Filter>Models\Gameplay</Filter>
-    </CopyFileToFolders>
-    <CopyFileToFolders Include="..\assets\mge\models\GenTile.obj">
-      <Filter>Models\Gameplay</Filter>
-    </CopyFileToFolders>
-    <CopyFileToFolders Include="..\assets\mge\models\Start.obj">
-      <Filter>Models\Gameplay</Filter>
-    </CopyFileToFolders>
-    <CopyFileToFolders Include="..\assets\mge\models\Switch.obj">
-      <Filter>Models\Gameplay</Filter>
-    </CopyFileToFolders>
-    <CopyFileToFolders Include="..\assets\mge\models\Level_2_BG.obj">
-      <Filter>Models\Background</Filter>
-    </CopyFileToFolders>
-    <CopyFileToFolders Include="..\assets\mge\textures\Box.png">
-      <Filter>Textures\Models</Filter>
-    </CopyFileToFolders>
-    <CopyFileToFolders Include="..\assets\mge\textures\Exit.png">
-      <Filter>Textures\Models</Filter>
-    </CopyFileToFolders>
-    <CopyFileToFolders Include="..\assets\mge\textures\GenTile.png">
-      <Filter>Textures\Models</Filter>
-    </CopyFileToFolders>
-    <CopyFileToFolders Include="..\assets\mge\textures\Level_2_BG.png">
-      <Filter>Textures\Models</Filter>
-    </CopyFileToFolders>
-    <CopyFileToFolders Include="..\assets\mge\textures\Player.png">
-      <Filter>Textures\Models</Filter>
-    </CopyFileToFolders>
-    <CopyFileToFolders Include="..\assets\mge\textures\Start.png">
-      <Filter>Textures\Models</Filter>
-    </CopyFileToFolders>
-    <CopyFileToFolders Include="..\assets\mge\textures\Switch.png">
-      <Filter>Textures\Models</Filter>
-    </CopyFileToFolders>
-    <CopyFileToFolders Include="..\assets\mge\UI\Exit_Button.png">
-      <Filter>Textures\UI</Filter>
-    </CopyFileToFolders>
-    <CopyFileToFolders Include="..\assets\mge\UI\Footsteps.png">
-      <Filter>Textures\UI</Filter>
-    </CopyFileToFolders>
-    <CopyFileToFolders Include="..\assets\mge\UI\Start_Button.png">
-      <Filter>Textures\UI</Filter>
-    </CopyFileToFolders>
-    <CopyFileToFolders Include="..\assets\mge\models\Player.obj">
-      <Filter>Models\Gameplay</Filter>
-    </CopyFileToFolders>
     <CopyFileToFolders Include="..\assets\LuaGameScripts\UI\Dialogue.lua">
       <Filter>LuaScripts\UI</Filter>
     </CopyFileToFolders>
@@ -770,15 +677,6 @@
     </CopyFileToFolders>
     <CopyFileToFolders Include="..\assets\LuaGameScripts\UI\DialogueLocation.lua">
       <Filter>LuaScripts\UI</Filter>
-    </CopyFileToFolders>
-    <CopyFileToFolders Include="..\assets\mge\UI\MainMenu_background.png">
-      <Filter>Textures\UI</Filter>
-    </CopyFileToFolders>
-    <CopyFileToFolders Include="..\assets\mge\UI\MainMenu_exit_button.png">
-      <Filter>Textures\UI</Filter>
-    </CopyFileToFolders>
-    <CopyFileToFolders Include="..\assets\mge\UI\MainMenu_start_button.png">
-      <Filter>Textures\UI</Filter>
     </CopyFileToFolders>
     <CopyFileToFolders Include="..\assets\LuaGameScripts\UIObject.lua">
       <Filter>LuaScripts</Filter>

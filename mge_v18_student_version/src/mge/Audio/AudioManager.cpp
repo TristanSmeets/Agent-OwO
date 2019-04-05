@@ -1,6 +1,6 @@
 #include "AudioManager.hpp"
 
-AudioManager::AudioManager() : audioBank(AudioBank())
+AudioManager::AudioManager() : audioBank(AudioBank()), musicType(MusicType::INGAME)
 {
 	bgMusic = new sf::Music();
 }

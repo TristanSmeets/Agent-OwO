@@ -10,7 +10,6 @@ Button::Button(const std::string & texturePath)
 
 Button::~Button()
 {
-	std::cout << "GC running:Button.\n";
 	delete buttonImage;
 	delete action;
 }

@@ -1,13 +1,12 @@
 #include "AudioManager.hpp"
 
-AudioManager::AudioManager() : audioBank(AudioBank())
+AudioManager::AudioManager() : audioBank(AudioBank()), musicType(MusicType::INGAME)
 {
 	bgMusic = new sf::Music();
 }
 
 AudioManager::~AudioManager()
 {
-	std::cout << "GC running on:AudioManager.\n";
 	delete bgMusic;
 }
 

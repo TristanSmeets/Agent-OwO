@@ -7,7 +7,6 @@ RightCommand::RightCommand(MovableBehaviour & movable) : MoveCommand(movable)
 
 RightCommand::~RightCommand()
 {
-	std::cout << "GC running on:RightCommand\n";
 	MoveCommand::~MoveCommand();
 }
 

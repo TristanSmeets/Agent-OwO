@@ -19,20 +19,17 @@ AbstractGame::~AbstractGame()
 }
 
 void AbstractGame::initialize() {
-    std::cout << "Initializing engine..." << std::endl << std::endl;
     _initializeWindow();
     _printVersionInfo();
     _initializeGlew();
     _initializeRenderer();
     _initializeWorld();
     _initializeScene();
-    std::cout << std::endl << "Engine initialized." << std::endl << std::endl;
 }
 
 ///SETUP
 
 void AbstractGame::_initializeWindow() {
-	std::cout << "Initializing window..." << std::endl;
 	lua_State *config = LuaWrapper::InitializeLuaState("LuaGameScripts\\config.lua");
 	int ScreenWidth = LuaWrapper::GetNumber<int>(config, "ScreenWidth");
 	int ScreenHeight = LuaWrapper::GetNumber<int>(config, "ScreenHeight");
@@ -43,12 +40,9 @@ void AbstractGame::_initializeWindow() {
 	_window = new sf::RenderWindow(sf::VideoMode(ScreenWidth, ScreenHeight), windowTitle, sf::Style::Fullscreen, sf::ContextSettings(24, 8, 16, 3, 3));
 	LuaWrapper::CloseLuaState(config);
 	//_window->setVerticalSyncEnabled(true);
-    std::cout << "Window initialized." << std::endl << std::endl;
 }
 
 void AbstractGame::_printVersionInfo() {
-	std::cout << "Context info:" << std::endl;
-    std::cout << "----------------------------------" << std::endl;
     //print some debug stats for whoever cares
     const GLubyte *vendor = glGetString( GL_VENDOR );
     const GLubyte *renderer = glGetString( GL_RENDERER );
@@ -58,36 +52,22 @@ void AbstractGame::_printVersionInfo() {
     GLint major, minor;
     glGetIntegerv(GL_MAJOR_VERSION, &major);
     glGetIntegerv(GL_MINOR_VERSION, &minor);
-
-    printf("GL Vendor : %s\n", vendor);
-    printf("GL Renderer : %s\n", renderer);
-    printf("GL Version (string) : %s\n", version);
-    printf("GL Version (integer) : %d.%d\n", major, minor);
-    printf("GLSL Version : %s\n", glslVersion);
-
-    std::cout << "----------------------------------" << std::endl << std::endl;
 }
 
 void AbstractGame::_initializeGlew() {
-	std::cout << "Initializing GLEW..." << std::endl;
     //initialize the opengl extension wrangler
     GLint glewStatus = glewInit();
-	std::cout << "Initialized GLEW, status (1 == OK, 0 == FAILED):" << (glewStatus == GLEW_OK) << std::endl << std::endl;
 }
 
 void AbstractGame::_initializeRenderer() {
     //setup our own renderer
-	std::cout << "Initializing renderer..." << std::endl;
 	_renderer = new Renderer();
     _renderer->setClearColor(0,0,0);
-    std::cout << "Renderer done." << std::endl << std::endl;
 }
 
 void AbstractGame::_initializeWorld() {
     //setup the world
-	std::cout << "Initializing world..." << std::endl;
 	_world = new World();
-    std::cout << "World initialized." << std::endl << std::endl;
 }
 
 ///MAIN GAME LOOP

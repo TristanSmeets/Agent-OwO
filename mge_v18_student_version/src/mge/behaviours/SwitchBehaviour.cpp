@@ -8,7 +8,6 @@ SwitchBehaviour::SwitchBehaviour(Node& node) : AbstractBehaviour(), Subject(), s
 
 SwitchBehaviour::~SwitchBehaviour()
 {
-	std::cout << "GC running on:SwitchBehaviour\n";
 	LuaWrapper::CloseLuaState(luaAudio);
 }
 

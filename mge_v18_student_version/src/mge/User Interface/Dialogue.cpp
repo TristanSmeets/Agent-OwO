@@ -15,7 +15,6 @@ Dialogue::Dialogue() : Observer<GeneralEvent>()
 
 Dialogue::~Dialogue()
 {
-	std::cout << "GC running on:Dialogue.\n";
 	EventQueue::RemoveObserver(this);
 	startDialogue.clear();
 	endDialogue.clear();

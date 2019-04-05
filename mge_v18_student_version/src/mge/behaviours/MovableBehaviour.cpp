@@ -25,7 +25,6 @@ MovableBehaviour::MovableBehaviour(MOVABLE_TYPE movable) : AbstractBehaviour(), 
 
 MovableBehaviour::~MovableBehaviour()
 {
-	std::cout << "\nGC running on:MovableBehaviour\n";
 	AbstractBehaviour::~AbstractBehaviour();
 	currentNode = nullptr;
 	delete inputHandler;

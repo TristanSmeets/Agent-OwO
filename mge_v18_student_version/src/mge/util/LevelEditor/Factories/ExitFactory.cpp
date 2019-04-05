@@ -18,7 +18,6 @@ ExitFactory::ExitFactory(lua_State* config) : AbstractFactory()
 
 ExitFactory::~ExitFactory()
 {
-	std::cout << "GC running on:ExitFactory\n";
 	mesh = nullptr;
 	delete material;
 	behaviour = nullptr;

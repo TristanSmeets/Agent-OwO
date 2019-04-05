@@ -5,7 +5,6 @@ LeftCommand::LeftCommand(MovableBehaviour& movable) : MoveCommand(movable)
 
 LeftCommand::~LeftCommand()
 {
-	std::cout << "GC running on:LeftCommand\n";
 	MoveCommand::~MoveCommand();
 }
 

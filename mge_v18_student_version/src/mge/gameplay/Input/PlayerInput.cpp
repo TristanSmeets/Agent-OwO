@@ -16,7 +16,6 @@ PlayerInput::PlayerInput(MovableBehaviour* movable) : InputHandler(), Observer<G
 PlayerInput::~PlayerInput()
 {
 	InputHandler::~InputHandler();
-	std::cout << "GC running on:PlayerInput\n";
 	delete moveUp;
 	delete moveDown;
 	delete moveLeft;

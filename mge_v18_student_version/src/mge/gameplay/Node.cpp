@@ -8,8 +8,6 @@ Node::Node(const glm::vec3& position, float size, NODETYPE tileType) :
 
 Node::~Node()
 {
-	std::cout << "GC running on:Node\n";
-
 	for (std::map<DIRECTION, Node*>::iterator itr = connections.begin(), end = connections.end(); itr != end; ++itr)
 	{
 		itr->second = nullptr;

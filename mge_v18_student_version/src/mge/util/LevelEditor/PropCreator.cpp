@@ -3,13 +3,11 @@
 
 PropCreator::PropCreator(World* world) : world(world)
 {
-	std::cout << "Creating PropCreator.\n";
 	luaLevelInfo = LuaWrapper::InitializeLuaState("LuaGameScripts/Level/Level_Info.lua");
 }
 
 PropCreator::~PropCreator()
 {
-	std::cout << "GC running on:PropCreator.\n";
 	world = nullptr;
 	backgroundObject = nullptr;
 

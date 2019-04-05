@@ -7,7 +7,6 @@ AudioManager::AudioManager() : audioBank(AudioBank()), musicType(MusicType::INGA
 
 AudioManager::~AudioManager()
 {
-	std::cout << "GC running on:AudioManager.\n";
 	delete bgMusic;
 }
 

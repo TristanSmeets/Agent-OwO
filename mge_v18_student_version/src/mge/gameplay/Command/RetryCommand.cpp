@@ -6,7 +6,6 @@ RetryCommand::RetryCommand() : Command()
 
 RetryCommand::~RetryCommand()
 {
-	std::cout << "GC running on:RetryCommand.\n";
 }
 
 void RetryCommand::Execute()

@@ -8,8 +8,6 @@ ButtonManager::ButtonManager()
 
 ButtonManager::~ButtonManager()
 {
-	std::cout << "GC running on:ButtonManager.\n";
-
 	for (unsigned int index = 0; index < buttons.size(); ++index)
 	{
 		delete buttons[index];

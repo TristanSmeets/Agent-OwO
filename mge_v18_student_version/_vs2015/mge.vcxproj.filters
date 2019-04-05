@@ -41,9 +41,6 @@
     <Filter Include="MGE Source files\mge\gameplay\Command">
       <UniqueIdentifier>{19f6ca53-a1cf-483f-97fd-46e02ca601aa}</UniqueIdentifier>
     </Filter>
-    <Filter Include="MGE Source files\mge\gameplay\GameObjects">
-      <UniqueIdentifier>{1e7d5f18-4191-4153-873b-80f872fd227e}</UniqueIdentifier>
-    </Filter>
     <Filter Include="LuaScripts\Levels">
       <UniqueIdentifier>{b8de47c0-7ec8-46fa-94ee-da9985931e79}</UniqueIdentifier>
     </Filter>
@@ -68,6 +65,9 @@
     <Filter Include="MGE Source files\mge\core">
       <UniqueIdentifier>{4394d90a-ffa0-485d-98ea-1e91842edda6}</UniqueIdentifier>
     </Filter>
+    <Filter Include="MGE Source files\mge\gameplay\GameObjects">
+      <UniqueIdentifier>{1e7d5f18-4191-4153-873b-80f872fd227e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\src\glm.hpp">
@@ -85,17 +85,8 @@
     <ClInclude Include="..\src\mge\core\Camera.hpp">
       <Filter>MGE Source files\mge\core</Filter>
     </ClInclude>
-    <ClInclude Include="..\src\mge\materials\ColorMaterial.hpp">
-      <Filter>MGE Source files\mge\materials</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\mge\util\DebugHud.hpp">
-      <Filter>MGE Source files\mge\util</Filter>
-    </ClInclude>
     <ClInclude Include="..\src\mge\core\GameObject.hpp">
       <Filter>MGE Source files\mge\core</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\mge\behaviours\KeysBehaviour.hpp">
-      <Filter>MGE Source files\mge\behaviours</Filter>
     </ClInclude>
     <ClInclude Include="..\src\mge\core\Mesh.hpp">
       <Filter>MGE Source files\mge\core</Filter>
@@ -112,9 +103,6 @@
     <ClInclude Include="..\src\mge\core\World.hpp">
       <Filter>MGE Source files\mge\core</Filter>
     </ClInclude>
-    <ClInclude Include="..\src\mge\behaviours\RotatingBehaviour.hpp">
-      <Filter>MGE Source files\mge\behaviours</Filter>
-    </ClInclude>
     <ClInclude Include="..\src\mge\materials\TextureMaterial.hpp">
       <Filter>MGE Source files\mge\materials</Filter>
     </ClInclude>
@@ -125,56 +113,11 @@
       <Filter>MGE Source files\mge\core</Filter>
     </ClInclude>
     <ClInclude Include="..\src\main.h" />
-    <ClInclude Include="..\src\mge\behaviours\CameraOrbitBehaviour.hpp">
-      <Filter>MGE Source files\mge\behaviours</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\mge\materials\WobbleMaterial.hpp">
-      <Filter>MGE Source files\mge\materials</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\mge\materials\LitMaterial.hpp">
-      <Filter>MGE Source files\mge\materials</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\mge\materials\TerrainMaterial.hpp">
-      <Filter>MGE Source files\mge\materials</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\mge\behaviours\LuaBehaviour.hpp">
-      <Filter>MGE Source files\mge\behaviours</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\mge\scenes\BrokenOBJ.hpp">
-      <Filter>MGE Source files\mge\scenes</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\mge\scenes\DesignerScene.hpp">
-      <Filter>MGE Source files\mge\scenes</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\mge\scenes\GameOfLife.h">
-      <Filter>MGE Source files\mge\scenes</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\mge\scenes\MGEDemo.hpp">
-      <Filter>MGE Source files\mge\scenes</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\mge\scenes\TerrainScene.hpp">
-      <Filter>MGE Source files\mge\scenes</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\mge\scenes\TristanScene.h">
-      <Filter>MGE Source files\mge\scenes</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\mge\util\LuaScripting\DisplayGrid.h">
-      <Filter>MGE Source files\mge\util\LuaScripting</Filter>
-    </ClInclude>
     <ClInclude Include="..\src\mge\util\LuaScripting\LuaWrapper.hpp">
-      <Filter>MGE Source files\mge\util\LuaScripting</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\mge\util\LuaScripting\RectangleShapeWrapper.hpp">
       <Filter>MGE Source files\mge\util\LuaScripting</Filter>
     </ClInclude>
     <ClInclude Include="..\src\mge\util\LevelEditor\Level.hpp">
       <Filter>MGE Source files\mge\util\LevelEditor</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\mge\behaviours\NullBehaviour.hpp">
-      <Filter>MGE Source files\mge\behaviours</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\mge\scenes\GameScene.hpp">
-      <Filter>MGE Source files\mge\scenes</Filter>
     </ClInclude>
     <ClInclude Include="..\src\mge\util\LevelEditor\Factories\CameraFactory.hpp">
       <Filter>MGE Source files\mge\util\LevelEditor\Factories</Filter>
@@ -364,17 +307,8 @@
     <ClCompile Include="..\src\mge\core\Camera.cpp">
       <Filter>MGE Source files\mge\core</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\mge\materials\ColorMaterial.cpp">
-      <Filter>MGE Source files\mge\materials</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\mge\util\DebugHud.cpp">
-      <Filter>MGE Source files\mge\util</Filter>
-    </ClCompile>
     <ClCompile Include="..\src\mge\core\GameObject.cpp">
       <Filter>MGE Source files\mge\core</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\mge\behaviours\KeysBehaviour.cpp">
-      <Filter>MGE Source files\mge\behaviours</Filter>
     </ClCompile>
     <ClCompile Include="..\src\mge\core\Mesh.cpp">
       <Filter>MGE Source files\mge\core</Filter>
@@ -391,62 +325,17 @@
     <ClCompile Include="..\src\mge\core\World.cpp">
       <Filter>MGE Source files\mge\core</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\mge\behaviours\RotatingBehaviour.cpp">
-      <Filter>MGE Source files\mge\behaviours</Filter>
-    </ClCompile>
     <ClCompile Include="..\src\mge\materials\TextureMaterial.cpp">
       <Filter>MGE Source files\mge\materials</Filter>
     </ClCompile>
     <ClCompile Include="..\src\mge\core\Light.cpp">
       <Filter>MGE Source files\mge\core</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\mge\behaviours\CameraOrbitBehaviour.cpp">
-      <Filter>MGE Source files\mge\behaviours</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\mge\materials\WobbleMaterial.cpp">
-      <Filter>MGE Source files\mge\materials</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\mge\materials\LitMaterial.cpp">
-      <Filter>MGE Source files\mge\materials</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\mge\materials\TerrainMaterial.cpp">
-      <Filter>MGE Source files\mge\materials</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\mge\behaviours\LuaBehaviour.cpp">
-      <Filter>MGE Source files\mge\behaviours</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\mge\scenes\BrokenOBJ.cpp">
-      <Filter>MGE Source files\mge\scenes</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\mge\scenes\DesignerScene.cpp">
-      <Filter>MGE Source files\mge\scenes</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\mge\scenes\GameOfLife.cpp">
-      <Filter>MGE Source files\mge\scenes</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\mge\scenes\MGEDemo.cpp">
-      <Filter>MGE Source files\mge\scenes</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\mge\scenes\TerrainScene.cpp">
-      <Filter>MGE Source files\mge\scenes</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\mge\scenes\TristanScene.cpp">
-      <Filter>MGE Source files\mge\scenes</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\mge\util\LuaScripting\DisplayGrid.cpp">
-      <Filter>MGE Source files\mge\util\LuaScripting</Filter>
-    </ClCompile>
     <ClCompile Include="..\src\mge\util\LuaScripting\LuaWrapper.cpp">
-      <Filter>MGE Source files\mge\util\LuaScripting</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\mge\util\LuaScripting\RectangleShapeWrapper.cpp">
       <Filter>MGE Source files\mge\util\LuaScripting</Filter>
     </ClCompile>
     <ClCompile Include="..\src\mge\util\LevelEditor\Level.cpp">
       <Filter>MGE Source files\mge\util\LevelEditor</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\mge\behaviours\NullBehaviour.cpp">
-      <Filter>MGE Source files\mge\behaviours</Filter>
     </ClCompile>
     <ClCompile Include="..\src\mge\scenes\GameScene.cpp">
       <Filter>MGE Source files\mge\scenes</Filter>

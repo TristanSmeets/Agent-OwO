@@ -15,7 +15,6 @@ BoxInput::BoxInput(MovableBehaviour* movable)
 BoxInput::~BoxInput()
 {
 	InputHandler::~InputHandler();
-	std::cout << "GC running on:BoxInput\n";
 	delete moveUp;
 	delete moveDown;
 	delete moveLeft;

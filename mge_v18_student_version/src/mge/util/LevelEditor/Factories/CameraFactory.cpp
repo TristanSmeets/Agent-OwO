@@ -11,7 +11,6 @@ CameraFactory::CameraFactory(lua_State* config) : AbstractFactory(), config(conf
 
 CameraFactory::~CameraFactory()
 {
-	std::cout << "GC running on:CameraFactory\n";
 	config = nullptr;
 }
 

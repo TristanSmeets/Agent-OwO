@@ -9,7 +9,6 @@ GameScene::GameScene() : AbstractGame(), config(LuaWrapper::InitializeLuaState("
 
 GameScene::~GameScene()
 {
-	std::cout << "GC running on:GameScene\n";
 	if (level != nullptr) delete level;
 	delete eventQueueBehaviour;
 	camera = nullptr;
@@ -179,7 +178,6 @@ void GameScene::_initializeScene()
 	_world->add(camera);
 	_world->setMainCamera(camera);
 
-	std::cout << "Creating MainMenu.\n";
 	mainMenu = new MainMenu(_world, _window);
 }
 

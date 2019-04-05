@@ -6,7 +6,6 @@ SoundEffect::SoundEffect()
 
 SoundEffect::~SoundEffect()
 {
-	std::cout << "GC running on:SoundEffect.\n";
 }
 
 void SoundEffect::SetSoundEffect(const std::string & filePath)

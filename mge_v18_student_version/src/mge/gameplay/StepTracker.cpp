@@ -13,7 +13,6 @@ StepTracker::StepTracker(int level) : Observer<GeneralEvent>()
 
 StepTracker::~StepTracker()
 {
-	std::cout << "GC running on:StepTracker.\n";
 	EventQueue::RemoveObserver(this);
 }
 

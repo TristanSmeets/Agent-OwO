@@ -15,8 +15,6 @@ AudioBank::AudioBank() :
 
 AudioBank::~AudioBank()
 {
-	std::cout << "GC running on:AudioBank.\n";
-
 	LuaWrapper::CloseLuaState(luaAudio);
 }
 

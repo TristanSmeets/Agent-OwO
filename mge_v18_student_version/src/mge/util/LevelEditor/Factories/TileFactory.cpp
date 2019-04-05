@@ -20,7 +20,6 @@ TileFactory::TileFactory(lua_State* config) : AbstractFactory()
 TileFactory::~TileFactory()
 {
 	AbstractFactory::~AbstractFactory();
-	std::cout << "GC running on:TileFactory\n";
 	mesh = nullptr;
 	for (unsigned int index = 0; index < textureMaterials.size(); ++index)
 	{

@@ -5,7 +5,6 @@ UpCommand::UpCommand(MovableBehaviour& movable) : MoveCommand(movable)
 
 UpCommand::~UpCommand()
 {
-	std::cout << "GC running on:UpCommand\n";
 	MoveCommand::~MoveCommand();
 }
 

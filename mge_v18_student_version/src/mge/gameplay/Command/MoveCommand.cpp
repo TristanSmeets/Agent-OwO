@@ -6,7 +6,6 @@ MoveCommand::MoveCommand(MovableBehaviour & movable) : Command(), movableObject(
 
 MoveCommand::~MoveCommand()
 {
-	std::cout << "GC running on:MoveCommand\n";
 }
 
 void MoveCommand::Execute()

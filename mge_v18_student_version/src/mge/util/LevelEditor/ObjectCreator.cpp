@@ -18,7 +18,6 @@ ObjectCreator::ObjectCreator(lua_State* config, World * world, Camera* camera) :
 
 ObjectCreator::~ObjectCreator()
 {
-	std::cout << "GC running on:ObjectCreator\n";
 	delete boxFactory;
 	delete cameraFactory;
 	delete exitFactory;

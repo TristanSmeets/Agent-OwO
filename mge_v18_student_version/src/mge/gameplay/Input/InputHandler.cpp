@@ -8,5 +8,4 @@ InputHandler::InputHandler()
 
 InputHandler::~InputHandler()
 {
-	std::cout << "GC running on:InputHandler\n";
 }

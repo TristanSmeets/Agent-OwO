@@ -7,5 +7,4 @@ Command::Command()
 
 Command::~Command()
 {
-	std::cout << "GC running on:Command\n";
 }

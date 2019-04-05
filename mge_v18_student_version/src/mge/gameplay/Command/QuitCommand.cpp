@@ -6,7 +6,6 @@ QuitCommand::QuitCommand() : Command()
 
 QuitCommand::~QuitCommand()
 {
-	std::cout << "GC running on:QuitCommand.\n";
 }
 
 void QuitCommand::Execute()

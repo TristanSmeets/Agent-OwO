@@ -14,7 +14,6 @@ UIStepCounter::UIStepCounter(int levelNumber) : Observer<GeneralEvent>()
 
 UIStepCounter::~UIStepCounter()
 {
-	std::cout << "GC running on:UIStepCounter.\n";
 	EventQueue::RemoveObserver(this);
 }
 

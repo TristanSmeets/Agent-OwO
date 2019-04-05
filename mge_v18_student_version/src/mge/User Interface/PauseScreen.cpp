@@ -12,7 +12,6 @@ PauseScreen::PauseScreen(World* world, sf::RenderWindow* window) : world(world)
 
 PauseScreen::~PauseScreen()
 {
-	std::cout << "GC running on:PauseScreen.\n";
 
 	delete mouseBehaviour;
 	world->remove(mouse);

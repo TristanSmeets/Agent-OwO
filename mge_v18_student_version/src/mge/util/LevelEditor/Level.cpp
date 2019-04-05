@@ -9,7 +9,6 @@ objectCreator(ObjectCreator(config, world, camera))
 
 Level::~Level()
 {
-	std::cout << "GC running on:Level.\n";
 
 	if (objectCreator.GetTileObjects().size() > 0)
 		UnloadLevel();

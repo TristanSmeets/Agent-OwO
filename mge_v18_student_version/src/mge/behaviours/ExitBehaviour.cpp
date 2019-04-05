@@ -7,9 +7,7 @@ ExitBehaviour::ExitBehaviour(unsigned int switches) :
 }
 
 ExitBehaviour::~ExitBehaviour()
-{
-	std::cout << "GC running on:ExitBehaviour\n";
-	
+{	
 	//Unsubcribing from subjects
 	UnsubscribeFromSubjects();
 }

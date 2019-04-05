@@ -6,7 +6,6 @@ ContinueCommand::ContinueCommand() : Command()
 
 ContinueCommand::~ContinueCommand()
 {
-	std::cout << "GC running on:ContinueCommand.\n";
 }
 
 void ContinueCommand::Execute()

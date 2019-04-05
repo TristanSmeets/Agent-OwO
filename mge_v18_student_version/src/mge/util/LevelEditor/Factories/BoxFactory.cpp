@@ -16,7 +16,6 @@ BoxFactory::BoxFactory(lua_State* config)
 
 BoxFactory::~BoxFactory()
 {
-	std::cout << "GC running on:BoxFactory\n";
 	mesh = nullptr;
 	delete material;
 	behaviour = nullptr;

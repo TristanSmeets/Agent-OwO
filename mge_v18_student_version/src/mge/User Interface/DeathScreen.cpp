@@ -13,7 +13,6 @@ DeathScreen::DeathScreen(World* world, sf::Window* window) : world(world)
 
 DeathScreen::~DeathScreen()
 {
-	std::cout << "GC running on:MainMenu.\n";
 	delete mouseBehaviour;
 
 	world->remove(mouse);

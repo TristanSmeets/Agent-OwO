@@ -6,7 +6,6 @@ StartCommand::StartCommand() : Command()
 
 StartCommand::~StartCommand()
 {
-	std::cout << "GC running on:StartCommand.\n";
 }
 
 void StartCommand::Execute()

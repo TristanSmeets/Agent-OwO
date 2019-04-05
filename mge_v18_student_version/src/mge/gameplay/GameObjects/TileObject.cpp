@@ -12,8 +12,6 @@ TileObject::TileObject(lua_State* tileLua, const std::string & name, const glm::
 
 TileObject::~TileObject()
 {
-	GameObject::~GameObject();
-	std::cout << "GC running on:TileObject\n";
 	delete node;
 }
 

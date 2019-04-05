@@ -12,7 +12,6 @@ HUD::HUD(int levelNumber) : levelNumber(levelNumber), Observer<GeneralEvent>()
 
 HUD::~HUD()
 {
-	std::cout << "GC running on:HUD.\n";
 	if (stepCounter != nullptr) delete stepCounter;
 	if (dialogue != nullptr) delete dialogue;
 	LuaWrapper::CloseLuaState(luaHUD);

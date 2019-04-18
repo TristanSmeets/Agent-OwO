@@ -5,9 +5,12 @@ Agent OwO is an isometric puzzle game. In the game you play as Agent OwO, a hams
 Agent OwO is made as part of a school assignment for the Creative Media and Game Technologies course of Saxion in Enschede. It is made by 4 artists/designers and 1 programmer
 
 Artists:
-Selima Heister, Stimona Milanova (https://www.artstation.com/milva)
+- Erika Batarūnaitė (https://www.artstation.com/eriminati)
+- Selima Heister
+- Stimona Milanova (https://www.artstation.com/milva)
+- Inken Starosta
 
 Programmer:
-Tristan Smeets
+- Tristan Smeets (https://tristansmeets.github.io)
 
 (Names have been added with permission)

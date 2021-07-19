@@ -45,7 +45,9 @@ For more info on the tools check the [Tools repository][10]
 
 ---
 ### Basic Info
-**Duration:** 5 weeks
+**Duration:** 4 weeks
+
+**Date:** 15-03-2019
 
 **Engine:** Custom C++ engine
 

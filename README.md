@@ -2,12 +2,18 @@
 
 ![](AgentOwO_thumb.jpg)
 
+### Gameplay Video
+
+[Youtube](https://youtu.be/zj07yoJ0OqQ)
+
+---
+
 Agent OwO is an isometric puzzle game. In the game you play as Agent OwO, a hamster spy who just succeeded in infiltrating and stealing vital intelligence from evil cat mastermind Hermann Von Grouchenstein. You have to escape Von Grouchensteins lair so Agent OwO can use the intelligence to stop Von Grouchenstein.
 
 Agent OwO is made as part of a school assignment for the Creative Media and Game Technologies course of Saxion in Enschede. It is made by 4 artists/designers and 1 programmer
 
 ### Project Description
-Agent OwO is the result of a 5 week school project. The assignment was to create a game using a custom C++ engine made by yourself.
+Agent OwO is the result of a 4 week school project. The assignment was to create a game using a custom C++ engine made by yourself.
 Agent OwO is a 3D isometric puzzle game. It is inspired by games like Transistor and old top down Zelda games. The player has to navigate through a level and solve [sokoban][5]-style puzzles. The different levels are tied together with a story that is told through dialogues at the start and end of levels.
 
 [Development Blog][6]

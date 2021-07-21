@@ -73,5 +73,5 @@ For more info on the tools check the [Tools repository][10]
  [8]: https://glm.g-truc.net/0.9.9/index.html
  [9]: http://glew.sourceforge.net/
  [10]: https://github.com/TristanSmeets/Agent-OwO-Tools
- [11]: https://www.artstation.com/selimahei
+ [11]: https://www.selimaheister.com/
  [12]: https://inkenstarosta.com/
